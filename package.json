@@ -1,6 +1,6 @@
 {
   "name": "grunt-spritesmith",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Grunt library for using spritesmith",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,9 @@
   "optionalDependencies": {
     "grunt": "~0.3.12"
   },
-  "private": true
+  "private": true,
+  "repositories": [{
+    "type": "git",
+    "url": "https://github.com/Ensighten/grunt-spritesmith.git"
+  }]
 }
