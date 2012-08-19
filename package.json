@@ -14,5 +14,12 @@
     "css"
   ],
   "author": "Todd Wolfson <todd@twolfson.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "spritesmith": "git+ssh://git@github.com:Ensighten/spritesmith.git"
+  },
+  "optionalDependencies": {
+    "grunt": "~0.3.12"
+  },
+  "private": true
 }
