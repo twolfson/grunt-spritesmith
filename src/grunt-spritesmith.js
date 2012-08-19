@@ -1,4 +1,6 @@
-var spritesmith = require('spritesmith');
+var spritesmith = require('spritesmith'),
+    fs = require('fs'),
+    path = require('path');
 
 module.exports = function (grunt) {
   // Create a SpriteMaker function
@@ -26,8 +28,44 @@ module.exports = function (grunt) {
         return cb(err);
       }
 
-      // Otherwise, log the result
-      console.log(result);
+      // Otherwise, write out the result to img
+      fs.writeFileSync(img, result.image, 'binary');
+
+      // Generate a listing of CSS variables
+      var coordinates = result.coordinates,
+          cssVars = [];
+
+      // Iterate over the files used
+      // TODO: This should be done via a template or something??
+      Object.getOwnPropertyNames(coordinates).forEach(function (file) {
+        // Extract the image name (exlcuding extension)
+        var fullname = path.basename(file),
+            nameParts = fullname.split('.');
+
+        // If there is are more than 2 parts, pop the last one
+        if (nameParts.length >= 2) {
+          nameParts.pop();
+        }
+
+        var name = nameParts.join('.'),
+            coords = coordinates[file];
+
+        // Record all of the properties into cssVars
+        // TODO: Find out of we can just make it an object in some namespace
+        cssVars.push('$' + name + '_x = ' + coords.x + ';');
+        cssVars.push('$' + name + '_y = ' + coords.y + ';');
+        cssVars.push('$' + name + '_width = ' + coords.width + ';');
+        cssVars.push('$' + name + '_height = ' + coords.height + ';');
+      });
+
+      // Join the cssVars with line feeds
+      var cssStr = cssVars.join('\n');
+
+      // Write it out to the CSS file
+      fs.writeFileSync(css, cssStr, 'utf8');
+      console.log(cssStr);
+
+      // Callback
       cb(true);
     });
   }
