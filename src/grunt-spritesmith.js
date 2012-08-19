@@ -63,7 +63,6 @@ module.exports = function (grunt) {
 
       // Write it out to the CSS file
       fs.writeFileSync(css, cssStr, 'utf8');
-      console.log(cssStr);
 
       // Callback
       cb(true);
