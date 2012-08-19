@@ -1,0 +1,18 @@
+{
+  "name": "grunt-spritesmith",
+  "version": "0.0.0",
+  "description": "Grunt library for using spritesmith",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grunt",
+    "spritesmith",
+    "sprite",
+    "spritesheet",
+    "css"
+  ],
+  "author": "Todd Wolfson <todd@twolfson.com>",
+  "license": "MIT"
+}
