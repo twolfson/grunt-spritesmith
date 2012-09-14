@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
     var data = this.data,
-        src = data.source,
+        src = data.src,
         img = data.destImg,
         css = data.destCSS;
 
