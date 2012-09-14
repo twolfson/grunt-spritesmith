@@ -16,6 +16,6 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadTasks('../src');
+  grunt.loadTasks('../tasks');
   grunt.registerTask('default', 'sprite test');
 };
