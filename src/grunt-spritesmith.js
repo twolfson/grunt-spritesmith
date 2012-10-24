@@ -22,7 +22,7 @@ module.exports = function (grunt) {
     var cb = this.async();
 
     // Run through spritesmith
-    spritesmith(srcFiles, function (err, result) {
+    spritesmith({'src': srcFiles}, function (err, result) {
       // If an error occurred, callback with it
       if (err) {
         return cb(err);
