@@ -6,13 +6,13 @@ module.exports = function (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
     var data = this.data,
-        src = data.source,
+        src = data.src,
         img = data.destImg,
         css = data.destCSS;
 
     // Verify all properties are here
     if (!src || !img || !css) {
-      return grunt.fail("grunt.sprite requires a source, destImg, and destCSS property");
+      return grunt.fatal("grunt.sprite requires a source, destImg, and destCSS property");
     }
 
     // Load in all images from the src
@@ -52,10 +52,19 @@ module.exports = function (grunt) {
 
         // Record all of the properties into cssVars
         // TODO: Find out of we can just make it an object in some namespace
-        cssVars.push('$' + name + '_x = ' + coords.x + ';');
-        cssVars.push('$' + name + '_y = ' + coords.y + ';');
-        cssVars.push('$' + name + '_width = ' + coords.width + ';');
-        cssVars.push('$' + name + '_height = ' + coords.height + ';');
+        var x = coords.x + 'px',
+            y = coords.y + 'px',
+            offsetX = '-' + x,
+            offsetY = '-' + y,
+            width = coords.width + 'px',
+            height = coords.height + 'px';
+        cssVars.push('$' + name + '_x = ' + x + ';');
+        cssVars.push('$' + name + '_y = ' + y + ';');
+        cssVars.push('$' + name + '_offset_x = ' + offsetX + ';');
+        cssVars.push('$' + name + '_offset_y = ' + offsetY + ';');
+        cssVars.push('$' + name + '_width = ' + width + ';');
+        cssVars.push('$' + name + '_height = ' + height + ';');
+        cssVars.push('$' + name + ' = ' + [x, y, offsetX, offsetY, width, height].join(' ') + ';');
       });
 
       // Join the cssVars with line feeds
