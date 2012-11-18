@@ -73,6 +73,7 @@ module.exports = function (grunt) {
     spritesmith(spritesmithParams, function (err, result) {
       // If an error occurred, callback with it
       if (err) {
+        grunt.fatal(err);
         return cb(err);
       }
 
@@ -105,7 +106,7 @@ module.exports = function (grunt) {
       // Render the variables via json2css
       var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
           cssStr = json2css(cleanCoords, {'format': cssFormat});
-
+console.log(destCSS, destImg);
       // Write it out to the CSS file
       fs.writeFileSync(destCSS, cssStr, 'utf8');
 
