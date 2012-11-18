@@ -28,14 +28,14 @@ var imgFormats = new ExtFormat(),
     cssFormats = new ExtFormat();
 
 // Add our img formats
-imgFormats.add('png', 'png');
-imgFormats.add('jpg', 'jpeg');
-imgFormats.add('jpeg', 'jpeg');
+imgFormats.add('.png', 'png');
+imgFormats.add('.jpg', 'jpeg');
+imgFormats.add('.jpeg', 'jpeg');
 
 // Add our css formats
-cssFormats.add('styl', 'stylus');
-cssFormats.add('stylus', 'stylus');
-cssFormats.add('json', 'json');
+cssFormats.add('.styl', 'stylus');
+cssFormats.add('.stylus', 'stylus');
+cssFormats.add('.json', 'json');
 
 module.exports = function (grunt) {
   // Create a SpriteMaker function
