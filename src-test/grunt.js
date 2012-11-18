@@ -22,7 +22,9 @@ module.exports = function (grunt) {
         destImg: 'scratch/sprite.overrides.png',
         destCSS: 'scratch/sprite_positions.overrides.styl',
         cssFormat: 'json',
-        imgFormat: 'jpg',
+        imgOpts: {
+          'format': 'jpg'
+        },
         algorithm: 'alt-diagonal'
       }
     },

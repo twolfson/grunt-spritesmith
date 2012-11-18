@@ -1,12 +1,13 @@
 var spritesmith = require('spritesmith'),
     json2css = require('json2css'),
+    _ = require('underscore'),
     fs = require('fs'),
     path = require('path');
 
 function ExtFormat() {
   this.formatObj = {};
 }
-ext2format.prototype = {
+ExtFormat.prototype = {
   'add': function (name, val) {
     this.formatObj[name] = val;
   },
@@ -56,13 +57,20 @@ module.exports = function (grunt) {
     var cb = this.async();
 
     // Determine the format of the image
-    var imgFormat = data.imgFormat || imgFormats.get(destImg) || 'png',
-        cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
+    var imgOpts = data.imgOpts || {},
+        imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
+
+    // Set up the defautls for imgOpts
+    _.defaults(imgOpts, {'format': imgFormat});
 
     // Run through spritesmith
-    // TODO: Specify algorithm specification
-    // TODO: Generate png or jpeg depending on extension
-    spritesmith({'src': srcFiles}, function (err, result) {
+    var spritesmithParams = {
+          'src': srcFiles,
+          'engine': data.engine || 'auto',
+          'algorithm': data.algorithm || 'top-down',
+          'exportOpts': imgOpts
+        };
+    spritesmith(spritesmithParams, function (err, result) {
       // If an error occurred, callback with it
       if (err) {
         return cb(err);
@@ -95,9 +103,8 @@ module.exports = function (grunt) {
       });
 
       // Render the variables via json2css
-      // TODO: Specify that thing we did in spritesmith yesterday
-      // TODO: Allow for json2css options
-      var cssStr = json2css(cleanCoords, {'format': 'stylus'});
+      var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
+          cssStr = json2css(cleanCoords, {'format': cssFormat});
 
       // Write it out to the CSS file
       fs.writeFileSync(destCSS, cssStr, 'utf8');
