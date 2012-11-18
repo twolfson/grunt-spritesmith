@@ -3,14 +3,38 @@ var spritesmith = require('spritesmith'),
     fs = require('fs'),
     path = require('path');
 
-function ext2format(formatObj) {
-  this.formatObj = formatObj;
+function ExtFormat() {
+  this.formatObj = {};
 }
 ext2format.prototype = {
+  'add': function (name, val) {
+    this.formatObj[name] = val;
+  },
   'get': function (filepath) {
-    return this
+    // Grab the extension from the filepath
+    var ext = path.extname(filepath),
+        lowerExt = ext.toLowerCase();
+
+    // Look up the file extenion from our format object
+    var formatObj = this.formatObj,
+        format = formatObj[lowerExt];
+    return format;
   }
 };
+
+// Create img and css formats
+var imgFormats = new ExtFormat(),
+    cssFormats = new ExtFormat();
+
+// Add our img formats
+imgFormats.add('png', 'png');
+imgFormats.add('jpg', 'jpeg');
+imgFormats.add('jpeg', 'jpeg');
+
+// Add our css formats
+cssFormats.add('styl', 'stylus');
+cssFormats.add('stylus', 'stylus');
+cssFormats.add('json', 'json');
 
 module.exports = function (grunt) {
   // Create a SpriteMaker function
@@ -32,28 +56,8 @@ module.exports = function (grunt) {
     var cb = this.async();
 
     // Determine the format of the image
-    var imgFormat = data.imgFormat;
-
-    // If the format was not explicit
-    if (!imgFormat) {
-      // Grab the extension from the destImage
-      var cssExt = path.extname(destImg),
-          lowerCSSExt = cssExt.toLowerCase();
-
-      // Based on the lowerExt, define the imgFormat
-      switch (lowerCSSExt) {
-        case "styl":
-        case "stylus":
-          imgFormat = 'stylus';
-          break;
-
-        // By default, use json
-        case "js":
-        case "json":
-        default:
-          imgFormat =
-      }
-    }
+    var imgFormat = data.imgFormat || imgFormats.get(destImg) || 'png',
+        cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
 
     // Run through spritesmith
     // TODO: Specify algorithm specification
