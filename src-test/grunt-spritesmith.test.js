@@ -42,8 +42,7 @@ module.exports = {
     // Load in the images
     // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there (i.e. are the images 90% similar)
     var expectedCanvasImage = fs.readFileSync(__dirname + '/expected_files/canvas.jpg', 'binary'),
-        // expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.jpg', 'binary'),
-        expectedGmImage = 'Windows...',
+        expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.jpg', 'binary'),
         actualImage = fs.readFileSync(__dirname + '/scratch/sprite.jpg', 'binary'),
         matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
 
@@ -80,8 +79,7 @@ module.exports = {
     // Load in the images
     // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there (i.e. are the images 90% similar)
     var expectedCanvasImage = fs.readFileSync(__dirname + '/expected_files/canvas.overrides.png', 'binary'),
-        // expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.overrides.png', 'binary'),
-        expectedGmImage = 'Windows...',
+        expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.overrides.png', 'binary'),
         actualImage = fs.readFileSync(__dirname + '/scratch/sprite.overrides.png', 'binary'),
         matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
 
