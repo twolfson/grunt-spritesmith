@@ -1,4 +1,5 @@
 var spritesmith = require('spritesmith'),
+    json2css = require('json2css'),
     fs = require('fs'),
     path = require('path');
 
@@ -22,6 +23,7 @@ module.exports = function (grunt) {
     var cb = this.async();
 
     // Run through spritesmith
+    // TODO: Specify algorithm specification
     spritesmith({'src': srcFiles}, function (err, result) {
       // If an error occurred, callback with it
       if (err) {
@@ -33,10 +35,9 @@ module.exports = function (grunt) {
 
       // Generate a listing of CSS variables
       var coordinates = result.coordinates,
-          cssVars = [];
+          cleanCoords = {};
 
-      // Iterate over the files used
-      // TODO: This should be done via a template or something??
+      // Clean up the file name of the file
       Object.getOwnPropertyNames(coordinates).forEach(function (file) {
         // Extract the image name (exlcuding extension)
         var fullname = path.basename(file),
@@ -47,28 +48,18 @@ module.exports = function (grunt) {
           nameParts.pop();
         }
 
+        // Extract out our name
         var name = nameParts.join('.'),
             coords = coordinates[file];
 
-        // Record all of the properties into cssVars
-        // TODO: Find out of we can just make it an object in some namespace
-        var x = coords.x + 'px',
-            y = coords.y + 'px',
-            offsetX = '-' + x,
-            offsetY = '-' + y,
-            width = coords.width + 'px',
-            height = coords.height + 'px';
-        cssVars.push('$' + name + '_x = ' + x + ';');
-        cssVars.push('$' + name + '_y = ' + y + ';');
-        cssVars.push('$' + name + '_offset_x = ' + offsetX + ';');
-        cssVars.push('$' + name + '_offset_y = ' + offsetY + ';');
-        cssVars.push('$' + name + '_width = ' + width + ';');
-        cssVars.push('$' + name + '_height = ' + height + ';');
-        cssVars.push('$' + name + ' = ' + [x, y, offsetX, offsetY, width, height].join(' ') + ';');
+        // Save the cleaned name and coordinates
+        cleanCoords[name] = coords;
       });
 
-      // Join the cssVars with line feeds
-      var cssStr = cssVars.join('\n');
+      // Render the variables via json2css
+      // TODO: Specify that thing we did in spritesmith yesterday
+      // TODO: Allow for json2css options
+      var cssStr = json2css(cleanCoords, {'format': 'stylus'});
 
       // Write it out to the CSS file
       fs.writeFileSync(css, cssStr, 'utf8');

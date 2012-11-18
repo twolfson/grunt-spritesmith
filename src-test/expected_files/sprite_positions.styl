@@ -1,21 +1,56 @@
-$sprite2_x = 0px;
-$sprite2_y = 50px;
-$sprite2_offset_x = -0px;
-$sprite2_offset_y = -50px;
-$sprite2_width = 50px;
-$sprite2_height = 50px;
-$sprite2 = 0px 50px -0px -50px 50px 50px;
-$sprite3_x = 0px;
-$sprite3_y = 100px;
-$sprite3_offset_x = -0px;
-$sprite3_offset_y = -100px;
-$sprite3_width = 100px;
-$sprite3_height = 200px;
-$sprite3 = 0px 100px -0px -100px 100px 200px;
-$sprite1_x = 0px;
-$sprite1_y = 0px;
-$sprite1_offset_x = -0px;
-$sprite1_offset_y = -0px;
-$sprite1_width = 50px;
-$sprite1_height = 50px;
-$sprite1 = 0px 0px -0px -0px 50px 50px;
+  $sprite1_x = 0px;
+  $sprite1_y = 0px;
+  $sprite1_offset_x = 0px;
+  $sprite1_offset_y = 0px;
+  $sprite1_width = 50px;
+  $sprite1_height = 50px;
+  $sprite1 = 0px 0px 0px 0px 50px 50px;
+  $sprite2_x = 0px;
+  $sprite2_y = 50px;
+  $sprite2_offset_x = 0px;
+  $sprite2_offset_y = -50px;
+  $sprite2_width = 50px;
+  $sprite2_height = 50px;
+  $sprite2 = 0px 50px 0px -50px 50px 50px;
+  $sprite3_x = 0px;
+  $sprite3_y = 100px;
+  $sprite3_offset_x = 0px;
+  $sprite3_offset_y = -100px;
+  $sprite3_width = 100px;
+  $sprite3_height = 200px;
+  $sprite3 = 0px 100px 0px -100px 100px 200px;
+
+  spriteX($sprite) {
+    return $sprite[0];
+  }
+
+  spriteY($sprite) {
+    return $sprite[1];
+  }
+
+  spriteOffsetX($sprite) {
+    return $sprite[2];
+  }
+
+  spriteOffsetY($sprite) {
+    return $sprite[3];
+  }
+
+  spriteWidth($sprite) {
+    return $sprite[4];
+  }
+
+  spriteHeight($sprite) {
+    return $sprite[5];
+  }
+
+  spriteBackground() {
+      return '../img/sprites.png';
+  }
+
+  sprite($sprite) {
+    background-image: url(spriteBackground());
+    background-position: spriteOffsetX($sprite) spriteOffsetY($sprite);
+    width: spriteWidth($sprite);
+    height: spriteHeight($sprite);
+  }
