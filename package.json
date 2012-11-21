@@ -1,6 +1,6 @@
 {
   "name": "grunt-spritesmith",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
   "scripts": {
@@ -26,7 +26,6 @@
   "devDependencies": {
     "grunt": "~0.3.12"
   },
-  "private": true,
   "repositories": [
     {
       "type": "git",
