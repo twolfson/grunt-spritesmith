@@ -29,7 +29,7 @@ grunt.initConfig({
   'sprite': {
     'all': {
       // Sprite files to read in
-      'source': ['public/images/sprites/*.png'],
+      'src': ['public/images/sprites/*.png'],
 
       // Location to output spritesheet
       'destImg': 'public/images/sprite.png',
@@ -43,7 +43,7 @@ grunt.initConfig({
       // OPTIONAL: Specify engine (auto, canvas, gm)
       'engine': 'canvas',
 
-      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, json)
+      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, less, json)
       'cssFormat': 'json',
 
       // OPTIONAL: Specify img options

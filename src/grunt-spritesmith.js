@@ -35,6 +35,7 @@ imgFormats.add('.jpeg', 'jpeg');
 // Add our css formats
 cssFormats.add('.styl', 'stylus');
 cssFormats.add('.stylus', 'stylus');
+cssFormats.add('.less', 'less');
 cssFormats.add('.json', 'json');
 
 module.exports = function (grunt) {
