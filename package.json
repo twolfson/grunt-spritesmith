@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "spritesmith": "git+ssh://git@github.com:Ensighten/spritesmith.git",
-    "json2css": "~1.1.0",
+    "json2css": "~1.2.0",
     "underscore": "~1.4.2",
     "url2": "0.0.0"
   },
