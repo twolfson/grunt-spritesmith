@@ -2,7 +2,8 @@ var spritesmith = require('spritesmith'),
     json2css = require('json2css'),
     _ = require('underscore'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    url = require('url2');
 
 function ExtFormat() {
   this.formatObj = {};
@@ -108,7 +109,10 @@ module.exports = function (grunt) {
 
       // Render the variables via json2css
       var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
-          cssStr = json2css(cleanCoords, {'format': cssFormat});
+          formatOpts = {
+            'spritePath': url.relative(destCSS, destImg)
+          },
+          cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': formatOpts});
 
       // Write it out to the CSS file
       var destCSSDir = path.dirname(destCSS);
