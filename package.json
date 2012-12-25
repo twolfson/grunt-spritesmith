@@ -1,6 +1,6 @@
 {
   "name": "grunt-spritesmith",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
   "scripts": {
@@ -8,10 +8,11 @@
   },
   "keywords": [
     "grunt",
-    "spritesmith",
+    "gruntplugin",
     "sprite",
     "spritesheet",
-    "css"
+    "css",
+    "spritesmith"
   ],
   "author": {
     "name": "Todd Wolfson",
