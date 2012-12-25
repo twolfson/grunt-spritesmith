@@ -109,8 +109,9 @@ module.exports = function (grunt) {
 
       // Render the variables via json2css
       var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
+          spritePath = data.imgPath || url.relative(destCSS, destImg),
           formatOpts = {
-            'spritePath': url.relative(destCSS, destImg)
+            'spritePath': spritePath
           },
           cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': formatOpts});
 

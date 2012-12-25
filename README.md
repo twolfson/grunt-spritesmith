@@ -37,6 +37,9 @@ grunt.initConfig({
       // Stylus with variables under sprite names
       'destCSS': 'public/css/sprite_positions.styl',
 
+      // OPTIONAL: Manual override for imgPath specified in CSS
+      'imgPath': '../sprite.png',
+
       // OPTIONAL: Specify algorithm (top-down, left-right, diagonal, alt-diagonal)
       'algorithm': 'alt-diagonal',
 
