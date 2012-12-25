@@ -111,5 +111,9 @@ module.exports = {
 
     // Callback since we are done testing
     test.done();
+  },
+  'filepaths': function (test) {
+    var coords = fs.readFileSync(__dirname + '/scratch/sprite_positions.styl', 'utf8');
+    test.done();
   }
 };

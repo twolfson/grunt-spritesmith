@@ -79,6 +79,8 @@ module.exports = function (grunt) {
       }
 
       // Otherwise, write out the result to destImg
+      var destImgDir = path.dirname(destImg);
+      grunt.file.mkdir(destImgDir);
       fs.writeFileSync(destImg, result.image, 'binary');
 
       // Generate a listing of CSS variables
@@ -109,6 +111,8 @@ module.exports = function (grunt) {
           cssStr = json2css(cleanCoords, {'format': cssFormat});
 
       // Write it out to the CSS file
+      var destCSSDir = path.dirname(destCSS);
+      grunt.file.mkdir(destCSSDir);
       fs.writeFileSync(destCSS, cssStr, 'utf8');
 
       // Callback
