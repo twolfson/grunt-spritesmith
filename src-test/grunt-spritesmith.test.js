@@ -113,7 +113,15 @@ module.exports = {
     test.done();
   },
   'filepaths': function (test) {
-    var coords = fs.readFileSync(__dirname + '/scratch/sprite_positions.styl', 'utf8');
+    // Load in the coordinates and extract the path to the sprite file
+    var coords = fs.readFileSync(__dirname + '/scratch/3/4/sprite_positions.styl', 'utf8'),
+        imgPathResults = coords.match(/spriteBackground\(\) \{[\n\s]+return '([^']+)'/) || [],
+        imgRelPath = imgPathResults[1] || '';
+
+    // Assert the path is the relative one we expect
+    test.strictEqual(imgRelPath, '../../nested/1/2/spritesheet.png');
+
+    // Finish the test
     test.done();
   }
 };

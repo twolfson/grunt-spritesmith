@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_sprites/*.{jpg,png}',
         src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
-        destImg: 'scratch/nested/1/2/sprite.jpg',
+        destImg: 'scratch/nested/1/2/spritesheet.png',
         destCSS: 'scratch/3/4/sprite_positions.styl'
       }
     },
