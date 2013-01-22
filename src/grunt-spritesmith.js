@@ -36,6 +36,8 @@ imgFormats.add('.jpeg', 'jpeg');
 // Add our css formats
 cssFormats.add('.styl', 'stylus');
 cssFormats.add('.stylus', 'stylus');
+cssFormats.add('.sass', 'sass');
+cssFormats.add('.scss', 'scss');
 cssFormats.add('.less', 'less');
 cssFormats.add('.json', 'json');
 
