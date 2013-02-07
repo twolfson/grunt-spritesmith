@@ -46,7 +46,7 @@ grunt.initConfig({
       // OPTIONAL: Specify engine (auto, canvas, gm)
       'engine': 'canvas',
 
-      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, scss, less, json)
+      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, scss, sass, less, json)
       'cssFormat': 'json',
 
       // OPTIONAL: Specify img options
