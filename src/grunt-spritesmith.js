@@ -47,7 +47,8 @@ module.exports = function (grunt) {
     var data = this.data,
         src = data.src,
         destImg = data.destImg,
-        destCSS = data.destCSS;
+        destCSS = data.destCSS,
+        that = this;
 
     // Verify all properties are here
     if (!src || !destImg || !destCSS) {
@@ -121,6 +122,12 @@ module.exports = function (grunt) {
       var destCSSDir = path.dirname(destCSS);
       grunt.file.mkdir(destCSSDir);
       fs.writeFileSync(destCSS, cssStr, 'utf8');
+
+      // Fail task if errors were logged.
+      if (that.errorCount) { cb(false); }
+
+      // Otherwise, print a success message.
+      grunt.log.writeln('Files "' + destCSS + '", "' + destImg + '" created.');
 
       // Callback
       cb(true);
