@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   require('./grunt')(grunt);
 
   // Configure nodeunit as test
-  testConfig = grunt.config.get('test');
+  var testConfig = grunt.config.get('test');
   grunt.config.set('nodeunit', testConfig);
 
   // Load in nodeunit
