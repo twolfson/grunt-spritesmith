@@ -4,7 +4,7 @@
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
   "scripts": {
-    "test": "grunt --base ./src-test/ --config ./src-test/grunt.js"
+    "test": "cd src-test && grunt"
   },
   "keywords": [
     "grunt",
@@ -25,7 +25,7 @@
     "underscore": "~1.4.2",
     "url2": "*"
   },
-  "devDependencies": {
+  "_devDependencies": {
     "grunt": "~0.3.12"
   },
   "repositories": [
@@ -33,5 +33,9 @@
       "type": "git",
       "url": "https://github.com/Ensighten/grunt-spritesmith.git"
     }
-  ]
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2"
+  }
 }
