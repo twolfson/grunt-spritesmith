@@ -61,6 +61,11 @@ module.exports = function (grunt) {
     // Create an async callback
     var cb = this.async();
 
+    // Quit if there are no images to process.
+    if (Object.keys(srcFiles).length === 0) {
+      return cb(true);
+    }
+
     // Determine the format of the image
     var imgOpts = data.imgOpts || {},
         imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
