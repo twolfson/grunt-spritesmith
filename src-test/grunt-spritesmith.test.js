@@ -126,10 +126,16 @@ module.exports = {
   },
   // DEV: This is for testing an edge case -- don't let this strawman you in maintenance.
   'empty': function (test) {
-    // Assert that an empty file and JSON blob are created
+    // Setup
+    test.expect(2);
     var img = fs.readFileSync(__dirname + '/scratch/empty/sprite.png', 'binary'),
-        coords = fs.readFileSync(__dirname + '/scratch/empty/coordindates.json', 'utf8');
+        coords = fs.readFileSync(__dirname + '/scratch/empty/sprite_positions.json', 'utf8');
+
+    // Assert that an empty file and JSON blob are created
     test.strictEqual(img, '');
     test.strictEqual(coords, '{}');
+
+    // Callback
+    test.done();
   }
 };
