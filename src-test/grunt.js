@@ -33,6 +33,11 @@ module.exports = function (grunt) {
         src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
         destImg: 'scratch/nested/1/2/spritesheet.png',
         destCSS: 'scratch/3/4/sprite_positions.styl'
+      },
+      'empty': {
+        src: [],
+        destImg: 'scratch/empty/sprite.png',
+        destCSS: 'scratch/empty/sprite_positions.json'
       }
     },
     test: {
