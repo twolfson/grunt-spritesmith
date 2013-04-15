@@ -76,7 +76,8 @@ module.exports = function(grunt) {
         'exportOpts': options.imgOpts
       };
 
-      //hacky diretory write
+      // hacky diretory write
+      // todo - less hacky via node path recursion etc.
       if(!fs.existsSync(spritePath)){
         grunt.file.write(spritePath);
         grunt.file.delete(spritePath); //todo : jshint options

@@ -5,8 +5,9 @@ module.exports = function (grunt) {
     },
     sprite : {
       test : {
-        src : ['src-test/test_sprites/sprite1.png', 'src-test/test_sprites/sprite2.png'],
-        dest : 'temp/'
+        files : {
+          'temp/' : ['src-test/test_sprites/sprite1.png', 'src-test/test_sprites/sprite2.jpg', 'src-test/test_sprites/sprite3.png']          
+        }        
       },
       testtwo : {
         options : {
@@ -24,7 +25,7 @@ module.exports = function (grunt) {
         files: [
           {
            dest : 'temp/2/',
-           src : ['src-test/test_sprites/*.png']
+           src : ['src-test/test_sprites/*.*']
           },
           {            
            dest : 'temp/3/',
