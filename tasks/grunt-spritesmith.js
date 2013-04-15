@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   var json2css = require('json2css');
 
   //register the task in grunt
-  grunt.registerMultiTask('spritesmith', 'Images to Sprites via spritesmith', function() {
+  grunt.registerMultiTask('sprite', 'Images to Sprites via spritesmith', function() {
 
     // Merge in options to local scope
     var options = this.options({
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     var done = this.async();
     var files = this.files;
 
-    function cleanCoords(result) {
+    function cleanResultCoords(result) {
       var coordinates = result.coordinates,
           cleanCoords = {};
 
@@ -79,27 +79,27 @@ module.exports = function(grunt) {
       //hacky diretory write
       if(!fs.existsSync(spritePath)){
         grunt.file.write(spritePath);
-        grunt.file.delete(spritePath);
+        grunt.file.delete(spritePath); //todo : jshint options
       }
       
       spritesmith(spritesmithParams, function (err, result) {
         if(!err) {
           var imgData = result.image;
-          var cssData = json2css(cleanCoords(result), {format : options.cssFormat, formatOptions : options.imgPath})
+          var cssData = json2css(cleanResultCoords(result), {format : options.cssFormat, formatOptions : options.imgPath});
           //write out the sprite
           fs.writeFileSync(spritePath, imgData, 'binary');
           //write out the CSS
-          grunt.file.write(stylePath, JSON.stringify(result.coordinates));
-          grunt.file.write(f.dest + "test.json", cssData);
+          grunt.file.write(stylePath, cssData);
           //log
           grunt.log.writeln(spritePath +  " : " + ("OK").green);
         } else {
-          console.log(err)
           grunt.log.warn('Smitesmith error for ' + dest);
+          console.log(err);
+          done(false);
         }
         //are we done?
         if(i == files.length -1) {          
-          done();
+          done(true);
         }
       });
     });

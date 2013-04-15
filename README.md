@@ -26,37 +26,34 @@ Usage
 -----
 ```js
 grunt.initConfig({
-  'sprite': {
-    'all': {
-      // Sprite files to read in
-      'src': ['public/images/sprites/*.png'],
-
-      // Location to output spritesheet
-      'destImg': 'public/images/sprite.png',
-
-      // Stylus with variables under sprite names
-      'destCSS': 'public/css/sprite_positions.styl',
-
-      // OPTIONAL: Manual override for imgPath specified in CSS
-      'imgPath': '../sprite.png',
-
-      // OPTIONAL: Specify algorithm (top-down, left-right, diagonal, alt-diagonal)
-      'algorithm': 'alt-diagonal',
-
-      // OPTIONAL: Specify engine (auto, canvas, gm)
-      'engine': 'canvas',
-
-      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, scss, sass, less, json)
-      'cssFormat': 'json',
-
-      // OPTIONAL: Specify img options
-      'imgOpts': {
-         // Format of the image (inferred from destImg' extension by default) (jpg, png)
-         'format': 'png',
-
-         // Quality of image (gm only)
-         'quality': 90
-      }
+  sprite : {
+    test : {
+      src : ['src-test/test_sprites/sprite1.png', 'src-test/test_sprites/sprite2.png'],
+      dest : 'temp/'
+    },
+    testtwo : {
+      options : {
+        'imgPath': '', // Manual override for imgPath specified in CSS
+        'algorithm': 'alt-diagonal', // Specify algorithm (top-down, left-right, diagonal, alt-diagonal)
+        'cssname' : 'style.json', // output CSS file name
+        'spritename' : 'sprite.png', // out sprite file name
+        'engine': 'gm', // Specify engine (auto, canvas, gm)
+        'cssFormat': 'json', // Specify CSS format
+        'imgOpts': { // Specify img options
+          'format': 'png',
+          'quality' : 100
+        }
+      },
+      files: [
+        {
+         dest : 'temp/2/',
+         src : ['src-test/test_sprites/*.png']
+        },
+        {            
+         dest : 'temp/3/',
+         src : ['src-test/expected_files/*.jpg']
+        }
+      ]
     }
   }
 });
