@@ -58,7 +58,7 @@ module.exports = function(grunt) {
     }
 
     //loop files    
-    files.forEach(function(f, i) {
+    grunt.util.async.forEachSeries(this.files, function(f, next, i) {
       // get the destination directory and set outfile names
       var dest = f.dest;
       var spritePath = f.dest + options.spritename;
@@ -98,6 +98,10 @@ module.exports = function(grunt) {
           console.log(err);
           done(false);
         }
+
+        //call the next iteration
+        next();
+
         //are we done?
         if(i == files.length -1) {          
           done(true);
