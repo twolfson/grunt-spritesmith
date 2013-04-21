@@ -26,7 +26,12 @@ Requirements
 ------------
 Spritesmith supports multiple sprite engines however all of the current engines require external software to be installed.
 
-As a result, you must either have [Cairo](http://cairographics.org/) or [Graphics Magick](http://www.graphicsmagick.org/) installed for Spritesmith to run properly.
+As a result, you must either have [PhantomJS][phantomjs], [Cairo](http://cairographics.org/), or [Graphics Magick](http://www.graphicsmagick.org/) installed for Spritesmith to run properly.
+
+[phantomjs]: http://phantomjs.org/
+
+### PhantomJS
+This depends on having `phantomjs` installed on your machine. For installation instructions, visit [the website][phantomjs]. This module has been tested against `1.9.0`.
 
 ### Cairo (node-canvas)
 Due to dependance on [node-canvas](https://github.com/learnboost/node-canvas), you must install [Cairo](http://cairographics.org/).
