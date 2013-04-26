@@ -1,6 +1,6 @@
 {
   "name": "grunt-spritesmith",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "spritesmith": "~0.6.0",
+    "spritesmith": "~0.6.1",
     "json2css": "~1.2.0",
     "underscore": "~1.4.2",
     "url2": "*"
