@@ -68,7 +68,7 @@ grunt.initConfig({
       // OPTIONAL: Manual override for imgPath specified in CSS
       'imgPath': '../sprite.png',
 
-      // OPTIONAL: Specify algorithm (top-down, left-right, diagonal, alt-diagonal)
+      // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format], alt-diagonal [/ format], binary-tree [best packing])
       'algorithm': 'alt-diagonal',
 
       // OPTIONAL: Specify engine (auto, canvas, gm)
