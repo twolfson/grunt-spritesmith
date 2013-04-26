@@ -69,13 +69,14 @@ grunt.initConfig({
       'imgPath': '../sprite.png',
 
       // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format],
-      // alt-diagonal [/ format], binary-tree [best packing])
+          // alt-diagonal [/ format], binary-tree [best packing])
       'algorithm': 'alt-diagonal',
 
       // OPTIONAL: Specify engine (auto, canvas, gm)
       'engine': 'canvas',
 
-      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default) (stylus, scss, sass, less, json)
+      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
+          // (stylus, scss, sass, less, json)
       'cssFormat': 'json',
 
       // OPTIONAL: Specify img options
