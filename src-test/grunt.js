@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
         destImg: 'scratch/sprite.jpg',
         destCSS: 'scratch/sprite_positions.json',
-        engine: 'canvas'
+        engine: 'gm'
       },
       'overrides': {
         src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
           'format': 'jpg'
         },
         algorithm: 'alt-diagonal',
-        engine: 'canvas'
+        engine: 'gm'
       },
       'filepaths': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
