@@ -89,6 +89,7 @@ module.exports = function (grunt) {
 
       // Generate a listing of CSS variables
       var coordinates = result.coordinates,
+          spritePath = data.imgPath || url.relative(destCSS, destImg),
           cleanCoords = {};
 
       // Clean up the file name of the file
@@ -106,17 +107,18 @@ module.exports = function (grunt) {
         var name = nameParts.join('.'),
             coords = coordinates[file];
 
+        // Specify the image for the sprite
+        coords.image = spritePath;
+
         // Save the cleaned name and coordinates
         cleanCoords[name] = coords;
       });
 
+      console.log(cleanCoords);
+
       // Render the variables via json2css
       var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
-          spritePath = data.imgPath || url.relative(destCSS, destImg),
-          formatOpts = {
-            'spritePath': spritePath
-          },
-          cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': formatOpts});
+          cssStr = json2css(cleanCoords, {'format': cssFormat});
 
       // Write it out to the CSS file
       var destCSSDir = path.dirname(destCSS);
