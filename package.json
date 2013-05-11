@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "spritesmith": "~0.7.0",
-    "json2css": "~1.2.0",
+    "json2css": "~2.0.0",
     "underscore": "~1.4.2",
     "url2": "*"
   },
