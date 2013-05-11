@@ -25,11 +25,11 @@
     "underscore": "~1.4.2",
     "url2": "*"
   },
-  "devDependencies": {
+  "_devDependencies": {
     "grunt": "~0.3.12",
     "grunt-contrib-clean": "~0.3.2"
   },
-  "_devDependencies": {
+  "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0"

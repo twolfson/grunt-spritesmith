@@ -118,7 +118,6 @@ module.exports = {
 
     // Assert the path is the relative one we expect
     test.notEqual(coords.indexOf('../../nested/1/2/spritesheet.png'), -1);
-    console.log(coords.indexOf('../../nested/1/2/spritesheet.png'));
 
     // Finish the test
     test.done();
