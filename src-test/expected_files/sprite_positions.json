@@ -4,6 +4,7 @@
         "height": 50,
         "x": 0,
         "y": 0,
+        "image": "sprite.jpg",
         "offset_x": 0,
         "offset_y": 0,
         "px": {
@@ -20,6 +21,7 @@
         "height": 50,
         "x": 0,
         "y": 50,
+        "image": "sprite.jpg",
         "offset_x": 0,
         "offset_y": -50,
         "px": {
@@ -36,6 +38,7 @@
         "height": 200,
         "x": 0,
         "y": 100,
+        "image": "sprite.jpg",
         "offset_x": 0,
         "offset_y": -100,
         "px": {
