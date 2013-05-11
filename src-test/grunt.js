@@ -1,7 +1,6 @@
 module.exports = function (grunt) {
-  grunt.file.mkdir('scratch');
-
   grunt.initConfig({
+    clean: ['scratch/'],
     sprite: {
       'default': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
@@ -29,7 +28,7 @@ module.exports = function (grunt) {
         algorithm: 'alt-diagonal',
         engine: 'gm'
       },
-      'filepaths': {
+      'nested': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_sprites/*.{jpg,png}',
         src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
@@ -48,5 +47,11 @@ module.exports = function (grunt) {
   });
 
   grunt.loadTasks('../tasks');
-  grunt.registerTask('default', 'sprite test');
+
+  // Change directories for grunt@0.4
+  process.chdir('..');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  process.chdir(__dirname);
+
+  grunt.registerTask('default', 'clean sprite test');
 };
