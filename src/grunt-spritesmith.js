@@ -114,8 +114,6 @@ module.exports = function (grunt) {
         cleanCoords[name] = coords;
       });
 
-      console.log(cleanCoords);
-
       // Render the variables via json2css
       var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
           cssStr = json2css(cleanCoords, {'format': cssFormat});
