@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         destImg: 'scratch/css_opts/sprite.png',
         destCSS: 'scratch/css_opts/sprite_positions.css',
         cssOpts: {
-          classFn: function (item) {
+          cssClass: function (item) {
             return '#container .' + item.name;
           }
         }
