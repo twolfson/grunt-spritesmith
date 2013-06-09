@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         destCSS: 'scratch/css_opts/sprite_positions.css',
         cssOpts: {
           classFn: function (item) {
-            return '#aoxomoxoa .' + item.name;
+            return '#container .' + item.name;
           }
         }
       }
