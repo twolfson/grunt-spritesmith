@@ -87,6 +87,12 @@ grunt.initConfig({
          // Quality of image (gm only)
          'quality': 90
       }
+
+      // OPTIONAL: Specify css options
+      'cssOpts': {
+        // Some templates allow for skipping of function declarations
+        'functions': false
+      }
     }
   }
 });

@@ -39,6 +39,16 @@ module.exports = function (grunt) {
         src: [],
         destImg: 'scratch/empty/sprite.png',
         destCSS: 'scratch/empty/sprite_positions.json'
+      },
+      'css-opts': {
+        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        destImg: 'scratch/css_opts/sprite.png',
+        destCSS: 'scratch/css_opts/sprite_positions.css',
+        cssOpts: {
+          classFn: function (item) {
+            return '#aoxomoxoa .' + item.name;
+          }
+        }
       }
     },
     test: {

@@ -135,5 +135,32 @@ module.exports = {
 
     // Callback
     test.done();
+  },
+  // DEV: This is testing an edge case. CSS options are not critical for module functionality.
+  'cssOpts': function (test) {
+    // Setup
+    var expectedCoords = fs.readFileSync(__dirname + '/expected_files/css_opts/sprite_positions.css', 'utf8'),
+        actualCoords = fs.readFileSync(__dirname + '/scratch/css_opts/sprite_positions.css', 'utf8');
+
+    // Break up the expected coords into each line
+    var expectedLines = expectedCoords.split(/\n/g);
+
+    // Iterate over each line
+    expectedLines.forEach(function (line) {
+      // Trim the line
+      line = line.trim();
+
+      // If there is no line, skip it
+      if (!line) {
+        return;
+      }
+
+      // Assert that the line exists in actualCoords
+      var index = actualCoords.indexOf(line);
+      test.notEqual(index, -1, 'Line not found in actual coordinates: ' + line);
+    });
+
+    // Callback
+    test.done();
   }
 };
