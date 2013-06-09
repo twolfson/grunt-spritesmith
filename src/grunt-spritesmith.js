@@ -40,6 +40,7 @@ cssFormats.add('.sass', 'sass');
 cssFormats.add('.scss', 'scss');
 cssFormats.add('.less', 'less');
 cssFormats.add('.json', 'json');
+cssFormats.add('.css', 'css');
 
 module.exports = function (grunt) {
   // Create a SpriteMaker function
