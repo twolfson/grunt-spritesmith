@@ -111,7 +111,14 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
 
+Changelog
+---------
+1.2.0 - Updated to `json2css@3.1.1` which features URL escaping for image paths
+
+Before 1.2.0 - See `git log`
+
 License
 -------
 Copyright (c) 2012 Ensighten
+
 Licensed under the MIT license.
