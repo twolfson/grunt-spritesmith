@@ -74,6 +74,7 @@ module.exports = function (grunt) {
           'src': srcFiles,
           'engine': data.engine || 'auto',
           'algorithm': data.algorithm || 'top-down',
+          'engineOpts': data.engineOpts || {},
           'exportOpts': imgOpts
         };
     spritesmith(spritesmithParams, function (err, result) {

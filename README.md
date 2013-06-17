@@ -79,6 +79,11 @@ grunt.initConfig({
           // (stylus, scss, sass, less, json, css)
       'cssFormat': 'json',
 
+      // OPTIONAL: Specify settings for engine
+      'engineOpts': {
+        'imagemagick': true
+      },
+
       // OPTIONAL: Specify img options
       'imgOpts': {
          // Format of the image (inferred from destImg' extension by default) (jpg, png)
@@ -86,7 +91,7 @@ grunt.initConfig({
 
          // Quality of image (gm only)
          'quality': 90
-      }
+      },
 
       // OPTIONAL: Specify css options
       'cssOpts': {
@@ -110,12 +115,6 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
-
-Changelog
----------
-1.2.0 - Updated to `json2css@3.1.1` which features URL escaping for image paths
-
-Before 1.2.0 - See `git log`
 
 License
 -------
