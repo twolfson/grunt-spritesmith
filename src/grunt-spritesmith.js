@@ -91,6 +91,7 @@ module.exports = function (grunt) {
 
       // Generate a listing of CSS variables
       var coordinates = result.coordinates,
+          properties = result.properties,
           spritePath = data.imgPath || url.relative(destCSS, destImg),
           cleanCoords = {};
 
@@ -111,6 +112,8 @@ module.exports = function (grunt) {
 
         // Specify the image for the sprite
         coords.image = spritePath;
+        coords.total_width = properties.width;
+        coords.total_height = properties.height;
 
         // Save the cleaned name and coordinates
         cleanCoords[name] = coords;
