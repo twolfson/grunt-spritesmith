@@ -2,7 +2,7 @@
     "sprite1": {
         "width": 50,
         "height": 50,
-        "total_width": 200,
+        "total_width": 100,
         "total_height": 300,
         "x": 0,
         "y": 0,
@@ -16,14 +16,14 @@
             "offset_y": "0px",
             "height": "50px",
             "width": "50px",
-            "total_width": "200px",
-            "total_height": "300px"
+            "total_height": "300px",
+            "total_width": "100px"
         }
     },
     "sprite2": {
         "width": 50,
         "height": 50,
-        "total_width": 200,
+        "total_width": 100,
         "total_height": 300,
         "x": 0,
         "y": 50,
@@ -37,14 +37,14 @@
             "offset_y": "-50px",
             "height": "50px",
             "width": "50px",
-            "total_width": "200px",
-            "total_height": "300px"
+            "total_height": "300px",
+            "total_width": "100px"
         }
     },
     "sprite3": {
         "width": 100,
         "height": 200,
-        "total_width": 200,
+        "total_width": 100,
         "total_height": 300,
         "x": 0,
         "y": 100,
@@ -58,8 +58,8 @@
             "offset_y": "-100px",
             "height": "200px",
             "width": "100px",
-            "total_width": "200px",
-            "total_height": "300px"
+            "total_height": "300px",
+            "total_width": "100px"
         }
     }
 }
