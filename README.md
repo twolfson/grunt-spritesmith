@@ -72,6 +72,9 @@ grunt.initConfig({
           // alt-diagonal [/ format], binary-tree [best packing])
       'algorithm': 'alt-diagonal',
 
+      // OPTIONAL: Specify padding between images
+      'padding': 2,
+
       // OPTIONAL: Specify engine (auto, canvas, gm)
       'engine': 'canvas',
 
