@@ -1,5 +1,5 @@
 # grunt-spritesmith changelog
-1.5.1 - Updating `repositories` field to `repository`
+1.5.2 - Updating `repositories` field to `repository`
 
 1.5.0 - Updated to `spritesmith@0.10.0` for adding `padding` parameter
 
