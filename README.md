@@ -9,7 +9,7 @@ A folder of icons processed by `grunt-spritesmith`:
 
 generates a spritesheet:
 
-[![Spritesheet][spritesheet]][spritesheet] ![+][]
+[![Spritesheet][spritesheet]][spritesheet]
 
 and CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][]):
 
