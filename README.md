@@ -7,8 +7,6 @@ A folder of icons processed by `grunt-spritesmith`:
 [![GitHub icon][github-icon]][github-icon] ![+][]
 [![Twitter icon][twitter-icon]][twitter-icon] ![=][]
 
----
-
 generates a spritesheet:
 
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
@@ -41,7 +39,7 @@ $github_height = 32px;
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
 
----
+## Cross-platform support
 
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
