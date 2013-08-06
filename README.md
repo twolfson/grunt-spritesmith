@@ -169,13 +169,12 @@ CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/j
 
 [Fork][noun-fork-icon] designed by [P.J. Onori][onori] from The Noun Project
 
-[Add][noun-add-icon] designed by [Icomatic][] from The Noun Project
+[Plus][+] and [Equals][=] icons were built using the [Ubuntu Light typeface][ubuntu-light].
 
 [justvector]: http://alexpeattie.com/projects/justvector_icons/
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
-[noun-add-icon]: http://thenounproject.com/noun/add/#icon-No18981
-[Icomatic]: http://thenounproject.com/Icomatic
+[ubuntu-light]: http://font.ubuntu.com/
 
 ## License
 Copyright (c) 2012-2013 Ensighten
