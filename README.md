@@ -1,13 +1,17 @@
 # grunt-spritesmith
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
+A folder of icons:
 [![Fork icon][fork-icon]][fork-icon] ![+][]
 [![GitHub icon][github-icon]][github-icon] ![+][]
 [![Twitter icon][twitter-icon]][twitter-icon] ![=][]
 
 ---
 
+Spritesheet:
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
+
+CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][])
 
 ```stylus
 $fork_offset_x = 0px;
@@ -29,18 +33,55 @@ $github_height = 32px;
 [twitter-icon]: docs/twitter.png
 [spritesheet]: docs/spritesheet.png
 
+[CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[JSON]: http://www.json.org/
+[SASS]: http://sass-lang.com/
+[LESS]: http://lesscss.org/
+[Stylus]: http://learnboost.github.com/stylus/
+
 ---
 
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
 ## Getting Started
-Install `grunt-spritesmith` via npm: `npm install grunt-spritesmith`
+**Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements].**
 
-Then add this line to your project's `grunt.js` gruntfile:
+[requirements]: #requirements
+
+`grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
+
+Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
 
 ```javascript
-grunt.loadNpmTasks('grunt-spritesmith');
+module.exports = function (grunt) {
+  // Configure grunt
+  grunt.initConfig({
+    sprite:{
+      all: {
+        src: 'path/to/your/sprites/*.png',
+        destImg: 'destination/of/spritesheet.png',
+        destCSS: 'destination/of/sprites.styl'
+      }
+    }
+  });
+
+  // Load in `grunt-spritesmith`
+  grunt.loadNpmTasks('grunt-spritesmith');
 ```
+
+Run the `grunt sprite` task:
+
+```bash
+$ grunt sprite
+Running "sprite:all" (sprite) task
+Files "spritesheet.png", "sprites.styl" created.
+
+Done, without errors.
+```
+
+Inside of your stylesheets
+
+// TODO: Improve documentation on algorithms with visuals
 
 ## Usage
 ```js
