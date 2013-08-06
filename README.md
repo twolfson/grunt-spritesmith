@@ -29,6 +29,8 @@ $github_height = 32px;
 [twitter-icon]: docs/twitter.png
 [spritesheet]: docs/spritesheet.png
 
+---
+
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
 ## Requirements
