@@ -166,7 +166,7 @@ If you are worried about sprites being visible within other sprites, use `alt-di
 
 If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
 
-`diagonal` exists for you if you need it.
+The `diagonal` algorithm exists for you if you need it.
 
 [top-down]: docs/top-down.png
 [left-right]: docs/left-right.png
