@@ -168,6 +168,12 @@ If you are using a repeating background, `top-down` or `left-right` depending on
 
 `diagonal` exists for you if you need it.
 
+[top-down]: docs/top-down.png
+[left-right]: docs/left-right.png
+[diagonal]: docs/diagonal.png
+[alt-diagonal]: docs/alt-diagonal.png
+[binary-tree]: docs/binary-tree.png
+
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
 
