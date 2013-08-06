@@ -2,7 +2,9 @@
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
 [![Fork icon][fork-icon]][fork-icon] +
+
 [![GitHub icon][github-icon]][github-icon] +
+
 [![Twitter icon][twitter-icon]][twitter-icon]
 
 -------------------------
