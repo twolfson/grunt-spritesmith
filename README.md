@@ -81,7 +81,7 @@ Done, without errors.
 
 Results are a spritesheet and CSS:
 
-[![Spritesheet][spritesheet]][spritesheet] ![+][]
+[![Spritesheet][spritesheet]][spritesheet]
 
 ```
 .icon-fork {
@@ -94,6 +94,10 @@ Results are a spritesheet and CSS:
 ```
 
 ## Usage
+`grunt-spritesmith` is a [grunt multitask][multitask]. It is configured on a per-task basis using the following template:
+
+[multitask]: http://gruntjs.com/configuring-tasks
+
 ```js
 grunt.initConfig({
   'sprite': {
@@ -112,6 +116,7 @@ grunt.initConfig({
 
       // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format],
           // alt-diagonal [/ format], binary-tree [best packing])
+      // Visual representations can be found below
       'algorithm': 'alt-diagonal',
 
       // OPTIONAL: Specify padding between images
@@ -149,7 +154,10 @@ grunt.initConfig({
 ```
 
 ### Algorithms
-// TODO: Fill out section with images
+| Algorithm | top-down (default) | left-right | diagonal | alt-diagonal |
+| --------- | ------------------ | ---------- |
+| Example   |
+| Benefit   |
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
