@@ -1,57 +1,103 @@
-grunt-spritesmith [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
-=================
-Grunt library for using [spritesmith](https://github.com/Ensighten/spritesmith), a spritesheet and CSS pre-processor utility.
+# grunt-spritesmith
+Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
-Synopsis
---------
-[Spritesmith](https://github.com/Ensighten/spritesmith) accepts a list of images, stiches them together, and returns that image along with a coordinate map of where each image is located and its dimensions.
+A folder of icons processed by `grunt-spritesmith`:
 
-[Grunt](https://github.com/gruntjs/grunt/) is a node.js based CLI build tool.
+[![Fork icon][fork-icon]][fork-icon] ![+][]
+[![GitHub icon][github-icon]][github-icon] ![+][]
+[![Twitter icon][twitter-icon]][twitter-icon] ![=][]
 
-[json2css](https://github.com/twolfson/json2css) converts the output from [Spritesmith](https://github.com/Ensighten/spritesmith) and generates variables and helper functions for hooking into inside of your CSS pre-processor.
+generates a spritesheet:
 
-When you combine all three of these, you get a grunt plugin that makes maintaining sprites a breeze.
+[![Spritesheet][spritesheet]][spritesheet]
 
-Getting Started
----------------
-Install this grunt plugin next to your project's [grunt.js gruntfile](https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md) with: `npm install grunt-spritesmith`
+and CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][]):
 
-Then add this line to your project's `grunt.js` gruntfile:
+```stylus
+$fork_offset_x = 0px;
+$fork_offset_y = 0px;
+$fork_width = 32px;
+$fork_height = 32px;
+...
+$github_offset_x = -32px;
+$github_offset_y = 0px;
+$github_width = 32px;
+$github_height = 32px;
+...
+```
+
+[+]: docs/plus.png
+[=]: docs/equals.png
+[fork-icon]: docs/fork.png
+[github-icon]: docs/github.png
+[twitter-icon]: docs/twitter.png
+[spritesheet]: docs/spritesheet.png
+
+[CSS]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[JSON]: http://www.json.org/
+[SASS]: http://sass-lang.com/
+[LESS]: http://lesscss.org/
+[Stylus]: http://learnboost.github.com/stylus/
+
+### Cross-platform support
+
+`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
+
+## Getting Started
+`grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
+
+**Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements].**
+
+[requirements]: #requirements
+
+Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
 
 ```javascript
-grunt.loadNpmTasks('grunt-spritesmith');
+module.exports = function (grunt) {
+  // Configure grunt
+  grunt.initConfig({
+    sprite:{
+      all: {
+        src: 'path/to/your/sprites/*.png',
+        destImg: 'destination/of/spritesheet.png',
+        destCSS: 'destination/of/sprites.css'
+      }
+    }
+  });
+
+  // Load in `grunt-spritesmith`
+  grunt.loadNpmTasks('grunt-spritesmith');
 ```
 
-Requirements
-------------
-Spritesmith supports multiple sprite engines however all of the current engines require external software to be installed.
+Run the `grunt sprite` task:
 
-As a result, you must either have [PhantomJS][phantomjs], [Cairo](http://cairographics.org/), or [Graphics Magick](http://www.graphicsmagick.org/) installed for Spritesmith to run properly.
+```bash
+$ grunt sprite
+Running "sprite:all" (sprite) task
+Files "spritesheet.png", "sprites.styl" created.
 
-[phantomjs]: http://phantomjs.org/
-
-### PhantomJS
-This depends on having `phantomjs` installed on your machine. For installation instructions, visit [the website][phantomjs]. This module has been tested against `1.9.0`.
-
-### Cairo (node-canvas)
-Due to dependance on [node-canvas](https://github.com/learnboost/node-canvas), you must install [Cairo](http://cairographics.org/).
-
-Instructions on how to do this are provided in the [node-canvas wiki](https://github.com/LearnBoost/node-canvas/wiki/_pages).
-
-Additionally, you will need to install [node-gyp](https://github.com/TooTallNate/node-gyp/)
-```shell
-sudo npm install -g node-gyp
+Done, without errors.
 ```
 
-### Graphics Magick (gm)
-The alternative engine is [gm](https://github.com/aheckmann/gm) which runs on top of [Graphics Magick](http://www.graphicsmagick.org/).
+Results are a spritesheet and CSS:
 
-I have found it is best to install from the site rather than through a package manager (e.g. `apt-get`) to get the latest as well as without transparency issues.
+[![Spritesheet][spritesheet]][spritesheet]
 
-This module has been developed and tested against `1.3.17`.
+```
+.icon-fork {
+  background-image: url(spritesheet.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+...
+```
 
-Usage
------
+## Usage
+`grunt-spritesmith` is a [grunt multitask][multitask]. It is configured on a per-task basis using the following template:
+
+[multitask]: http://gruntjs.com/configuring-tasks
+
 ```js
 grunt.initConfig({
   'sprite': {
@@ -70,12 +116,13 @@ grunt.initConfig({
 
       // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format],
           // alt-diagonal [/ format], binary-tree [best packing])
+      // Visual representations can be found below
       'algorithm': 'alt-diagonal',
 
       // OPTIONAL: Specify padding between images
       'padding': 2,
 
-      // OPTIONAL: Specify engine (auto, canvas, gm)
+      // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm)
       'engine': 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
@@ -106,8 +153,36 @@ grunt.initConfig({
 });
 ```
 
-Contributing
-------------
+### Algorithms
+|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
+| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
+| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+
+For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
+
+[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
+
+If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
+
+If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
+
+The `diagonal` algorithm exists for you if you need it.
+
+[top-down]: docs/top-down.png
+[left-right]: docs/left-right.png
+[diagonal]: docs/diagonal.png
+[alt-diagonal]: docs/alt-diagonal.png
+[binary-tree]: docs/binary-tree.png
+
+## Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
+[gittip]: https://www.gittip.com/twolfson/
+
+## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
 
 ### Algorithms
@@ -119,8 +194,66 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
 
-License
--------
-Copyright (c) 2012 Ensighten
+## Requirements
+For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
+
+[spritesmith]: https://github.com/Ensighten/spritesmith
+
+### phantomjs
+The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
+
+[spritesmith][] has been tested against `phantomjs@1.9.0`.
+
+[phantomjs]: http://phantomjs.org/
+
+### canvas
+The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
+
+Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
+
+Additionally, you will need to install [node-gyp][] for the C++ bindings.
+```shell
+sudo npm install -g node-gyp
+```
+
+[node-canvas]: https://github.com/learnboost/node-canvas
+[cairo]: http://cairographics.org/
+[node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-gyp]: https://github.com/TooTallNate/node-gyp/
+
+### gm (Graphics Magick / Image Magick)
+The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
+
+[graphics-magick]: http://www.graphicsmagick.org/
+[image-magick]: http://imagemagick.org/
+
+For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
+
+[spritesmith][] has been developed and tested against `1.3.17`.
+
+If you are using [Image Magick][image-magick], you must specify it in `engineOpts`
+
+```js
+{
+  'engineOpts': {
+    'imagemagick': true
+  }
+}
+```
+
+## Attribution
+[GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
+
+[Fork][noun-fork-icon] designed by [P.J. Onori][onori] from The Noun Project
+
+[Plus][+] and [Equals][=] icons were built using the [Ubuntu Light typeface][ubuntu-light].
+
+[justvector]: http://alexpeattie.com/projects/justvector_icons/
+[noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
+[onori]: http://thenounproject.com/somerandomdude
+[ubuntu-light]: http://font.ubuntu.com/
+
+## License
+Copyright (c) 2012-2013 Ensighten
 
 Licensed under the MIT license.

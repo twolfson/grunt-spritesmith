@@ -12,7 +12,8 @@
     "sprite",
     "spritesheet",
     "css",
-    "spritesmith"
+    "spritesmith",
+    "cross-platform"
   ],
   "author": {
     "name": "Todd Wolfson",
