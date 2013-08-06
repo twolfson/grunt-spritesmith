@@ -154,10 +154,19 @@ grunt.initConfig({
 ```
 
 ### Algorithms
-| Algorithm | top-down (default) | left-right | diagonal | alt-diagonal |
-| --------- | ------------------ | ---------- |
-| Example   |
-| Benefit   |
+|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
+| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
+| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+
+For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
+
+[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
+
+If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
+
+If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
+
+`diagonal` exists for you if you need it.
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].

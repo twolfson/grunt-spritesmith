@@ -1,17 +1,17 @@
 .icon-fork {
-  background-image: url(spritesheet.css.png);
+  background-image: url(spritesheet.top-down.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
 .icon-twitter {
-  background-image: url(spritesheet.css.png);
+  background-image: url(spritesheet.top-down.png);
   background-position: 0px -64px;
   width: 32px;
   height: 32px;
 }
 .icon-github {
-  background-image: url(spritesheet.css.png);
+  background-image: url(spritesheet.top-down.png);
   background-position: 0px -32px;
   width: 32px;
   height: 32px;
