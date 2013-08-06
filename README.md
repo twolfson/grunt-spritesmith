@@ -2,6 +2,7 @@
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
 A folder of icons:
+
 [![Fork icon][fork-icon]][fork-icon] ![+][]
 [![GitHub icon][github-icon]][github-icon] ![+][]
 [![Twitter icon][twitter-icon]][twitter-icon] ![=][]
@@ -9,9 +10,10 @@ A folder of icons:
 ---
 
 Spritesheet:
+
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
 
-CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][])
+CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][]):
 
 ```stylus
 $fork_offset_x = 0px;
@@ -38,6 +40,8 @@ $github_height = 32px;
 [SASS]: http://sass-lang.com/
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
+
+// TODO: Verify looks good
 
 ---
 
@@ -92,7 +96,6 @@ Results are a spritesheet and CSS:
 }
 ...
 ```
-// TODO: Improve documentation on algorithms with visuals
 
 ## Usage
 ```js
@@ -118,7 +121,7 @@ grunt.initConfig({
       // OPTIONAL: Specify padding between images
       'padding': 2,
 
-      // OPTIONAL: Specify engine (auto, canvas, gm)
+      // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm)
       'engine': 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
@@ -148,6 +151,9 @@ grunt.initConfig({
   }
 });
 ```
+
+### Algorithms
+// TODO: Fill out section with images
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
