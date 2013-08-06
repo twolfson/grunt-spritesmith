@@ -48,11 +48,11 @@ $github_height = 32px;
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
 ## Getting Started
+`grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
+
 **Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements].**
 
 [requirements]: #requirements
-
-`grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
 Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
 
