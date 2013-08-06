@@ -94,10 +94,10 @@ module.exports = function (grunt) {
       var coordinates = result.coordinates,
           properties = result.properties,
           spritePath = data.imgPath || url.relative(destCSS, destImg),
-          cleanCoords = {};
+          cleanCoords = [];
 
       // Clean up the file name of the file
-      Object.getOwnPropertyNames(coordinates).forEach(function (file) {
+      Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
         // Extract the image name (exlcuding extension)
         var fullname = path.basename(file),
             nameParts = fullname.split('.');
@@ -112,12 +112,13 @@ module.exports = function (grunt) {
             coords = coordinates[file];
 
         // Specify the image for the sprite
+        coords.name = name;
         coords.image = spritePath;
         coords.total_width = properties.width;
         coords.total_height = properties.height;
 
         // Save the cleaned name and coordinates
-        cleanCoords[name] = coords;
+        cleanCoords.push(coords);
       });
 
       // Render the variables via json2css
