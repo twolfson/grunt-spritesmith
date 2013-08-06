@@ -33,53 +33,6 @@ $github_height = 32px;
 
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
-## Requirements
-For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
-
-[spritesmith]: https://github.com/Ensighten/spritesmith
-
-### phantomjs
-The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
-
-[spritesmith][] has been tested against `phantomjs@1.9.0`.
-
-[phantomjs]: http://phantomjs.org/
-
-### canvas
-The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
-
-Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
-
-Additionally, you will need to install [node-gyp][] for the C++ bindings.
-```shell
-sudo npm install -g node-gyp
-```
-
-[node-canvas]: https://github.com/learnboost/node-canvas
-[cairo]: http://cairographics.org/
-[node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
-[node-gyp]: https://github.com/TooTallNate/node-gyp/
-
-### gm (Graphics Magick / Image Magick)
-The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
-
-[graphics-magick]: http://www.graphicsmagick.org/
-[image-magick]: http://imagemagick.org/
-
-For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
-
-[spritesmith][] has been developed and tested against `1.3.17`.
-
-If you are using [Image Magick][image-magick], you must specify it in `engineOpts`
-
-```js
-{
-  'engineOpts': {
-    'imagemagick': true
-  }
-}
-```
-
 ## Getting Started
 Install `grunt-spritesmith` via npm: `npm install grunt-spritesmith`
 
@@ -163,6 +116,53 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
+
+## Requirements
+For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
+
+[spritesmith]: https://github.com/Ensighten/spritesmith
+
+### phantomjs
+The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
+
+[spritesmith][] has been tested against `phantomjs@1.9.0`.
+
+[phantomjs]: http://phantomjs.org/
+
+### canvas
+The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
+
+Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
+
+Additionally, you will need to install [node-gyp][] for the C++ bindings.
+```shell
+sudo npm install -g node-gyp
+```
+
+[node-canvas]: https://github.com/learnboost/node-canvas
+[cairo]: http://cairographics.org/
+[node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-gyp]: https://github.com/TooTallNate/node-gyp/
+
+### gm (Graphics Magick / Image Magick)
+The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
+
+[graphics-magick]: http://www.graphicsmagick.org/
+[image-magick]: http://imagemagick.org/
+
+For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
+
+[spritesmith][] has been developed and tested against `1.3.17`.
+
+If you are using [Image Magick][image-magick], you must specify it in `engineOpts`
+
+```js
+{
+  'engineOpts': {
+    'imagemagick': true
+  }
+}
+```
 
 ## Attribution
 [GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
