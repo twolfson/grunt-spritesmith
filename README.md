@@ -1,15 +1,13 @@
 # grunt-spritesmith
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
-[![Fork icon][fork-icon]][fork-icon] +
-
-[![GitHub icon][github-icon]][github-icon] +
-
+[![Fork icon][fork-icon]][fork-icon] ![+][]
+[![GitHub icon][github-icon]][github-icon] ![+][]
 [![Twitter icon][twitter-icon]][twitter-icon]
 
--------------------------
+=
 
-[![Spritesheet][spritesheet]][spritesheet] +
+[![Spritesheet][spritesheet]][spritesheet] ![+][]
 
 ```stylus
 $fork_offset_x = 0px;
@@ -24,6 +22,7 @@ $github_height = 32px;
 ...
 ```
 
+[+]: docs/add.png
 [fork-icon]: docs/fork.png
 [github-icon]: docs/github.png
 [twitter-icon]: docs/twitter.png
@@ -167,9 +166,13 @@ CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/j
 
 [Fork][noun-fork-icon] designed by [P.J. Onori][onori] from The Noun Project
 
+[Add][noun-add-icon] designed by [Icomatic][] from The Noun Project
+
 [justvector]: http://alexpeattie.com/projects/justvector_icons/
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
+[noun-add-icon]: http://thenounproject.com/noun/add/#icon-No18981
+[Icomatic]: http://thenounproject.com/Icomatic
 
 ## License
 Copyright (c) 2012-2013 Ensighten
