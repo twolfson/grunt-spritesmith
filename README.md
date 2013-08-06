@@ -1,5 +1,7 @@
 # grunt-spritesmith
-Grunt task for using [spritesmith](https://github.com/Ensighten/spritesmith), a spritesheet and CSS pre-processor utility.
+Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
+
+[![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet]
 
 ## Synopsis
 [Spritesmith](https://github.com/Ensighten/spritesmith) accepts a list of images, stiches them together, and returns that image along with a coordinate map of where each image is located and its dimensions.
@@ -120,6 +122,15 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
+
+## Attribution
+[GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
+
+[Fork][noun-fork-icon] designed by [P.J. Onori][onori] from The Noun Project
+
+[justvector]: http://alexpeattie.com/projects/justvector_icons/
+[noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
+[onori]: http://thenounproject.com/somerandomdude
 
 ## License
 Copyright (c) 2012-2013 Ensighten
