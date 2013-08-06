@@ -4,9 +4,16 @@ Grunt task for converting a set of images into a spritesheet and corresponding C
 [![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet] +
 
 ```stylus
-$github = 32px 0px -32px 0px 32px 32px 64px 64px 'spritesheet.png';
-$twitter = 0px 32px 0px -32px 32px 32px 64px 64px 'spritesheet.png';
-$fork = 0px 0px 0px 0px 32px 32px 64px 64px 'spritesheet.png';
+$fork_offset_x = 0px;
+$fork_offset_y = 0px;
+$fork_width = 32px;
+$fork_height = 32px;
+...
+$github_offset_x = -32px;
+$github_offset_y = 0px;
+$github_width = 32px;
+$github_height = 32px;
+...
 ```
 
 [fork-icon]: docs/fork.png
@@ -24,7 +31,7 @@ For cross-platform accessibility, [spritesmith][spritesmith] has and supports mu
 ### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
-[spritesmith][spritesmith] has been tested against `phantomjs@1.9.0`.
+[spritesmith][] has been tested against `phantomjs@1.9.0`.
 
 [phantomjs]: http://phantomjs.org/
 
@@ -48,9 +55,9 @@ The `gm` engine depends on [Graphics Magick][graphics-magick].
 
 [graphics-magick]: http://www.graphicsmagick.org/
 
-I have found it is best to install from the site rather than through a package manager (e.g. `apt-get`) to get the latest as well as without transparency issues.
+For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
 
-This module has been developed and tested against `1.3.17`.
+[spritesmith][] has been developed and tested against `1.3.17`.
 
 ## Getting Started
 Install `grunt-spritesmith` via npm: `npm install grunt-spritesmith`
