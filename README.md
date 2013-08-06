@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       all: {
         src: 'path/to/your/sprites/*.png',
         destImg: 'destination/of/spritesheet.png',
-        destCSS: 'destination/of/sprites.styl'
+        destCSS: 'destination/of/sprites.css'
       }
     }
   });
@@ -79,8 +79,19 @@ Files "spritesheet.png", "sprites.styl" created.
 Done, without errors.
 ```
 
-Inside of your stylesheets
+Results are a spritesheet and CSS:
 
+[![Spritesheet][spritesheet]][spritesheet] ![+][]
+
+```
+.icon-fork {
+  background-image: url(spritesheet.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+...
+```
 // TODO: Improve documentation on algorithms with visuals
 
 ## Usage
