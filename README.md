@@ -3,7 +3,7 @@ Grunt task for converting a set of images into a spritesheet and corresponding C
 
 [![Fork icon][fork-icon]][fork-icon] ![+][]
 [![GitHub icon][github-icon]][github-icon] ![+][]
-[![Twitter icon][twitter-icon]][twitter-icon] =
+[![Twitter icon][twitter-icon]][twitter-icon] ![=][]
 
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
 
@@ -21,6 +21,7 @@ $github_height = 32px;
 ```
 
 [+]: docs/add.png
+[=]: docs/equals.png
 [fork-icon]: docs/fork.png
 [github-icon]: docs/github.png
 [twitter-icon]: docs/twitter.png
