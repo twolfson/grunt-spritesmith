@@ -1,8 +1,8 @@
-#container .sprite3 {
+#container .sprite1 {
   background-image: url(sprite.png);
-  background-position: 0px -100px;
-  width: 100px;
-  height: 200px;
+  background-position: 0px 0px;
+  width: 50px;
+  height: 50px;
 }
 #container .sprite2 {
   background-image: url(sprite.png);
@@ -10,9 +10,9 @@
   width: 50px;
   height: 50px;
 }
-#container .sprite1 {
+#container .sprite3 {
   background-image: url(sprite.png);
-  background-position: 0px 0px;
-  width: 50px;
-  height: 50px;
+  background-position: 0px -100px;
+  width: 100px;
+  height: 200px;
 }
