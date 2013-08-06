@@ -156,7 +156,7 @@ grunt.initConfig({
 ### Algorithms
 |     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
 | ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
-| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+| [![top-down][top-down]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
 
 For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
 
