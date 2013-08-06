@@ -1,6 +1,6 @@
-.icon-fork {
+.icon-github {
   background-image: url(spritesheet.css.png);
-  background-position: 0px 0px;
+  background-position: 0px -32px;
   width: 32px;
   height: 32px;
 }
@@ -10,9 +10,9 @@
   width: 32px;
   height: 32px;
 }
-.icon-github {
+.icon-fork {
   background-image: url(spritesheet.css.png);
-  background-position: 0px -32px;
+  background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }

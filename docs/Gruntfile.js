@@ -17,31 +17,31 @@ module.exports = function (grunt) {
 
       'top-down': {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.top-down.png',
+        destImg: 'top-down.png',
         destCSS: 'top-down.css',
         algorithm: 'top-down'
       },
       'left-right': {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.left-right.png',
+        destImg: 'left-right.png',
         destCSS: 'left-right.css',
         algorithm: 'left-right'
       },
       'diagonal': {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.diagonal.png',
+        destImg: 'diagonal.png',
         destCSS: 'diagonal.css',
         algorithm: 'diagonal'
       },
       'alt-diagonal': {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.alt-diagonal.png',
+        destImg: 'alt-diagonal.png',
         destCSS: 'alt-diagonal.css',
         algorithm: 'alt-diagonal'
       },
       'binary-tree': {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.binary-tree.png',
+        destImg: 'binary-tree.png',
         destCSS: 'binary-tree.css',
         algorithm: 'binary-tree'
       },
