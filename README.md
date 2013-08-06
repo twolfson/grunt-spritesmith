@@ -3,9 +3,7 @@ Grunt task for converting a set of images into a spritesheet and corresponding C
 
 [![Fork icon][fork-icon]][fork-icon] ![+][]
 [![GitHub icon][github-icon]][github-icon] ![+][]
-[![Twitter icon][twitter-icon]][twitter-icon]
-
-=
+[![Twitter icon][twitter-icon]][twitter-icon] =
 
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
 
