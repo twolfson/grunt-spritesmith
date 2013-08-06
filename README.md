@@ -1,7 +1,7 @@
 # grunt-spritesmith
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
-[![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet] +
+| [![Fork icon][fork-icon]][fork-icon] | + | [![GitHub icon][github-icon]][github-icon] | + | [![Twitter icon][twitter-icon]][twitter-icon] | = | [![Spritesheet][spritesheet]][spritesheet] | + |
 
 ```stylus
 $fork_offset_x = 0px;
@@ -51,13 +51,24 @@ sudo npm install -g node-gyp
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
 
 ### gm (Graphics Magick / Image Magick)
-The `gm` engine depends on [Graphics Magick][graphics-magick].
+The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
 
 [graphics-magick]: http://www.graphicsmagick.org/
+[image-magick]: http://imagemagick.org/
 
 For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
 
 [spritesmith][] has been developed and tested against `1.3.17`.
+
+If you are using [Image Magick][image-magick], you must specify it in `engineOpts`
+
+```js
+{
+  'engineOpts': {
+    'imagemagick': true
+  }
+}
+```
 
 ## Getting Started
 Install `grunt-spritesmith` via npm: `npm install grunt-spritesmith`
