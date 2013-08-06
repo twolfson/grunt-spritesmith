@@ -1,7 +1,15 @@
 # grunt-spritesmith
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
-[![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet]
+[![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet] +
+
+```stylus
+```
+
+[fork-icon]: docs/fork.png
+[github-icon]: docs/github.png
+[twitter-icon]: docs/twitter.png
+[spritesheet]:
 
 ## Synopsis
 [Spritesmith](https://github.com/Ensighten/spritesmith) accepts a list of images, stiches them together, and returns that image along with a coordinate map of where each image is located and its dimensions.
