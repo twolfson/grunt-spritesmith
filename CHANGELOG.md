@@ -1,5 +1,7 @@
 # grunt-spritesmith changelog
-1.6.1 - Updated README to give more visual examples
+1.6.2 - Updated README to give more visual examples
+
+1.6.1 - Nothing happened
 
 1.6.0 - Updated to `spritesmith@0.11.0` for optimized padded spritesheets
 
