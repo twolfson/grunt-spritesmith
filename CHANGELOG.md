@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.6.1 - Updated README to give more visual examples
+
 1.6.0 - Updated to `spritesmith@0.11.0` for optimized padded spritesheets
 
 1.5.2 - Updating `repositories` field to `repository`
