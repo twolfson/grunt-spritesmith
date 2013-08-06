@@ -1,9 +1,7 @@
-grunt-spritesmith [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
-=================
-Grunt library for using [spritesmith](https://github.com/Ensighten/spritesmith), a spritesheet and CSS pre-processor utility.
+# grunt-spritesmith
+Grunt task for using [spritesmith](https://github.com/Ensighten/spritesmith), a spritesheet and CSS pre-processor utility.
 
-Synopsis
---------
+## Synopsis
 [Spritesmith](https://github.com/Ensighten/spritesmith) accepts a list of images, stiches them together, and returns that image along with a coordinate map of where each image is located and its dimensions.
 
 [Grunt](https://github.com/gruntjs/grunt/) is a node.js based CLI build tool.
@@ -12,8 +10,7 @@ Synopsis
 
 When you combine all three of these, you get a grunt plugin that makes maintaining sprites a breeze.
 
-Getting Started
----------------
+## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile](https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md) with: `npm install grunt-spritesmith`
 
 Then add this line to your project's `grunt.js` gruntfile:
@@ -22,8 +19,7 @@ Then add this line to your project's `grunt.js` gruntfile:
 grunt.loadNpmTasks('grunt-spritesmith');
 ```
 
-Requirements
-------------
+## Requirements
 Spritesmith supports multiple sprite engines however all of the current engines require external software to be installed.
 
 As a result, you must either have [PhantomJS][phantomjs], [Cairo](http://cairographics.org/), or [Graphics Magick](http://www.graphicsmagick.org/) installed for Spritesmith to run properly.
@@ -50,8 +46,7 @@ I have found it is best to install from the site rather than through a package m
 
 This module has been developed and tested against `1.3.17`.
 
-Usage
------
+## Usage
 ```js
 grunt.initConfig({
   'sprite': {
@@ -106,8 +101,15 @@ grunt.initConfig({
 });
 ```
 
-Contributing
-------------
+## Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
+[gittip]: https://www.gittip.com/twolfson/
+
+## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
 
 ### Algorithms
@@ -119,8 +121,7 @@ Engines and image options are maintained via [Ensighten/spritesmith](https://git
 ### CSS formats
 CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
 
-License
--------
-Copyright (c) 2012 Ensighten
+## License
+Copyright (c) 2012-2013 Ensighten
 
 Licensed under the MIT license.
