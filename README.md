@@ -1,7 +1,7 @@
 # grunt-spritesmith
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
-A folder of icons:
+A folder of icons processed by `grunt-spritesmith`:
 
 [![Fork icon][fork-icon]][fork-icon] ![+][]
 [![GitHub icon][github-icon]][github-icon] ![+][]
@@ -9,11 +9,11 @@ A folder of icons:
 
 ---
 
-Spritesheet:
+generates a spritesheet:
 
 [![Spritesheet][spritesheet]][spritesheet] ![+][]
 
-CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][]):
+and CSS variables (available in [CSS][], [JSON][], [SASS][], [SCSS][SASS], [LESS][], [Stylus][]):
 
 ```stylus
 $fork_offset_x = 0px;
@@ -40,8 +40,6 @@ $github_height = 32px;
 [SASS]: http://sass-lang.com/
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
-
-// TODO: Verify looks good
 
 ---
 
