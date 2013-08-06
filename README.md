@@ -4,57 +4,62 @@ Grunt task for converting a set of images into a spritesheet and corresponding C
 [![Fork icon][fork-icon]][fork-icon] + [![GitHub icon][github-icon]][github-icon] + [![Twitter icon][twitter-icon]][twitter-icon] = [![Spritesheet][spritesheet]][spritesheet] +
 
 ```stylus
+$github = 32px 0px -32px 0px 32px 32px 64px 64px 'spritesheet.png';
+$twitter = 0px 32px 0px -32px 32px 32px 64px 64px 'spritesheet.png';
+$fork = 0px 0px 0px 0px 32px 32px 64px 64px 'spritesheet.png';
 ```
 
 [fork-icon]: docs/fork.png
 [github-icon]: docs/github.png
 [twitter-icon]: docs/twitter.png
-[spritesheet]:
+[spritesheet]: docs/spritesheet.png
 
-## Synopsis
-[Spritesmith](https://github.com/Ensighten/spritesmith) accepts a list of images, stiches them together, and returns that image along with a coordinate map of where each image is located and its dimensions.
+`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
-[Grunt](https://github.com/gruntjs/grunt/) is a node.js based CLI build tool.
+## Requirements
+For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
 
-[json2css](https://github.com/twolfson/json2css) converts the output from [Spritesmith](https://github.com/Ensighten/spritesmith) and generates variables and helper functions for hooking into inside of your CSS pre-processor.
+[spritesmith]: https://github.com/Ensighten/spritesmith
 
-When you combine all three of these, you get a grunt plugin that makes maintaining sprites a breeze.
+### phantomjs
+The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
+
+[spritesmith][spritesmith] has been tested against `phantomjs@1.9.0`.
+
+[phantomjs]: http://phantomjs.org/
+
+### canvas
+The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
+
+Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
+
+Additionally, you will need to install [node-gyp][] for the C++ bindings.
+```shell
+sudo npm install -g node-gyp
+```
+
+[node-canvas]: https://github.com/learnboost/node-canvas
+[cairo]: http://cairographics.org/
+[node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-gyp]: https://github.com/TooTallNate/node-gyp/
+
+### gm (Graphics Magick / Image Magick)
+The `gm` engine depends on [Graphics Magick][graphics-magick].
+
+[graphics-magick]: http://www.graphicsmagick.org/
+
+I have found it is best to install from the site rather than through a package manager (e.g. `apt-get`) to get the latest as well as without transparency issues.
+
+This module has been developed and tested against `1.3.17`.
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile](https://github.com/gruntjs/grunt/blob/master/docs/getting_started.md) with: `npm install grunt-spritesmith`
+Install `grunt-spritesmith` via npm: `npm install grunt-spritesmith`
 
 Then add this line to your project's `grunt.js` gruntfile:
 
 ```javascript
 grunt.loadNpmTasks('grunt-spritesmith');
 ```
-
-## Requirements
-Spritesmith supports multiple sprite engines however all of the current engines require external software to be installed.
-
-As a result, you must either have [PhantomJS][phantomjs], [Cairo](http://cairographics.org/), or [Graphics Magick](http://www.graphicsmagick.org/) installed for Spritesmith to run properly.
-
-[phantomjs]: http://phantomjs.org/
-
-### PhantomJS
-This depends on having `phantomjs` installed on your machine. For installation instructions, visit [the website][phantomjs]. This module has been tested against `1.9.0`.
-
-### Cairo (node-canvas)
-Due to dependance on [node-canvas](https://github.com/learnboost/node-canvas), you must install [Cairo](http://cairographics.org/).
-
-Instructions on how to do this are provided in the [node-canvas wiki](https://github.com/LearnBoost/node-canvas/wiki/_pages).
-
-Additionally, you will need to install [node-gyp](https://github.com/TooTallNate/node-gyp/)
-```shell
-sudo npm install -g node-gyp
-```
-
-### Graphics Magick (gm)
-The alternative engine is [gm](https://github.com/aheckmann/gm) which runs on top of [Graphics Magick](http://www.graphicsmagick.org/).
-
-I have found it is best to install from the site rather than through a package manager (e.g. `apt-get`) to get the latest as well as without transparency issues.
-
-This module has been developed and tested against `1.3.17`.
 
 ## Usage
 ```js
