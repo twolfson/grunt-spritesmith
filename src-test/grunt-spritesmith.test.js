@@ -40,7 +40,7 @@ module.exports = {
         actualCoords = fs.readFileSync(__dirname + '/scratch/sprite_positions.json', 'utf8');
 
     // Make sure the outputs match
-    test.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
+    test.deepEqual(JSON.parse(actualCoords), JSON.parse(expectedCoords), 'Generated output doesn\'t match expected output.');
 
     // Callback since we are done testing
     test.done();
@@ -62,7 +62,7 @@ module.exports = {
         actualCoords = fs.readFileSync(__dirname + '/scratch/sprite_positions.overrides.styl', 'utf8');
 
     // Make sure the outputs match
-    test.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
+    test.deepEqual(JSON.parse(actualCoords), JSON.parse(expectedCoords), 'Generated output doesn\'t match expected output.');
 
     // Callback since we are done testing
     test.done();
