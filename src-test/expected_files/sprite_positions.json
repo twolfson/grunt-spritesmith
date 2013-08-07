@@ -18,7 +18,8 @@
             "width": "50px",
             "total_height": "300px",
             "total_width": "100px"
-        }
+        },
+        "escaped_image": "sprite.jpg"
     },
     "sprite2": {
         "width": 50,
@@ -39,7 +40,8 @@
             "width": "50px",
             "total_height": "300px",
             "total_width": "100px"
-        }
+        },
+        "escaped_image": "sprite.jpg"
     },
     "sprite3": {
         "width": 100,
@@ -60,6 +62,7 @@
             "width": "100px",
             "total_height": "300px",
             "total_width": "100px"
-        }
+        },
+        "escaped_image": "sprite.jpg"
     }
 }
