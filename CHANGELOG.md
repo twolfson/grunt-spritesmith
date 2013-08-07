@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.7.0 - Added sorting for consistency of generated stylesheets and less noise in version control
+
 1.6.2 - Updated README to give more visual examples
 
 1.6.1 - Nothing happened
