@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.8.0 - Moved to `json2css@4.1.0` for `jsonArray` template
+
 1.7.1 - Added documentation for overriding CSS selectors
 
 1.7.0 - Added sorting for consistency of generated stylesheets and less noise in version control
