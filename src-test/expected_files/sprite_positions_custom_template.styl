@@ -1,0 +1,53 @@
+$sprite-sprite1-x = 0px;
+$sprite-sprite1-y = 0px;
+$sprite-sprite1-offset-x = 0px;
+$sprite-sprite1-offset-y = 0px;
+$sprite-sprite1-width = 50px;
+$sprite-sprite1-height = 50px;
+$sprite-sprite1-total-width = 100px;
+$sprite-sprite1-total-height = 300px;
+$sprite-sprite1-image = 'sprite.png';
+$sprite-sprite1 = 0px 0px 0px 0px 50px 50px 100px 300px 'sprite.png';
+$sprite-sprite2-x = 0px;
+$sprite-sprite2-y = 50px;
+$sprite-sprite2-offset-x = 0px;
+$sprite-sprite2-offset-y = -50px;
+$sprite-sprite2-width = 50px;
+$sprite-sprite2-height = 50px;
+$sprite-sprite2-total-width = 100px;
+$sprite-sprite2-total-height = 300px;
+$sprite-sprite2-image = 'sprite.png';
+$sprite-sprite2 = 0px 50px 0px -50px 50px 50px 100px 300px 'sprite.png';
+$sprite-sprite3-x = 0px;
+$sprite-sprite3-y = 100px;
+$sprite-sprite3-offset-x = 0px;
+$sprite-sprite3-offset-y = -100px;
+$sprite-sprite3-width = 100px;
+$sprite-sprite3-height = 200px;
+$sprite-sprite3-total-width = 100px;
+$sprite-sprite3-total-height = 300px;
+$sprite-sprite3-image = 'sprite.png';
+$sprite-sprite3 = 0px 100px 0px -100px 100px 200px 100px 300px 'sprite.png';
+
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}

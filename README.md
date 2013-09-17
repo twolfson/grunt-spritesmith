@@ -129,6 +129,9 @@ grunt.initConfig({
           // (stylus, scss, sass, less, json, jsonArray, css)
       'cssFormat': 'json',
 
+      // OPTIONAL: Specify a Mustache template to use for destCSS; mutually exclusive to cssFormat
+      'cssTemplate': 'public/css/sprite_positions.styl.mustache',
+
       // OPTIONAL: Specify settings for engine
       'engineOpts': {
         'imagemagick': true
