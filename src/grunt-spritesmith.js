@@ -49,6 +49,7 @@ module.exports = function (grunt) {
         src = data.src,
         destImg = data.destImg,
         destCSS = data.destCSS,
+        cssTemplate = data.cssTemplate,
         that = this;
 
     // Verify all properties are here
@@ -121,10 +122,19 @@ module.exports = function (grunt) {
         cleanCoords.push(coords);
       });
 
+      var cssFormat = 'spritesmith-custom',
+          cssOptions = data.cssOpts || {};
+
+      // If there's a custom template, use it
+      if (cssTemplate) {
+        json2css.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+      } else {
+      // Otherwise, override the cssFormat and fallback to 'json'
+        cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
+      }
+
       // Render the variables via json2css
-      var cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json',
-          cssOptions = data.cssOpts || {},
-          cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
+      var cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
 
       // Write it out to the CSS file
       var destCSSDir = path.dirname(destCSS);
