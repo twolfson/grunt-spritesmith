@@ -4,8 +4,10 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
-before_install:
-  - sudo apt-get install phantomjs
+before_test:
+  - npm install grunt-cli
+test:
+  - npm test
 
 notifications:
   email: false
