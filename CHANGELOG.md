@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.10.1 - Relocated "Donating" section
+
 1.10.0 - Integrated Travis CI
 
 1.9.0 - Added `cssTemplate` option

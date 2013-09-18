@@ -182,14 +182,6 @@ The `diagonal` algorithm exists for you if you need it.
 [alt-diagonal]: docs/alt-diagonal.png
 [binary-tree]: docs/binary-tree.png
 
-## Donating
-Support this project and [others by twolfson][gittip] via [gittip][].
-
-[![Support via Gittip][gittip-badge]][gittip]
-
-[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
-[gittip]: https://www.gittip.com/twolfson/
-
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
 
@@ -260,6 +252,14 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
 [ubuntu-light]: http://font.ubuntu.com/
+
+## Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
+[gittip]: https://www.gittip.com/twolfson/
 
 ## License
 Copyright (c) 2012-2013 Ensighten
