@@ -3,6 +3,9 @@
   "version": "1.9.0",
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "scripts": {
     "test": "cd src-test && grunt"
   },
