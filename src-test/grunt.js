@@ -4,21 +4,21 @@ module.exports = function (grunt) {
     sprite: {
       'default': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
-        // src: 'test_sprites/*.{jpg,png}',
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        // src: 'test_files/*.{jpg,png}',
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions.styl'
       },
       'jpg,json': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
-        // src: 'test_sprites/*.{jpg,png}',
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        // src: 'test_files/*.{jpg,png}',
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.jpg',
         destCSS: 'scratch/sprite_positions.json',
         engine: 'gm'
       },
       'overrides': {
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.overrides.png',
         destCSS: 'scratch/sprite_positions.overrides.styl',
         cssFormat: 'json',
@@ -30,8 +30,8 @@ module.exports = function (grunt) {
       },
       'nested': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
-        // src: 'test_sprites/*.{jpg,png}',
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        // src: 'test_files/*.{jpg,png}',
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/nested/1/2/spritesheet.png',
         destCSS: 'scratch/3/4/sprite_positions.styl'
       },
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
         destCSS: 'scratch/empty/sprite_positions.json'
       },
       'css-opts': {
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/css_opts/sprite.png',
         destCSS: 'scratch/css_opts/sprite_positions.css',
         cssOpts: {
@@ -52,11 +52,11 @@ module.exports = function (grunt) {
       },
       'cssTemplate': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
-        // src: 'test_sprites/*.{jpg,png}',
-        src: ['test_sprites/sprite1.png','test_sprites/sprite2.jpg','test_sprites/sprite3.png'],
+        // src: 'test_files/*.{jpg,png}',
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions_custom_template.styl',
-        cssTemplate: 'test_template.mustache'
+        cssTemplate: 'test_files/template.mustache'
       }
     },
     test: {
