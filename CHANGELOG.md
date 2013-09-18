@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.10.0 - Integrated Travis CI
+
 1.9.0 - Added `cssTemplate` option
 
 1.8.0 - Moved to `json2css@4.1.0` for `jsonArray` template
