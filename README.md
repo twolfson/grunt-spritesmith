@@ -132,11 +132,12 @@ grunt.initConfig({
       // OPTIONAL: Specify a Mustache template to use for destCSS; mutually exclusive to cssFormat
       'cssTemplate': 'public/css/sprite_positions.styl.mustache',
 
-      // OPTIONAL: Map variable names of each sprite (default: filename sans extension)
-      'cssVarName': function (sprite) {
+      // OPTIONAL: Map variable of each sprite
+      'cssVarMap': function (sprite) {
         // `sprite` has `name`, `image` (full path), `x`, `y`
         //   `width`, `height`, `total_width`, `total_height`
-        return 'sprite-' + sprite.name;
+        // EXAMPLE: Prefix all sprite names with 'sprite-'
+        sprite.name = 'sprite-' + sprite.name;
       },
 
       // OPTIONAL: Specify settings for engine
