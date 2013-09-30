@@ -56,12 +56,12 @@ module.exports = function (grunt) {
         destCSS: 'scratch/sprite_positions_custom_template.styl',
         cssTemplate: 'test_files/template.mustache'
       },
-      'cssVarName': {
+      'cssVarMap': {
         src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
-        destCSS: 'scratch/css_var_name/sprite_positions.styl',
-        cssVarName: function (sprite) {
-          console.log(Object.keys(sprite));
+        destCSS: 'scratch/css_var_map/sprite_positions.styl',
+        cssVarMap: function (sprite) {
+          console.log(sprite.name.replace);
           return sprite.name.replace('sprite', 'icon');
         }
       }

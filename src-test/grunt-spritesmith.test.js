@@ -116,10 +116,10 @@ module.exports = {
     test.done();
   },
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
-  'cssVarName': function (test) {
+  'cssVarMap': function (test) {
     // Setup
-    var expectedCoords = fs.readFileSync(__dirname + '/expected_files/css_var_name/sprite_positions.styl', 'utf8'),
-        actualCoords = fs.readFileSync(__dirname + '/scratch/css_var_name/sprite_positions.styl', 'utf8');
+    var expectedCoords = fs.readFileSync(__dirname + '/expected_files/css_var_map/sprite_positions.styl', 'utf8'),
+        actualCoords = fs.readFileSync(__dirname + '/scratch/css_var_map/sprite_positions.styl', 'utf8');
 
     // Make sure the outputs match
     test.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
