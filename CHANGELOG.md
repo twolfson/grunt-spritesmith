@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.11.0 - Added `cssVarMap` option
+
 1.10.1 - Relocated "Donating" section
 
 1.10.0 - Integrated Travis CI
