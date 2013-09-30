@@ -95,6 +95,9 @@ module.exports = function (grunt) {
       var coordinates = result.coordinates,
           properties = result.properties,
           spritePath = data.imgPath || url.relative(destCSS, destImg),
+          getVarName = data.cssVarName || function defaultSpriteName (sprite) {
+            return sprite.name;
+          },
           cleanCoords = [];
 
       // Clean up the file name of the file
@@ -117,6 +120,9 @@ module.exports = function (grunt) {
         coords.image = spritePath;
         coords.total_width = properties.width;
         coords.total_height = properties.height;
+
+        // Map the coordinates through the getVarName
+        coords.name = getVarName(coords);
 
         // Save the cleaned name and coordinates
         cleanCoords.push(coords);
