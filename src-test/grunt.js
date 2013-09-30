@@ -51,12 +51,18 @@ module.exports = function (grunt) {
         }
       },
       'cssTemplate': {
-        // TODO: This order is forced due to png/jpg ordering. We should fix this.
-        // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions_custom_template.styl',
         cssTemplate: 'test_files/template.mustache'
+      },
+      'cssVarName': {
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
+        destImg: 'scratch/sprite.png',
+        destCSS: 'scratch/css_var_name/sprite_positions.styl',
+        cssVarName: function (sprite) {
+          return sprite.name.replace('sprite', 'icon');
+        }
       }
     },
     test: {
