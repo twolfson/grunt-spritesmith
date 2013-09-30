@@ -61,8 +61,7 @@ module.exports = function (grunt) {
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/css_var_map/sprite_positions.styl',
         cssVarMap: function (sprite) {
-          console.log(sprite.name.replace);
-          return sprite.name.replace('sprite', 'icon');
+          sprite.name = sprite.name.replace('sprite', 'icon');
         }
       }
     },
