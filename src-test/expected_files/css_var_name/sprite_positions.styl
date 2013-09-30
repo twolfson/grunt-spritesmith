@@ -1,18 +1,53 @@
-#container .sprite1 {
-  background-image: url(sprite.png);
-  background-position: 0px 0px;
-  width: 50px;
-  height: 50px;
+$icon1_x = 0px;
+$icon1_y = 0px;
+$icon1_offset_x = 0px;
+$icon1_offset_y = 0px;
+$icon1_width = 50px;
+$icon1_height = 50px;
+$icon1_total_width = 100px;
+$icon1_total_height = 300px;
+$icon1_image = '../sprite.png';
+$icon1 = 0px 0px 0px 0px 50px 50px 100px 300px '../sprite.png';
+$icon2_x = 0px;
+$icon2_y = 50px;
+$icon2_offset_x = 0px;
+$icon2_offset_y = -50px;
+$icon2_width = 50px;
+$icon2_height = 50px;
+$icon2_total_width = 100px;
+$icon2_total_height = 300px;
+$icon2_image = '../sprite.png';
+$icon2 = 0px 50px 0px -50px 50px 50px 100px 300px '../sprite.png';
+$icon3_x = 0px;
+$icon3_y = 100px;
+$icon3_offset_x = 0px;
+$icon3_offset_y = -100px;
+$icon3_width = 100px;
+$icon3_height = 200px;
+$icon3_total_width = 100px;
+$icon3_total_height = 300px;
+$icon3_image = '../sprite.png';
+$icon3 = 0px 100px 0px -100px 100px 200px 100px 300px '../sprite.png';
+
+spriteWidth($sprite) {
+  width: $sprite[4];
 }
-#container .sprite2 {
-  background-image: url(sprite.png);
-  background-position: 0px -50px;
-  width: 50px;
-  height: 50px;
+
+spriteHeight($sprite) {
+  height: $sprite[5];
 }
-#container .sprite3 {
-  background-image: url(sprite.png);
-  background-position: 0px -100px;
-  width: 100px;
-  height: 200px;
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
 }
