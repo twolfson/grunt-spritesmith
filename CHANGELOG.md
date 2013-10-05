@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.11.2 - Rearranged README sections
+
 1.11.1 - Added engine differences and errors to FAQ in README
 
 1.11.0 - Added `cssVarMap` option
