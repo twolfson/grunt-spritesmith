@@ -217,6 +217,8 @@ The `phantomjs` engine relies on having [phantomjs][] installed on your machine.
 
 [phantomjs]: http://phantomjs.org/
 
+Key differences: `phantomjs` is the most accessible engine
+
 ### canvas
 The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
 
@@ -231,6 +233,8 @@ sudo npm install -g node-gyp
 [cairo]: http://cairographics.org/
 [node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
+
+Key differences: `canvas` is the most performant (only makes at impact at over 100 sprites). However, it is `UNIX` only.
 
 ### gm (Graphics Magick / Image Magick)
 The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
@@ -251,6 +255,8 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
   }
 }
 ```
+
+Key differences: `gm` provides more options for export via `imgOpts`.
 
 ## Attribution
 [GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
