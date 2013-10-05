@@ -1,6 +1,6 @@
 {
   "name": "grunt-spritesmith",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "description": "Grunt library for using spritesmith",
   "main": "tasks/grunt-spritesmith.js",
   "engines": {
