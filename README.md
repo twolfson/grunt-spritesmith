@@ -191,18 +191,6 @@ The `diagonal` algorithm exists for you if you need it.
 [alt-diagonal]: docs/alt-diagonal.png
 [binary-tree]: docs/binary-tree.png
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
-
-### Algorithms
-Algorithms are maintained via [twolfson/layout](https://github.com/twolfson/layout). If you would like to add one, please submit it via a pull request.
-
-### Engines and image options
-Engines and image options are maintained via [Ensighten/spritesmith](https://github.com/Ensighten/spritesmith). If you would like to add one, please submit it via a pull request.
-
-### CSS formats
-CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
-
 ## Requirements
 For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
 
@@ -258,6 +246,22 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
 }
 ```
 
+## FAQs
+### I am seeing errors during installation.
+If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
+
+## Contributing
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
+
+### Algorithms
+Algorithms are maintained via [twolfson/layout](https://github.com/twolfson/layout). If you would like to add one, please submit it via a pull request.
+
+### Engines and image options
+Engines and image options are maintained via [Ensighten/spritesmith](https://github.com/Ensighten/spritesmith). If you would like to add one, please submit it via a pull request.
+
+### CSS formats
+CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
+
 ## Attribution
 [GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
 
@@ -269,10 +273,6 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
 [ubuntu-light]: http://font.ubuntu.com/
-
-## FAQs
-### I am seeing errors during installation.
-If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
