@@ -213,17 +213,16 @@ If you are running into issues, consult the [FAQ section](#faqs).
 ### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
-Key differences: `phantomjs` is the most accessible engine
+**Key differences:** `phantomjs` is the most accessible engine.
 
 [spritesmith][] has been tested against `phantomjs@1.9.0`.
 
 [phantomjs]: http://phantomjs.org/
 
-
 ### canvas
 The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
 
-Key differences: `canvas` has the best performance (only practical at over 100 sprites). However, it is `UNIX` only.
+**Key differences:** `canvas` has the best performance (useful for over 100 sprites). However, it is `UNIX` only.
 
 Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
 
@@ -237,11 +236,10 @@ sudo npm install -g node-gyp
 [node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
 
-
 ### gm (Graphics Magick / Image Magick)
 The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
 
-Key differences: `gm` provides more options for export via `imgOpts`.
+**Key differences:** `gm` has the most options for export via `imgOpts`.
 
 [graphics-magick]: http://www.graphicsmagick.org/
 [image-magick]: http://imagemagick.org/
@@ -259,7 +257,6 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
   }
 }
 ```
-
 
 ## Attribution
 [GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
