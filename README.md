@@ -49,6 +49,8 @@ $github_height = 32px;
 
 #### Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements]. ####
 
+*Errors may appear during installation for other engines. If `npm` exits normally, you are fine.*
+
 [requirements]: #requirements
 
 Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
