@@ -223,7 +223,7 @@ Key differences: `phantomjs` is the most accessible engine
 ### canvas
 The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
 
-Key differences: `canvas` is the most performant (only makes at impact at over 100 sprites). However, it is `UNIX` only.
+Key differences: `canvas` has the best performance (only practical at over 100 sprites). However, it is `UNIX` only.
 
 Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
 
