@@ -49,8 +49,6 @@ $github_height = 32px;
 
 #### Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements]. ####
 
-*Errors may appear during installation for other engines. If `npm` exits normally, you are fine.*
-
 [requirements]: #requirements
 
 Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
@@ -210,6 +208,8 @@ For cross-platform accessibility, [spritesmith][spritesmith] has and supports mu
 
 [spritesmith]: https://github.com/Ensighten/spritesmith
 
+If you are running into issues, consult the [FAQ section](#faqs).
+
 ### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
@@ -269,6 +269,10 @@ Key differences: `gm` provides more options for export via `imgOpts`.
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
 [ubuntu-light]: http://font.ubuntu.com/
+
+## FAQs
+### I am seeing errors during installation.
+If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
 
 ## Donating
 Support this project and [others by twolfson][gittip] via [gittip][].
