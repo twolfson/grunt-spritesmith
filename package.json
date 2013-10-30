@@ -1,7 +1,26 @@
 {
   "name": "grunt-spritesmith",
-  "version": "1.11.2",
   "description": "Grunt library for using spritesmith",
+  "version": "1.11.2",
+  "homepage": "https://github.com/Ensighten/grunt-spritesmith",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Ensighten/grunt-spritesmith.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ensighten/grunt-spritesmith/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Ensighten/grunt-spritesmith/blob/master/LICENSE-MIT"
+    }
+  ],
   "main": "tasks/grunt-spritesmith.js",
   "engines": {
     "node": ">= 0.8.0"
@@ -9,20 +28,6 @@
   "scripts": {
     "test": "cd src-test && grunt"
   },
-  "keywords": [
-    "grunt",
-    "gruntplugin",
-    "sprite",
-    "spritesheet",
-    "css",
-    "spritesmith",
-    "cross-platform"
-  ],
-  "author": {
-    "name": "Todd Wolfson",
-    "email": "todd@twolfson.com"
-  },
-  "license": "MIT",
   "dependencies": {
     "spritesmith": "~0.11.0",
     "json2css": "~4.1.0",
@@ -38,9 +43,13 @@
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Ensighten/grunt-spritesmith.git"
-  },
-  "bugs": "https://github.com/Ensighten/grunt-spritesmith/issues/"
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "sprite",
+    "spritesheet",
+    "css",
+    "spritesmith",
+    "cross-platform"
+  ]
 }
