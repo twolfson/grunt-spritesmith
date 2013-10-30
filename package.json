@@ -8,6 +8,25 @@
     "email": "todd@twolfson.com",
     "url": "http://twolfson.com/"
   },
+  "contributors": [{
+    "name": "dpolivy"
+  }, {
+    "name": "pdehaan",
+    "url": "http://about.me/peterdehaan"
+  }, {
+    "name": "MoOx",
+    "email": "github@moox.io",
+    "url": "http://moox.io/"
+  }, {
+    "name": "jasonsandmeyer",
+    "url": "http://jasonsandmeyer.com"
+  }, {
+    "name": "scanieso",
+    "email": "scanieso@gmail.com"
+  }, {
+    "name": "STuFF",
+    "email": "nchalleil@gmail.com"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/Ensighten/grunt-spritesmith.git"
