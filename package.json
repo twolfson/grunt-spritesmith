@@ -38,10 +38,9 @@
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0"
   },
-  "repository": [
-    {
-      "type": "git",
-      "url": "https://github.com/Ensighten/grunt-spritesmith.git"
-    }
-  ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ensighten/grunt-spritesmith.git"
+  },
+  "bugs": "https://github.com/Ensighten/grunt-spritesmith/issues/"
 }
