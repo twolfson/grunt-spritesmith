@@ -221,7 +221,7 @@ sudo npm install -g node-gyp
 
 [node-canvas]: https://github.com/learnboost/node-canvas
 [cairo]: http://cairographics.org/
-[node-canvas-wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
+[node-canvas-wiki]: https://github.com/LearnBoost/node-canvas/wiki/_pages
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
 
 ### gm (Graphics Magick / Image Magick)
