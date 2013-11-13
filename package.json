@@ -1,7 +1,7 @@
 {
   "name": "grunt-spritesmith",
   "description": "Grunt library for using spritesmith",
-  "version": "1.11.4",
+  "version": "1.12.0",
   "homepage": "https://github.com/Ensighten/grunt-spritesmith",
   "author": {
     "name": "Todd Wolfson",
