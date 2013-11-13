@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.12.0 - Upgraded to `spritesmith@0.12.1` to get reduced file size `phantomjssmith`
+
 1.11.4 - Fixed link in README
 
 1.11.3 - Corrected package.json and added `bugs`, `homepage`, and `contributors` fields
