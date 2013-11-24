@@ -55,7 +55,7 @@
     "test": "cd src-test && grunt"
   },
   "dependencies": {
-    "spritesmith": "~0.12.1",
+    "spritesmith": "~0.13.0",
     "json2css": "~4.1.0",
     "underscore": "~1.4.2",
     "url2": "*"
