@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.14.0 - Moved development grunt.js from grunt@0.3 to grunt@0.4. We are still supporting grunt@0.3 in the tests.
+
 1.13.0 - Upgraded to `spritesmith@0.13.0` to fix long URL bug in `phantomjssmith`
 
 1.12.0 - Upgraded to `spritesmith@0.12.1` to get reduced file size `phantomjssmith`
