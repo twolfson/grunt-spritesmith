@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.13.0 - Upgraded to `spritesmith@0.13.0` to fix long URL bug in `phantomjssmith`
+
 1.12.0 - Upgraded to `spritesmith@0.12.1` to get reduced file size `phantomjssmith`
 
 1.11.4 - Fixed link in README
