@@ -8,6 +8,4 @@ module.exports = function (grunt) {
   grunt.registerTask("default", "jshint");
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  grunt.loadTasks("tasks");
 };
