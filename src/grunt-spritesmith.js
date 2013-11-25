@@ -1,4 +1,5 @@
 var spritesmith = require('spritesmith'),
+    async = require('async'),
     json2css = require('json2css'),
     _ = require('underscore'),
     fs = require('fs'),
@@ -45,86 +46,112 @@ cssFormats.add('.css', 'css');
 module.exports = function (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
-    var data = this.data,
-        src = data.src,
-        destImg = data.destImg,
+    var data = this.options({}),
         destCSS = data.destCSS,
         cssTemplate = data.cssTemplate,
         that = this;
 
-    // Verify all properties are here
-    if (!src || !destImg || !destCSS) {
-      return grunt.fatal("grunt.sprite requires a src, destImg, and destCSS property");
+    // Verify all properties are here 
+    if (this.files.length === 0) {
+      return grunt.fatal("grunt.sprite requires files.");
     }
-
-    // Load in all images from the src
-    var srcFiles = grunt.file.expand(src);
+    if (!destCSS) {
+      return grunt.fatal('grunt.sprite requires a "destCSS" property.');
+    }
 
     // Create an async callback
     var cb = this.async();
 
-    // Determine the format of the image
-    var imgOpts = data.imgOpts || {},
-        imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
+    // A list of objects containing sprite coordinates.
+    var cleanCoords = [];
 
-    // Set up the defautls for imgOpts
-    _.defaults(imgOpts, {'format': imgFormat});
-
-    // Run through spritesmith
-    var spritesmithParams = {
-          'src': srcFiles,
-          'engine': data.engine || 'auto',
-          'algorithm': data.algorithm || 'top-down',
-          'padding': data.padding || 0,
-          'engineOpts': data.engineOpts || {},
-          'exportOpts': imgOpts
-        };
-    spritesmith(spritesmithParams, function (err, result) {
-      // If an error occurred, callback with it
-      if (err) {
-        grunt.fatal(err);
-        return cb(err);
+    // Process one entry from "this.files".  Write the destination image file
+    // and add items to cleanCoords.
+    var processFilesEntry = function(file, callback) {
+      if (!file.dest || file.src.length === 0) {
+        callback("missing 'dest' or 'src'");
+        return;
       }
 
-      // Otherwise, write out the result to destImg
-      var destImgDir = path.dirname(destImg);
-      grunt.file.mkdir(destImgDir);
-      fs.writeFileSync(destImg, result.image, 'binary');
+      // Determine the format of the image
+      var imgOpts = data.imgOpts || {},
+          imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
 
-      // Generate a listing of CSS variables
-      var coordinates = result.coordinates,
-          properties = result.properties,
-          spritePath = data.imgPath || url.relative(destCSS, destImg),
-          cssVarMap = data.cssVarMap || function noop () {},
-          cleanCoords = [];
+      // Set up the defautls for imgOpts
+      _.defaults(imgOpts, {'format': imgFormat});
 
-      // Clean up the file name of the file
-      Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
-        // Extract the image name (exlcuding extension)
-        var fullname = path.basename(file),
-            nameParts = fullname.split('.');
-
-        // If there is are more than 2 parts, pop the last one
-        if (nameParts.length >= 2) {
-          nameParts.pop();
+      // Run through spritesmith
+      var spritesmithParams = {
+        'src': file.src,
+        'engine': data.engine || 'auto',
+        'algorithm': data.algorithm || 'top-down',
+        'padding': data.padding || 0,
+        'engineOpts': data.engineOpts || {},
+        'exportOpts': imgOpts
+      };
+      var destImg = file.dest;
+      spritesmith(spritesmithParams, function (err, result) {
+        // If an error occurred, callback with it
+        if (err) {
+          grunt.fatal(err);
+          return callback(err);
         }
 
-        // Extract out our name
-        var name = nameParts.join('.'),
-            coords = coordinates[file];
+        // Otherwise, write out the result to destImg
+        var destImgDir = path.dirname(destImg);
+        grunt.file.mkdir(destImgDir);
+        fs.writeFileSync(destImg, result.image, 'binary');
 
-        // Specify the image for the sprite
-        coords.name = name;
-        coords.image = spritePath;
-        coords.total_width = properties.width;
-        coords.total_height = properties.height;
+        grunt.verbose.writeln('File "' + destImg + '" created.');
 
-        // Map the coordinates through cssVarMap
-        coords = cssVarMap(coords) || coords;
+        // Generate a listing of CSS variables
+        var coordinates = result.coordinates,
+            properties = result.properties,
+            spritePath = data.imgPath || url.relative(destCSS, destImg),
+            cssVarMap = data.cssVarMap || function noop () {};
 
-        // Save the cleaned name and coordinates
-        cleanCoords.push(coords);
+        // Clean up the file name of the file
+        Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
+          // Extract the image name (exlcuding extension)
+          var fullname = path.basename(file),
+              nameParts = fullname.split('.');
+
+          // If there is are more than 2 parts, pop the last one
+          if (nameParts.length >= 2) {
+            nameParts.pop();
+          }
+
+          // Extract out our name
+          var name = nameParts.join('.'),
+              coords = coordinates[file];
+
+          // Specify the image for the sprite
+          coords.name = name;
+          coords.image = spritePath;
+          coords.total_width = properties.width;
+          coords.total_height = properties.height;
+
+          // Map the coordinates through cssVarMap
+          coords = cssVarMap(coords) || coords;
+
+          // Save the cleaned name and coordinates
+          cleanCoords.push(coords);
+        });
+
+        callback(null);
       });
+    };
+
+    // Be very conservative with parallelization.
+    // Some of spritesmith engines blow up on file descriptor limits
+    // if the parallelization is high - particularly on MacOS which has
+    // an extremely low default file descriptor limit.
+    var parallelLimit = 2;
+    async.eachLimit(this.files, parallelLimit, processFilesEntry, function(err) {
+      if (err) {
+        grunt.fatal(err);
+        return cb(false);
+      }
 
       var cssFormat = 'spritesmith-custom',
           cssOptions = data.cssOpts || {};
@@ -136,6 +163,10 @@ module.exports = function (grunt) {
       // Otherwise, override the cssFormat and fallback to 'json'
         cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
       }
+
+      // Set a flag that mustache templates can use to know if this is the last item.
+      // This is useful when a template wants to emit comma-separated items.
+      cleanCoords[cleanCoords.length-1].last = true;
 
       // Render the variables via json2css
       var cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
@@ -149,9 +180,7 @@ module.exports = function (grunt) {
       if (that.errorCount) { cb(false); }
 
       // Otherwise, print a success message.
-      grunt.log.writeln('Files "' + destCSS + '", "' + destImg + '" created.');
-
-      // Callback
+      grunt.verbose.writeln('File "' + destCSS + '" created.');
       cb(true);
     });
   }
