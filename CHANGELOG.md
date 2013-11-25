@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.15.0 - Upgraded to `spritesmith@0.14.0` to fix `preinstall` script for imagemagick
+
 1.14.0 - Moved development grunt.js from grunt@0.3 to grunt@0.4. We are still supporting grunt@0.3 in the tests.
 
 1.13.0 - Upgraded to `spritesmith@0.13.0` to fix long URL bug in `phantomjssmith`
