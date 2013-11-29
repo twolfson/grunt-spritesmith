@@ -50,7 +50,15 @@ module.exports = function (grunt) {
           }
         }
       },
-      'cssTemplate': {
+      'cssFunctionTemplate': {
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
+        destImg: 'scratch/sprite.png',
+        destCSS: 'scratch/sprite_positions_custom_template.styl',
+        cssTemplate: function () {
+          console.log(arguments);
+        }
+      },
+      'cssMustacheTemplate': {
         src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions_custom_template.styl',
