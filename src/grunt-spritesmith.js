@@ -131,7 +131,11 @@ module.exports = function (grunt) {
 
       // If there's a custom template, use it
       if (cssTemplate) {
-        json2css.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+        if (typeof cssTemplate === 'function') {
+          json2css.addTemplate(cssFormat, cssTemplate);
+        } else {
+          json2css.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+        }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
         cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
