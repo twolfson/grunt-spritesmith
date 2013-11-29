@@ -130,7 +130,9 @@ grunt.initConfig({
           // (stylus, scss, sass, less, json, jsonArray, css)
       'cssFormat': 'json',
 
-      // OPTIONAL: Specify a Mustache template to use for destCSS; mutually exclusive to cssFormat
+      // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
+          // Mutually exclusive to cssFormat
+      // More information can be found below
       'cssTemplate': 'public/css/sprite_positions.styl.mustache',
 
       // OPTIONAL: Map variable of each sprite
