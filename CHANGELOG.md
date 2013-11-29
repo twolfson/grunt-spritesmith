@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.17.0 - Added support for `cssTemplate` as a function
+
 1.16.0 - Upgraded to `json2css@4.2.0` to fix SCSS template for libsass
 
 1.15.0 - Upgraded to `spritesmith@0.14.0` to fix `preinstall` script for imagemagick
