@@ -172,6 +172,27 @@ grunt.initConfig({
 });
 ```
 
+### Algorithms
+|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
+| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
+| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+
+For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
+
+[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
+
+If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
+
+If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
+
+The `diagonal` algorithm exists for you if you need it.
+
+[top-down]: docs/top-down.png
+[left-right]: docs/left-right.png
+[diagonal]: docs/diagonal.png
+[alt-diagonal]: docs/alt-diagonal.png
+[binary-tree]: docs/binary-tree.png
+
 ### cssTemplate
 The `cssTemplate` option allows for specification of a custom templating function or [`Mustache`][mustache.js] template to render your CSS.
 
@@ -239,27 +260,6 @@ An example sprite `item` is
   }
 }
 ```
-
-### Algorithms
-|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
-| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
-| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
-
-For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
-
-[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
-
-If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
-
-If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
-
-The `diagonal` algorithm exists for you if you need it.
-
-[top-down]: docs/top-down.png
-[left-right]: docs/left-right.png
-[diagonal]: docs/diagonal.png
-[alt-diagonal]: docs/alt-diagonal.png
-[binary-tree]: docs/binary-tree.png
 
 ## Requirements
 For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
