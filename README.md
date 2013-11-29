@@ -172,6 +172,74 @@ grunt.initConfig({
 });
 ```
 
+### cssTemplate
+The `cssTemplate` option allows for specification of a custom templating function or [`Mustache`][mustache.js] template to render your CSS.
+
+If you pass in a `Function`, it should have a signature of `function (params) {}` and return a `String`.
+
+If you pass in a `String`, we treat this as a path; reading in the file and rendering it via [mustache.js][]. The template will be passed the same `params` as in the `Function` case.
+
+> An example template is https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
+
+[mustache.js]: http://mustache.github.io/
+
+#### `params`
+`params` is an object with some normalization nicities from [`json2css`][], our default collection of templates.
+
+- params `Object`
+    - items `Object[]` - Array of sprite information
+      - name `String` - Name of the sprite file (sans extension)
+      - x `Number` - Horizontal position of sprite's left edge in spritesheet
+      - y `Number` - Vertical position of sprite's top edge in spritesheet
+      - width `Number` - Width of sprite
+      - height `Number` - Height of sprite
+      - total_width `Number` - Width of entire spritesheet
+      - total_height `Number` - Height of entire spritesheet
+      - image `String` - Relative URL path from CSS to spritesheet
+      - escaped_image `String` - URL encoded `image`
+      - offset_x `Number` - Negative value of `x`. Useful to `background-position`
+      - offset_y `Number` - Negative value of `y`. Useful to `background-position`
+      - px `Object` - Container for numeric values including `px`
+        - x `String` - `x` suffixed with `px`
+        - y `String` - `y` suffixed with `px`
+        - width `String` - `width` suffixed with `px`
+        - height `String` - `height` suffixed with `px`
+        - total_width `String` - `total_width` suffixed with `px`
+        - total_height `String` - `total_height` suffixed with `px`
+        - offset_x `String` - `offset_x` suffixed with `px`
+        - offset_y `String` - `offset_y` suffixed with `px`
+    - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
+
+[`json2css`]: https://github.com/twolfson/json2css
+
+An example sprite `item` is
+
+```js
+{
+  "name": "sprite2",
+  "x": 10,
+  "y": 20,
+  "width": 20,
+  "height": 30,
+  "total_width": 80,
+  "total_height": 100,
+  "image": "nested/dir/spritesheet.png",
+  "escaped_image": "nested/dir/spritesheet.png",
+  "offset_x": -10,
+  "offset_y": -20,
+  "px": {
+    "x": "10px",
+    "y": "20px",
+    "width": "20px",
+    "height": "30px",
+    "total_width": "80px",
+    "total_height": "100px",
+    "offset_x": "-10px",
+    "offset_y": "-20px"
+  }
+}
+```
+
 ### Algorithms
 |     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
 | ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
