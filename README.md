@@ -154,7 +154,7 @@ grunt.initConfig({
          'format': 'png',
 
          // gm only: Quality of image
-         'quality': 90
+         'quality': 90,
 
          // phantomjs only: Milliseconds to wait before terminating PhantomJS script
          'timeout': 10000
