@@ -153,8 +153,11 @@ grunt.initConfig({
          // Format of the image (inferred from destImg' extension by default) (jpg, png)
          'format': 'png',
 
-         // Quality of image (gm only)
+         // gm only: Quality of image
          'quality': 90
+
+         // phantomjs only: Milliseconds to wait before terminating PhantomJS script
+         'timeout': 10000
       },
 
       // OPTIONAL: Specify css options
