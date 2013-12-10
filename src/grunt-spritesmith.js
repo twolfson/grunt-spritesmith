@@ -115,6 +115,7 @@ module.exports = function (grunt) {
 
         // Specify the image for the sprite
         coords.name = name;
+        coords.file = file;
         coords.image = spritePath;
         coords.total_width = properties.width;
         coords.total_height = properties.height;
