@@ -241,7 +241,7 @@ An example sprite `item` is
 ```js
 {
   "name": "sprite2",
-  "file": "full/path/to/file.png"
+  "source_image": "path/to/original/sprite.png",
   "x": 10,
   "y": 20,
   "width": 20,
