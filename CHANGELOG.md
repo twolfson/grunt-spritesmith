@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.20.0 - Added `source_image` to data dump via github/wilson-lewis' work #59
+
 1.19.0 - Upgraded to `spritesmith@0.16.0` to support `giflib` for `canvassmith`
 
 1.18.0 - Upgraded to `spritesmith@0.15.0` to add `timeout` option for `phantomjssmith`
