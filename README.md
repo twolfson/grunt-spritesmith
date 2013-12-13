@@ -213,7 +213,6 @@ If you pass in a `String`, we treat this as a path; reading in the file and rend
 - params `Object`
     - items `Object[]` - Array of sprite information
       - name `String` - Name of the sprite file (sans extension)
-      - source_image `String` - Path to the original sprite file
       - x `Number` - Horizontal position of sprite's left edge in spritesheet
       - y `Number` - Vertical position of sprite's top edge in spritesheet
       - width `Number` - Width of sprite
@@ -222,6 +221,7 @@ If you pass in a `String`, we treat this as a path; reading in the file and rend
       - total_height `Number` - Height of entire spritesheet
       - image `String` - Relative URL path from CSS to spritesheet
       - escaped_image `String` - URL encoded `image`
+      - source_image `String` - Path to the original sprite file
       - offset_x `Number` - Negative value of `x`. Useful to `background-position`
       - offset_y `Number` - Negative value of `y`. Useful to `background-position`
       - px `Object` - Container for numeric values including `px`
@@ -242,7 +242,6 @@ An example sprite `item` is
 ```js
 {
   "name": "sprite2",
-  "source_image": "path/to/original/sprite.png",
   "x": 10,
   "y": 20,
   "width": 20,
@@ -251,6 +250,7 @@ An example sprite `item` is
   "total_height": 100,
   "image": "nested/dir/spritesheet.png",
   "escaped_image": "nested/dir/spritesheet.png",
+  "source_image": "path/to/original/sprite.png",
   "offset_x": -10,
   "offset_y": -20,
   "px": {
