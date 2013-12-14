@@ -278,6 +278,9 @@ The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interp
 
 **Key differences:** It requires no additional installation steps but you are limited to `.png` files for your source files.
 
+[`pngparse`]: https://github.com/darkskyapp/pngparse
+[`ndarrays`]: https://github.com/mikolalysenko/ndarray
+
 ### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
