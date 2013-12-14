@@ -47,7 +47,7 @@ $github_height = 32px;
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
-#### Before proceeding, verify you have [satisfied your preferred engine's requirements][requirements]. ####
+#### If you would like to use an engine with external dependencies, [verify you have satisfied its requirements][requirements]. ####
 
 [requirements]: #requirements
 
@@ -123,7 +123,7 @@ grunt.initConfig({
       // OPTIONAL: Specify padding between images
       'padding': 2,
 
-      // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm)
+      // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm, pngsmith)
       'engine': 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
@@ -273,10 +273,15 @@ For cross-platform accessibility, [spritesmith][spritesmith] has and supports mu
 
 If you are running into issues, consult the [FAQ section](#faqs).
 
+### pngsmith
+The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interpret images into [`ndarrays`][]. This requires no additional steps before installation.
+
+**Key differences:** It requires no additional installation steps but you are limited to `.png` files for your source files.
+
 ### phantomjs
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
-**Key differences:** `phantomjs` is the most accessible engine.
+**Key differences:** `phantomjs` is the easiest engine to install that supports all image formats.
 
 [spritesmith][] has been tested against `phantomjs@1.9.0`.
 
