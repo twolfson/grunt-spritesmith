@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.21.1 - Updated package.json description
+
 1.21.0 - Upgraded to `spritesmith@0.16.0` to add `pngsmith` engine, allowing external dependency-free installs
 
 1.20.0 - Added `source_image` to data dump via github/wilson-lewis' work #59
