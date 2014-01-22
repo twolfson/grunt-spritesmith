@@ -74,6 +74,7 @@
     "grunt",
     "gruntplugin",
     "sprite",
+    "image",
     "spritesheet",
     "css",
     "spritesmith",
