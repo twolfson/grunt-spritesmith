@@ -143,7 +143,9 @@ module.exports = function (grunt) {
       }
 
       // Render the variables via json2css
-      var cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
+      var options = {'format': cssFormat, 'formatOpts': cssOptions };
+      var context = {'spritePath': spritePath};
+      var cssStr = json2css(cleanCoords, options, context);
 
       // Write it out to the CSS file
       var destCSSDir = path.dirname(destCSS);
