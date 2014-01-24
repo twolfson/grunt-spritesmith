@@ -72,7 +72,14 @@ module.exports = function (grunt) {
         cssVarMap: function (sprite) {
           sprite.name = sprite.name.replace('sprite', 'icon');
         }
+      },
+      'spritePath': {
+        src: ['test_files/sprite1.png','test_files/sprite2.jpg','test_files/sprite3.png'],
+        destImg: 'scratch/sprite.png',
+        destCSS: 'scratch/sprite_path.styl',
+        cssTemplate: 'test_files/template-sprite-path.mustache'
       }
+
     },
     test: {
       all: '*.test.js'
