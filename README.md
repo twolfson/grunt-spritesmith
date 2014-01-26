@@ -333,6 +333,21 @@ If you are using [Image Magick][image-magick], you must specify it in `engineOpt
 ### I am seeing errors during installation.
 If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
 
+## `spritesmith` is saying my engine "could not be loaded"
+If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `grunt-spritesmith`.
+
+To remedy this, verify you have installed the appropriate set of requirements for your engine:
+
+https://github.com/Ensighten/grunt-spritesmith#requirements
+
+Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
+
+```bash
+npm install grunt-spritesmith
+```
+
+## `spritesmith` is saying "no spritesmith engine could be loaded for your machine"
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
 
