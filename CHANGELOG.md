@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.21.2 - Added FAQs for engine requirements
+
 1.21.1 - Updated package.json description
 
 1.21.0 - Upgraded to `spritesmith@0.16.0` to add `pngsmith` engine, allowing external dependency-free installs
