@@ -347,6 +347,19 @@ npm install grunt-spritesmith
 ```
 
 ### `spritesmith` is saying "no spritesmith engine could be loaded for your machine"
+If you are running `grunt-spritesmith` before `1.21.0`, then you have not satisfied any of the requirements for any of the engines *before* installing `grunt-spritesmith`. If you are running `1.21.0` or greater, then there is a bug and please open a new issue.
+
+> The current version of `grunt-spritesmith` can be determined via `npm ls grunt-spritesmith`.
+
+To remedy the issue before `1.21.0`, choose an engine and verify you have installed the appropriate set of requirements:
+
+https://github.com/Ensighten/grunt-spritesmith#requirements
+
+Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
+
+```bash
+npm install grunt-spritesmith
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
