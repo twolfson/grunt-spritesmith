@@ -278,6 +278,8 @@ The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interp
 
 **Key differences:** It requires no additional installation steps but you are limited to `.png` files for your source files.
 
+**Required Packages:** `pngsmith`
+
 [`pngparse`]: https://github.com/darkskyapp/pngparse
 [`ndarrays`]: https://github.com/mikolalysenko/ndarray
 
@@ -285,6 +287,8 @@ The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interp
 The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
 
 **Key differences:** `phantomjs` is the easiest engine to install that supports all image formats.
+
+**Required Packages:** `phantomjssmith`
 
 [spritesmith][] has been tested against `phantomjs@1.9.0`.
 
@@ -294,6 +298,8 @@ The `phantomjs` engine relies on having [phantomjs][] installed on your machine.
 The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
 
 **Key differences:** `canvas` has the best performance (useful for over 100 sprites). However, it is `UNIX` only.
+
+**Required Packages:** `canvassmith`
 
 Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
 
@@ -311,6 +317,8 @@ sudo npm install -g node-gyp
 The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
 
 **Key differences:** `gm` has the most options for export via `imgOpts`.
+
+**Required Packages:** `gmsmith`
 
 [graphics-magick]: http://www.graphicsmagick.org/
 [image-magick]: http://imagemagick.org/
