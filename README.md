@@ -319,7 +319,7 @@ For the best results, install from the site rather than through a package manage
 
 [spritesmith][] has been developed and tested against `1.3.17`.
 
-If you are using [Image Magick][image-magick], you must specify it in `engineOpts`
+[Image Magick][image-magick] is implicitly discovered. However, you can explicitly use it via `engineOpts`
 
 ```js
 {
