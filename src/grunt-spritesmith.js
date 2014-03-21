@@ -73,7 +73,7 @@ module.exports = function (grunt) {
     // Run through spritesmith
     var spritesmithParams = {
           'src': srcFiles,
-          'engine': data.engine || 'auto',
+          'engine': data.engine,
           'algorithm': data.algorithm || 'top-down',
           'padding': data.padding || 0,
           'engineOpts': data.engineOpts || {},
