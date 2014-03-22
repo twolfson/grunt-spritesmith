@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.23.0 - Locked down version of `url2` to `1.0.0` to prevent semver issues. Via @ajohnstone in #74
+
 1.22.0 - Upgraded to `spritesmith@0.18.0` to update `gmsmith`, allowing for implicit `imagemagick` detection
 
 1.21.2 - Added FAQs for engine requirements
