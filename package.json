@@ -58,7 +58,7 @@
     "spritesmith": "~0.18.0",
     "json2css": "~4.2.0",
     "underscore": "~1.4.2",
-    "url2": "*"
+    "url2": "1.0.0"
   },
   "_devDependencies": {
     "grunt": "~0.3.12",
