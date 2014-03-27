@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.24.0 - Upgraded to `json2css@4.3.0` to pick up `scss_maps` template
+
 1.23.0 - Locked down version of `url2` to `1.0.0` to prevent semver issues. Via @ajohnstone in #74
 
 1.22.0 - Upgraded to `spritesmith@0.18.0` to update `gmsmith`, allowing for implicit `imagemagick` detection
