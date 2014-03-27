@@ -127,7 +127,7 @@ grunt.initConfig({
       'engine': 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
-          // (stylus, scss, sass, less, json, jsonArray, css)
+          // (stylus, scss, scss_maps, sass, less, json, json_array, css)
       'cssFormat': 'json',
 
       // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
