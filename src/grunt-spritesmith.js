@@ -3,7 +3,9 @@ var spritesmith = require('spritesmith'),
     _ = require('underscore'),
     fs = require('fs'),
     path = require('path'),
-    url = require('url2');
+    url = require('url2'),
+    crypto = require('crypto'),
+    grunt = require('grunt');
 
 function ExtFormat() {
   this.formatObj = {};
@@ -23,6 +25,40 @@ ExtFormat.prototype = {
     return format;
   }
 };
+
+function bustSpriteCache(filename, spritePath, opts) {
+  var extension  = path.extname(filename),
+      newFilename = filename;
+
+  if(opts.rename) {
+    if(!grunt.file.exists(filename)) {
+        grunt.log.warn('Static asset "' + filename + '" skipped because it wasn\'t found.');
+        return false;
+    }
+
+    var hash = generateHash(grunt.file.read(filename));
+
+    // Create our new filename
+    newFilename = filename.replace(extension, '') +'_'+ hash + extension;
+
+    // Create our new file
+    grunt.file.copy(filename, newFilename);
+
+    // Delete the original file
+    grunt.file.delete(filename);
+    spritePath = spritePath.replace(extension, '') +'_'+ hash + extension;
+  } else {
+    spritePath = spritePath + '?' + generateHash(grunt.file.read(filename));
+  }
+  return {
+    spritePath: spritePath,
+    destImg: newFilename
+  };
+}
+
+function generateHash(fileData) {
+  return crypto.createHash('md5').update(fileData, 'utf8').digest('hex').substring(0, 16);
+}
 
 // Create img and css formats
 var imgFormats = new ExtFormat(),
@@ -95,9 +131,24 @@ module.exports = function (grunt) {
       var coordinates = result.coordinates,
           properties = result.properties,
           spritePath = data.imgPath || url.relative(destCSS, destImg),
+          cacheBust = data.cacheBust || false,
+          cacheBustOpts,
           cssVarMap = data.cssVarMap || function noop () {},
           cleanCoords = [];
 
+      if(cacheBust) {
+        cacheBustOpts = data.cacheBustOpts || {};
+        cacheBustOpts = {
+          baseDir: destImgDir,
+          encoding: cacheBustOpts.encoding || 'utf8',
+          algorithm: cacheBustOpts.algorithm || 'md5',
+          length: cacheBustOpts.length || 16,
+          rename: cacheBustOpts.rename || false
+        };
+        var cacheBustResult = bustSpriteCache(destImg, spritePath, cacheBustOpts);
+        destImg = cacheBustResult.destImg;
+        spritePath = cacheBustResult.spritePath;
+      }
       // Clean up the file name of the file
       Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
         // Extract the image name (exlcuding extension)
