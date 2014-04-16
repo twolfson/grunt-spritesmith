@@ -143,6 +143,12 @@ grunt.initConfig({
         sprite.name = 'sprite-' + sprite.name;
       },
 
+      // OPTIONAL: Specify settings for algorithm
+      'algorithmOpts': {
+        // Skip sorting of images for algorithm (useful for sprite animations)
+        'sort': false
+      },
+
       // OPTIONAL: Specify settings for engine
       'engineOpts': {
         'imagemagick': true
