@@ -127,7 +127,7 @@ grunt.initConfig({
       'engine': 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
-          // (stylus, scss, sass, less, json, jsonArray, css)
+          // (stylus, scss, scss_maps, sass, less, json, json_array, css)
       'cssFormat': 'json',
 
       // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
@@ -141,6 +141,12 @@ grunt.initConfig({
         //   `width`, `height`, `total_width`, `total_height`
         // EXAMPLE: Prefix all sprite names with 'sprite-'
         sprite.name = 'sprite-' + sprite.name;
+      },
+
+      // OPTIONAL: Specify settings for algorithm
+      'algorithmOpts': {
+        // Skip sorting of images for algorithm (useful for sprite animations)
+        'sort': false
       },
 
       // OPTIONAL: Specify settings for engine

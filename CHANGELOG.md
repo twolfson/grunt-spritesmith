@@ -1,4 +1,12 @@
 # grunt-spritesmith changelog
+1.26.0 - Upgraded to `spritesmith@0.19.0` and added `algorithmOpts` to allow for skipping image sorting
+
+1.25.0 - Upgraded to `json2css@4.4.0` to pick up `scss_maps` height fix
+
+1.24.0 - Upgraded to `json2css@4.3.0` to pick up `scss_maps` template
+
+1.23.0 - Locked down version of `url2` to `1.0.0` to prevent semver issues. Via @ajohnstone in #74
+
 1.22.0 - Upgraded to `spritesmith@0.18.0` to update `gmsmith`, allowing for implicit `imagemagick` detection
 
 1.21.2 - Added FAQs for engine requirements

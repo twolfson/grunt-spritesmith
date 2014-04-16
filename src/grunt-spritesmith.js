@@ -76,6 +76,7 @@ module.exports = function (grunt) {
           'engine': data.engine,
           'algorithm': data.algorithm || 'top-down',
           'padding': data.padding || 0,
+          'algorithmOpts': data.algorithmOpts || {},
           'engineOpts': data.engineOpts || {},
           'exportOpts': imgOpts
         };

@@ -1,7 +1,7 @@
 {
   "name": "grunt-spritesmith",
   "description": "Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.",
-  "version": "1.22.0",
+  "version": "1.26.0",
   "homepage": "https://github.com/Ensighten/grunt-spritesmith",
   "author": {
     "name": "Todd Wolfson",
@@ -56,9 +56,9 @@
   },
   "dependencies": {
     "spritesmith": "git://github.com/michaek/spritesmith.git#feature/engine-object-param",
-    "json2css": "~4.2.0",
+    "json2css": "~4.4.0",
     "underscore": "~1.4.2",
-    "url2": "*"
+    "url2": "1.0.0"
   },
   "_devDependencies": {
     "grunt": "~0.3.12",
