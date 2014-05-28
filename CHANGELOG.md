@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+1.26.1 - Fixed `node@0.8` for Travis CI
+
 1.26.0 - Upgraded to `spritesmith@0.19.0` and added `algorithmOpts` to allow for skipping image sorting
 
 1.25.0 - Upgraded to `json2css@4.4.0` to pick up `scss_maps` height fix

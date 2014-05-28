@@ -8,6 +8,7 @@ matrix:
     - node_js: "0.11"
 
 before_install:
+  - npm install npm@latest -g
   - sudo apt-get install graphicsmagick -y
 before_script:
   - npm install grunt-cli
