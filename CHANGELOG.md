@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.1.0 - Upgraded to `json2css@5.2.0` for useful CSS comments
+
 2.0.0 - Upgraded to `json2css@5.0.0` to pick up `scss_maps` corrections
 
 1.26.1 - Fixed `node@0.8` for Travis CI
