@@ -76,7 +76,6 @@ module.exports = function (grunt) {
           'engine': data.engine || 'auto',
           'algorithm': data.algorithm || 'top-down',
           'padding': data.padding || 0,
-          'algorithmOpts': data.algorithmOpts || {},
           'engineOpts': data.engineOpts || {},
           'exportOpts': imgOpts
         };
@@ -142,6 +141,67 @@ module.exports = function (grunt) {
       // Otherwise, override the cssFormat and fallback to 'json'
         cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
       }
+
+      var statesRegExp = function() {
+       return RegExp('(.*)[-:_](link|visited|hover|active)$', 'gi');
+      };
+
+      var isEqualsNames = function(name) {
+       return RegExp('(' + name + ')[-:_](link|visited|hover|active)$', 'gi');
+      };
+
+      var stateCosts = {
+          link: 4,
+          visited: 3,
+          hover: 2,
+          active: 1
+        },
+        tempCleanCoords = [],
+        tempArr,
+        cleanObj,
+        cleanObjName,
+        nameData;
+
+      //sort cleanCoords by states => link > visited > hover > active
+      for (var i = 0; i < cleanCoords.length; i++) {
+        cleanObj = cleanCoords[i];
+        nameData = statesRegExp().exec(cleanObj.name);
+
+        if (cleanObj.used) {
+          continue;
+        }
+
+        if (nameData) {
+          tempArr = [];
+          tempArr.push(cleanObj);
+          cleanObjName = nameData[1];
+          cleanObj.used = true;
+          cleanObj.state = nameData[2];
+          cleanObj.stateCost = stateCosts[nameData[2]];
+
+          for (var j = i + 1; j < cleanCoords.length; j++) {
+            nameData = isEqualsNames(cleanObjName).exec(cleanCoords[j].name);
+            if (nameData && !cleanCoords[j].used) {
+              tempArr.push(cleanCoords[j]);
+              cleanCoords[j].used = true;
+              cleanCoords[j].state = nameData[2];
+              cleanCoords[j].stateCost = stateCosts[nameData[2]];
+            }
+          }
+
+          tempArr.sort( function(a, b) {
+            return a.stateCost < b.stateCost;
+          });
+
+          tempArr.forEach(function(item) {
+            tempCleanCoords.push(item)
+          });
+        } else {
+          tempCleanCoords.push(cleanObj);
+        }
+      }
+
+      cleanCoords = tempCleanCoords;
 
       // Render the variables via json2css
       var cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
