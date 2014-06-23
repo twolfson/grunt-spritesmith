@@ -43,8 +43,8 @@ $github_height = 32px;
 ### Cross-platform support
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
-### Do you love this project?
-[Support us via gittip][gittip].
+### Find `grunt-spritesmith` useful?
+[Support us via gittip][gittip]
 
 [gittip]: https://www.gittip.com/twolfson/
 
