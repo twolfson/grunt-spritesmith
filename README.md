@@ -44,6 +44,12 @@ $github_height = 32px;
 
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
+### Gulp version
+The same level of functionality for [gulp][] is available via [gulp.spritesmith][].
+
+[gulp]: http://gulpjs.com/
+[gulp.spritesmith]: https://github.com/twolfson/gulp.spritesmith
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
