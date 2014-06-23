@@ -49,6 +49,14 @@ The same level of functionality for [gulp][] is available via [gulp.spritesmith]
 [gulp]: http://gulpjs.com/
 [gulp.spritesmith]: https://github.com/twolfson/gulp.spritesmith
 
+### Donating
+Support this project and [others by twolfson][gittip] via [gittip][].
+
+[![Support via Gittip][gittip-badge]][gittip]
+
+[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
+[gittip]: https://www.gittip.com/twolfson/
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
@@ -395,14 +403,6 @@ CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/j
 [noun-fork-icon]: http://thenounproject.com/noun/fork/#icon-No2813
 [onori]: http://thenounproject.com/somerandomdude
 [ubuntu-light]: http://font.ubuntu.com/
-
-## Donating
-Support this project and [others by twolfson][gittip] via [gittip][].
-
-[![Support via Gittip][gittip-badge]][gittip]
-
-[gittip-badge]: https://rawgithub.com/twolfson/gittip-badge/master/dist/gittip.png
-[gittip]: https://www.gittip.com/twolfson/
 
 ## License
 Copyright (c) 2012-2013 Ensighten
