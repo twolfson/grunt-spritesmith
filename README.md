@@ -43,11 +43,11 @@ $github_height = 32px;
 ### Cross-platform support
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
-### Do you love `grunt-spritesmith`?
-Support us via [gittip][gittip] or [flattr][flattr]
+### Do you like `grunt-spritesmith`?
+[Support us via gittip][gittip] or [spread word on Twitter][twitter]
 
 [gittip]: https://www.gittip.com/twolfson/
-[flattr]: https://flattr.com/submit/auto?user_id=twolfsn&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&title=Ensighten%2Fgrunt-spritesmith%20on%20Github&description=Grunt%20task%20for%20converting%20a%20set%20of%20images%20into%20a%20spritesheet%20and%20corresponding%20CSS%20variables&tags=github,repository,javascript,grunt,spritesmith&category=software
+[twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
