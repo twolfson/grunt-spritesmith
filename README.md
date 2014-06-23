@@ -41,7 +41,6 @@ $github_height = 32px;
 [Stylus]: http://learnboost.github.com/stylus/
 
 ### Cross-platform support
-
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
 ### Gulp version
