@@ -405,6 +405,6 @@ CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/j
 [ubuntu-light]: http://font.ubuntu.com/
 
 ## License
-Copyright (c) 2012-2013 Ensighten
+Copyright (c) 2012-2014 Ensighten
 
 Licensed under the MIT license.
