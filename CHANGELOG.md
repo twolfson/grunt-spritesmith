@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.1.2 - Corrected task output accuracy via @lightningtgc in #91
+
 2.1.1 - Updated README format
 
 2.1.0 - Upgraded to `json2css@5.2.0` for useful CSS comments
