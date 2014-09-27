@@ -80,7 +80,7 @@ Run the `grunt sprite` task:
 ```bash
 $ grunt sprite
 Running "sprite:all" (sprite) task
-Files "spritesheet.png", "sprites.styl" created.
+Files "destination/of/spritesheet.png", "destination/of/sprites.css" created.
 
 Done, without errors.
 ```
