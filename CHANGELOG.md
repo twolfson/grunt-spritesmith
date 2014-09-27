@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.1.3 - Fixed `npm` and `node@0.8` issue in Travis CI
+
 2.1.2 - Corrected task output accuracy via @lightningtgc in #91
 
 2.1.1 - Updated README format
