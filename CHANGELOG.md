@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.2.0 - Upgraded to `spritesmith@0.20.0` to pick up `phantomjssmith's` JPEG support
+
 2.1.3 - Fixed `npm` and `node@0.8` issue in Travis CI
 
 2.1.2 - Corrected task output accuracy via @lightningtgc in #91
