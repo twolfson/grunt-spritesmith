@@ -8,12 +8,16 @@ matrix:
     - node_js: "0.11"
 
 before_install:
-  - npm install npm@1.x.x -g
-  - sudo apt-get install graphicsmagick -y
-before_script:
-  - npm install grunt-cli
-script:
-  - npm test
+  # Upgrade npm to avoid semver issues
+  - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
+
+install:
+  # Install gmsmith dependencies
+  - sudo apt-get update -y
+  - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ -y
+
+  # Install node modules
+  - npm install
 
 notifications:
   email: false
