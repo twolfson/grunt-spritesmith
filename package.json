@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "json2css": "~5.2.0",
-    "spritesmith": "~0.20.0",
+    "spritesmith": "~1.0.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
   },
