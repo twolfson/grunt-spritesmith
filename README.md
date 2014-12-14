@@ -57,11 +57,7 @@ We have moved to `binary-tree` as the default `algorithm`. We changed this to gi
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
-#### If you would like to use an engine with external dependencies, [verify you have satisfied its requirements][requirements]. ####
-
-[requirements]: #requirements
-
-Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
+Then, add and configure it to your `Gruntfile.js`:
 
 ```js
 module.exports = function (grunt) {
@@ -90,9 +86,11 @@ Files "destination/of/spritesheet.png", "destination/of/sprites.css" created.
 Done, without errors.
 ```
 
-Results are a spritesheet and CSS:
+Results are a spritesheet:
 
 [![Spritesheet][spritesheet]][spritesheet]
+
+and CSS:
 
 ```
 .icon-fork {
