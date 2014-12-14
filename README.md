@@ -44,9 +44,9 @@ $github_height = 32px;
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
 ### Do you like `grunt-spritesmith`?
-[Support us via gittip][gittip] or [spread word on Twitter][twitter]
+[Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
 
-[gittip]: https://www.gittip.com/twolfson/
+[gratipay]: https://gratipay.com/twolfson/
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
 ## Getting Started
@@ -373,7 +373,7 @@ npm install grunt-spritesmith
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt/) and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
 ### Algorithms
 Algorithms are maintained via [twolfson/layout](https://github.com/twolfson/layout). If you would like to add one, please submit it via a pull request.
