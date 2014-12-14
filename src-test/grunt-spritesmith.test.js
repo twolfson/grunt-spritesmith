@@ -1,8 +1,11 @@
+// Load in dependencies
 var fs = require('fs');
+
+// Set up default variables
 var expectedDir = __dirname + '/expected_files/';
 var actualDir = __dirname + '/scratch/';
 
-module.exports = {
+// Start our tests
   'default': function (test) {
     // Load in the images
     // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
