@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.4.2 - Moved from `nodeunit` to `mocha` for testing, leading to more granular/reusable tests.
+
 2.4.1 - Removed unused `grunt-contrib-jshint` dependency
 
 2.4.0 - Dropped `grunt@0.3` support
