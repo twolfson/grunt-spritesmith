@@ -72,14 +72,14 @@ module.exports = function (grunt) {
 
     // Run through spritesmith
     var spritesmithParams = {
-          'src': srcFiles,
-          'engine': data.engine || 'auto',
-          'algorithm': data.algorithm || 'top-down',
-          'padding': data.padding || 0,
-          'algorithmOpts': data.algorithmOpts || {},
-          'engineOpts': data.engineOpts || {},
-          'exportOpts': imgOpts
-        };
+      src: srcFiles,
+      engine: data.engine || 'auto',
+      algorithm: data.algorithm || 'top-down',
+      padding: data.padding || 0,
+      algorithmOpts: data.algorithmOpts || {},
+      engineOpts: data.engineOpts || {},
+      exportOpts: imgOpts
+    };
     spritesmith(spritesmithParams, function (err, result) {
       // If an error occurred, callback with it
       if (err) {
@@ -144,7 +144,7 @@ module.exports = function (grunt) {
       }
 
       // Render the variables via json2css
-      var cssStr = json2css(cleanCoords, {'format': cssFormat, 'formatOpts': cssOptions});
+      var cssStr = json2css(cleanCoords, {format: cssFormat, formatOpts: cssOptions});
 
       // Write it out to the CSS file
       var destCSSDir = path.dirname(destCSS);
