@@ -44,7 +44,7 @@ cssFormats.add('.less', 'less');
 cssFormats.add('.json', 'json');
 cssFormats.add('.css', 'css');
 
-module.exports = function (grunt) {
+module.exports = function gruntSpritesmith (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
     var data = this.data;
