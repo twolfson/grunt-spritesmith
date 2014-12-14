@@ -55,7 +55,7 @@
     "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
     "lint": "twolfson-style lint docs/ src/ src-test/ tasks/",
     "pretest": "twolfson-style install",
-    "test": "npm run precheck && grunt clean && cd src-test/ && grunt sprite && cd .. && mocha src-test/ --reporter dot && npm run lint"
+    "test": "npm run precheck && grunt clean && mocha src-test/ --reporter dot && npm run lint"
   },
   "dependencies": {
     "json2css": "~5.2.0",
@@ -70,6 +70,7 @@
     "jscs": "~1.8.1",
     "jshint": "~2.5.10",
     "mocha": "~1.21.5",
+    "shell-quote": "~1.4.2",
     "twolfson-style": "~1.6.0"
   },
   "keywords": [

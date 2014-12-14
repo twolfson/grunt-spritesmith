@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         destImg: 'scratch/empty/sprite.png',
         destCSS: 'scratch/empty/sprite_positions.json'
       },
-      'css-opts': {
+      cssOpts: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/css_opts/sprite.png',
         destCSS: 'scratch/css_opts/sprite_positions.css',

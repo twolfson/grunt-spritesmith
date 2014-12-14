@@ -1,6 +1,7 @@
 // Load in dependencies
 var assert = require('assert');
 var fs = require('fs');
+var gruntUtils = require('./utils/grunt');
 
 // Set up default variables
 var expectedDir = __dirname + '/expected_files/';
@@ -9,6 +10,8 @@ var actualDir = __dirname + '/scratch/';
 // Start our tests
 describe('grunt-spritesmith', function () {
   describe('converting a set of images', function () {
+    gruntUtils.runTask('sprite:basic');
+
     it('generates an image', function () {
       // Load in the images
       // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
@@ -36,6 +39,8 @@ describe('grunt-spritesmith', function () {
   });
 
   describe('generating a jpg and JSON', function () {
+    gruntUtils.runTask('sprite:jpg,json');
+
     it('generates a jpg', function () {
       // Load in the images
       // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
@@ -61,6 +66,8 @@ describe('grunt-spritesmith', function () {
   });
 
   describe('running a task using overrides', function () {
+    gruntUtils.runTask('sprite:overrides');
+
     it('generates an image', function () {
       // Load in the images
       // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
@@ -86,6 +93,8 @@ describe('grunt-spritesmith', function () {
   });
 
   describe('generating an image in a nested location', function () {
+    gruntUtils.runTask('sprite:nested');
+
     // TODO: Not entirely sure about the name of this test
     it('resolves a collapsed path', function () {
       // Load in the coordinates and extract the path to the sprite file
@@ -101,6 +110,8 @@ describe('grunt-spritesmith', function () {
 describe('grunt-spritesmith', function () {
   // DEV: This is for testing an edge case -- don't let this strawman you in maintenance.
   describe('running a task with no images', function () {
+    gruntUtils.runTask('sprite:empty');
+
     it('generates an empty image', function () {
       var img = fs.readFileSync(actualDir + 'empty/sprite.png', 'binary');
       assert.strictEqual(img, '');
@@ -114,6 +125,8 @@ describe('grunt-spritesmith', function () {
 
   // DEV: This is testing an edge case. CSS options are not critical for module functionality.
   describe('running a task with css options', function () {
+    gruntUtils.runTask('sprite:cssOpts');
+
     it('uses the new selector', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'css_opts/sprite_positions.css', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'css_opts/sprite_positions.css', 'utf8');
@@ -123,6 +136,8 @@ describe('grunt-spritesmith', function () {
 
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
   describe('running a task with a custom template function', function () {
+    gruntUtils.runTask('sprite:cssFunctionTemplate');
+
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions_custom_function_template.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions_custom_function_template.styl', 'utf8');
@@ -132,6 +147,8 @@ describe('grunt-spritesmith', function () {
 
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
   describe('running a task with a custom mustache template', function () {
+    gruntUtils.runTask('sprite:cssMustacheTemplate');
+
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions_custom_mustache_template.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions_custom_mustache_template.styl', 'utf8');
@@ -141,6 +158,8 @@ describe('grunt-spritesmith', function () {
 
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
   describe('running a task with custom CSS variable names', function () {
+    gruntUtils.runTask('sprite:cssVarMap');
+
     it('uses the new variable names', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'css_var_map/sprite_positions.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'css_var_map/sprite_positions.styl', 'utf8');
