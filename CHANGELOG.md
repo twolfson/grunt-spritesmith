@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.4.1 - Removed unused `grunt-contrib-jshint` dependency
+
 2.4.0 - Dropped `grunt@0.3` support
 
 2.3.3 - Fixed race condition in Travis CI
