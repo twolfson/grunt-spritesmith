@@ -23,7 +23,7 @@ describe('grunt-spritesmith', function () {
       // Load in the images and compare them
       getPixels(actualDir + 'sprite.png', function handleActualPixels (err, actualImage) {
         if (err) { return done(err); }
-        getPixels(expectedDir + 'sprite.png', function handleExpectedPixels (err, expectedImage) {
+        getPixels(expectedDir + 'canvas.png', function handleExpectedPixels (err, expectedImage) {
           if (err) { return done(err); }
           assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
           done();
