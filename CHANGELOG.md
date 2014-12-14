@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.3.2 - Fixed broken regression in Travis CI
+
 2.3.1 - Fixed up Travis CI configuration
 
 2.3.0 - Moved to `twolfson-style` to make code consistent
