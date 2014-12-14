@@ -81,6 +81,7 @@ module.exports = function (grunt) {
 
   // Load in our tasks
   grunt.loadTasks('../tasks'); // grunt-spritesmith
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Override default task
