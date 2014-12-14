@@ -6,6 +6,7 @@ var quote = require('shell-quote').quote;
 exports.runTask = function (task) {
   before(function runTask (done) {
     // Relocate to test directory
+    var previousDir = process.cwd();
     process.chdir(__dirname + '/../');
 
     // Execute the cmd and task combination
@@ -15,6 +16,9 @@ exports.runTask = function (task) {
       that.err = err;
       that.stdout = stdout;
       that.stderr = stderr;
+
+      // Move back to the previous directory
+      process.chdir(previousDir);
 
       // Callback
       done();

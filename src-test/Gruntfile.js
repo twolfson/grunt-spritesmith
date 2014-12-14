@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
   grunt.initConfig({
     sprite: {
-      'default': {
+      basic: {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
