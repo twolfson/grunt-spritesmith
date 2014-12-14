@@ -7,7 +7,7 @@
         "x": 0,
         "y": 0,
         "source_image": "test_files/sprite1.png",
-        "image": "sprite.jpg",
+        "image": "sprite.basic.jpg",
         "offset_x": 0,
         "offset_y": 0,
         "px": {
@@ -20,7 +20,7 @@
             "total_height": "300px",
             "total_width": "100px"
         },
-        "escaped_image": "sprite.jpg"
+        "escaped_image": "sprite.basic.jpg"
     },
     "sprite2": {
         "width": 50,
@@ -30,7 +30,7 @@
         "x": 0,
         "y": 50,
         "source_image": "test_files/sprite2.jpg",
-        "image": "sprite.jpg",
+        "image": "sprite.basic.jpg",
         "offset_x": 0,
         "offset_y": -50,
         "px": {
@@ -43,7 +43,7 @@
             "total_height": "300px",
             "total_width": "100px"
         },
-        "escaped_image": "sprite.jpg"
+        "escaped_image": "sprite.basic.jpg"
     },
     "sprite3": {
         "width": 100,
@@ -53,7 +53,7 @@
         "x": 0,
         "y": 100,
         "source_image": "test_files/sprite3.png",
-        "image": "sprite.jpg",
+        "image": "sprite.basic.jpg",
         "offset_x": 0,
         "offset_y": -100,
         "px": {
@@ -66,6 +66,6 @@
             "total_height": "300px",
             "total_width": "100px"
         },
-        "escaped_image": "sprite.jpg"
+        "escaped_image": "sprite.basic.jpg"
     }
 }
