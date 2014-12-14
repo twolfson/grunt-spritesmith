@@ -10,7 +10,7 @@ module.exports = {
         matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
 
     // Assert they are equal
-    test.ok(actualImage, 'Actual image does not match expected image');
+    test.ok(matchesImage, 'Actual image does not match expected image');
 
     // Load in the sprite positions
     // TODO: If this were BDD, we would be asserting the same variables exist -- which means loading this into either Stylus or a meta-language
@@ -26,12 +26,10 @@ module.exports = {
   'jpg,json': function (test) {
     // Load in the images
     // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there (i.e. are the images 90% similar)
-    var expectedCanvasImage = fs.readFileSync(__dirname + '/expected_files/canvas.jpg', 'binary'),
-        expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.jpg', 'binary'),
-        actualImage = fs.readFileSync(__dirname + '/scratch/sprite.jpg', 'binary'),
-        matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
+    var actualImage = fs.readFileSync(__dirname + '/scratch/sprite.jpg', 'binary');
 
     // Assert they are equal
+    // TODO: Perform more accurate assertion
     test.ok(actualImage, 'Actual image does not match expected image');
 
     // Load in the sprite positions
@@ -48,12 +46,10 @@ module.exports = {
   'overrides': function (test) {
     // Load in the images
     // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there (i.e. are the images 90% similar)
-    var expectedCanvasImage = fs.readFileSync(__dirname + '/expected_files/canvas.overrides.png', 'binary'),
-        expectedGmImage = fs.readFileSync(__dirname + '/expected_files/gm.overrides.png', 'binary'),
-        actualImage = fs.readFileSync(__dirname + '/scratch/sprite.overrides.png', 'binary'),
-        matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
+    var actualImage = fs.readFileSync(__dirname + '/scratch/sprite.overrides.png', 'binary');
 
     // Assert they are equal
+    // TODO: Perform more accurate assertion
     test.ok(actualImage, 'Actual image does not match expected image');
 
     // Load in the sprite positions

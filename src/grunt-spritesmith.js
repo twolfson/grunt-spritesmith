@@ -54,7 +54,7 @@ module.exports = function (grunt) {
 
     // Verify all properties are here
     if (!src || !destImg || !destCSS) {
-      return grunt.fatal("grunt.sprite requires a src, destImg, and destCSS property");
+      return grunt.fatal('grunt.sprite requires a src, destImg, and destCSS property');
     }
 
     // Load in all images from the src
