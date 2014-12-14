@@ -11,10 +11,10 @@ function ExtFormat() {
   this.formatObj = {};
 }
 ExtFormat.prototype = {
-  'add': function (name, val) {
+  add: function (name, val) {
     this.formatObj[name] = val;
   },
-  'get': function (filepath) {
+  get: function (filepath) {
     // Grab the extension from the filepath
     var ext = path.extname(filepath);
     var lowerExt = ext.toLowerCase();
@@ -66,11 +66,11 @@ module.exports = function (grunt) {
     var cb = this.async();
 
     // Determine the format of the image
-    var imgOpts = data.imgOpts || {},
-        imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
+    var imgOpts = data.imgOpts || {};
+    var imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
 
     // Set up the defautls for imgOpts
-    _.defaults(imgOpts, {'format': imgFormat});
+    _.defaults(imgOpts, {format: imgFormat});
 
     // Run through spritesmith
     var spritesmithParams = {
@@ -130,8 +130,8 @@ module.exports = function (grunt) {
         cleanCoords.push(coords);
       });
 
-      var cssFormat = 'spritesmith-custom',
-          cssOptions = data.cssOpts || {};
+      var cssFormat = 'spritesmith-custom';
+      var cssOptions = data.cssOpts || {};
 
       // If there's a custom template, use it
       if (cssTemplate) {
