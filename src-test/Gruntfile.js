@@ -5,15 +5,15 @@ module.exports = function (grunt) {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.png',
-        destCSS: 'scratch/sprite_positions.styl'
+        destImg: 'scratch/sprite.basic.png',
+        destCSS: 'scratch/sprite_positions.basic.styl'
       },
       'jpg,json': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.jpg',
-        destCSS: 'scratch/sprite_positions.json',
+        destImg: 'scratch/sprite.basic.jpg',
+        destCSS: 'scratch/sprite_positions.basic.json',
         // Use top-down to make maintenance easier
         algorithm: 'top-down'
       },
@@ -37,13 +37,13 @@ module.exports = function (grunt) {
       },
       empty: {
         src: [],
-        destImg: 'scratch/empty/sprite.png',
-        destCSS: 'scratch/empty/sprite_positions.json'
+        destImg: 'scratch/sprite.empty.png',
+        destCSS: 'scratch/sprite_positions.empty.json'
       },
       cssOpts: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/css_opts/sprite.png',
-        destCSS: 'scratch/css_opts/sprite_positions.css',
+        destImg: 'scratch/sprite.cssOpts.png',
+        destCSS: 'scratch/sprite_positions.cssOpts.css',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssOpts: {
@@ -54,8 +54,8 @@ module.exports = function (grunt) {
       },
       cssFunctionTemplate: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.png',
-        destCSS: 'scratch/sprite_positions_custom_function_template.styl',
+        destImg: 'scratch/sprite.cssFunctionTemplate.png',
+        destCSS: 'scratch/sprite_positions.cssFunctionTemplate.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: function (data) {
@@ -65,16 +65,16 @@ module.exports = function (grunt) {
       },
       cssMustacheTemplate: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.png',
-        destCSS: 'scratch/sprite_positions_custom_mustache_template.styl',
+        destImg: 'scratch/sprite.cssMustacheTemplate.png',
+        destCSS: 'scratch/sprite_positions.cssMustacheTemplate.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: 'test_files/template.mustache'
       },
       cssVarMap: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.png',
-        destCSS: 'scratch/css_var_map/sprite_positions.styl',
+        destImg: 'scratch/sprite.cssVarMap.png',
+        destCSS: 'scratch/sprite_positions.cssVarMap.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssVarMap: function (sprite) {

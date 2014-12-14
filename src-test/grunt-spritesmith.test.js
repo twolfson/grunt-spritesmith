@@ -21,9 +21,9 @@ describe('grunt-spritesmith', function () {
 
     it('generates an image', function (done) {
       // Load in the images and compare them
-      getPixels(actualDir + 'sprite.png', function handleActualPixels (err, actualImage) {
+      getPixels(actualDir + 'sprite.basic.png', function handleActualPixels (err, actualImage) {
         if (err) { return done(err); }
-        getPixels(expectedDir + 'canvas.png', function handleExpectedPixels (err, expectedImage) {
+        getPixels(expectedDir + 'pixelsmith.basic.png', function handleExpectedPixels (err, expectedImage) {
           if (err) { return done(err); }
           assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
           done();
@@ -34,8 +34,8 @@ describe('grunt-spritesmith', function () {
     it('generates CSS variables', function () {
       // Load in the sprite positions
       // TODO: Assert the same variables exist -- which means loading this into either Stylus or a meta-language
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.basic.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.basic.styl', 'utf8');
 
       // Make sure the outputs match
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
@@ -47,7 +47,7 @@ describe('grunt-spritesmith', function () {
 
     it('generates a jpg', function () {
       // Load in the images
-      var actualImage = fs.readFileSync(actualDir + 'sprite.jpg', 'binary');
+      var actualImage = fs.readFileSync(actualDir + 'sprite.basic.jpg', 'binary');
 
       // Assert they are equal
       // TODO: Perform more accurate assertion (currently skipped due to being a JPG)
@@ -56,8 +56,8 @@ describe('grunt-spritesmith', function () {
 
     it('generates JSON', function () {
       // Load in the sprite positions
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.json', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.json', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.basic.json', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.basic.json', 'utf8');
 
       // Make sure the outputs match
       assert.deepEqual(JSON.parse(actualCoords), JSON.parse(expectedCoords),
@@ -109,12 +109,12 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:empty');
 
     it('generates an empty image', function () {
-      var img = fs.readFileSync(actualDir + 'empty/sprite.png', 'binary');
+      var img = fs.readFileSync(actualDir + 'sprite.empty.png', 'binary');
       assert.strictEqual(img, '');
     });
 
     it('generates no coordinates', function () {
-      var coords = fs.readFileSync(actualDir + 'empty/sprite_positions.json', 'utf8');
+      var coords = fs.readFileSync(actualDir + 'sprite_positions.empty.json', 'utf8');
       assert.strictEqual(coords, '{}');
     });
   });
@@ -124,8 +124,8 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssOpts');
 
     it('uses the new selector', function () {
-      var expectedCoords = fs.readFileSync(expectedDir + 'css_opts/sprite_positions.css', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'css_opts/sprite_positions.css', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssOpts.css', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssOpts.css', 'utf8');
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });
@@ -135,8 +135,8 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssFunctionTemplate');
 
     it('uses the template', function () {
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions_custom_function_template.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions_custom_function_template.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssFunctionTemplate.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssFunctionTemplate.styl', 'utf8');
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });
@@ -146,8 +146,8 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssMustacheTemplate');
 
     it('uses the template', function () {
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions_custom_mustache_template.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions_custom_mustache_template.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssMustacheTemplate.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssMustacheTemplate.styl', 'utf8');
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });
@@ -157,8 +157,8 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssVarMap');
 
     it('uses the new variable names', function () {
-      var expectedCoords = fs.readFileSync(expectedDir + 'css_var_map/sprite_positions.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'css_var_map/sprite_positions.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssVarMap.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssVarMap.styl', 'utf8');
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });
