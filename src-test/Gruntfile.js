@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    clean: ['scratch/'],
     sprite: {
       'default': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
@@ -73,17 +72,12 @@ module.exports = function (grunt) {
           sprite.name = sprite.name.replace('sprite', 'icon');
         }
       }
-    },
-    nodeunit: {
-      all: '*.test.js'
     }
   });
 
-  // Load in our tasks
-  grunt.loadTasks('../tasks'); // grunt-spritesmith
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  // Load in grunt-spritesmith
+  grunt.loadTasks('../tasks');
 
   // Override default task
-  grunt.registerTask('default', ['clean', 'sprite', 'nodeunit']);
+  grunt.registerTask('default', ['sprite']);
 };
