@@ -58,7 +58,7 @@ $github_height = 32px;
 
 Then, add and configure it to your grunt file (`grunt.js` or `Gruntfile.js` depending on your version):
 
-```javascript
+```js
 module.exports = function (grunt) {
   // Configure grunt
   grunt.initConfig({
@@ -106,42 +106,42 @@ Results are a spritesheet and CSS:
 
 ```js
 grunt.initConfig({
-  'sprite': {
-    'all': {
+  sprite: {
+    all: {
       // Sprite files to read in
-      'src': ['public/images/sprites/*.png'],
+      src: ['public/images/sprites/*.png'],
 
       // Location to output spritesheet
-      'destImg': 'public/images/sprite.png',
+     destImg: 'public/images/sprite.png',
 
       // Stylus with variables under sprite names
-      'destCSS': 'public/css/sprite_positions.styl',
+      destCSS: 'public/css/sprite_positions.styl',
 
       // OPTIONAL: Manual override for imgPath specified in CSS
-      'imgPath': '../sprite.png',
+      imgPath: '../sprite.png',
 
       // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format],
           // alt-diagonal [/ format], binary-tree [best packing])
       // Visual representations can be found below
-      'algorithm': 'alt-diagonal',
+      algorithm: 'alt-diagonal',
 
       // OPTIONAL: Specify padding between images
-      'padding': 2,
+      padding: 2,
 
       // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm, pngsmith)
-      'engine': 'canvas',
+      engine: 'canvas',
 
       // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
           // (stylus, scss, scss_maps, sass, less, json, json_array, css)
-      'cssFormat': 'json',
+      cssFormat: 'json',
 
       // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
           // Mutually exclusive to cssFormat
       // More information can be found below
-      'cssTemplate': 'public/css/sprite_positions.styl.mustache',
+      cssTemplate: 'public/css/sprite_positions.styl.mustache',
 
       // OPTIONAL: Map variable of each sprite
-      'cssVarMap': function (sprite) {
+      cssVarMap: function (sprite) {
         // `sprite` has `name`, `image` (full path), `x`, `y`
         //   `width`, `height`, `total_width`, `total_height`
         // EXAMPLE: Prefix all sprite names with 'sprite-'
@@ -149,35 +149,35 @@ grunt.initConfig({
       },
 
       // OPTIONAL: Specify settings for algorithm
-      'algorithmOpts': {
+      algorithmOpts: {
         // Skip sorting of images for algorithm (useful for sprite animations)
-        'sort': false
+        sort: false
       },
 
       // OPTIONAL: Specify settings for engine
-      'engineOpts': {
-        'imagemagick': true
+      engineOpts: {
+        imagemagick: true
       },
 
       // OPTIONAL: Specify img options
-      'imgOpts': {
+      imgOpts: {
          // Format of the image (inferred from destImg' extension by default) (jpg, png)
-         'format': 'png',
+         format: 'png',
 
          // gm only: Quality of image
-         'quality': 90,
+         quality: 90,
 
          // phantomjs only: Milliseconds to wait before terminating PhantomJS script
-         'timeout': 10000
+         timeout: 10000
       },
 
       // OPTIONAL: Specify css options
-      'cssOpts': {
+      cssOpts: {
         // Some templates allow for skipping of function declarations
-        'functions': false,
+        functions: false,
 
         // CSS template allows for overriding of CSS selectors
-        'cssClass': function (item) {
+        cssClass: function (item) {
           return '.sprite-' + item.name;
         }
       }
@@ -334,8 +334,8 @@ For the best results, install from the site rather than through a package manage
 
 ```js
 {
-  'engineOpts': {
-    'imagemagick': true
+  engineOpts: {
+    imagemagick: true
   }
 }
 ```
