@@ -1,10 +1,12 @@
-var spritesmith = require('spritesmith'),
-    json2css = require('json2css'),
-    _ = require('underscore'),
-    fs = require('fs'),
-    path = require('path'),
-    url = require('url2');
+// Load in dependencies
+var fs = require('fs');
+var path = require('path');
+var _ = require('underscore');
+var json2css = require('json2css');
+var spritesmith = require('spritesmith');
+var url = require('url2');
 
+// Define class to contain different extension handlers
 function ExtFormat() {
   this.formatObj = {};
 }
@@ -14,19 +16,19 @@ ExtFormat.prototype = {
   },
   'get': function (filepath) {
     // Grab the extension from the filepath
-    var ext = path.extname(filepath),
-        lowerExt = ext.toLowerCase();
+    var ext = path.extname(filepath);
+    var lowerExt = ext.toLowerCase();
 
     // Look up the file extenion from our format object
-    var formatObj = this.formatObj,
-        format = formatObj[lowerExt];
+    var formatObj = this.formatObj;
+    var format = formatObj[lowerExt];
     return format;
   }
 };
 
 // Create img and css formats
-var imgFormats = new ExtFormat(),
-    cssFormats = new ExtFormat();
+var imgFormats = new ExtFormat();
+var cssFormats = new ExtFormat();
 
 // Add our img formats
 imgFormats.add('.png', 'png');
@@ -45,12 +47,12 @@ cssFormats.add('.css', 'css');
 module.exports = function (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
-    var data = this.data,
-        src = data.src,
-        destImg = data.destImg,
-        destCSS = data.destCSS,
-        cssTemplate = data.cssTemplate,
-        that = this;
+    var data = this.data;
+    var src = data.src;
+    var destImg = data.destImg;
+    var destCSS = data.destCSS;
+    var cssTemplate = data.cssTemplate;
+    var that = this;
 
     // Verify all properties are here
     if (!src || !destImg || !destCSS) {
@@ -93,17 +95,17 @@ module.exports = function (grunt) {
       fs.writeFileSync(destImg, result.image, 'binary');
 
       // Generate a listing of CSS variables
-      var coordinates = result.coordinates,
-          properties = result.properties,
-          spritePath = data.imgPath || url.relative(destCSS, destImg),
-          cssVarMap = data.cssVarMap || function noop () {},
-          cleanCoords = [];
+      var coordinates = result.coordinates;
+      var properties = result.properties;
+      var spritePath = data.imgPath || url.relative(destCSS, destImg);
+      var cssVarMap = data.cssVarMap || function noop () {};
+      var cleanCoords = [];
 
       // Clean up the file name of the file
       Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
         // Extract the image name (exlcuding extension)
-        var fullname = path.basename(file),
-            nameParts = fullname.split('.');
+        var fullname = path.basename(file);
+        var nameParts = fullname.split('.');
 
         // If there is are more than 2 parts, pop the last one
         if (nameParts.length >= 2) {
@@ -111,8 +113,8 @@ module.exports = function (grunt) {
         }
 
         // Extract out our name
-        var name = nameParts.join('.'),
-            coords = coordinates[file];
+        var name = nameParts.join('.');
+        var coords = coordinates[file];
 
         // Specify the image for the sprite
         coords.name = name;
