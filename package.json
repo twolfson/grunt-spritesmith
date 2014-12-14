@@ -69,6 +69,7 @@
     "jscs": "~1.8.1",
     "jshint": "~2.5.10",
     "mocha": "~1.21.5",
+    "rimraf": "~2.2.8",
     "shell-quote": "~1.4.2",
     "twolfson-style": "~1.6.0"
   },

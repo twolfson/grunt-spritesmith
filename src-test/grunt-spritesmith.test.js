@@ -1,11 +1,17 @@
 // Load in dependencies
 var assert = require('assert');
 var fs = require('fs');
+var rimraf = require('rimraf');
 var gruntUtils = require('./utils/grunt');
 
 // Set up default variables
 var expectedDir = __dirname + '/expected_files/';
 var actualDir = __dirname + '/scratch/';
+
+// Clean up output directory
+before(function cleanupActualDir (done) {
+  rimraf(actualDir, done);
+});
 
 // Start our tests
 describe('grunt-spritesmith', function () {
