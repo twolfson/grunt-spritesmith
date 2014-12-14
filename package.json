@@ -52,8 +52,8 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "precheck": "twolfson-style precheck src/ src-test/",
-    "lint": "twolfson-style lint src/ src-test/",
+    "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
+    "lint": "twolfson-style lint docs/ src/ src-test/ tasks/",
     "pretest": "twolfson-style install",
     "test": "npm run precheck && cd src-test && grunt && cd .. && npm run lint"
   },

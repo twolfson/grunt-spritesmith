@@ -27,7 +27,7 @@ module.exports = function (grunt) {
         destCSS: 'left-right.css',
         algorithm: 'left-right'
       },
-      'diagonal': {
+      diagonal: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         destImg: 'diagonal.png',
         destCSS: 'diagonal.css',
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         destImg: 'binary-tree.png',
         destCSS: 'binary-tree.css',
         algorithm: 'binary-tree'
-      },
+      }
     }
   });
 
