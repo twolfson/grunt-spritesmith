@@ -14,7 +14,8 @@ module.exports = function (grunt) {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/sprite.jpg',
         destCSS: 'scratch/sprite_positions.json',
-        engine: 'gm'
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down'
       },
       overrides: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
@@ -25,7 +26,7 @@ module.exports = function (grunt) {
           format: 'jpg'
         },
         algorithm: 'alt-diagonal',
-        engine: 'gm'
+        engine: 'gmsmith'
       },
       nested: {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
@@ -43,6 +44,8 @@ module.exports = function (grunt) {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/css_opts/sprite.png',
         destCSS: 'scratch/css_opts/sprite_positions.css',
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down',
         cssOpts: {
           cssClass: function (item) {
             return '#container .' + item.name;
@@ -53,6 +56,8 @@ module.exports = function (grunt) {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions_custom_function_template.styl',
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down',
         cssTemplate: function (data) {
           // Stringify only the first item
           return JSON.stringify(data.items[0], null, 4);
@@ -62,12 +67,16 @@ module.exports = function (grunt) {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/sprite_positions_custom_mustache_template.styl',
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down',
         cssTemplate: 'test_files/template.mustache'
       },
       cssVarMap: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         destImg: 'scratch/sprite.png',
         destCSS: 'scratch/css_var_map/sprite_positions.styl',
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down',
         cssVarMap: function (sprite) {
           sprite.name = sprite.name.replace('sprite', 'icon');
         }
