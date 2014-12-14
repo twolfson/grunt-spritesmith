@@ -52,7 +52,10 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "cd src-test && grunt"
+    "precheck": "twolfson-style precheck src/ src-test/",
+    "lint": "twolfson-style lint src/ src-test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run precheck && cd src-test && grunt && cd .. && npm run lint"
   },
   "dependencies": {
     "json2css": "~5.2.0",
@@ -68,7 +71,10 @@
     "grunt": "~0.4.2",
     "grunt-contrib-nodeunit": "~0.1.2",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-jshint": "~0.7.2"
+    "grunt-contrib-jshint": "~0.7.2",
+    "jscs": "~1.8.1",
+    "jshint": "~2.5.10",
+    "twolfson-style": "~1.6.0"
   },
   "keywords": [
     "grunt",
