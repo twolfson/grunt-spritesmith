@@ -64,6 +64,7 @@
     "url2": "1.0.0"
   },
   "devDependencies": {
+    "get-pixels": "~3.1.0",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
     "jscs": "~1.8.1",

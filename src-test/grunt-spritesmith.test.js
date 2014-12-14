@@ -2,6 +2,7 @@
 var assert = require('assert');
 var fs = require('fs');
 var rimraf = require('rimraf');
+var getPixels = require('get-pixels');
 var gruntUtils = require('./utils/grunt');
 
 // Set up default variables
@@ -18,18 +19,16 @@ describe('grunt-spritesmith', function () {
   describe('converting a set of images', function () {
     gruntUtils.runTask('sprite:basic');
 
-    it('generates an image', function () {
-      // Load in the images
-      // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
-      //   (i.e. are the images 90% similar)
-      // var expectedCanvasImage = fs.readFileSync(expectedDir + 'canvas.png', 'binary');
-      // var expectedGmImage = fs.readFileSync(expectedDir + 'gm.png', 'binary');
-      var actualImage = fs.readFileSync(actualDir + 'sprite.png', 'binary');
-      // var matchesImage = expectedCanvasImage === actualImage || expectedGmImage === actualImage;
-
-      // Assert they are equal
-      // TODO: Perform more accurate assertion
-      assert(actualImage, 'Actual image does not match expected image');
+    it('generates an image', function (done) {
+      // Load in the images and compare them
+      getPixels(actualDir + 'sprite.png', function handleActualPixels (err, actualImage) {
+        if (err) { return done(err); }
+        getPixels(expectedDir + 'sprite.png', function handleExpectedPixels (err, expectedImage) {
+          if (err) { return done(err); }
+          assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
+          done();
+        });
+      });
     });
 
     it('generates CSS variables', function () {
