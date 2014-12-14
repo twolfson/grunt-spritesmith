@@ -34,8 +34,7 @@ describe('grunt-spritesmith', function () {
 
     it('generates CSS variables', function () {
       // Load in the sprite positions
-      // TODO: If this were BDD, we would be asserting the same variables exist -- which means loading this into either
-      //   Stylus or a meta-language
+      // TODO: Assert the same variables exist -- which means loading this into either Stylus or a meta-language
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.styl', 'utf8');
 
@@ -49,19 +48,15 @@ describe('grunt-spritesmith', function () {
 
     it('generates a jpg', function () {
       // Load in the images
-      // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
-      //   (i.e. are the images 90% similar)
       var actualImage = fs.readFileSync(actualDir + 'sprite.jpg', 'binary');
 
       // Assert they are equal
-      // TODO: Perform more accurate assertion
+      // TODO: Perform more accurate assertion (currently skipped due to being a JPG)
       assert(actualImage, 'Actual image does not match expected image');
     });
 
     it('generates JSON', function () {
       // Load in the sprite positions
-      // TODO: If this were BDD, we would be asserting the same variables exist -- which means loading this into either
-      //   Stylus or a meta-language
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.json', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.json', 'utf8');
 
@@ -76,19 +71,15 @@ describe('grunt-spritesmith', function () {
 
     it('generates an image', function () {
       // Load in the images
-      // TODO: If this were BDD, we should be loading this into a canvas and doing a threshold comparison there
-      //   (i.e. are the images 90% similar)
       var actualImage = fs.readFileSync(actualDir + 'sprite.overrides.png', 'binary');
 
       // Assert they are equal
-      // TODO: Perform more accurate assertion
+      // TODO: Perform more accurate assertion (currently skipped due to being a JPG)
       assert(actualImage, 'Actual image does not match expected image');
     });
 
     it('generates coordinates', function () {
       // Load in the sprite positions
-      // TODO: If this were BDD, we would be asserting the same variables exist -- which means loading this into either
-      //   Stylus or a meta-language
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.overrides.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.overrides.styl', 'utf8');
 
