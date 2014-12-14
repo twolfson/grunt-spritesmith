@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+2.3.1 - Fixed up Travis CI configuration
+
 2.3.0 - Moved to `twolfson-style` to make code consistent
 
 2.2.0 - Upgraded to `spritesmith@0.20.0` to pick up `phantomjssmith's` JPEG support
