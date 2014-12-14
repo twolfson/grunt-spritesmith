@@ -63,10 +63,6 @@
     "underscore": "~1.4.2",
     "url2": "1.0.0"
   },
-  "_devDependencies": {
-    "grunt": "~0.3.12",
-    "grunt-contrib-clean": "~0.3.2"
-  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
