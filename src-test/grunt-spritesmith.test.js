@@ -109,7 +109,6 @@ describe('grunt-spritesmith', function () {
     it('generates no coordinates', function () {
       var coords = fs.readFileSync(actualDir + 'empty/sprite_positions.json', 'utf8');
       assert.strictEqual(coords, '{}');
-
     });
   });
 
