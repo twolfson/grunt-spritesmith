@@ -136,9 +136,9 @@ and CSS:
     - By default this is the format inferred by `destCSS's` extension
         - For example `.styl -> stylus`
     - // TODO: Document me inside of `json2css` (stylus, scss, scss_maps, sass, less, json, json_array, css)
-    - // TODO: Link me
     - // TODO: Add example
-    - For more format options, see the [Formats section][]
+    - For more format options, see our formatting library
+        - https://github.com/twolfson/json2css
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a [mustache][] template
