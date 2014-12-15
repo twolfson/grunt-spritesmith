@@ -66,8 +66,8 @@ module.exports = function (grunt) {
     sprite:{
       all: {
         src: 'path/to/your/sprites/*.png',
-        destImg: 'destination/of/spritesheet.png',
-        destCSS: 'destination/of/sprites.css'
+        dest: 'destination/of/spritesheet.png',
+        destCss: 'destination/of/sprites.css'
       }
     }
   });
@@ -107,8 +107,8 @@ and CSS:
 
 - src `String|String[]` - Images to use as sprites in spritesheet
     - For example this can be a glob, `sprites/*.png` or an array of files `['sprite1.png', sprite2.png']`
-- destImg `String` - Output location for generated spritesheet
-- destCSS `String` - Output location for generated CSS
+- dest `String` - Output location for generated spritesheet
+- destCss `String` - Output location for generated CSS
 - imgPath `String` - Optional override for path specified in CSS
     - For example if `../sprite.png` is given, then the CSS will have:
         - `background-image: url(../sprite.png);`
@@ -133,7 +133,7 @@ and CSS:
     - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
     - See your engine's documentation for available options
 - cssFormat `String` - CSS format to use
-    - By default this is the format inferred by `destCSS's` extension
+    - By default this is the format inferred by `destCss's` extension
         - For example `.styl -> stylus`
     - For more format options, see our formatting library
         - https://github.com/twolfson/json2css#templates
@@ -342,8 +342,8 @@ The `padding` options allows for inserting spacing between images.
 ```js
 {
   src: ['fork.png', 'github.png', 'twitter.png'],
-  destImg: 'spritesheet.padding.png',
-  destCSS: 'spritesheet.padding.styl',
+  dest: 'spritesheet.padding.png',
+  destCss: 'spritesheet.padding.styl',
   padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
 }
 ```
@@ -375,8 +375,8 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 ```js
 {
   src: ['fork.png', 'github.png', 'twitter.png'],
-  destImg: 'spritesheet.mustacheStr.png',
-  destCSS: 'spritesheet.mustacheStr.css',
+  dest: 'spritesheet.mustacheStr.png',
+  destCss: 'spritesheet.mustacheStr.css',
   cssTemplate: 'mustacheStr.css.mustache'
 }
 ```
@@ -404,8 +404,8 @@ In this example, we will use `cssTemplate` with a custom function that generates
 // var yaml = require('js-yaml');
 {
   src: ['fork.png', 'github.png', 'twitter.png'],
-  destImg: 'spritesheet.yamlTemplate.png',
-  destCSS: 'spritesheet.yamlTemplate.yml',
+  dest: 'spritesheet.yamlTemplate.png',
+  destCss: 'spritesheet.yamlTemplate.yml',
   cssTemplate: function (params) {
     // Convert items from an array into an object
     var itemObj = {};

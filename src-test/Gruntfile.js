@@ -5,22 +5,22 @@ module.exports = function (grunt) {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.basic.png',
-        destCSS: 'scratch/sprite_positions.basic.styl'
+        dest: 'scratch/sprite.basic.png',
+        destCss: 'scratch/sprite_positions.basic.styl'
       },
       'jpg,json': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.basic.jpg',
-        destCSS: 'scratch/sprite_positions.basic.json',
+        dest: 'scratch/sprite.basic.jpg',
+        destCss: 'scratch/sprite_positions.basic.json',
         // Use top-down to make maintenance easier
         algorithm: 'top-down'
       },
       overrides: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.overrides.png',
-        destCSS: 'scratch/sprite_positions.overrides.styl',
+        dest: 'scratch/sprite.overrides.png',
+        destCss: 'scratch/sprite_positions.overrides.styl',
         cssFormat: 'json',
         imgOpts: {
           format: 'jpg'
@@ -32,18 +32,18 @@ module.exports = function (grunt) {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/nested/1/2/spritesheet.png',
-        destCSS: 'scratch/3/4/sprite_positions.styl'
+        dest: 'scratch/nested/1/2/spritesheet.png',
+        destCss: 'scratch/3/4/sprite_positions.styl'
       },
       empty: {
         src: [],
-        destImg: 'scratch/sprite.empty.png',
-        destCSS: 'scratch/sprite_positions.empty.json'
+        dest: 'scratch/sprite.empty.png',
+        destCss: 'scratch/sprite_positions.empty.json'
       },
       cssOpts: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.cssOpts.png',
-        destCSS: 'scratch/sprite_positions.cssOpts.css',
+        dest: 'scratch/sprite.cssOpts.png',
+        destCss: 'scratch/sprite_positions.cssOpts.css',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssOpts: {
@@ -54,8 +54,8 @@ module.exports = function (grunt) {
       },
       cssFunctionTemplate: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.cssFunctionTemplate.png',
-        destCSS: 'scratch/sprite_positions.cssFunctionTemplate.styl',
+        dest: 'scratch/sprite.cssFunctionTemplate.png',
+        destCss: 'scratch/sprite_positions.cssFunctionTemplate.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: function (data) {
@@ -65,16 +65,16 @@ module.exports = function (grunt) {
       },
       cssMustacheTemplate: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.cssMustacheTemplate.png',
-        destCSS: 'scratch/sprite_positions.cssMustacheTemplate.styl',
+        dest: 'scratch/sprite.cssMustacheTemplate.png',
+        destCss: 'scratch/sprite_positions.cssMustacheTemplate.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: 'test_files/template.mustache'
       },
       cssVarMap: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        destImg: 'scratch/sprite.cssVarMap.png',
-        destCSS: 'scratch/sprite_positions.cssVarMap.styl',
+        dest: 'scratch/sprite.cssVarMap.png',
+        destCss: 'scratch/sprite_positions.cssVarMap.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssVarMap: function (sprite) {
