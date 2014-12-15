@@ -121,8 +121,8 @@ and CSS:
 - algorithmOpts `Mixed` - Options to pass through to algorithm
     - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
         - This is useful for sprite animations
-    - // TODO: Document this inside of layout
-    - // TODO: Add link to algorithms section or layout
+    - See your algorithm's documentation for available options
+        - https://github.com/twolfson/layout#algorithms
 - engine `String` - `spritesmith` engine to use
     - By default this is `pixelsmith`, a `node` based engine
     - For more engine options, see the [Engines section](#engines)
