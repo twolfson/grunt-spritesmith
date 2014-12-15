@@ -115,19 +115,17 @@ and CSS:
 - padding `Number` - Padding to place to right and bottom between sprites
     - By default there is no padding
     - // TODO: Add example
-- // TODO: Position further down
 - algorithm `String` - Algorithm to use for positioning sprites in spritesheet
     - By default this is `binary-tree` which yields the best possible packing
-    - // TODO: Link me
-    - For more algorithm options, see the [Algorithms section][]
+    - For more algorithm options, see the [Algorithms section](#algorithms)
 - algorithmOpts `Mixed` - Options to pass through to algorithm
     - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
         - This is useful for sprite animations
+    - // TODO: Document this inside of layout
     - // TODO: Add link to algorithms section or layout
 - engine `String` - `spritesmith` engine to use
     - By default this is `pixelsmith`, a `node` based engine
-    - // TODO: Link me
-    - For more engine options, see the [Engines section][]
+    - For more engine options, see the [Engines section](#engines)
 - engineOpts `Object` - Options to pass through to engine for settings
     - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
     - See your engine's documentation for available options
@@ -157,25 +155,23 @@ and CSS:
         - cssClass: function (item) {
 
 ### Algorithms
-|     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
-| ------------------------- | ----------------------------- | ------------------------- | --------------------------------- | ------------------------------- |
-| [![top-down][]][top-down] | [![left-right][]][left-right] | [![diagonal][]][diagonal] | [![alt-diagonal][]][alt-diagonal] | [![binary-tree][]][binary-tree] |
+Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
 
-For best packing, use `binary-tree` which uses a solution to the [rectangle packing problem][packing-problem].
+[`layout`]: https://github.com/twolfson/layout
 
-[packing-problem]: http://en.wikipedia.org/wiki/Packing_problem
+|         `top-down`        |          `left-right`         |         `diagonal`        |           `alt-diagonal`          |          `binary-tree`          |
+|---------------------------|-------------------------------|---------------------------|-----------------------------------|---------------------------------|
+| ![top-down][top-down-img] | ![left-right][left-right-img] | ![diagonal][diagonal-img] | ![alt-diagonal][alt-diagonal-img] | ![binary-tree][binary-tree-img] |
 
-If you are worried about sprites being visible within other sprites, use `alt-diagonal`.
+[top-down-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/top-down.png
+[left-right-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/left-right.png
+[diagonal-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/diagonal.png
+[alt-diagonal-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/alt-diagonal.png
+[binary-tree-img]: https://raw.githubusercontent.com/twolfson/layout/2.0.2/docs/binary-tree.png
 
-If you are using a repeating background, `top-down` or `left-right` depending on your occasion.
+More information can be found in the [`layout`][] documentation:
 
-The `diagonal` algorithm exists for you if you need it.
-
-[top-down]: docs/top-down.png
-[left-right]: docs/left-right.png
-[diagonal]: docs/diagonal.png
-[alt-diagonal]: docs/alt-diagonal.png
-[binary-tree]: docs/binary-tree.png
+https://github.com/twolfson/layout
 
 ### cssTemplate
 The `cssTemplate` option allows for specification of a custom templating function or [`Mustache`][mustache.js] template to render your CSS.
@@ -247,60 +243,62 @@ An example sprite `item` is
 }
 ```
 
-## Requirements
-For cross-platform accessibility, [spritesmith][spritesmith] has and supports multiple sprite engines. However, each of these current engines has a different set of external dependencies.
+### Engines
+An engine can greatly improve the speed of your build (e.g. `canvassmith`) or support obscure image formats (e.g. `gmsmith`).
 
-[spritesmith]: https://github.com/Ensighten/spritesmith
+All `spritesmith` engines adhere to a common specification and test suite:
 
-If you are running into issues, consult the [FAQ section](#faqs).
+https://github.com/twolfson/spritesmith-engine-test
 
-### pngsmith
-The `pngsmith` engine uses [`pngparse`][], an JavaScript `png` parser, to interpret images into [`ndarrays`][]. This requires no additional steps before installation.
+Below is a list of known engines with their tradeoffs:
 
-**Key differences:** It requires no additional installation steps but you are limited to `.png` files for your source files.
+#### pixelsmith
+[`pixelsmith`][] is a `node` based engine that runs on top of [`get-pixels`][] and [`save-pixels`][].
 
-[`pngparse`]: https://github.com/darkskyapp/pngparse
-[`ndarrays`]: https://github.com/mikolalysenko/ndarray
+[`get-pixels`]: https://github.com/mikolalysenko/get-pixels
+[`save-pixels`]: https://github.com/mikolalysenko/save-pixels
 
-### phantomjs
-The `phantomjs` engine relies on having [phantomjs][] installed on your machine. Visit [the phantomjs website][phantomjs] for installation instructions.
+**Key differences:** Doesn't support uncommon image formats (e.g. `tiff`) and not as fast as a compiled library (e.g. `canvassmith`).
 
-**Key differences:** `phantomjs` is the easiest engine to install that supports all image formats.
+#### phantomjssmith
+[`phantomjssmith`][] is a [phantomjs][] based engine. It was originally built to provide cross-platform compatibility but has since been succeeded by [`pixelsmith`][].
 
-[spritesmith][] has been tested against `phantomjs@1.9.0`.
+**Requirements:** [phantomjs][] must be installed on your machine and on your `PATH` environment variable. Visit [the phantomjs website][phantomjs] for installation instructions.
 
+**Key differences:** `phantomjs` is cross-platform and supports all image formats.
+
+[`phantomjssmith`]: https://github.com/twolfson/phantomjssmith
 [phantomjs]: http://phantomjs.org/
 
-### canvas
-The `canvas` engine uses [node-canvas][] which has a dependency on [Cairo][cairo].
+#### canvassmith
+[`canvassmith`][] is a [node-canvas][] based engine that runs on top of [Cairo][].
+
+**Requirements:** [Cairo][] and [node-gyp][] must be installed on your machine.
+
+Instructions on how to install [Cairo][] are provided in the [node-canvas wiki][].
+
+[node-gyp][] should be installed via `npm`:
+
+```bash
+npm install -g node-gyp
+```
 
 **Key differences:** `canvas` has the best performance (useful for over 100 sprites). However, it is `UNIX` only.
 
-Instructions on how to install [Cairo][cairo] are provided in the [node-canvas wiki][node-canvas-wiki].
-
-Additionally, you will need to install [node-gyp][] for the C++ bindings.
-```shell
-sudo npm install -g node-gyp
-```
-
+[`canvassmith`]: https://github.com/twolfson/canvassmith
 [node-canvas]: https://github.com/learnboost/node-canvas
-[cairo]: http://cairographics.org/
-[node-canvas-wiki]: https://github.com/LearnBoost/node-canvas/wiki/_pages
+[Cairo]: http://cairographics.org/
+[node-canvas wiki]: (https://github.com/LearnBoost/node-canvas/wiki/_pages
 [node-gyp]: https://github.com/TooTallNate/node-gyp/
 
-### gm (Graphics Magick / Image Magick)
-The `gm` engine depends on [Graphics Magick][graphics-magick] or [Image Magick][image-magick].
+#### gmsmith
+[`gmsmith`][] is a [`gm`][] based engine that runs on top of either [Graphics Magick][] or [Image Magick][].
 
-**Key differences:** `gm` has the most options for export via `imgOpts`.
-
-[graphics-magick]: http://www.graphicsmagick.org/
-[image-magick]: http://imagemagick.org/
+**Requirements:** Either [Graphics Magick][] or [Image Magick][] must be installed on your machine.
 
 For the best results, install from the site rather than through a package manager (e.g. `apt-get`). This avoids potential transparency issues which have been reported.
 
-[spritesmith][] has been developed and tested against `1.3.17`.
-
-[Image Magick][image-magick] is implicitly discovered. However, you can explicitly use it via `engineOpts`
+[Image Magick][] is implicitly discovered. However, you can explicitly use it via `engineOpts`
 
 ```js
 {
@@ -310,49 +308,15 @@ For the best results, install from the site rather than through a package manage
 }
 ```
 
-## FAQs
-### I am seeing errors during installation.
-If `npm` exits normally, everything should work. These errors are being caused by `npm` attempting to install the various `spritesmith` engines.
+**Key differences:** `gmsmith` allows for configuring image quality whereas others do not.
 
-### `spritesmith` is saying my engine "could not be loaded"
-If you have specified an `engine` in your config, then you must satisfy its requirements *before* installing `grunt-spritesmith`.
-
-To remedy this, verify you have installed the appropriate set of requirements for your engine:
-
-https://github.com/Ensighten/grunt-spritesmith#requirements
-
-Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
-
-```bash
-npm install grunt-spritesmith
-```
-
-### `spritesmith` is saying "no spritesmith engine could be loaded for your machine"
-If you are running `grunt-spritesmith` before `1.21.0`, then you have not satisfied any of the requirements for any of the engines *before* installing `grunt-spritesmith`. If you are running `1.21.0` or greater, then there is a bug and please open a new issue.
-
-> The current version of `grunt-spritesmith` can be determined via `npm ls grunt-spritesmith`.
-
-To remedy the issue before `1.21.0`, choose an engine and verify you have installed the appropriate set of requirements:
-
-https://github.com/Ensighten/grunt-spritesmith#requirements
-
-Afterwards, re-install `grunt-spritesmith` so it detects the satisfied requirements for your engine.
-
-```bash
-npm install grunt-spritesmith
-```
+[`gmsmith`]: https://github.com/twolfson/gmsmith
+[`gm`]: https://github.com/aheckmann/gm
+[Graphics Magick]: http://www.graphicsmagick.org/
+[Image Magick]: http://imagemagick.org/
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
-
-### Algorithms
-Algorithms are maintained via [twolfson/layout](https://github.com/twolfson/layout). If you would like to add one, please submit it via a pull request.
-
-### Engines and image options
-Engines and image options are maintained via [Ensighten/spritesmith](https://github.com/Ensighten/spritesmith). If you would like to add one, please submit it via a pull request.
-
-### CSS formats
-CSS formats are maintained via [twolfson/json2css](https://github.com/twolfson/json2css). If you would like to add one, please submit it via a pull request.
 
 ## Attribution
 [GitHub][github-icon] and [Twitter][twitter-icon] icons were taken from [Alex Peattie's JustVector Social Icons][justvector].
