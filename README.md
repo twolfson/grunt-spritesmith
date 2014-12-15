@@ -340,8 +340,42 @@ For the best results, install from the site rather than through a package manage
 [Image Magick]: http://imagemagick.org/
 
 ## Examples
+### Algorithm
+In this example, we will use the `alt-diagonal` algorithm to layout sprites in a non-intersecting manner.
+
+**Configuration:**
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  dest: 'spritesheet.algorithm.png',
+  destCss: 'spritesheet.algorithm.styl',
+  algorithm: 'alt-diagonal'
+}
+```
+
+**Output:**
+
+![algorithm spritesheet](docs/spritesheet.algorithm.png)
+
+### Engine
+In this example, we will use the `gmsmith` engine to support obscure image formats.
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  dest: 'spritesheet.algorithm.png',
+  destCss: 'spritesheet.algorithm.styl',
+  engine: 'gmsmith'
+}
+```
+
+**Output:**
+
+![engine spritesheet](docs/spritesheet.engine.png)
+
 ### Padding
-The `padding` options allows for inserting spacing between images.
+The `padding` option allows for inserting spacing between images.
 
 **Configuration:**
 
