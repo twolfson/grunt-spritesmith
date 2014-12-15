@@ -163,3 +163,16 @@ describe('grunt-spritesmith', function () {
     });
   });
 });
+
+describe('grunt-newer running grunt-spritesmith', function () {
+  gruntUtils.runTask('newer:sprite:newer');
+
+  it('has no errors', function () {
+    assert.strictEqual(this.err, null);
+  });
+
+  it('generates an image', function () {
+    var actualStats = fs.statSync(actualDir + 'spritesheet.newer.png');
+    assert(actualStats);
+  });
+});

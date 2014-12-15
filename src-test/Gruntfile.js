@@ -80,6 +80,11 @@ module.exports = function (grunt) {
         cssVarMap: function (sprite) {
           sprite.name = sprite.name.replace('sprite', 'icon');
         }
+      },
+      newer: {
+        src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
+        dest: 'scratch/sprite.newer.png',
+        destCss: 'scratch/sprite_positions.newer.styl'
       }
     }
   });
@@ -87,6 +92,6 @@ module.exports = function (grunt) {
   // Load in grunt-spritesmith
   grunt.loadTasks('../tasks');
 
-  // Override default task
-  grunt.registerTask('default', ['sprite']);
+  // Load in grunt newer
+  grunt.loadNpmTasks('grunt-newer');
 };
