@@ -374,7 +374,7 @@ Install `gmsmith` to our `node_modules` via `npm install`.
 npm install gmsmith
 ```
 
-Alternatively, we can use `--save` or `--save-dev` to save to our `package.json's dependencies or devDependenices`.
+Alternatively, we can use `--save` or `--save-dev` to save to our `package.json's dependencies` or `devDependenices`.
 
 ```bash
 npm install gmsmith --save  # Updates {"dependencies": {"gmsmith": "1.2.3"}}
