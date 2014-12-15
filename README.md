@@ -54,6 +54,10 @@ We have moved to `pixelsmith` as the default `engine`. It is `node` based and sh
 
 We have moved to `binary-tree` as the default `algorithm`. We changed this to give the best possible packing out of the box. If you were using `top-down` as the default, please specify it in your configuration.
 
+We have moved from `destImg` and `destCSS` to `dest` and `destCss` respectively. This adds support for [grunt-newer][] and makes naming consistent.
+
+[grunt-newer]: https://github.com/tschaub/grunt-newer
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
