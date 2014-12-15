@@ -49,14 +49,14 @@ module.exports = function gruntSpritesmith (grunt) {
   function SpriteMaker() {
     var data = this.data;
     var src = data.src;
-    var destImg = data.destImg;
-    var destCSS = data.destCSS;
+    var destImg = data.dest;
+    var destCss = data.destCss;
     var cssTemplate = data.cssTemplate;
     var that = this;
 
     // Verify all properties are here
-    if (!src || !destImg || !destCSS) {
-      return grunt.fatal('grunt.sprite requires a src, destImg, and destCSS property');
+    if (!src || !destImg || !destCss) {
+      return grunt.fatal('grunt.sprite requires a src, dest (img), and destCss property');
     }
 
     // Load in all images from the src
@@ -97,7 +97,7 @@ module.exports = function gruntSpritesmith (grunt) {
       // Generate a listing of CSS variables
       var coordinates = result.coordinates;
       var properties = result.properties;
-      var spritePath = data.imgPath || url.relative(destCSS, destImg);
+      var spritePath = data.imgPath || url.relative(destCss, destImg);
       var cssVarMap = data.cssVarMap || function noop () {};
       var cleanCoords = [];
 
@@ -142,22 +142,22 @@ module.exports = function gruntSpritesmith (grunt) {
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
-        cssFormat = data.cssFormat || cssFormats.get(destCSS) || 'json';
+        cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
       }
 
       // Render the variables via json2css
       var cssStr = json2css(cleanCoords, {format: cssFormat, formatOpts: cssOptions});
 
       // Write it out to the CSS file
-      var destCSSDir = path.dirname(destCSS);
-      grunt.file.mkdir(destCSSDir);
-      fs.writeFileSync(destCSS, cssStr, 'utf8');
+      var destCssDir = path.dirname(destCss);
+      grunt.file.mkdir(destCssDir);
+      fs.writeFileSync(destCss, cssStr, 'utf8');
 
       // Fail task if errors were logged.
       if (that.errorCount) { cb(false); }
 
       // Otherwise, print a success message.
-      grunt.log.writeln('Files "' + destCSS + '", "' + destImg + '" created.');
+      grunt.log.writeln('Files "' + destCss + '", "' + destImg + '" created.');
 
       // Callback
       cb(true);

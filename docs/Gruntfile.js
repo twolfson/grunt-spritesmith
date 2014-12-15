@@ -8,34 +8,34 @@ module.exports = function (grunt) {
     sprite: {
       spritesheet: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.png',
-        destCSS: 'spritesheet.styl',
+        dest: 'spritesheet.png',
+        destCss: 'spritesheet.styl',
         algorithm: 'binary-tree'
       },
       padding: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.padding.png',
-        destCSS: 'spritesheet.padding.styl',
+        dest: 'spritesheet.padding.png',
+        destCss: 'spritesheet.padding.styl',
         padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
       },
       cssVarMap: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.cssVarMap.png',
-        destCSS: 'spritesheet.cssVarMap.styl',
+        dest: 'spritesheet.cssVarMap.png',
+        destCss: 'spritesheet.cssVarMap.styl',
         cssVarMap: function (sprite) {
           sprite.name = 'sprite_' + sprite.name;
         }
       },
       mustacheStr: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.mustacheStr.png',
-        destCSS: 'spritesheet.mustacheStr.css',
+        dest: 'spritesheet.mustacheStr.png',
+        destCss: 'spritesheet.mustacheStr.css',
         cssTemplate: __dirname + '/mustacheStr.css.mustache'
       },
       yamlTemplate: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        destImg: 'spritesheet.yamlTemplate.png',
-        destCSS: 'spritesheet.yamlTemplate.yml',
+        dest: 'spritesheet.yamlTemplate.png',
+        destCss: 'spritesheet.yamlTemplate.yml',
         cssTemplate: function (params) {
           // Convert items from an array into an object
           var itemObj = {};
