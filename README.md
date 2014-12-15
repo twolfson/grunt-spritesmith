@@ -146,11 +146,10 @@ and CSS:
     - For more templating information, see the [Templating section](#templating)
     - // TODO: Add examples both mustache and function
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
-    - // TODO: Add documentation and link to documentation
-    - cssVarMap: function (sprite) {
+    - For more information, see [Variable mapping](#variable-mapping)
 - cssOpts `Object` - Options to pass through to templater
     - For example `{cssOpts: {functions: false}}` skips output of mixins
-    - See your templates
+    - See your template's documentation for available options
         - // TODO: Link to json2css with documentation cssSelector
         - cssClass: function (item) {
 
