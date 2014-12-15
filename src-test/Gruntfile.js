@@ -47,7 +47,7 @@ module.exports = function (grunt) {
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssOpts: {
-          cssClass: function (item) {
+          cssSelector: function (item) {
             return '#container .' + item.name;
           }
         }
