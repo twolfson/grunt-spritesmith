@@ -255,6 +255,7 @@ Below is a list of known engines with their tradeoffs:
 #### pixelsmith
 [`pixelsmith`][] is a `node` based engine that runs on top of [`get-pixels`][] and [`save-pixels`][].
 
+[`pixelsmith`]: https://github.com/twolfson/pixelsmith
 [`get-pixels`]: https://github.com/mikolalysenko/get-pixels
 [`save-pixels`]: https://github.com/mikolalysenko/save-pixels
 
