@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.0.1 - Fixed broken test
+
 3.0.0 - Major release with multiple breaking changes:
 
 - Upgraded to `spritesmith@1.0.0`
