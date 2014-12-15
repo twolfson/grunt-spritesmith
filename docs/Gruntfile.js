@@ -18,6 +18,14 @@ module.exports = function (grunt) {
         destCSS: 'spritesheet.padding.styl',
         padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
       },
+      cssVarMap: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        destImg: 'spritesheet.cssVarMap.png',
+        destCSS: 'spritesheet.cssVarMap.styl',
+        cssVarMap: function (sprite) {
+          sprite.name = 'sprite_' + sprite.name;
+        }
+      },
       mustacheStr: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         destImg: 'spritesheet.mustacheStr.png',

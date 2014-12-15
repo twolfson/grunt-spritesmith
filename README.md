@@ -245,13 +245,19 @@ The `cssVarMap` option allows customization of the CSS variable names
 
 Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
-// TODO: Formalize example in another section with output
-
 ```js
 // Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
 cssVarMap: function (sprite) {
   sprite.name = 'sprite-' + sprite.name;
 }
+
+// Generates:
+// $sprite_fork_x = 0px;
+// $sprite_fork_y = 0px;
+
+// As oppposed to default:
+// $fork_x = 0px;
+// $fork_y = 0px;
 ```
 
 ### Engines
