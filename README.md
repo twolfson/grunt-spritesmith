@@ -324,6 +324,50 @@ For the best results, install from the site rather than through a package manage
 [Graphics Magick]: http://www.graphicsmagick.org/
 [Image Magick]: http://imagemagick.org/
 
+## Examples
+### Mustache template
+In this example, we will use `cssTemplate` with a `mustache` template to generate CSS that uses `:before` selectors.
+
+**Template:**
+
+```mustache
+{{#items}}
+.icon-{{name}}:before {
+  display: block;
+  background-image: url({{{escaped_image}}});
+  background-position: {{px.offset_x}} {{px.offset_y}};
+  width: {{px.width}};
+  height: {{px.height}};
+}
+{{/items}}
+```
+
+**Configuration:**
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  destImg: 'spritesheet.mustacheStr.png',
+  destCSS: 'spritesheet.mustacheStr.css',
+  cssTemplate: __dirname + '/mustacheStr.css.mustache'
+}
+```
+
+
+**Output:**
+
+```css
+.icon-fork:before {
+  display: block;
+  background-image: url(spritesheet.mustacheStr.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+.icon-github:before {
+/* ... */
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via `npm run lint` and test via `npm test`.
 
