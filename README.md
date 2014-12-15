@@ -135,10 +135,9 @@ and CSS:
 - cssFormat `String` - CSS format to use
     - By default this is the format inferred by `destCSS's` extension
         - For example `.styl -> stylus`
-    - // TODO: Document me inside of `json2css` (stylus, scss, scss_maps, sass, less, json, json_array, css)
     - // TODO: Add example
     - For more format options, see our formatting library
-        - https://github.com/twolfson/json2css
+        - https://github.com/twolfson/json2css#templates
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a [mustache][] template
@@ -150,8 +149,7 @@ and CSS:
 - cssOpts `Object` - Options to pass through to templater
     - For example `{cssOpts: {functions: false}}` skips output of mixins
     - See your template's documentation for available options
-        - // TODO: Link to json2css with documentation cssSelector
-        - cssClass: function (item) {
+        - https://github.com/twolfson/json2css#templates
 
 [mustache]: http://mustache.github.io/
 
@@ -240,8 +238,7 @@ An example sprite `item` is
 #### Variable mapping
 The `cssVarMap` option allows customization of the CSS variable names
 
-> If you would like to customize CSS selectors in the `css` template, please see
-> // TODO: Add link to json2css#cssSelector
+> If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/json2css#css
 
 Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
