@@ -1,5 +1,5 @@
 // Load in dependencies
-var fs = require('fs');
+var yaml = require('js-yaml');
 
 // Define our grunt file
 module.exports = function (grunt) {
@@ -17,6 +17,26 @@ module.exports = function (grunt) {
         destImg: 'spritesheet.mustacheStr.png',
         destCSS: 'spritesheet.mustacheStr.css',
         cssTemplate: __dirname + '/mustacheStr.css.mustache'
+      },
+      yamlTemplate: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        destImg: 'spritesheet.yamlTemplate.png',
+        destCSS: 'spritesheet.yamlTemplate.yml',
+        cssTemplate: function (params) {
+          // Convert items from an array into an object
+          var itemObj = {};
+          params.items.forEach(function (item) {
+            // Grab the name and store the item under it
+            var name = item.name;
+            itemObj[name] = item;
+
+            // Delete the name from the item
+            delete item.name;
+          });
+
+          // Return stringified itemObj
+          return yaml.safeDump(itemObj);
+        }
       }
     }
   });

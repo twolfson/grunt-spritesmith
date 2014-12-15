@@ -140,7 +140,7 @@ and CSS:
         - https://github.com/twolfson/json2css#templates
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
-    - If a `String` is provided, it must be a [mustache][] template
+    - If a `String` is provided, it must be a path to a [mustache][] template
     - If a `Function` is provided, it must have a signature of `function (params)`
     - For more templating information, see the [Templating section](#templating)
     - // TODO: Add examples both mustache and function
@@ -349,10 +349,9 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
   src: ['fork.png', 'github.png', 'twitter.png'],
   destImg: 'spritesheet.mustacheStr.png',
   destCSS: 'spritesheet.mustacheStr.css',
-  cssTemplate: __dirname + '/mustacheStr.css.mustache'
+  cssTemplate: 'mustacheStr.css.mustache'
 }
 ```
-
 
 **Output:**
 
@@ -366,6 +365,64 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 }
 .icon-github:before {
 /* ... */
+```
+
+### Template function
+In this example, we will use `cssTemplate` with a custom function that generates YAML.
+
+**Configuration:**
+
+```js
+// var yaml = require('js-yaml');
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  destImg: 'spritesheet.yamlTemplate.png',
+  destCSS: 'spritesheet.yamlTemplate.yml',
+  cssTemplate: function (params) {
+    // Convert items from an array into an object
+    var itemObj = {};
+    params.items.forEach(function (item) {
+      // Grab the name and store the item under it
+      var name = item.name;
+      itemObj[name] = item;
+
+      // Delete the name from the item
+      delete item.name;
+    });
+
+    // Return stringified itemObj
+    return yaml.safeDump(itemObj);
+  }
+}
+```
+
+**Output:**
+
+```yaml
+fork:
+  x: 0
+  "y": 0
+  width: 32
+  height: 32
+  source_image: fork.png
+  image: spritesheet.yamlTemplate.png
+  total_width: 64
+  total_height: 64
+  offset_x: -0.0
+  offset_y: -0.0
+  px:
+    x: 0px
+    "y": 0px
+    offset_x: 0px
+    offset_y: 0px
+    height: 32px
+    width: 32px
+    total_height: 64px
+    total_width: 64px
+  escaped_image: spritesheet.yamlTemplate.png
+github:
+  x: 32
+  # ...
 ```
 
 ## Contributing
