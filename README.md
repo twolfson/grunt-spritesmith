@@ -112,18 +112,28 @@ and CSS:
 - imgPath `String` - Optional override for path specified in CSS
     - For example if `../sprite.png` is given, then the CSS will have:
         - `background-image: url(../sprite.png);`
+- padding `Number` - Padding to place to right and bottom between sprites
+    - By default there is no padding
+    - // TODO: Add example
 - // TODO: Position further down
 - algorithm `String` - Algorithm to use for positioning sprites in spritesheet
     - By default this is `binary-tree` which yields the best possible packing
     - // TODO: Link me
     - For more algorithm options, see the [Algorithms section][]
-- padding `Number` - Padding to place to right and bottom between sprites
-    - By default there is no padding
-    - // TODO: Add example
+- algorithmOpts `Mixed` - Options to pass through to algorithm
+    - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
+        - This is useful for sprite animations
+    - // TODO: Add link to algorithms section or layout
 - engine `String` - `spritesmith` engine to use
     - By default this is `pixelsmith`, a `node` based engine
     - // TODO: Link me
     - For more engine options, see the [Engines section][]
+- engineOpts `Object` - Options to pass through to engine for settings
+    - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
+    - See your engine's documentation for available options
+- imgOpts `Object` - Options to pass through to engine uring export
+    - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
+    - See your engine's documentation for available options
 - cssFormat `String` - CSS format to use
     - By default this is the format inferred by `destCSS's` extension
         - For example `.styl -> stylus`
@@ -140,16 +150,6 @@ and CSS:
 - cssVarMap `String|Function` - Mapping function for each filename to CSS variable
     - // TODO: Add documentation and link to documentation
     - cssVarMap: function (sprite) {
-- algorithmOpts `Mixed` - Options to pass through to algorithm
-    - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
-        - This is useful for sprite animations
-    - // TODO: Add link to algorithms section or layout
-- engineOpts `Object` - Options to pass through to engine for settings
-    - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
-    - See your engine's documentation for available options
-- imgOpts `Object` - Options to pass through to engine uring export
-    - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
-    - See your engine's documentation for available options
 - cssOpts `Object` - Options to pass through to templater
     - For example `{cssOpts: {functions: false}}` skips output of mixins
     - See your templates
