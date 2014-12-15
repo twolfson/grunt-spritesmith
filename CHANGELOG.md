@@ -10,6 +10,8 @@
 - Renamed `destImg` and `destCSS` to `dest` and `destCss`
     - Adds `grunt-newer` support
     - Makes naming consistent within repo
+- Upgraded to `json2css@6.0.0`
+    - Renames `cssClass` to `cssSelector` to make it more semantic
 
 2.4.3 - Fixed up image assertion inside tests
 
