@@ -56,6 +56,8 @@ We have moved to `binary-tree` as the default `algorithm`. We changed this to gi
 
 We have moved from `destImg` and `destCSS` to `dest` and `destCss` respectively. This adds support for [grunt-newer][] and makes naming consistent.
 
+We have moved the `cssClass` option for the `css` template to `cssSelector`. This makes it more semantically appropriate and eaiser to find.
+
 [grunt-newer]: https://github.com/tschaub/grunt-newer
 
 ## Getting Started
