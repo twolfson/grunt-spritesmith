@@ -144,9 +144,8 @@ and CSS:
     - If a `String` is provided, it must be a [mustache][] template
     - If a `Function` is provided, it must have a signature of `function (params)`
     - For more templating information, see the [Templating section](#templating)
-    - // TODO: Add example
-    - // TODO: Document properties
-- cssVarMap `String|Function` - Mapping function for each filename to CSS variable
+    - // TODO: Add examples both mustache and function
+- cssVarMap `Function` - Mapping function for each filename to CSS variable
     - // TODO: Add documentation and link to documentation
     - cssVarMap: function (sprite) {
 - cssOpts `Object` - Options to pass through to templater
@@ -236,6 +235,23 @@ An example sprite `item` is
     "offset_x": "-10px",
     "offset_y": "-20px"
   }
+}
+```
+
+#### Variable mapping
+The `cssVarMap` option allows customization of the CSS variable names
+
+> If you would like to customize CSS selectors in the `css` template, please see
+> // TODO: Add link to json2css#cssSelector
+
+Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
+
+// TODO: Formalize example in another section with output
+
+```js
+// Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
+cssVarMap: function (sprite) {
+  sprite.name = 'sprite-' + sprite.name;
 }
 ```
 
