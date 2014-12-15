@@ -248,7 +248,7 @@ Your `cssVarMap` should be a function with the signature `function (sprite)`. It
 ```js
 // Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
 cssVarMap: function (sprite) {
-  sprite.name = 'sprite-' + sprite.name;
+  sprite.name = 'sprite_' + sprite.name;
 }
 
 // Generates:
