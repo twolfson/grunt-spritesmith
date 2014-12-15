@@ -12,6 +12,12 @@ module.exports = function (grunt) {
         destCSS: 'spritesheet.styl',
         algorithm: 'binary-tree'
       },
+      padding: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        destImg: 'spritesheet.padding.png',
+        destCSS: 'spritesheet.padding.styl',
+        padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
+      },
       mustacheStr: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         destImg: 'spritesheet.mustacheStr.png',

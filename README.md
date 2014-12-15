@@ -114,7 +114,7 @@ and CSS:
         - `background-image: url(../sprite.png);`
 - padding `Number` - Padding to place to right and bottom between sprites
     - By default there is no padding
-    - // TODO: Add example
+    - An example usage can be found in the [Examples section](#padding)
 - algorithm `String` - Algorithm to use for positioning sprites in spritesheet
     - By default this is `binary-tree` which yields the best possible packing
     - For more algorithm options, see the [Algorithms section](#algorithms)
@@ -135,7 +135,6 @@ and CSS:
 - cssFormat `String` - CSS format to use
     - By default this is the format inferred by `destCSS's` extension
         - For example `.styl -> stylus`
-    - // TODO: Add example
     - For more format options, see our formatting library
         - https://github.com/twolfson/json2css#templates
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
@@ -329,6 +328,25 @@ For the best results, install from the site rather than through a package manage
 [Image Magick]: http://imagemagick.org/
 
 ## Examples
+### Padding
+The `padding` options allows for inserting spacing between images.
+
+**Configuration:**
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  destImg: 'spritesheet.padding.png',
+  destCSS: 'spritesheet.padding.styl',
+  padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
+}
+```
+
+**Output:**
+
+![padding spritesheet](docs/spritesheet.padding.png)
+
+
 ### Mustache template
 In this example, we will use `cssTemplate` with a `mustache` template to generate CSS that uses `:before` selectors.
 
