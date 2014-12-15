@@ -7,6 +7,9 @@
     - Moved to `binary-tree` as default algorithm
 - Overhauled documentation
 - Made tests consistent
+- Renamed `destImg` and `destCSS` to `dest` and `destCss`
+    - Adds `grunt-newer` support
+    - Makes naming consistent within repo
 
 2.4.3 - Fixed up image assertion inside tests
 
