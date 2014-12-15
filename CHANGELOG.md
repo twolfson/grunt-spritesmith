@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.1.1 - Added more examples and links to examples
+
 3.1.0 - Fixed `grunt-newer` support
 
 3.0.2 - Removed legacy installs from Travis CI
