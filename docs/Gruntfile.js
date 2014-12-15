@@ -12,6 +12,18 @@ module.exports = function (grunt) {
         destCss: 'spritesheet.styl',
         algorithm: 'binary-tree'
       },
+      algorithm: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        dest: 'spritesheet.algorithm.png',
+        destCss: 'spritesheet.algorithm.styl',
+        algorithm: 'alt-diagonal'
+      },
+      engine: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        dest: 'spritesheet.engine.png',
+        destCss: 'spritesheet.engine.styl',
+        engine: 'gmsmith'
+      },
       padding: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         dest: 'spritesheet.padding.png',
