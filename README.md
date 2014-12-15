@@ -133,7 +133,7 @@ and CSS:
     - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
     - See your engine's documentation for available options
 - cssFormat `String` - CSS format to use
-    - By default this is the format inferred by `destCss's` extension
+    - By default this is the format inferred by `destCss'` extension
         - For example `.styl -> stylus`
     - For more format options, see our formatting library
         - https://github.com/twolfson/json2css#templates
