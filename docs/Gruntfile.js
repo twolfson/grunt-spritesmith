@@ -3,10 +3,10 @@ module.exports = function (grunt) {
   // Configure the spritesheet
   grunt.initConfig({
     sprite: {
-      styl: {
+      spritesheet: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         destImg: 'spritesheet.png',
-        destCSS: 'main.styl',
+        destCSS: 'spritesheet.styl',
         algorithm: 'binary-tree'
       }
     }
