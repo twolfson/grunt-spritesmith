@@ -47,7 +47,15 @@ cssFormats.add('.css', 'css');
 module.exports = function gruntSpritesmith (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
+    // Grab the raw configuration
     var data = this.data;
+
+    // If we were invoked via `grunt-newer`, re-localize the info
+    if (data.src === undefined && data.files) {
+      data = data.files[0] || {};
+    }
+
+    // Determine the origin and destinations
     var src = data.src;
     var destImg = data.dest;
     var destCss = data.destCss;
