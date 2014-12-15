@@ -123,6 +123,7 @@ and CSS:
     - An example usage can be found in the [Examples section](#padding)
 - algorithm `String` - Algorithm to use for positioning sprites in spritesheet
     - By default this is `binary-tree` which yields the best possible packing
+    - An example usage can be found in the [Examples section](#algorithm)
     - For more algorithm options, see the [Algorithms section](#algorithms)
 - algorithmOpts `Mixed` - Options to pass through to algorithm
     - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
@@ -131,6 +132,8 @@ and CSS:
         - https://github.com/twolfson/layout#algorithms
 - engine `String` - `spritesmith` engine to use
     - By default this is `pixelsmith`, a `node` based engine
+    - Alternative engines must be installed via `npm install`
+    - An example usage can be found in the [Examples section](#engine)
     - For more engine options, see the [Engines section](#engines)
 - engineOpts `Object` - Options to pass through to engine for settings
     - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
@@ -146,7 +149,9 @@ and CSS:
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a path to a [mustache][] template
+        - An example usage can be found in the [Examples section](#mustache-template)
     - If a `Function` is provided, it must have a signature of `function (params)`
+        - An example usage can be found in the [Examples section](#template-function)
     - For more templating information, see the [Templating section](#templating)
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
     - For more information, see [Variable mapping](#variable-mapping)
