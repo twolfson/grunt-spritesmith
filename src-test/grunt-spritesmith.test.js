@@ -172,7 +172,7 @@ describe('grunt-newer running grunt-spritesmith', function () {
   });
 
   it('generates an image', function () {
-    var actualStats = fs.statSync(actualDir + 'spritesheet.newer.png');
+    var actualStats = fs.statSync(actualDir + 'sprite.newer.png');
     assert(actualStats);
   });
 });
