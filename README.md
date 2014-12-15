@@ -143,7 +143,6 @@ and CSS:
     - If a `String` is provided, it must be a path to a [mustache][] template
     - If a `Function` is provided, it must have a signature of `function (params)`
     - For more templating information, see the [Templating section](#templating)
-    - // TODO: Add examples both mustache and function
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
     - For more information, see [Variable mapping](#variable-mapping)
 - cssOpts `Object` - Options to pass through to templater
@@ -234,6 +233,11 @@ An example sprite `item` is
   }
 }
 ```
+
+Example usages can be found as:
+
+- [Mustache template](#mustache-template)
+- [Template function](#template-function)
 
 #### Variable mapping
 The `cssVarMap` option allows customization of the CSS variable names
