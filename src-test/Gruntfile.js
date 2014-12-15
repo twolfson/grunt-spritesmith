@@ -93,5 +93,8 @@ module.exports = function (grunt) {
   grunt.loadTasks('../tasks');
 
   // Load in grunt newer
+  var previousDir = process.cwd();
+  process.chdir(__dirname + '/../');
   grunt.loadNpmTasks('grunt-newer');
+  process.chdir(previousDir);
 };
