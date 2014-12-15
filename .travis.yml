@@ -12,10 +12,6 @@ before_install:
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
 
 install:
-  # Install gmsmith dependencies
-  - sudo apt-get update -y
-  - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ -y
-
   # Install node modules
   - 'npm install jscs && npm install'
 
