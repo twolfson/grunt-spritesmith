@@ -361,6 +361,23 @@ In this example, we will use the `alt-diagonal` algorithm to layout sprites in a
 ### Engine
 In this example, we will use the `gmsmith` engine to support obscure image formats.
 
+**Requirements:**
+
+Install `gmsmith` to our `node_modules/`.
+
+```bash
+npm install gmsmith
+```
+
+Alternatively, we can use `--save` or `--save-dev` to save to our `package.json's dependencies or devDependenices`.
+
+```bash
+npm install gmsmith --save  # Updates {"dependencies": {"gmsmith": "1.2.3"}}
+npm install gmsmith --save-dev  # Updates {"devDependencies": {"gmsmith": "1.2.3"}}
+```
+
+**Configuration:**
+
 ```js
 {
   src: ['fork.png', 'github.png', 'twitter.png'],
