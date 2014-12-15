@@ -102,92 +102,59 @@ and CSS:
 ...
 ```
 
-## Usage
-`grunt-spritesmith` is a [grunt multitask][multitask]. It is configured on a per-task basis using the following template:
+## Documentation
+`grunt-spritesmith` is a [grunt multitask][multitask]. It supports the following parameters:
 
-[multitask]: http://gruntjs.com/configuring-tasks
-
-```js
-grunt.initConfig({
-  sprite: {
-    all: {
-      // Sprite files to read in
-      src: ['public/images/sprites/*.png'],
-
-      // Location to output spritesheet
-     destImg: 'public/images/sprite.png',
-
-      // Stylus with variables under sprite names
-      destCSS: 'public/css/sprite_positions.styl',
-
-      // OPTIONAL: Manual override for imgPath specified in CSS
-      imgPath: '../sprite.png',
-
-      // OPTIONAL: Specify algorithm (top-down, left-right, diagonal [\ format],
-          // alt-diagonal [/ format], binary-tree [best packing])
-      // Visual representations can be found below
-      algorithm: 'alt-diagonal',
-
-      // OPTIONAL: Specify padding between images
-      padding: 2,
-
-      // OPTIONAL: Specify engine (auto, phantomjs, canvas, gm, pngsmith)
-      engine: 'canvas',
-
-      // OPTIONAL: Specify CSS format (inferred from destCSS' extension by default)
-          // (stylus, scss, scss_maps, sass, less, json, json_array, css)
-      cssFormat: 'json',
-
-      // OPTIONAL: Specify a function or Mustache template to use for rendering destCSS
-          // Mutually exclusive to cssFormat
-      // More information can be found below
-      cssTemplate: 'public/css/sprite_positions.styl.mustache',
-
-      // OPTIONAL: Map variable of each sprite
-      cssVarMap: function (sprite) {
-        // `sprite` has `name`, `image` (full path), `x`, `y`
-        //   `width`, `height`, `total_width`, `total_height`
-        // EXAMPLE: Prefix all sprite names with 'sprite-'
-        sprite.name = 'sprite-' + sprite.name;
-      },
-
-      // OPTIONAL: Specify settings for algorithm
-      algorithmOpts: {
-        // Skip sorting of images for algorithm (useful for sprite animations)
-        sort: false
-      },
-
-      // OPTIONAL: Specify settings for engine
-      engineOpts: {
-        imagemagick: true
-      },
-
-      // OPTIONAL: Specify img options
-      imgOpts: {
-         // Format of the image (inferred from destImg' extension by default) (jpg, png)
-         format: 'png',
-
-         // gm only: Quality of image
-         quality: 90,
-
-         // phantomjs only: Milliseconds to wait before terminating PhantomJS script
-         timeout: 10000
-      },
-
-      // OPTIONAL: Specify css options
-      cssOpts: {
-        // Some templates allow for skipping of function declarations
-        functions: false,
-
-        // CSS template allows for overriding of CSS selectors
-        cssClass: function (item) {
-          return '.sprite-' + item.name;
-        }
-      }
-    }
-  }
-});
-```
+- src `String|String[]` - Images to use as sprites in spritesheet
+    - For example this can be a glob, `sprites/*.png` or an array of files `['sprite1.png', sprite2.png']`
+- destImg `String` - Output location for generated spritesheet
+- destCSS `String` - Output location for generated CSS
+- imgPath `String` - Optional override for path specified in CSS
+    - For example if `../sprite.png` is given, then the CSS will have:
+        - `background-image: url(../sprite.png);`
+- // TODO: Position further down
+- algorithm `String` - Algorithm to use for positioning sprites in spritesheet
+    - By default this is `binary-tree` which yields the best possible packing
+    - // TODO: Link me
+    - For more algorithm options, see the [Algorithms section][]
+- padding `Number` - Padding to place to right and bottom between sprites
+    - By default there is no padding
+    - // TODO: Add example
+- engine `String` - `spritesmith` engine to use
+    - By default this is `pixelsmith`, a `node` based engine
+    - // TODO: Link me
+    - For more engine options, see the [Engines section][]
+- cssFormat `String` - CSS format to use
+    - By default this is the format inferred by `destCSS's` extension
+        - For example `.styl -> stylus`
+    - // TODO: Document me inside of `json2css` (stylus, scss, scss_maps, sass, less, json, json_array, css)
+    - // TODO: Link me
+    - // TODO: Add example
+    - For more format options, see the [Formats section][]
+- cssTemplate `String|Function` - CSS template to use for rendering output CSS
+    - This overrides `cssFormat`
+    - If a `String` is provided, it must be a [mustache][] template
+    - If a `Function` is provided, it must have a signature of `function (data)`
+    - // TODO: Add example
+    - // TODO: Document properties
+- cssVarMap `String|Function` - Mapping function for each filename to CSS variable
+    - // TODO: Add documentation and link to documentation
+    - cssVarMap: function (sprite) {
+- algorithmOpts `Mixed` - Options to pass through to algorithm
+    - For example we can skip sorting in some algorithms via `{algorithmOpts: {sort: false}}`
+        - This is useful for sprite animations
+    - // TODO: Add link to algorithms section or layout
+- engineOpts `Object` - Options to pass through to engine for settings
+    - For example `phantomjssmith` accepts `timeout` via `{engineOpts: {timeout: 10000}}`
+    - See your engine's documentation for available options
+- imgOpts `Object` - Options to pass through to engine uring export
+    - For example `gmsmith` supports `quality` via `{exportOpts: {quality: 75}}`
+    - See your engine's documentation for available options
+- cssOpts `Object` - Options to pass through to templater
+    - For example `{cssOpts: {functions: false}}` skips output of mixins
+    - See your templates
+        - // TODO: Link to json2css with documentation cssSelector
+        - cssClass: function (item) {
 
 ### Algorithms
 |     top-down (default)    |           left-right          |          diagonal         |            alt-diagonal           |           binary-tree           |
