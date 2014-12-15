@@ -1,4 +1,13 @@
 # grunt-spritesmith changelog
+3.0.0 - Major release with multiple breaking changes:
+
+- Upgraded to `spritesmith@1.0.0`
+    - Moved to `pixelsmith` as default engine
+    - Removed all other engines
+    - Moved to `binary-tree` as default algorithm
+- Overhauled documentation
+- Made tests consistent
+
 2.4.3 - Fixed up image assertion inside tests
 
 2.4.2 - Moved from `nodeunit` to `mocha` for testing, leading to more granular/reusable tests.
