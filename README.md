@@ -142,7 +142,8 @@ and CSS:
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a [mustache][] template
-    - If a `Function` is provided, it must have a signature of `function (data)`
+    - If a `Function` is provided, it must have a signature of `function (params)`
+    - For more templating information, see the [Templating section](#templating)
     - // TODO: Add example
     - // TODO: Document properties
 - cssVarMap `String|Function` - Mapping function for each filename to CSS variable
@@ -153,6 +154,8 @@ and CSS:
     - See your templates
         - // TODO: Link to json2css with documentation cssSelector
         - cssClass: function (item) {
+
+[mustache]: http://mustache.github.io/
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
@@ -173,44 +176,37 @@ More information can be found in the [`layout`][] documentation:
 
 https://github.com/twolfson/layout
 
-### cssTemplate
-The `cssTemplate` option allows for specification of a custom templating function or [`Mustache`][mustache.js] template to render your CSS.
+### Templating
+The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-If you pass in a `Function`, it should have a signature of `function (params) {}` and return a `String`.
+https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
 
-If you pass in a `String`, we treat this as a path; reading in the file and rendering it via [mustache.js][]. The template will be passed the same `params` as in the `Function` case.
+The parameters passed into your template are known as `params`. We add some normalized properties via[`json2css`][] for your convenience.
 
-> An example template is https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
-
-[mustache.js]: http://mustache.github.io/
-
-#### `params`
-`params` is an object with some normalization nicities from [`json2css`][], our default collection of templates.
-
-- params `Object`
+- params `Object` Container for parameters
     - items `Object[]` - Array of sprite information
-      - name `String` - Name of the sprite file (sans extension)
-      - x `Number` - Horizontal position of sprite's left edge in spritesheet
-      - y `Number` - Vertical position of sprite's top edge in spritesheet
-      - width `Number` - Width of sprite
-      - height `Number` - Height of sprite
-      - total_width `Number` - Width of entire spritesheet
-      - total_height `Number` - Height of entire spritesheet
-      - image `String` - Relative URL path from CSS to spritesheet
-      - escaped_image `String` - URL encoded `image`
-      - source_image `String` - Path to the original sprite file
-      - offset_x `Number` - Negative value of `x`. Useful to `background-position`
-      - offset_y `Number` - Negative value of `y`. Useful to `background-position`
-      - px `Object` - Container for numeric values including `px`
-        - x `String` - `x` suffixed with `px`
-        - y `String` - `y` suffixed with `px`
-        - width `String` - `width` suffixed with `px`
-        - height `String` - `height` suffixed with `px`
-        - total_width `String` - `total_width` suffixed with `px`
-        - total_height `String` - `total_height` suffixed with `px`
-        - offset_x `String` - `offset_x` suffixed with `px`
-        - offset_y `String` - `offset_y` suffixed with `px`
-    - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
+        - name `String` - Name of the sprite file (sans extension)
+        - x `Number` - Horizontal position of sprite's left edge in spritesheet
+        - y `Number` - Vertical position of sprite's top edge in spritesheet
+        - width `Number` - Width of sprite
+        - height `Number` - Height of sprite
+        - total_width `Number` - Width of entire spritesheet
+        - total_height `Number` - Height of entire spritesheet
+        - image `String` - Relative URL path from CSS to spritesheet
+        - escaped_image `String` - URL encoded `image`
+        - source_image `String` - Path to the original sprite file
+        - offset_x `Number` - Negative value of `x`. Useful to `background-position`
+        - offset_y `Number` - Negative value of `y`. Useful to `background-position`
+        - px `Object` - Container for numeric values including `px`
+            - x `String` - `x` suffixed with `px`
+            - y `String` - `y` suffixed with `px`
+            - width `String` - `width` suffixed with `px`
+            - height `String` - `height` suffixed with `px`
+            - total_width `String` - `total_width` suffixed with `px`
+            - total_height `String` - `total_height` suffixed with `px`
+            - offset_x `String` - `offset_x` suffixed with `px`
+            - offset_y `String` - `offset_y` suffixed with `px`
+      - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`json2css`]: https://github.com/twolfson/json2css
 
