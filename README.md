@@ -368,7 +368,7 @@ In this example, we will use the `gmsmith` engine to support obscure image forma
 
 **Requirements:**
 
-Install `gmsmith` to our `node_modules/`.
+Install `gmsmith` to our `node_modules/` via `npm install`.
 
 ```bash
 npm install gmsmith
