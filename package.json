@@ -58,7 +58,7 @@
     "test": "npm run precheck && mocha src-test/ --reporter dot && npm run lint"
   },
   "dependencies": {
-    "json2css": "~6.0.0",
+    "json2css": "~6.1.0",
     "spritesmith": "~1.0.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
