@@ -80,10 +80,8 @@ module.exports = function (grunt) {
         cssVarMap: function (sprite) {
           sprite.name = sprite.name.replace('sprite', 'icon');
         },
-        // TODO: `spritesheetName` should be tested separately
-        cssOpts: {
-          spritesheetName: 'icons'
-        }
+        // TODO: `cssSpritesheetName` should be tested separately
+        cssSpritesheetName: 'icons'
       },
       newer: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],

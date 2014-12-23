@@ -166,7 +166,7 @@ module.exports = function gruntSpritesmith (grunt) {
       }, {
         format: cssFormat,
         formatOpts: cssOptions,
-        spritesheetName: options.cssSpritesheetName
+        spritesheetName: data.cssSpritesheetName
       });
 
       // Write it out to the CSS file
