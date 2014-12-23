@@ -211,6 +211,10 @@ The parameters passed into your template are known as `params`. We add some norm
             - total_height `String` - `total_height` suffixed with `px`
             - offset_x `String` - `offset_x` suffixed with `px`
             - offset_y `String` - `offset_y` suffixed with `px`
+    - spritesheet `Object` - Information about spritesheet
+        - width `Number` - Width of entire spritesheet
+        - total_height `Number` - Height of entire spritesheet
+        - image `String` - Relative URL path from CSS to spritesheet
     - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
