@@ -106,6 +106,11 @@ module.exports = function gruntSpritesmith (grunt) {
       var coordinates = result.coordinates;
       var properties = result.properties;
       var spritePath = data.imgPath || url.relative(destCss, destImg);
+      var spritesheetInfo = {
+        width: properties.width,
+        height: properties.height,
+        image: spritePath
+      };
       var cssVarMap = data.cssVarMap || function noop () {};
       var cleanCoords = [];
 
@@ -127,6 +132,7 @@ module.exports = function gruntSpritesmith (grunt) {
         // Specify the image for the sprite
         coords.name = name;
         coords.source_image = file;
+        // DEV: `image`, `total_width`, `total_height` are deprecated as they are overwritten in `spritesheet-templates`
         coords.image = spritePath;
         coords.total_width = properties.width;
         coords.total_height = properties.height;
@@ -154,7 +160,10 @@ module.exports = function gruntSpritesmith (grunt) {
       }
 
       // Render the variables via `spritesheet-templates`
-      var cssStr = templater(cleanCoords, {format: cssFormat, formatOpts: cssOptions});
+      var cssStr = templater({
+        items: cleanCoords,
+        spritesheet: spritesheetInfo
+      }, {format: cssFormat, formatOpts: cssOptions});
 
       // Write it out to the CSS file
       var destCssDir = path.dirname(destCss);
