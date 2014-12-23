@@ -2,7 +2,7 @@
 var fs = require('fs');
 var path = require('path');
 var _ = require('underscore');
-var json2css = require('json2css');
+var templater = require('spritesheet-templates');
 var spritesmith = require('spritesmith');
 var url = require('url2');
 
@@ -144,17 +144,17 @@ module.exports = function gruntSpritesmith (grunt) {
       // If there's a custom template, use it
       if (cssTemplate) {
         if (typeof cssTemplate === 'function') {
-          json2css.addTemplate(cssFormat, cssTemplate);
+          templater.addTemplate(cssFormat, cssTemplate);
         } else {
-          json2css.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+          templater.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
         cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
       }
 
-      // Render the variables via json2css
-      var cssStr = json2css(cleanCoords, {format: cssFormat, formatOpts: cssOptions});
+      // Render the variables via `spritesheet-templates`
+      var cssStr = templater(cleanCoords, {format: cssFormat, formatOpts: cssOptions});
 
       // Write it out to the CSS file
       var destCssDir = path.dirname(destCss);

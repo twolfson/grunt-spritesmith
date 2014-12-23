@@ -145,7 +145,7 @@ and CSS:
     - By default this is the format inferred by `destCss'` extension
         - For example `.styl -> stylus`
     - For more format options, see our formatting library
-        - https://github.com/twolfson/json2css#templates
+        - https://github.com/twolfson/spritesheet-templates#templates
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a path to a [mustache][] template
@@ -158,7 +158,7 @@ and CSS:
 - cssOpts `Object` - Options to pass through to templater
     - For example `{cssOpts: {functions: false}}` skips output of mixins
     - See your template's documentation for available options
-        - https://github.com/twolfson/json2css#templates
+        - https://github.com/twolfson/spritesheet-templates#templates
 
 [mustache]: http://mustache.github.io/
 
@@ -184,9 +184,9 @@ https://github.com/twolfson/layout
 ### Templating
 The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-https://github.com/twolfson/json2css/blob/4.2.0/lib/templates/stylus.template.mustache
+https://github.com/twolfson/spritesheet-templates/blob/4.2.0/lib/templates/stylus.template.mustache
 
-The parameters passed into your template are known as `params`. We add some normalized properties via[`json2css`][] for your convenience.
+The parameters passed into your template are known as `params`. We add some normalized properties via[`spritesheet-templates`][] for your convenience.
 
 - params `Object` Container for parameters
     - items `Object[]` - Array of sprite information
@@ -213,7 +213,7 @@ The parameters passed into your template are known as `params`. We add some norm
             - offset_y `String` - `offset_y` suffixed with `px`
       - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
-[`json2css`]: https://github.com/twolfson/json2css
+[`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
 
 An example sprite `item` is
 
@@ -252,7 +252,7 @@ Example usages can be found as:
 #### Variable mapping
 The `cssVarMap` option allows customization of the CSS variable names
 
-> If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/json2css#css
+> If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/spritesheet-templates#css
 
 Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
