@@ -155,6 +155,7 @@ and CSS:
     - For more templating information, see the [Templating section](#templating)
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
     - For more information, see [Variable mapping](#variable-mapping)
+- cssSpritesheetName `String` - Name to use for spritesheet related variables in preprocessor templates
 - cssOpts `Object` - Options to pass through to templater
     - For example `{cssOpts: {functions: false}}` skips output of mixins
     - See your template's documentation for available options

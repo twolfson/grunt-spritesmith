@@ -163,7 +163,11 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         items: cleanCoords,
         spritesheet: spritesheetInfo
-      }, {format: cssFormat, formatOpts: cssOptions});
+      }, {
+        format: cssFormat,
+        formatOpts: cssOptions,
+        spritesheetName: options.cssSpritesheetName
+      });
 
       // Write it out to the CSS file
       var destCssDir = path.dirname(destCss);
