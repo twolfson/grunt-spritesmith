@@ -38,7 +38,7 @@ describe('grunt-spritesmith', function () {
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.basic.styl', 'utf8');
 
       // Make sure the outputs match
-      assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
+      assert.strictEqual(actualCoords, expectedCoords);
     });
   });
 

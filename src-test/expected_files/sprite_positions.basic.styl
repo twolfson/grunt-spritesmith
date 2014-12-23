@@ -7,7 +7,11 @@ Stylus variables are information about icon's compiled state, stored under its o
 
 The large array-like variables contain all information about a single icon
 $icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
 */
+$sprite1_name = 'sprite1';
 $sprite1_x = 100px;
 $sprite1_y = 0px;
 $sprite1_offset_x = -100px;
@@ -17,7 +21,8 @@ $sprite1_height = 50px;
 $sprite1_total_width = 150px;
 $sprite1_total_height = 200px;
 $sprite1_image = 'sprite.basic.png';
-$sprite1 = 100px 0px -100px 0px 50px 50px 150px 200px 'sprite.basic.png';
+$sprite1 = 100px 0px -100px 0px 50px 50px 150px 200px 'sprite.basic.png' 'sprite1';
+$sprite2_name = 'sprite2';
 $sprite2_x = 100px;
 $sprite2_y = 50px;
 $sprite2_offset_x = -100px;
@@ -27,7 +32,8 @@ $sprite2_height = 50px;
 $sprite2_total_width = 150px;
 $sprite2_total_height = 200px;
 $sprite2_image = 'sprite.basic.png';
-$sprite2 = 100px 50px -100px -50px 50px 50px 150px 200px 'sprite.basic.png';
+$sprite2 = 100px 50px -100px -50px 50px 50px 150px 200px 'sprite.basic.png' 'sprite2';
+$sprite3_name = 'sprite3';
 $sprite3_x = 0px;
 $sprite3_y = 0px;
 $sprite3_offset_x = 0px;
@@ -37,7 +43,12 @@ $sprite3_height = 200px;
 $sprite3_total_width = 150px;
 $sprite3_total_height = 200px;
 $sprite3_image = 'sprite.basic.png';
-$sprite3 = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.basic.png';
+$sprite3 = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.basic.png' 'sprite3';
+$spritesheet_width = 150px;
+$spritesheet_height = 200px;
+$spritesheet_image = 'sprite.basic.png';
+$spritesheet_image = 'sprite.basic.png';
+$spritesheet = 150px 200px 'sprite.basic.png' $spritesheet_sprites;
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -71,4 +82,19 @@ sprite($sprite) {
   spritePosition($sprite)
   spriteWidth($sprite)
   spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
 }
