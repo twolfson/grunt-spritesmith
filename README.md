@@ -508,6 +508,7 @@ fork:
   image: spritesheet.yamlTemplate.png
   total_width: 64
   total_height: 64
+  escaped_image: spritesheet.yamlTemplate.png
   offset_x: -0.0
   offset_y: -0.0
   px:
@@ -519,7 +520,6 @@ fork:
     width: 32px
     total_height: 64px
     total_width: 64px
-  escaped_image: spritesheet.yamlTemplate.png
 github:
   x: 32
   # ...
