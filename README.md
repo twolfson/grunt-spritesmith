@@ -186,7 +186,7 @@ The `cssTemplate` option allows for using a custom template. An example template
 
 https://github.com/twolfson/spritesheet-templates/blob/4.2.0/lib/templates/stylus.template.mustache
 
-The parameters passed into your template are known as `params`. We add some normalized properties via[`spritesheet-templates`][] for your convenience.
+The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
 - params `Object` Container for parameters
     - items `Object[]` - Array of sprite information
@@ -211,7 +211,7 @@ The parameters passed into your template are known as `params`. We add some norm
             - total_height `String` - `total_height` suffixed with `px`
             - offset_x `String` - `offset_x` suffixed with `px`
             - offset_y `String` - `offset_y` suffixed with `px`
-      - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
+    - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
 
