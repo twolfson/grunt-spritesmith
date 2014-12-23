@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.3.0 - Moved from `json2css` to `spritesheet-templates`, its renamed equivalent
+
 3.2.0 - Upgraded to `json2css@6.1.0` to pick up CSS selector fix. Fixes #104
 
 3.1.1 - Added more examples and links to examples
