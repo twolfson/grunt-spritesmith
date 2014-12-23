@@ -79,6 +79,10 @@ module.exports = function (grunt) {
         algorithm: 'top-down',
         cssVarMap: function (sprite) {
           sprite.name = sprite.name.replace('sprite', 'icon');
+        },
+        // TODO: `spritesheetName` should be tested separately
+        cssOpts: {
+          spritesheetName: 'icons'
         }
       },
       newer: {
