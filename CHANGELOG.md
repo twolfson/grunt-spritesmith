@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.6.0 - Upgraded to `spritesmith@1.1.0` to pick up `binary-tree` algorithm changes
+
 3.5.0 - Upgraded to `spritesheet-templates@8.2.0` to pick up `spritesheet` variables and `sprites` mixin in preprocessor templates
 
 3.4.0 - Upgraded to `spritesheet-templates@8.0.0` to pick up `spritesheet` variables in custom templates. Fixes #103
