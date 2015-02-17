@@ -2,7 +2,11 @@
 Icon classes can be used entirely standalone. They are named after their original file names.
 
 ```html
-<i class="icon-home"></i>
+<!-- `display: block` sprite -->
+<div class="icon-home"></div>
+
+<!-- `display: inline-block` sprite -->
+<img class="icon-home" />
 ```
 */
 #container .sprite1 {
