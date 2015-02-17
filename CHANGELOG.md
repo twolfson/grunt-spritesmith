@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.6.2 - Fixed broken tests due to `spritesheet-templates` patch upgrade
+
 3.6.1 - Fixed example for `imgOpts` in README
 
 3.6.0 - Upgraded to `spritesmith@1.1.0` to pick up `binary-tree` algorithm changes
