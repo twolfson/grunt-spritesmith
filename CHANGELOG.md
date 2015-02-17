@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.7.0 - Upgraded to `spritesheet-templates@8.3.0` to pick up `variableNameTransforms` support
+
 3.6.2 - Fixed broken tests due to `spritesheet-templates` patch upgrade
 
 3.6.1 - Fixed example for `imgOpts` in README
