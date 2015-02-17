@@ -213,6 +213,7 @@ The parameters passed into your template are known as `params`. We add some norm
             - offset_x `String` - `offset_x` suffixed with `px`
             - offset_y `String` - `offset_y` suffixed with `px`
     - spritesheet `Object` - Information about spritesheet
+        - name `String` - Prefix for spritesheet variables
         - width `Number` - Width of entire spritesheet
         - total_height `Number` - Height of entire spritesheet
         - image `String` - Relative URL path from CSS to spritesheet
