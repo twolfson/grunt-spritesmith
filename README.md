@@ -80,6 +80,7 @@ module.exports = function (grunt) {
 
   // Load in `grunt-spritesmith`
   grunt.loadNpmTasks('grunt-spritesmith');
+};
 ```
 
 Run the `grunt sprite` task:
