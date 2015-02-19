@@ -1,7 +1,7 @@
 {
   "name": "grunt-spritesmith",
   "description": "Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "homepage": "https://github.com/Ensighten/grunt-spritesmith",
   "author": {
     "name": "Todd Wolfson",
@@ -58,7 +58,7 @@
     "test": "npm run precheck && mocha src-test/ --reporter dot && npm run lint"
   },
   "dependencies": {
-    "spritesheet-templates": "~8.3.0",
+    "spritesheet-templates": "~8.2.0",
     "spritesmith": "~1.1.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
