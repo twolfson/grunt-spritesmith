@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+3.8.1 - Completed "Getting Started" example in README. Via @Stratus3D in #115
+
 3.8.0 - Reverted `3.7.0` release to remove breaking changes
 
 3.7.0 - Upgraded to `spritesheet-templates@8.3.0` to pick up `variableNameTransforms` support
