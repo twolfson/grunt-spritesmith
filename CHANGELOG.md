@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.0.0 - Upgraded to `spritesheet-templates@9.0.0` to reintroduce `3.7.0` as a major release
+
 3.9.0 - Upgraded to `spritesmith@1.2.0` to pick up optimal `binary-tree` fixes
 
 3.8.1 - Completed "Getting Started" example in README. Via @Stratus3D in #115
