@@ -60,6 +60,11 @@ We have moved the `cssClass` option for the `css` template to `cssSelector`. Thi
 
 [grunt-newer]: https://github.com/tschaub/grunt-newer
 
+## Breaking changes in 4.0.0
+We are normalizing sprite variables to be consistently `dash-case` or `snake_case` for some templates. These can be overriden via `cssOpts.variableNameTransforms` as documented in:
+
+https://github.com/twolfson/spritesheet-templates
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
