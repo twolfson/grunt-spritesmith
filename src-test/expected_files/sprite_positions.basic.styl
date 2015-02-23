@@ -88,6 +88,9 @@ sprite($sprite) {
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of Stylus
 
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
 sprites($spritesheet_sprites);
 */
 sprites($sprites) {
