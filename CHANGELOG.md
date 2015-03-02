@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.2.0 - Upgraded to `spritesmith@1.3.0` to add background fill support to `pixelsmith`
+
 4.1.0 - Upgraded to `spritesheet-templates@9.1.0` to add single sprite fixes/warnings
 
 4.0.0 - Upgraded to `spritesheet-templates@9.0.0` to reintroduce `3.7.0` as a major release
