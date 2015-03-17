@@ -8,6 +8,11 @@ module.exports = function (grunt) {
         dest: 'scratch/sprite.basic.png',
         destCss: 'scratch/sprite_positions.basic.styl'
       },
+      retina: {
+        src: ['test_files/sprite1*.png', 'test_files/sprite2*.jpg', 'test_files/sprite3*.png'],
+        dest: 'scratch/sprite.retina.png',
+        destCss: 'scratch/sprite_positions.retina.styl'
+      },
       'jpg,json': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
         // src: 'test_files/*.{jpg,png}',
