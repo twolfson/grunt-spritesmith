@@ -68,7 +68,7 @@ module.exports = function gruntSpritesmith (grunt) {
       return grunt.fatal('grunt.sprite requires a src, dest (img), and destCss property');
     }
 
-    // Load in all images from the src
+    // Expand all filepaths (e.g. `*.png` -> `home.png`)
     var srcFiles = grunt.file.expand(src);
 
     // If there are settings for retina
@@ -86,8 +86,7 @@ module.exports = function gruntSpritesmith (grunt) {
       srcRetinaFiles = [];
       srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
         // If we have a retina file, filter it out
-        console.log(srcRetinaFilter, filepath, grunt.file.match({matchBase: true}, srcRetinaFilter, [filepath]));
-        if (grunt.file.match(srcRetinaFilter, filepath)) {
+        if (grunt.file.match(srcRetinaFilter, filepath).length) {
           srcRetinaFiles.push(filepath);
           return false;
         // Otherwise, keep it safe
@@ -95,7 +94,7 @@ module.exports = function gruntSpritesmith (grunt) {
           return true;
         }
       });
-      console.log(srcFiles);
+      console.log(srcFiles, srcRetinaFiles);
     }
 
     // Create an async callback
