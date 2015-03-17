@@ -2,6 +2,7 @@
 var fs = require('fs');
 var path = require('path');
 var _ = require('underscore');
+var async = require('async');
 var templater = require('spritesheet-templates');
 var spritesmith = require('spritesmith');
 var url = require('url2');
@@ -69,6 +70,24 @@ module.exports = function gruntSpritesmith (grunt) {
 
     // Load in all images from the src
     var srcFiles = grunt.file.expand(src);
+
+    // If there are settings for retina
+    var srcRetinaFiles;
+    console.log('hi');
+    var srcRetinaFilter = data.srcRetinaFilter;
+    var destRetina = data.destRetina;
+    if (srcRetinaFilter || destRetina) {
+      // Verify our required set is present
+      if (!srcRetinaFilter || !destRetina) {
+        return grunt.fatal('Retina settings detected. We must have both `srcRetinaFilter` and `destRetina` ' +
+          'provided for retina to work');
+      }
+
+      // Filter out our retina files
+      srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
+        console.log(filepath);
+      });
+    }
 
     // Create an async callback
     var cb = this.async();
