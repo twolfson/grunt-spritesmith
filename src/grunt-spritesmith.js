@@ -86,8 +86,8 @@ module.exports = function gruntSpritesmith (grunt) {
       srcRetinaFiles = [];
       srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
         // If we have a retina file, filter it out
-        console.log('wat', filepath, srcRetinaFilter, grunt.file.match(filepath, srcRetinaFilter));
-        if (grunt.file.match(filepath, srcRetinaFilter)) {
+        console.log(srcRetinaFilter, filepath, grunt.file.match({matchBase: true}, srcRetinaFilter, [filepath]));
+        if (grunt.file.match(srcRetinaFilter, filepath)) {
           srcRetinaFiles.push(filepath);
           return false;
         // Otherwise, keep it safe
