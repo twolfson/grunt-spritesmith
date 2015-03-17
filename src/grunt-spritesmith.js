@@ -73,7 +73,6 @@ module.exports = function gruntSpritesmith (grunt) {
 
     // If there are settings for retina
     var srcRetinaFiles;
-    console.log('hi');
     var srcRetinaFilter = data.srcRetinaFilter;
     var destRetina = data.destRetina;
     if (srcRetinaFilter || destRetina) {
@@ -84,9 +83,19 @@ module.exports = function gruntSpritesmith (grunt) {
       }
 
       // Filter out our retina files
+      srcRetinaFiles = [];
       srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
-        console.log(filepath);
+        // If we have a retina file, filter it out
+        console.log('wat', filepath, srcRetinaFilter, grunt.file.match(filepath, srcRetinaFilter));
+        if (grunt.file.match(filepath, srcRetinaFilter)) {
+          srcRetinaFiles.push(filepath);
+          return false;
+        // Otherwise, keep it safe
+        } else {
+          return true;
+        }
       });
+      console.log(srcFiles);
     }
 
     // Create an async callback
