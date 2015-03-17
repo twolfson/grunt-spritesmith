@@ -89,12 +89,11 @@ module.exports = function gruntSpritesmith (grunt) {
         if (grunt.file.match(srcRetinaFilter, filepath).length) {
           srcRetinaFiles.push(filepath);
           return false;
-        // Otherwise, keep it safe
+        // Otherwise, keep it in the src files
         } else {
           return true;
         }
       });
-      console.log(srcFiles, srcRetinaFiles);
     }
 
     // Create an async callback
@@ -107,7 +106,7 @@ module.exports = function gruntSpritesmith (grunt) {
     // Set up the defautls for imgOpts
     _.defaults(imgOpts, {format: imgFormat});
 
-    // Run through spritesmith
+    // Perpare spritesmith parameters
     var spritesmithParams = {
       src: srcFiles,
       engine: data.engine,
@@ -117,12 +116,32 @@ module.exports = function gruntSpritesmith (grunt) {
       engineOpts: data.engineOpts || {},
       exportOpts: imgOpts
     };
-    spritesmith(spritesmithParams, function (err, result) {
+
+    // In parallel
+    async.parallel([
+      // Run our normal task
+      function normalSpritesheet (callback) {
+        spritesmith(spritesmithParams, callback);
+      },
+      // If we have a retina task, run it as well
+      function retinaSpritesheet (callback) {
+        if (srcRetinaFiles) {
+          var retinaParams = _.defaults({
+            src: srcRetinaFiles
+          }, spritesmithParams);
+          spritesmith(retinaParams, callback);
+        } else {
+          process.nextTick(callback);
+        }
+      }
+    ], function handleSpritesheets (err, resultArr) {
       // If an error occurred, callback with it
       if (err) {
         grunt.fatal(err);
         return cb(err);
       }
+
+      // TODO: Handle multiple results with a lot of conditionals =(
 
       // Otherwise, write out the result to destImg
       var destImgDir = path.dirname(destImg);
