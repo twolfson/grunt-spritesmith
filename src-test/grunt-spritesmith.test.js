@@ -42,6 +42,36 @@ describe('grunt-spritesmith', function () {
     });
   });
 
+  describe.only('converting a retina set of images', function () {
+    gruntUtils.runTask('sprite:retina');
+
+    it.skip('generates an image', function (done) {
+      // Load in the images and compare them
+      getPixels(actualDir + 'sprite.basic.png', function handleActualPixels (err, actualImage) {
+        if (err) { return done(err); }
+        getPixels(expectedDir + 'pixelsmith.basic.png', function handleExpectedPixels (err, expectedImage) {
+          if (err) { return done(err); }
+          assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
+          done();
+        });
+      });
+    });
+
+    it.skip('generates a retina image', function (done) {
+      // TOO: Complete me
+    });
+
+    it.skip('generates CSS and retina variables', function () {
+      // Load in the sprite positions
+      // TODO: Assert the same variables exist -- which means loading this into either Stylus or a meta-language
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.basic.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.basic.styl', 'utf8');
+
+      // Make sure the outputs match
+      assert.strictEqual(actualCoords, expectedCoords);
+    });
+  });
+
   describe('generating a jpg and JSON', function () {
     gruntUtils.runTask('sprite:jpg,json');
 
