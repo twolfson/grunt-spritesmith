@@ -248,6 +248,10 @@ module.exports = function gruntSpritesmith (grunt) {
       }
 
       // Render the variables via `spritesheet-templates`
+      // TODO: Move to `hogan.js` and pick up inheritance
+      //   https://github.com/twitter/hogan.js
+      // TODO: Or maybe handlebars with handlebars-layouts
+      //   https://github.com/shannonmoeller/handlebars-layouts
       var cssStr = templater({
         items: cleanCoords,
         spritesheet: spritesheetInfo,
