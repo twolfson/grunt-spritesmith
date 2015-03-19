@@ -199,12 +199,12 @@ module.exports = function gruntSpritesmith (grunt) {
       });
 
       // If we have retina sprites
-      var resultRetina = resultArr[1];
-      if (resultRetina) {
+      var retinaResult = resultArr[1];
+      if (retinaResult) {
         // Write out the result to destImg
         var retinaDestImgDir = path.dirname(retinaDestImg);
         grunt.file.mkdir(retinaDestImgDir);
-        fs.writeFileSync(retinaDestImg, resultRetina.image, 'binary');
+        fs.writeFileSync(retinaDestImg, retinaResult.image, 'binary');
       }
 
       // If there is a custom template, use it
