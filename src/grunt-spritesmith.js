@@ -45,6 +45,20 @@ cssFormats.add('.less', 'less');
 cssFormats.add('.json', 'json');
 cssFormats.add('.css', 'css');
 
+function getCoordinateName(filepath) {
+  // Extract the image name (exlcuding extension)
+  var fullname = path.basename(filepath);
+  var nameParts = fullname.split('.');
+
+  // If there is are more than 2 parts, pop the last one
+  if (nameParts.length >= 2) {
+    nameParts.pop();
+  }
+
+  // Return our modified filename
+  return nameParts.join('.');
+}
+
 module.exports = function gruntSpritesmith (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
@@ -164,17 +178,8 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // Clean up the file name of the file
       Object.getOwnPropertyNames(coordinates).sort().forEach(function prepareTemplateData (file) {
-        // Extract the image name (exlcuding extension)
-        var fullname = path.basename(file);
-        var nameParts = fullname.split('.');
-
-        // If there is are more than 2 parts, pop the last one
-        if (nameParts.length >= 2) {
-          nameParts.pop();
-        }
-
         // Extract out our name
-        var name = nameParts.join('.');
+        var name = getCoordinateName(file);
         var coords = coordinates[file];
 
         // Specify the image for the sprite
@@ -192,10 +197,15 @@ module.exports = function gruntSpritesmith (grunt) {
         cleanCoords.push(coords);
       });
 
+      // If we have retina sprites
+      var retinaResult = resultArr[1];
+      if (retinaResult) {
+
+      }
+
+      // If there is a custom template, use it
       var cssFormat = 'spritesmith-custom';
       var cssOptions = data.cssOpts || {};
-
-      // If there's a custom template, use it
       if (cssTemplate) {
         if (typeof cssTemplate === 'function') {
           templater.addTemplate(cssFormat, cssTemplate);
@@ -204,6 +214,7 @@ module.exports = function gruntSpritesmith (grunt) {
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
+      // TODO: Concatenate on `-retina` to `destCss`
         cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
       }
 
