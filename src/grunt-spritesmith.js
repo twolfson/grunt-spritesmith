@@ -200,11 +200,36 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // If we have retina sprites
       var retinaResult = resultArr[1];
+      var retinaSpritesheetInfo;
       if (retinaResult) {
         // Write out the result to destImg
         var retinaDestImgDir = path.dirname(retinaDestImg);
         grunt.file.mkdir(retinaDestImgDir);
         fs.writeFileSync(retinaDestImg, retinaResult.image, 'binary');
+
+        // Generate a listing of CSS variables
+        var retinaCoordinates = retinaResult.coordinates;
+        var retinaProperties = retinaResult.properties;
+        var retinaSpritePath = data.retinaImgPath || url.relative(destCss, retinaDestImg);
+        retinaSpritesheetInfo = {
+          width: retinaProperties.width,
+          height: retinaProperties.height,
+          image: retinaSpritePath
+        };
+        // DEV: We reuse cssVarMap and cleanCoords
+
+        // Clean up the file name of the file
+        Object.getOwnPropertyNames(retinaCoordinates).sort().forEach(function prepareRetinaTemplateData (file) {
+          var name = getCoordinateName(file);
+          var coords = retinaCoordinates[file];
+          coords.name = name;
+          coords.source_image = file;
+          coords.image = retinaSpritePath;
+          coords.total_width = retinaProperties.width;
+          coords.total_height = retinaProperties.height;
+          coords = cssVarMap(coords) || coords;
+          cleanCoords.push(coords);
+        });
       }
 
       // If there is a custom template, use it
@@ -225,11 +250,13 @@ module.exports = function gruntSpritesmith (grunt) {
       // Render the variables via `spritesheet-templates`
       var cssStr = templater({
         items: cleanCoords,
-        spritesheet: spritesheetInfo
+        spritesheet: spritesheetInfo,
+        retinaSpritesheet: retinaSpritesheetInfo
       }, {
         format: cssFormat,
         formatOpts: cssOptions,
-        spritesheetName: data.cssSpritesheetName
+        spritesheetName: data.cssSpritesheetName,
+        retinaSpritesheetName: data.retinaCssSpritesheetName
       });
 
       // Write it out to the CSS file
