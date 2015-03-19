@@ -88,12 +88,12 @@ module.exports = function gruntSpritesmith (grunt) {
     // If there are settings for retina
     var srcRetinaFiles;
     var srcRetinaFilter = data.srcRetinaFilter;
-    var destRetina = data.destRetina;
-    if (srcRetinaFilter || destRetina) {
+    var destRetinaImg = data.destRetina;
+    if (srcRetinaFilter || destRetinaImg) {
       grunt.log.debug('Retina settings detected');
 
       // Verify our required set is present
-      if (!srcRetinaFilter || !destRetina) {
+      if (!srcRetinaFilter || !destRetinaImg) {
         return grunt.fatal('Retina settings detected. We must have both `srcRetinaFilter` and `destRetina` ' +
           'provided for retina to work');
       }
@@ -110,7 +110,7 @@ module.exports = function gruntSpritesmith (grunt) {
           return true;
         }
       });
-      grunt.verbose.log('Retina images found:' + srcRetinaFiles.join(', '));
+      grunt.verbose.writeln('Retina images found: ' + srcRetinaFiles.join(', '));
     }
 
     // Create an async callback
@@ -198,9 +198,12 @@ module.exports = function gruntSpritesmith (grunt) {
       });
 
       // If we have retina sprites
-      var retinaResult = resultArr[1];
-      if (retinaResult) {
-
+      var resultRetina = resultArr[1];
+      if (resultRetina) {
+        // Write out the result to destImg
+        var destRetinaImgDir = path.dirname(destRetinaImg);
+        grunt.file.mkdir(destRetinaImgDir);
+        fs.writeFileSync(destRetinaImg, resultRetina.image, 'binary');
       }
 
       // If there is a custom template, use it
