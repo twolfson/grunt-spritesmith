@@ -76,6 +76,8 @@ module.exports = function gruntSpritesmith (grunt) {
     var srcRetinaFilter = data.srcRetinaFilter;
     var destRetina = data.destRetina;
     if (srcRetinaFilter || destRetina) {
+      grunt.log.debug('Retina settings detected');
+
       // Verify our required set is present
       if (!srcRetinaFilter || !destRetina) {
         return grunt.fatal('Retina settings detected. We must have both `srcRetinaFilter` and `destRetina` ' +
@@ -94,6 +96,7 @@ module.exports = function gruntSpritesmith (grunt) {
           return true;
         }
       });
+      grunt.verbose.log('Retina images found:' + srcRetinaFiles.join(', '));
     }
 
     // Create an async callback
@@ -141,9 +144,8 @@ module.exports = function gruntSpritesmith (grunt) {
         return cb(err);
       }
 
-      // TODO: Handle multiple results with a lot of conditionals =(
-
       // Otherwise, write out the result to destImg
+      var result = resultArr[0];
       var destImgDir = path.dirname(destImg);
       grunt.file.mkdir(destImgDir);
       fs.writeFileSync(destImg, result.image, 'binary');
@@ -161,7 +163,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var cleanCoords = [];
 
       // Clean up the file name of the file
-      Object.getOwnPropertyNames(coordinates).sort().forEach(function (file) {
+      Object.getOwnPropertyNames(coordinates).sort().forEach(function prepareTemplateData (file) {
         // Extract the image name (exlcuding extension)
         var fullname = path.basename(file);
         var nameParts = fullname.split('.');
