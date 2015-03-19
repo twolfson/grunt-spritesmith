@@ -10,10 +10,10 @@ module.exports = function (grunt) {
       },
       retina: {
         src: ['test_files/sprite1*.png', 'test_files/sprite2*.jpg', 'test_files/sprite3*.png'],
-        srcRetinaFilter: ['test_files/*-2x.{png,jpg}'],
+        retinaSrcFilter: ['test_files/*-2x.{png,jpg}'],
         dest: 'scratch/sprite.retina.png',
-        destRetina: 'scratch/sprite.retina-2x.png',
-        destCss: 'scratch/sprite_positions.retina.styl'
+        retinaDest: 'scratch/sprite.retina-2x.png'
+        destCss: 'scratch/sprite_positions.retina.styl',
       },
       'jpg,json': {
         // TODO: This order is forced due to png/jpg ordering. We should fix this.
