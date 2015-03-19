@@ -86,31 +86,31 @@ module.exports = function gruntSpritesmith (grunt) {
     var srcFiles = grunt.file.expand(src);
 
     // If there are settings for retina
-    var srcRetinaFiles;
-    var srcRetinaFilter = data.srcRetinaFilter;
-    var destRetinaImg = data.destRetina;
-    if (srcRetinaFilter || destRetinaImg) {
+    var retinaSrcFiles;
+    var retinaSrcFilter = data.retinaSrcFilter;
+    var retinaDestImg = data.retinaDest;
+    if (retinaSrcFilter || retinaDestImg) {
       grunt.log.debug('Retina settings detected');
 
       // Verify our required set is present
-      if (!srcRetinaFilter || !destRetinaImg) {
-        return grunt.fatal('Retina settings detected. We must have both `srcRetinaFilter` and `destRetina` ' +
+      if (!retinaSrcFilter || !retinaDestImg) {
+        return grunt.fatal('Retina settings detected. We must have both `retinaSrcFilter` and `retinaDest` ' +
           'provided for retina to work');
       }
 
       // Filter out our retina files
-      srcRetinaFiles = [];
+      retinaSrcFiles = [];
       srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
         // If we have a retina file, filter it out
-        if (grunt.file.match(srcRetinaFilter, filepath).length) {
-          srcRetinaFiles.push(filepath);
+        if (grunt.file.match(retinaSrcFilter, filepath).length) {
+          retinaSrcFiles.push(filepath);
           return false;
         // Otherwise, keep it in the src files
         } else {
           return true;
         }
       });
-      grunt.verbose.writeln('Retina images found: ' + srcRetinaFiles.join(', '));
+      grunt.verbose.writeln('Retina images found: ' + retinaSrcFiles.join(', '));
     }
 
     // Create an async callback
@@ -142,9 +142,10 @@ module.exports = function gruntSpritesmith (grunt) {
       },
       // If we have a retina task, run it as well
       function retinaSpritesheet (callback) {
-        if (srcRetinaFiles) {
+        // DEV: We don't check length since we could have no images passed in
+        if (retinaSrcFiles) {
           var retinaParams = _.defaults({
-            src: srcRetinaFiles
+            src: retinaSrcFiles
           }, spritesmithParams);
           spritesmith(retinaParams, callback);
         } else {
@@ -201,9 +202,9 @@ module.exports = function gruntSpritesmith (grunt) {
       var resultRetina = resultArr[1];
       if (resultRetina) {
         // Write out the result to destImg
-        var destRetinaImgDir = path.dirname(destRetinaImg);
-        grunt.file.mkdir(destRetinaImgDir);
-        fs.writeFileSync(destRetinaImg, resultRetina.image, 'binary');
+        var retinaDestImgDir = path.dirname(retinaDestImg);
+        grunt.file.mkdir(retinaDestImgDir);
+        fs.writeFileSync(retinaDestImg, resultRetina.image, 'binary');
       }
 
       // If there is a custom template, use it
