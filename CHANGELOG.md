@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.3.1 - Fixed code fence in README
+
 4.3.0 - Upgraded to `spritesheet-templates@9.2.0` to add template inheritance support
 
 4.2.0 - Upgraded to `spritesmith@1.3.0` to add background fill support to `pixelsmith`
