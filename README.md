@@ -520,7 +520,7 @@ ${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.heigh
 
 **Output:**
 
-```css
+```scss
 $fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'fork', );
 $github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'github', );
 $twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'twitter', );
