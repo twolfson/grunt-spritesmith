@@ -44,6 +44,12 @@ module.exports = function (grunt) {
         destCss: 'spritesheet.handlebarsStr.css',
         cssTemplate: __dirname + '/handlebarsStr.css.handlebars'
       },
+      handlebarsInheritance: {
+        src: ['fork.png', 'github.png', 'twitter.png'],
+        dest: 'spritesheet.handlebarsInheritance.png',
+        destCss: 'spritesheet.handlebarsInheritance.css',
+        cssTemplate: 'handlebarsInheritance.scss.handlebars'
+      },
       yamlTemplate: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         dest: 'spritesheet.yamlTemplate.png',

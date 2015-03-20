@@ -267,6 +267,7 @@ If you are definiing a Handlebars template, then you can inherit from an existin
 Example usages can be found as:
 
 - [Handlebars template](#handlebars-template)
+- [Handlebars inheritance](#handlebars-inheritance)
 - [Template function](#template-function)
 
 #### Variable mapping
@@ -460,6 +461,56 @@ In this example, we will use `cssTemplate` with a `handlebars` template to gener
   dest: 'spritesheet.handlebarsStr.png',
   destCss: 'spritesheet.handlebarsStr.css',
   cssTemplate: 'handlebarsStr.css.handlebars'
+}
+```
+
+**Output:**
+
+```css
+.icon-fork:before {
+  display: block;
+  background-image: url(spritesheet.handlebarsStr.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px;
+}
+.icon-github:before {
+/* ... */
+```
+
+### Handlebars inheritance
+In this example, we will extend the SCSS template to provide minimal variables. The JSON at the front comes from the original template and is required to provide consistent casing and default options.
+
+**Template:**
+
+```handlebars
+{
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['dasherize']
+}
+
+{{#extend "scss"}}
+{{#content "sprites"}}
+{{#each sprites}}
+${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.width}}, {{px.height}}, {{px.total_width}}, {{px.total_height}}, '{{{escaped_image}}}', '{{name}}', );
+{{/each}}
+{{/content}}
+{{#content "spritesheet"}}
+${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+{{/content}}
+{{/extend}}
+```
+
+**Configuration:**
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  dest: 'spritesheet.handlebarsInheritance.png',
+  destCss: 'spritesheet.handlebarsInheritance.css',
+  cssTemplate: 'handlebarsInheritance.scss.handlebars'
 }
 ```
 
