@@ -152,7 +152,7 @@ module.exports = function gruntSpritesmith (grunt) {
         if (typeof cssTemplate === 'function') {
           templater.addTemplate(cssFormat, cssTemplate);
         } else {
-          templater.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+          templater.addHandlebarsTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'

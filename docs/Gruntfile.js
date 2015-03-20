@@ -38,11 +38,11 @@ module.exports = function (grunt) {
           sprite.name = 'sprite_' + sprite.name;
         }
       },
-      mustacheStr: {
+      handlebarsStr: {
         src: ['fork.png', 'github.png', 'twitter.png'],
-        dest: 'spritesheet.mustacheStr.png',
-        destCss: 'spritesheet.mustacheStr.css',
-        cssTemplate: __dirname + '/mustacheStr.css.mustache'
+        dest: 'spritesheet.handlebarsStr.png',
+        destCss: 'spritesheet.handlebarsStr.css',
+        cssTemplate: __dirname + '/handlebarsStr.css.handlebars'
       },
       yamlTemplate: {
         src: ['fork.png', 'github.png', 'twitter.png'],
