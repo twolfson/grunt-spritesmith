@@ -47,8 +47,8 @@ module.exports = function (grunt) {
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssOpts: {
-          cssSelector: function (item) {
-            return '#container .' + item.name;
+          cssSelector: function (sprite) {
+            return '#container .' + sprite.name;
           }
         }
       },
@@ -59,8 +59,8 @@ module.exports = function (grunt) {
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: function (data) {
-          // Stringify only the first item
-          return JSON.stringify(data.items[0], null, 4);
+          // Stringify only the first sprite
+          return JSON.stringify(data.sprites[0], null, 4);
         }
       },
       cssMustacheTemplate: {

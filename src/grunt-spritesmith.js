@@ -161,7 +161,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // Render the variables via `spritesheet-templates`
       var cssStr = templater({
-        items: cleanCoords,
+        sprites: cleanCoords,
         spritesheet: spritesheetInfo
       }, {
         format: cssFormat,
