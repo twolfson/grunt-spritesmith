@@ -199,6 +199,7 @@ module.exports = function gruntSpritesmith (grunt) {
       });
 
       // If we have retina sprites
+      var retinaCleanCoords;
       var retinaResult = resultArr[1];
       var retinaSpritesheetInfo;
       if (retinaResult) {
@@ -216,7 +217,8 @@ module.exports = function gruntSpritesmith (grunt) {
           height: retinaProperties.height,
           image: retinaSpritePath
         };
-        // DEV: We reuse cssVarMap and cleanCoords
+        // DEV: We reuse cssVarMap
+        retinaCleanCoords = [];
 
         // Clean up the file name of the file
         Object.getOwnPropertyNames(retinaCoordinates).sort().forEach(function prepareRetinaTemplateData (file) {
@@ -228,7 +230,7 @@ module.exports = function gruntSpritesmith (grunt) {
           coords.total_width = retinaProperties.width;
           coords.total_height = retinaProperties.height;
           coords = cssVarMap(coords) || coords;
-          cleanCoords.push(coords);
+          retinaCleanCoords.push(coords);
         });
       }
 
@@ -256,6 +258,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         items: cleanCoords,
         spritesheet: spritesheetInfo,
+        retinaItems: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
       }, {
         format: cssFormat,
