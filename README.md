@@ -517,14 +517,11 @@ ${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.heigh
 **Output:**
 
 ```css
-.icon-fork:before {
-  display: block;
-  background-image: url(spritesheet.handlebarsStr.png);
-  background-position: 0px 0px;
-  width: 32px;
-  height: 32px;
-}
-.icon-github:before {
+$fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'fork', );
+$github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'github', );
+$twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'twitter', );
+$spritesheet-sprites: ($fork, $github, $twitter, );
+$spritesheet: (64px, 64px, 'spritesheet.handlebarsInheritance.png', $spritesheet-sprites, );
 /* ... */
 ```
 
