@@ -260,6 +260,10 @@ An example `sprite` is
 }
 ```
 
+If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+
+[`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
+
 Example usages can be found as:
 
 - [Handlebars template](#handlebars-template)
