@@ -49,19 +49,19 @@ module.exports = function (grunt) {
         dest: 'spritesheet.yamlTemplate.png',
         destCss: 'spritesheet.yamlTemplate.yml',
         cssTemplate: function (params) {
-          // Convert items from an array into an object
-          var itemObj = {};
-          params.items.forEach(function (item) {
-            // Grab the name and store the item under it
-            var name = item.name;
-            itemObj[name] = item;
+          // Convert sprites from an array into an object
+          var spriteObj = {};
+          params.sprites.forEach(function (sprite) {
+            // Grab the name and store the sprite under it
+            var name = sprite.name;
+            spriteObj[name] = sprite;
 
-            // Delete the name from the item
-            delete item.name;
+            // Delete the name from the sprite
+            delete sprite.name;
           });
 
-          // Return stringified itemObj
-          return yaml.safeDump(itemObj);
+          // Return stringified spriteObj
+          return yaml.safeDump(spriteObj);
         }
       }
     }

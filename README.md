@@ -196,7 +196,7 @@ https://github.com/twolfson/spritesheet-templates/blob/4.2.0/lib/templates/stylu
 The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
 - params `Object` Container for parameters
-    - items `Object[]` - Array of sprite information
+    - sprites `Object[]` - Array of sprite information
         - name `String` - Name of the sprite file (sans extension)
         - x `Number` - Horizontal position of sprite's left edge in spritesheet
         - y `Number` - Vertical position of sprite's top edge in spritesheet
@@ -231,7 +231,7 @@ The parameters passed into your template are known as `params`. We add some norm
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
 
-An example sprite `item` is
+An example `sprite` is
 
 ```js
 {
@@ -270,7 +270,7 @@ The `cssVarMap` option allows customization of the CSS variable names
 
 > If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/spritesheet-templates#css
 
-Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
+Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `sprites` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
 ```js
 // Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
@@ -437,7 +437,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 **Template:**
 
 ```mustache
-{{#items}}
+{{#sprites}}
 .icon-{{name}}:before {
   display: block;
   background-image: url({{{escaped_image}}});
@@ -445,7 +445,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
   width: {{px.width}};
   height: {{px.height}};
 }
-{{/items}}
+{{/sprites}}
 ```
 
 **Configuration:**
@@ -485,19 +485,19 @@ In this example, we will use `cssTemplate` with a custom function that generates
   dest: 'spritesheet.yamlTemplate.png',
   destCss: 'spritesheet.yamlTemplate.yml',
   cssTemplate: function (params) {
-    // Convert items from an array into an object
-    var itemObj = {};
-    params.items.forEach(function (item) {
-      // Grab the name and store the item under it
-      var name = item.name;
-      itemObj[name] = item;
+    // Convert sprites from an array into an object
+    var spriteObj = {};
+    params.sprites.forEach(function (sprite) {
+      // Grab the name and store the sprite under it
+      var name = sprite.name;
+      spriteObj[name] = sprite;
 
-      // Delete the name from the item
-      delete item.name;
+      // Delete the name from the sprite
+      delete sprite.name;
     });
 
-    // Return stringified itemObj
-    return yaml.safeDump(itemObj);
+    // Return stringified spriteObj
+    return yaml.safeDump(spriteObj);
   }
 }
 ```
