@@ -481,6 +481,10 @@ In this example, we will use `cssTemplate` with a `handlebars` template to gener
 ### Handlebars inheritance
 In this example, we will extend the SCSS template to provide minimal variables. The JSON at the front comes from the original template and is required to provide consistent casing and default options.
 
+Different block sections for each template are documented in:
+
+https://github.com/twolfson/spritesheet-templates
+
 **Template:**
 
 ```handlebars
