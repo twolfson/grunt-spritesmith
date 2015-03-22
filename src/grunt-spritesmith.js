@@ -259,7 +259,7 @@ module.exports = function gruntSpritesmith (grunt) {
           return {
             name: name,
             normal: normalSprite,
-            retina: retinaCleanCoords[i]
+            retina: retinaSprite
           };
         });
       }
