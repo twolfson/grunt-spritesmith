@@ -258,7 +258,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         sprites: cleanCoords,
         spritesheet: spritesheetInfo,
-        retinaItems: retinaCleanCoords,
+        retinaSprites: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
       }, {
         format: cssFormat,
