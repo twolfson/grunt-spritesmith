@@ -241,11 +241,20 @@ module.exports = function gruntSpritesmith (grunt) {
           retinaCleanCoords.push(coords);
         });
 
-        // For all our coordinates, adjust the names of the normal ones and set up pairs
+        // Generate pairings for our coordinates
         // TODO: Should renaming occur here or within spritesheet-templates?
         retinaPairs = cleanCoords.map(function getSpritePairs (normalSprite, i) {
+          // Assert that image sizes line up for debugging purposes
+          var retinaSprite = retinaCleanCoords[i];
+          if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
+            grunt.log.error('Normal sprite has inconsistent size with retina sprite. ' +
+              '"' + normalSprite.name + '" is ' + normalSprite.width + 'x' + normalSprite.height + ' while ' +
+              '"' + retinaSprite.name + '" is ' + retinaSprite.width + 'x' + retinaSprite.height + '.');
+          }
+
+          // Generate our pair
+          // TODO: Renaming should come earlier in `cssVarMap`
           var name = normalSprite.name;
-          // TODO: This should come earlier at `cssVarMap`
           normalSprite.name += '-normal';
           return {
             name: name,
