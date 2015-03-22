@@ -191,7 +191,7 @@ https://github.com/twolfson/layout
 ### Templating
 The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-https://github.com/twolfson/spritesheet-templates/blob/9.2.0/lib/templates/stylus.template.handlebars
+https://github.com/twolfson/spritesheet-templates/blob/9.2.2/lib/templates/stylus.template.handlebars
 
 The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
