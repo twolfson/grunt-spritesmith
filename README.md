@@ -154,8 +154,8 @@ and CSS:
         - https://github.com/twolfson/spritesheet-templates#templates
 - cssTemplate `String|Function` - CSS template to use for rendering output CSS
     - This overrides `cssFormat`
-    - If a `String` is provided, it must be a path to a [mustache][] template
-        - An example usage can be found in the [Examples section](#mustache-template)
+    - If a `String` is provided, it must be a path to a [handlebars][] template
+        - An example usage can be found in the [Examples section](#handlebars-template)
     - If a `Function` is provided, it must have a signature of `function (params)`
         - An example usage can be found in the [Examples section](#template-function)
     - For more templating information, see the [Templating section](#templating)
@@ -167,7 +167,7 @@ and CSS:
     - See your template's documentation for available options
         - https://github.com/twolfson/spritesheet-templates#templates
 
-[mustache]: http://mustache.github.io/
+[handlebars]: http://handlebarsjs.com/
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
@@ -191,12 +191,12 @@ https://github.com/twolfson/layout
 ### Templating
 The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-https://github.com/twolfson/spritesheet-templates/blob/4.2.0/lib/templates/stylus.template.mustache
+https://github.com/twolfson/spritesheet-templates/blob/9.2.2/lib/templates/stylus.template.handlebars
 
 The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
 - params `Object` Container for parameters
-    - items `Object[]` - Array of sprite information
+    - sprites `Object[]` - Array of sprite information
         - name `String` - Name of the sprite file (sans extension)
         - x `Number` - Horizontal position of sprite's left edge in spritesheet
         - y `Number` - Vertical position of sprite's top edge in spritesheet
@@ -231,7 +231,7 @@ The parameters passed into your template are known as `params`. We add some norm
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
 
-An example sprite `item` is
+An example `sprite` is
 
 ```js
 {
@@ -260,9 +260,14 @@ An example sprite `item` is
 }
 ```
 
+If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+
+[`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
+
 Example usages can be found as:
 
-- [Mustache template](#mustache-template)
+- [Handlebars template](#handlebars-template)
+- [Handlebars inheritance](#handlebars-inheritance)
 - [Template function](#template-function)
 
 #### Variable mapping
@@ -270,7 +275,7 @@ The `cssVarMap` option allows customization of the CSS variable names
 
 > If you would like to customize CSS selectors in the `css` template, please see https://github.com/twolfson/spritesheet-templates#css
 
-Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `items` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
+Your `cssVarMap` should be a function with the signature `function (sprite)`. It will receive the same parameters as `sprites` from [Templating](#templating) except for `escaped_image`, `offset_x`,` offset_y`, and `px`.
 
 ```js
 // Prefix all sprite names with `sprite-` (e.g. `home` -> `sprite-home`)
@@ -431,13 +436,13 @@ The `padding` option allows for inserting spacing between images.
 ![padding spritesheet](docs/spritesheet.padding.png)
 
 
-### Mustache template
-In this example, we will use `cssTemplate` with a `mustache` template to generate CSS that uses `:before` selectors.
+### Handlebars template
+In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.
 
 **Template:**
 
-```mustache
-{{#items}}
+```handlebars
+{{#sprites}}
 .icon-{{name}}:before {
   display: block;
   background-image: url({{{escaped_image}}});
@@ -445,7 +450,7 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
   width: {{px.width}};
   height: {{px.height}};
 }
-{{/items}}
+{{/sprites}}
 ```
 
 **Configuration:**
@@ -453,9 +458,9 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 ```js
 {
   src: ['fork.png', 'github.png', 'twitter.png'],
-  dest: 'spritesheet.mustacheStr.png',
-  destCss: 'spritesheet.mustacheStr.css',
-  cssTemplate: 'mustacheStr.css.mustache'
+  dest: 'spritesheet.handlebarsStr.png',
+  destCss: 'spritesheet.handlebarsStr.css',
+  cssTemplate: 'handlebarsStr.css.handlebars'
 }
 ```
 
@@ -464,12 +469,63 @@ In this example, we will use `cssTemplate` with a `mustache` template to generat
 ```css
 .icon-fork:before {
   display: block;
-  background-image: url(spritesheet.mustacheStr.png);
+  background-image: url(spritesheet.handlebarsStr.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px;
 }
 .icon-github:before {
+/* ... */
+```
+
+### Handlebars inheritance
+In this example, we will extend the SCSS template to provide minimal variables. The JSON at the front comes from the original template and is required to provide consistent casing and default options.
+
+Different block sections for each template are documented in:
+
+https://github.com/twolfson/spritesheet-templates
+
+**Template:**
+
+```handlebars
+{
+  // Default options
+  'functions': true,
+  'variableNameTransforms': ['dasherize']
+}
+
+{{#extend "scss"}}
+{{#content "sprites"}}
+{{#each sprites}}
+${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.width}}, {{px.height}}, {{px.total_width}}, {{px.total_height}}, '{{{escaped_image}}}', '{{name}}', );
+{{/each}}
+{{/content}}
+{{#content "spritesheet"}}
+${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+{{/content}}
+{{/extend}}
+```
+
+**Configuration:**
+
+```js
+{
+  src: ['fork.png', 'github.png', 'twitter.png'],
+  dest: 'spritesheet.handlebarsInheritance.png',
+  destCss: 'spritesheet.handlebarsInheritance.css',
+  cssTemplate: 'handlebarsInheritance.scss.handlebars'
+}
+```
+
+**Output:**
+
+```scss
+$fork: (0px, 0px, 0px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'fork', );
+$github: (32px, 0px, -32px, 0px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'github', );
+$twitter: (0px, 32px, 0px, -32px, 32px, 32px, 64px, 64px, 'spritesheet.handlebarsInheritance.png', 'twitter', );
+$spritesheet-sprites: ($fork, $github, $twitter, );
+$spritesheet: (64px, 64px, 'spritesheet.handlebarsInheritance.png', $spritesheet-sprites, );
 /* ... */
 ```
 
@@ -485,19 +541,19 @@ In this example, we will use `cssTemplate` with a custom function that generates
   dest: 'spritesheet.yamlTemplate.png',
   destCss: 'spritesheet.yamlTemplate.yml',
   cssTemplate: function (params) {
-    // Convert items from an array into an object
-    var itemObj = {};
-    params.items.forEach(function (item) {
-      // Grab the name and store the item under it
-      var name = item.name;
-      itemObj[name] = item;
+    // Convert sprites from an array into an object
+    var spriteObj = {};
+    params.sprites.forEach(function (sprite) {
+      // Grab the name and store the sprite under it
+      var name = sprite.name;
+      spriteObj[name] = sprite;
 
-      // Delete the name from the item
-      delete item.name;
+      // Delete the name from the sprite
+      delete sprite.name;
     });
 
-    // Return stringified itemObj
-    return yaml.safeDump(itemObj);
+    // Return stringified spriteObj
+    return yaml.safeDump(spriteObj);
   }
 }
 ```

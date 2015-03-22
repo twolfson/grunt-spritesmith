@@ -54,8 +54,8 @@ module.exports = function (grunt) {
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssOpts: {
-          cssSelector: function (item) {
-            return '#container .' + item.name;
+          cssSelector: function (sprite) {
+            return '#container .' + sprite.name;
           }
         }
       },
@@ -66,17 +66,17 @@ module.exports = function (grunt) {
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssTemplate: function (data) {
-          // Stringify only the first item
-          return JSON.stringify(data.items[0], null, 4);
+          // Stringify only the first sprite
+          return JSON.stringify(data.sprites[0], null, 4);
         }
       },
-      cssMustacheTemplate: {
+      cssHandlebarsTemplate: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
-        dest: 'scratch/sprite.cssMustacheTemplate.png',
-        destCss: 'scratch/sprite_positions.cssMustacheTemplate.styl',
+        dest: 'scratch/sprite.cssHandlebarsTemplate.png',
+        destCss: 'scratch/sprite_positions.cssHandlebarsTemplate.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
-        cssTemplate: 'test_files/template.mustache'
+        cssTemplate: 'test_files/template.handlebars'
       },
       cssVarMap: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],

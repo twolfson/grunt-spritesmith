@@ -3,7 +3,7 @@
   'functions': true
 }
 
-{{#items}}
+{{#sprites}}
 $sprite-{{name}}-x = {{px.x}};
 $sprite-{{name}}-y = {{px.y}};
 $sprite-{{name}}-offset-x = {{px.offset_x}};
@@ -14,7 +14,7 @@ $sprite-{{name}}-total-width = {{px.total_width}};
 $sprite-{{name}}-total-height = {{px.total_height}};
 $sprite-{{name}}-image = '{{{escaped_image}}}';
 $sprite-{{name}} = {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}';
-{{/items}}
+{{/sprites}}
 
 {{#options.functions}}
 spriteWidth($sprite) {

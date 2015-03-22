@@ -172,12 +172,12 @@ describe('grunt-spritesmith', function () {
   });
 
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
-  describe('running a task with a custom mustache template', function () {
-    gruntUtils.runTask('sprite:cssMustacheTemplate');
+  describe('running a task with a custom handlebars template', function () {
+    gruntUtils.runTask('sprite:cssHandlebarsTemplate');
 
     it('uses the template', function () {
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssMustacheTemplate.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssMustacheTemplate.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });

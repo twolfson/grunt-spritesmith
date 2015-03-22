@@ -123,7 +123,7 @@ module.exports = function gruntSpritesmith (grunt) {
     // Set up the defautls for imgOpts
     _.defaults(imgOpts, {format: imgFormat});
 
-    // Perpare spritesmith parameters
+    // Prepare spritesmith parameters
     var spritesmithParams = {
       src: srcFiles,
       engine: data.engine,
@@ -241,7 +241,7 @@ module.exports = function gruntSpritesmith (grunt) {
         if (typeof cssTemplate === 'function') {
           templater.addTemplate(cssFormat, cssTemplate);
         } else {
-          templater.addMustacheTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
+          templater.addHandlebarsTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
@@ -256,7 +256,7 @@ module.exports = function gruntSpritesmith (grunt) {
       // TODO: Or maybe handlebars with handlebars-layouts
       //   https://github.com/shannonmoeller/handlebars-layouts
       var cssStr = templater({
-        items: cleanCoords,
+        sprites: cleanCoords,
         spritesheet: spritesheetInfo,
         retinaItems: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
