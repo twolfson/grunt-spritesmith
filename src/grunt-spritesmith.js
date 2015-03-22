@@ -207,6 +207,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // If we have retina sprites
       var retinaCleanCoords;
+      var retinaPairs;
       var retinaResult = resultArr[1];
       var retinaSpritesheetInfo;
       if (retinaResult) {
@@ -239,6 +240,19 @@ module.exports = function gruntSpritesmith (grunt) {
           coords = cssVarMap(coords) || coords;
           retinaCleanCoords.push(coords);
         });
+
+        // For all our coordinates, adjust the names of the normal ones and set up pairs
+        // TODO: Should renaming occur here or within spritesheet-templates?
+        retinaPairs = cleanCoords.map(function getSpritePairs (normalSprite, i) {
+          var name = normalSprite.name;
+          // TODO: This should come earlier at `cssVarMap`
+          normalSprite.name += '-normal';
+          return {
+            name: name,
+            normal: normalSprite,
+            retina: retinaCleanCoords[i]
+          };
+        });
       }
 
       // If there is a custom template, use it
@@ -265,6 +279,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         sprites: cleanCoords,
         spritesheet: spritesheetInfo,
+        retinaPairs: retinaPairs,
         retinaSprites: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
       }, {
