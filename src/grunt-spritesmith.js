@@ -247,7 +247,7 @@ module.exports = function gruntSpritesmith (grunt) {
           // Assert that image sizes line up for debugging purposes
           var retinaSprite = retinaCleanCoords[i];
           if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
-            grunt.log.error('Normal sprite has inconsistent size with retina sprite. ' +
+            grunt.log.warn('Normal sprite has inconsistent size with retina sprite. ' +
               '"' + normalSprite.name + '" is ' + normalSprite.width + 'x' + normalSprite.height + ' while ' +
               '"' + retinaSprite.name + '" is ' + retinaSprite.width + 'x' + retinaSprite.height + '.');
           }
