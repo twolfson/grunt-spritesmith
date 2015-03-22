@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.3.2 - Upgraded to `spritesheet-templates@9.2.2` to pick up more granular templating
+
 4.3.1 - Fixed code fence in README
 
 4.3.0 - Upgraded to `spritesheet-templates@9.2.0` to add template inheritance support
