@@ -111,6 +111,13 @@ module.exports = function gruntSpritesmith (grunt) {
         }
       });
       grunt.verbose.writeln('Retina images found: ' + retinaSrcFiles.join(', '));
+
+      // If we have a different amount of normal and retina images, complain and leave
+      if (srcFiles.length !== retinaSrcFiles.length) {
+        return grunt.fatal('Retina settings detected but ' + retinaSrcFiles.length + ' retina images were found. ' +
+          'We have ' + srcFiles.length + ' normal images and expect these numbers to line up. ' +
+          'Please double check `retinaSrcFilter`.');
+      }
     }
 
     // Create an async callback
