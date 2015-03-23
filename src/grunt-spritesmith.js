@@ -277,7 +277,7 @@ module.exports = function gruntSpritesmith (grunt) {
       // Otherwise, override the cssFormat and fallback to 'json'
       // TODO: Concatenate on `-retina` to `destCss`
         // cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
-        cssFormat = 'stylus-retina';
+        cssFormat = 'scss-retina';
       }
 
       // Render the variables via `spritesheet-templates`
