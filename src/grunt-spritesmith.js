@@ -7,6 +7,8 @@ var templater = require('spritesheet-templates');
 var spritesmith = require('spritesmith');
 var url = require('url2');
 
+// TODO: Prefix `spritesheet` with `normal`?
+
 // Define class to contain different extension handlers
 function ExtFormat() {
   this.formatObj = {};
