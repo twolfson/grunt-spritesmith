@@ -11,39 +11,39 @@ $icon_home = x y offset_x offset_y width height total_width total_height image_p
 At the bottom of this section, we provide information about the spritesheet itself
 $spritesheet = width height image $spritesheet_sprites;
 */
-$sprite1_normal_name = 'sprite1-normal';
-$sprite1_normal_x = 100px;
-$sprite1_normal_y = 0px;
-$sprite1_normal_offset_x = -100px;
-$sprite1_normal_offset_y = 0px;
-$sprite1_normal_width = 50px;
-$sprite1_normal_height = 50px;
-$sprite1_normal_total_width = 150px;
-$sprite1_normal_total_height = 200px;
-$sprite1_normal_image = 'sprite.retina.png';
-$sprite1_normal = 100px 0px -100px 0px 50px 50px 150px 200px 'sprite.retina.png' 'sprite1-normal';
-$sprite2_normal_name = 'sprite2-normal';
-$sprite2_normal_x = 100px;
-$sprite2_normal_y = 50px;
-$sprite2_normal_offset_x = -100px;
-$sprite2_normal_offset_y = -50px;
-$sprite2_normal_width = 50px;
-$sprite2_normal_height = 50px;
-$sprite2_normal_total_width = 150px;
-$sprite2_normal_total_height = 200px;
-$sprite2_normal_image = 'sprite.retina.png';
-$sprite2_normal = 100px 50px -100px -50px 50px 50px 150px 200px 'sprite.retina.png' 'sprite2-normal';
-$sprite3_normal_name = 'sprite3-normal';
-$sprite3_normal_x = 0px;
-$sprite3_normal_y = 0px;
-$sprite3_normal_offset_x = 0px;
-$sprite3_normal_offset_y = 0px;
-$sprite3_normal_width = 100px;
-$sprite3_normal_height = 200px;
-$sprite3_normal_total_width = 150px;
-$sprite3_normal_total_height = 200px;
-$sprite3_normal_image = 'sprite.retina.png';
-$sprite3_normal = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.retina.png' 'sprite3-normal';
+$sprite1_name = 'sprite1';
+$sprite1_x = 100px;
+$sprite1_y = 0px;
+$sprite1_offset_x = -100px;
+$sprite1_offset_y = 0px;
+$sprite1_width = 50px;
+$sprite1_height = 50px;
+$sprite1_total_width = 150px;
+$sprite1_total_height = 200px;
+$sprite1_image = 'sprite.retina.png';
+$sprite1 = 100px 0px -100px 0px 50px 50px 150px 200px 'sprite.retina.png' 'sprite1';
+$sprite2_name = 'sprite2';
+$sprite2_x = 100px;
+$sprite2_y = 50px;
+$sprite2_offset_x = -100px;
+$sprite2_offset_y = -50px;
+$sprite2_width = 50px;
+$sprite2_height = 50px;
+$sprite2_total_width = 150px;
+$sprite2_total_height = 200px;
+$sprite2_image = 'sprite.retina.png';
+$sprite2 = 100px 50px -100px -50px 50px 50px 150px 200px 'sprite.retina.png' 'sprite2';
+$sprite3_name = 'sprite3';
+$sprite3_x = 0px;
+$sprite3_y = 0px;
+$sprite3_offset_x = 0px;
+$sprite3_offset_y = 0px;
+$sprite3_width = 100px;
+$sprite3_height = 200px;
+$sprite3_total_width = 150px;
+$sprite3_total_height = 200px;
+$sprite3_image = 'sprite.retina.png';
+$sprite3 = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.retina.png' 'sprite3';
 $sprite1_2x_name = 'sprite1-2x';
 $sprite1_2x_x = 200px;
 $sprite1_2x_y = 0px;
@@ -93,12 +93,12 @@ These variables are known as "retina groups", they are mappings to `normal` and 
 
 The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
 */
-$sprite1_name = 'sprite1';
-$sprite1 = 'sprite1' $sprite1_normal $sprite1_2x;
-$sprite2_name = 'sprite2';
-$sprite2 = 'sprite2' $sprite2_normal $sprite2_2x;
-$sprite3_name = 'sprite3';
-$sprite3 = 'sprite3' $sprite3_normal $sprite3_2x;
+$sprite1_group_name = 'sprite1';
+$sprite1_group = 'sprite1' $sprite1 $sprite1_2x;
+$sprite2_group_name = 'sprite2';
+$sprite2_group = 'sprite2' $sprite2 $sprite2_2x;
+$sprite3_group_name = 'sprite3';
+$sprite3_group = 'sprite3' $sprite3 $sprite3_2x;
 $retina_groups = $sprite1 $sprite2 $sprite3;
 
 /*
@@ -140,10 +140,10 @@ The `spriteRetina` mixin is intended to be used on a "retina group".
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-$icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
+$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
 
 .icon_home {
-  retinaSprite($icon_home)
+  retinaSprite($icon_home_group)
 }
 */
 spriteBackgroundSize($sprite) {
