@@ -209,7 +209,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // If we have retina sprites
       var retinaCleanCoords;
-      var retinaPairs;
+      var retinaGroups;
       var retinaResult = resultArr[1];
       var retinaSpritesheetInfo;
       if (retinaResult) {
@@ -257,11 +257,9 @@ module.exports = function gruntSpritesmith (grunt) {
           // TODO: Renaming should come earlier in `cssVarMap`
           var name = normalSprite.name;
           normalSprite.name += '-normal';
-          // TODO: Move to `index`
           return {
             name: name,
-            normal: i,
-            retina: i
+            index: i,
           };
         });
       }
@@ -277,9 +275,14 @@ module.exports = function gruntSpritesmith (grunt) {
         }
       } else {
       // Otherwise, override the cssFormat and fallback to 'json'
-      // TODO: Concatenate on `-retina` to `destCss`
-        // cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
-        cssFormat = 'scss_retina';
+        cssFormat = data.cssFormat;
+        if (!cssFormat) {
+          cssFormat = cssFormats.get(destCss) || 'json';
+
+          // If we are dealing with retina items, move to retina flavor
+          if (retinaGroups) {
+            cssFormat += '_retina';
+          }
       }
 
       // Render the variables via `spritesheet-templates`
@@ -289,16 +292,15 @@ module.exports = function gruntSpritesmith (grunt) {
         spritesheet_info: {
           name: data.cssSpritesheetName
         },
-        // TODO: Rename to snake case
-        retinaGroups: retinaGroups,
-        retinaSprites: retinaCleanCoords,
-        retinaSpritesheet: retinaSpritesheetInfo
+        retina_groups: retinaGroups,
+        retina_sprites: retinaCleanCoords,
+        retina_spritesheet: retinaSpritesheetInfo,
+        retina_spritesheet_info: {
+          name: data.retinaCssSpritesheetName
+        }
       }, {
         format: cssFormat,
-        formatOpts: cssOptions,
-        // TODO: Relocate to `data`
-        spritesheetName: data.cssSpritesheetName,
-        retinaSpritesheetName: data.retinaCssSpritesheetName
+        formatOpts: cssOptions
       });
 
       // Write it out to the CSS file
