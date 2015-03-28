@@ -293,7 +293,10 @@ module.exports = function gruntSpritesmith (grunt) {
         retina_sprites: retinaCleanCoords,
         retina_spritesheet: retinaSpritesheetInfo,
         retina_spritesheet_info: {
-          name: data.retinaCssSpritesheetName
+          name: data.cssRetinaSpritesheetName
+        },
+        retina_groups_info: {
+          name: data.cssRetinaGroupsName
         }
       }, {
         format: cssFormat,

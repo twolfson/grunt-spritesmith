@@ -103,7 +103,7 @@ module.exports = function (grunt) {
         },
         cssSpritesheetName: 'icons',
         cssRetinaSpritesheetName: 'icons_retina',
-        cssRetinaGroupsName: 'icons_groups'
+        cssRetinaGroupsName: 'icon_groups'
       },
       newer: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
