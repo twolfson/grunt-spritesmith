@@ -127,6 +127,28 @@ sprite($sprite) {
 }
 
 /*
+Some comment about retina sprite
+*/
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
+retinaSprite($sprite_group) {
+  $normal_sprite = $sprite_group[1];
+  $retina_sprite = $sprite_group[2];
+  spriteImage($normal_sprite)
+  spritePosition($normal_sprite)
+  spriteWidth($normal_sprite)
+  spriteHeight($normal_sprite)
+
+  @media (abc: 2x),
+         (def: 2x) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
+}
+
+/*
 The `sprites` mixin generates identical output to the CSS template
   but can be overridden inside of Stylus
 
@@ -140,6 +162,18 @@ sprites($sprites) {
     $sprite_name = $sprite[9];
     .{$sprite_name} {
       sprite($sprite);
+    }
+  }
+}
+
+/*
+groups notes
+*/
+retinaSprites($sprite_groups) {
+  for $sprite_group in $sprite_groups {
+    $sprite_name = $sprite_group[0];
+    .{$sprite_name} {
+      retinaSprite($sprite_group)
     }
   }
 }
