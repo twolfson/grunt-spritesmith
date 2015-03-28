@@ -90,6 +90,21 @@ module.exports = function (grunt) {
         // TODO: `cssSpritesheetName` should be tested separately
         cssSpritesheetName: 'icons'
       },
+      retinaMapped: {
+        src: ['test_files/sprite1*.png', 'test_files/sprite2*.jpg', 'test_files/sprite3*.png'],
+        retinaSrcFilter: ['test_files/*-2x.{png,jpg}'],
+        dest: 'scratch/sprite.retina.png',
+        retinaDest: 'scratch/sprite.retina-2x.png',
+        destCss: 'scratch/sprite_positions.retina.styl',
+        // Use top-down to make maintenance easier
+        algorithm: 'top-down',
+        cssVarMap: function (sprite) {
+          sprite.name = sprite.name.replace('sprite', 'icon');
+        },
+        cssSpritesheetName: 'icons',
+        cssRetinaSpritesheetName: 'icons-retina',
+        cssRetinaGroupsName: 'icons-groups'
+      },
       newer: {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         dest: 'scratch/sprite.newer.png',
