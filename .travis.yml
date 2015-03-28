@@ -1,8 +1,9 @@
 language: node_js
 node_js:
+  - "0.12"
   - "0.11"
   - "0.10"
-  - "0.8"
+  - "iojs"
 matrix:
   allow_failures:
     - node_js: "0.11"
@@ -10,10 +11,6 @@ matrix:
 before_install:
   # Upgrade npm to avoid semver issues
   - curl --location http://rawgit.com/twolfson/fix-travis-ci/master/lib/install.sh | bash -s
-
-install:
-  # Install node modules
-  - 'npm install jscs@~1.8.1 && npm install'
 
 notifications:
   email: false
