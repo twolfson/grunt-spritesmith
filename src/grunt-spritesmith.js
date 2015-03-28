@@ -275,7 +275,7 @@ module.exports = function gruntSpritesmith (grunt) {
         if (!cssFormat) {
           cssFormat = cssFormats.get(destCss) || 'json';
 
-          // If we are dealing with retina items, move to retina flavor
+          // If we are dealing with retina items, move to retina flavor (e.g. `scss` -> `scss_retina`)
           if (retinaGroups) {
             cssFormat += '_retina';
           }
