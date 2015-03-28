@@ -259,7 +259,7 @@ module.exports = function gruntSpritesmith (grunt) {
           normalSprite.name += '-normal';
           return {
             name: name,
-            index: i,
+            index: i
           };
         });
       }
