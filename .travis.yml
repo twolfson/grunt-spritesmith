@@ -13,7 +13,7 @@ before_install:
 
 install:
   # Install node modules
-  - 'npm install jscs && npm install'
+  - 'npm install jscs@~1.8.1 && npm install'
 
 notifications:
   email: false
