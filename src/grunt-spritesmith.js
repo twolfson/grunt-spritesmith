@@ -283,6 +283,7 @@ module.exports = function gruntSpritesmith (grunt) {
           if (retinaGroups) {
             cssFormat += '_retina';
           }
+        }
       }
 
       // Render the variables via `spritesheet-templates`
