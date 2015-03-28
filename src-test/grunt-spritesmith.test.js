@@ -61,11 +61,10 @@ describe('grunt-spritesmith', function () {
       // TOO: Complete me
     });
 
-    it.skip('generates CSS and retina variables', function () {
+    it('generates CSS and retina variables', function () {
       // Load in the sprite positions
-      // TODO: Assert the same variables exist -- which means loading this into either Stylus or a meta-language
-      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.basic.styl', 'utf8');
-      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.basic.styl', 'utf8');
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.retina.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.retina.styl', 'utf8');
 
       // Make sure the outputs match
       assert.strictEqual(actualCoords, expectedCoords);
