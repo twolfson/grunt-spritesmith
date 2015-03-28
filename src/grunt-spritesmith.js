@@ -243,9 +243,8 @@ module.exports = function gruntSpritesmith (grunt) {
           retinaCleanCoords.push(coords);
         });
 
-        // Generate pairings for our coordinates
-        // TODO: Should renaming occur here or within spritesheet-templates?
-        retinaPairs = cleanCoords.map(function getSpritePairs (normalSprite, i) {
+        // Generate groups for our coordinates
+        retinaGroups = cleanCoords.map(function getSpritePairs (normalSprite, i) {
           // Assert that image sizes line up for debugging purposes
           var retinaSprite = retinaCleanCoords[i];
           if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
@@ -254,14 +253,14 @@ module.exports = function gruntSpritesmith (grunt) {
               '"' + retinaSprite.name + '" is ' + retinaSprite.width + 'x' + retinaSprite.height + '.');
           }
 
-          // Generate our pair
+          // Generate our group
           // TODO: Renaming should come earlier in `cssVarMap`
           var name = normalSprite.name;
           normalSprite.name += '-normal';
           return {
             name: name,
-            normal: normalSprite,
-            retina: retinaSprite
+            normal: i,
+            retina: i
           };
         });
       }
@@ -279,14 +278,14 @@ module.exports = function gruntSpritesmith (grunt) {
       // Otherwise, override the cssFormat and fallback to 'json'
       // TODO: Concatenate on `-retina` to `destCss`
         // cssFormat = data.cssFormat || cssFormats.get(destCss) || 'json';
-        cssFormat = 'scss-retina';
+        cssFormat = 'scss_retina';
       }
 
       // Render the variables via `spritesheet-templates`
       var cssStr = templater({
         sprites: cleanCoords,
         spritesheet: spritesheetInfo,
-        retinaPairs: retinaPairs,
+        retinaGroups: retinaGroups,
         retinaSprites: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
       }, {
