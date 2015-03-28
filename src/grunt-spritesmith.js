@@ -257,6 +257,7 @@ module.exports = function gruntSpritesmith (grunt) {
           // TODO: Renaming should come earlier in `cssVarMap`
           var name = normalSprite.name;
           normalSprite.name += '-normal';
+          // TODO: Move to `index`
           return {
             name: name,
             normal: i,
@@ -285,12 +286,17 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         sprites: cleanCoords,
         spritesheet: spritesheetInfo,
+        spritesheet_info: {
+          name: data.cssSpritesheetName
+        },
+        // TODO: Rename to snake case
         retinaGroups: retinaGroups,
         retinaSprites: retinaCleanCoords,
         retinaSpritesheet: retinaSpritesheetInfo
       }, {
         format: cssFormat,
         formatOpts: cssOptions,
+        // TODO: Relocate to `data`
         spritesheetName: data.cssSpritesheetName,
         retinaSpritesheetName: data.retinaCssSpritesheetName
       });

@@ -158,7 +158,7 @@ and CSS:
     - This overrides `cssFormat`
     - If a `String` is provided, it must be a path to a [handlebars][] template
         - An example usage can be found in the [Examples section](#handlebars-template)
-    - If a `Function` is provided, it must have a signature of `function (params)`
+    - If a `Function` is provided, it must have a signature of `function (data)`
         - An example usage can be found in the [Examples section](#template-function)
     - For more templating information, see the [Templating section](#templating)
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
@@ -193,11 +193,11 @@ https://github.com/twolfson/layout
 ### Templating
 The `cssTemplate` option allows for using a custom template. An example template can be found at:
 
-https://github.com/twolfson/spritesheet-templates/blob/9.2.2/lib/templates/stylus.template.handlebars
+https://github.com/twolfson/spritesheet-templates/blob/9.3.1/lib/templates/stylus.template.handlebars
 
-The parameters passed into your template are known as `params`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
+The parameters passed into your template are known as `data`. We add some normalized properties via [`spritesheet-templates`][] for your convenience.
 
-- params `Object` Container for parameters
+- data `Object` Container for parameters
     - sprites `Object[]` - Array of sprite information
         - name `String` - Name of the sprite file (sans extension)
         - x `Number` - Horizontal position of sprite's left edge in spritesheet
@@ -228,7 +228,8 @@ The parameters passed into your template are known as `params`. We add some norm
         - px `Object` - Container for numeric values including `px`
             - width `String` - `width` suffixed with `px`
             - height `String` - `height` suffixed with `px`
-    - spritesheet_name `String` - Prefix for spritesheet variables
+    - spritesheet_info `Object` - Container for `spritesheet` metadata and its representation
+        - name `String` - Prefix for spritesheet variables
     - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
@@ -503,8 +504,8 @@ ${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.w
 {{/each}}
 {{/content}}
 {{#content "spritesheet"}}
-${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
-${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+${{spritesheet_info.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet_info.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet_info.strings.name_sprites}}, );
 {{/content}}
 {{/extend}}
 ```
@@ -542,10 +543,10 @@ In this example, we will use `cssTemplate` with a custom function that generates
   src: ['fork.png', 'github.png', 'twitter.png'],
   dest: 'spritesheet.yamlTemplate.png',
   destCss: 'spritesheet.yamlTemplate.yml',
-  cssTemplate: function (params) {
+  cssTemplate: function (data) {
     // Convert sprites from an array into an object
     var spriteObj = {};
-    params.sprites.forEach(function (sprite) {
+    data.sprites.forEach(function (sprite) {
       // Grab the name and store the sprite under it
       var name = sprite.name;
       spriteObj[name] = sprite;

@@ -11,7 +11,7 @@ ${{strings.name}}: ({{px.x}}, {{px.y}}, {{px.offset_x}}, {{px.offset_y}}, {{px.w
 {{/each}}
 {{/content}}
 {{#content "spritesheet"}}
-${{spritesheet.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
-${{spritesheet.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet.strings.name_sprites}}, );
+${{spritesheet_info.strings.name_sprites}}: ({{#each sprites}}${{strings.name}}, {{/each}});
+${{spritesheet_info.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.height}}, '{{{spritesheet.escaped_image}}}', ${{spritesheet_info.strings.name_sprites}}, );
 {{/content}}
 {{/extend}}
