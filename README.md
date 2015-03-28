@@ -4,6 +4,8 @@
 
 // TODO: Make note that group names are derivative of `cssVarMap` result
 
+// TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
+
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
 A folder of icons processed by `grunt-spritesmith`:
