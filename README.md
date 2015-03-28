@@ -1,5 +1,8 @@
 # grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
+// TODO: While we change the interface for `spritesheetName` in `spritesheet-templates`, I don't think we should transfer it to `grunt-spritesmith`. That is worthwhile complexity to keep since we technically don't know what other properties go in the info object.
+
+
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
 A folder of icons processed by `grunt-spritesmith`:
