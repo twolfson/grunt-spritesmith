@@ -252,7 +252,7 @@ module.exports = function gruntSpritesmith (grunt) {
           }
 
           // Generate our group
-          // TODO: Allow for sprite group rename
+          // DEV: Name is inherited from `cssVarMap` on normal sprite
           return {
             name: normalSprite.name,
             index: i
