@@ -93,9 +93,9 @@ module.exports = function (grunt) {
       retinaMapped: {
         src: ['test_files/sprite1*.png', 'test_files/sprite2*.jpg', 'test_files/sprite3*.png'],
         retinaSrcFilter: ['test_files/*-2x.{png,jpg}'],
-        dest: 'scratch/sprite.retina.png',
-        retinaDest: 'scratch/sprite.retina-2x.png',
-        destCss: 'scratch/sprite_positions.retina.styl',
+        dest: 'scratch/sprite.retinaMapped.png',
+        retinaDest: 'scratch/sprite.retinaMapped-2x.png',
+        destCss: 'scratch/sprite_positions.retinaMapped.styl',
         // Use top-down to make maintenance easier
         algorithm: 'top-down',
         cssVarMap: function (sprite) {
