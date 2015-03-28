@@ -7,8 +7,6 @@ var templater = require('spritesheet-templates');
 var spritesmith = require('spritesmith');
 var url = require('url2');
 
-// TODO: Prefix `spritesheet` with `normal`?
-
 // Define class to contain different extension handlers
 function ExtFormat() {
   this.formatObj = {};
@@ -244,7 +242,7 @@ module.exports = function gruntSpritesmith (grunt) {
         });
 
         // Generate groups for our coordinates
-        retinaGroups = cleanCoords.map(function getSpritePairs (normalSprite, i) {
+        retinaGroups = cleanCoords.map(function getRetinaGroups (normalSprite, i) {
           // Assert that image sizes line up for debugging purposes
           var retinaSprite = retinaCleanCoords[i];
           if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
@@ -254,11 +252,9 @@ module.exports = function gruntSpritesmith (grunt) {
           }
 
           // Generate our group
-          // TODO: Renaming should come earlier in `cssVarMap`
-          var name = normalSprite.name;
-          normalSprite.name += '-normal';
+          // TODO: Allow for sprite group rename
           return {
-            name: name,
+            name: normalSprite.name,
             index: i
           };
         });
