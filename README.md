@@ -6,6 +6,9 @@
 
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
+// TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
+//   Diff afterwards for funzies
+
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
 A folder of icons processed by `grunt-spritesmith`:
