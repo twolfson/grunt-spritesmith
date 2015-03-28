@@ -191,6 +191,16 @@ describe('grunt-spritesmith', function () {
       assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
     });
   });
+
+  describe('running a retina task with custom CSS variable names', function () {
+    gruntUtils.runTask('sprite:retinaMapped');
+
+    it('uses the new variable names', function () {
+      var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.retinaMapped.styl', 'utf8');
+      var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.retinaMapped.styl', 'utf8');
+      assert.strictEqual(actualCoords, expectedCoords, 'Generated output doesn\'t match expected output.');
+    });
+  });
 });
 
 describe('grunt-newer running grunt-spritesmith', function () {
