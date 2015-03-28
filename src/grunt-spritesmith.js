@@ -162,11 +162,13 @@ module.exports = function gruntSpritesmith (grunt) {
       // Render the variables via `spritesheet-templates`
       var cssStr = templater({
         sprites: cleanCoords,
-        spritesheet: spritesheetInfo
+        spritesheet: spritesheetInfo,
+        spritesheetInfo: {
+          name: data.cssSpritesheetName
+        }
       }, {
         format: cssFormat,
         formatOpts: cssOptions,
-        spritesheetName: data.cssSpritesheetName
       });
 
       // Write it out to the CSS file
