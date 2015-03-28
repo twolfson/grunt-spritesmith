@@ -168,7 +168,7 @@ module.exports = function gruntSpritesmith (grunt) {
         }
       }, {
         format: cssFormat,
-        formatOpts: cssOptions,
+        formatOpts: cssOptions
       });
 
       // Write it out to the CSS file
