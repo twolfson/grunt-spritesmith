@@ -1,0 +1,195 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$icon_sprite1_name = 'sprite1';
+$icon_sprite1_x = 100px;
+$icon_sprite1_y = 0px;
+$icon_sprite1_offset_x = -100px;
+$icon_sprite1_offset_y = 0px;
+$icon_sprite1_width = 50px;
+$icon_sprite1_height = 50px;
+$icon_sprite1_total_width = 150px;
+$icon_sprite1_total_height = 200px;
+$icon_sprite1_image = 'sprite.retina.png';
+$icon_sprite1 = 100px 0px -100px 0px 50px 50px 150px 200px 'sprite.retina.png' 'sprite1';
+$icon_sprite2_name = 'sprite2';
+$icon_sprite2_x = 100px;
+$icon_sprite2_y = 50px;
+$icon_sprite2_offset_x = -100px;
+$icon_sprite2_offset_y = -50px;
+$icon_sprite2_width = 50px;
+$icon_sprite2_height = 50px;
+$icon_sprite2_total_width = 150px;
+$icon_sprite2_total_height = 200px;
+$icon_sprite2_image = 'sprite.retina.png';
+$icon_sprite2 = 100px 50px -100px -50px 50px 50px 150px 200px 'sprite.retina.png' 'sprite2';
+$icon_sprite3_name = 'sprite3';
+$icon_sprite3_x = 0px;
+$icon_sprite3_y = 0px;
+$icon_sprite3_offset_x = 0px;
+$icon_sprite3_offset_y = 0px;
+$icon_sprite3_width = 100px;
+$icon_sprite3_height = 200px;
+$icon_sprite3_total_width = 150px;
+$icon_sprite3_total_height = 200px;
+$icon_sprite3_image = 'sprite.retina.png';
+$icon_sprite3 = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.retina.png' 'sprite3';
+$icon_sprite1_2x_name = 'sprite1-2x';
+$icon_sprite1_2x_x = 200px;
+$icon_sprite1_2x_y = 0px;
+$icon_sprite1_2x_offset_x = -200px;
+$icon_sprite1_2x_offset_y = 0px;
+$icon_sprite1_2x_width = 100px;
+$icon_sprite1_2x_height = 100px;
+$icon_sprite1_2x_total_width = 300px;
+$icon_sprite1_2x_total_height = 400px;
+$icon_sprite1_2x_image = 'sprite.retina-2x.png';
+$icon_sprite1_2x = 200px 0px -200px 0px 100px 100px 300px 400px 'sprite.retina-2x.png' 'sprite1-2x';
+$icon_sprite2_2x_name = 'sprite2-2x';
+$icon_sprite2_2x_x = 200px;
+$icon_sprite2_2x_y = 100px;
+$icon_sprite2_2x_offset_x = -200px;
+$icon_sprite2_2x_offset_y = -100px;
+$icon_sprite2_2x_width = 100px;
+$icon_sprite2_2x_height = 100px;
+$icon_sprite2_2x_total_width = 300px;
+$icon_sprite2_2x_total_height = 400px;
+$icon_sprite2_2x_image = 'sprite.retina-2x.png';
+$icon_sprite2_2x = 200px 100px -200px -100px 100px 100px 300px 400px 'sprite.retina-2x.png' 'sprite2-2x';
+$icon_sprite3_2x_name = 'sprite3-2x';
+$icon_sprite3_2x_x = 0px;
+$icon_sprite3_2x_y = 0px;
+$icon_sprite3_2x_offset_x = 0px;
+$icon_sprite3_2x_offset_y = 0px;
+$icon_sprite3_2x_width = 200px;
+$icon_sprite3_2x_height = 400px;
+$icon_sprite3_2x_total_width = 300px;
+$icon_sprite3_2x_total_height = 400px;
+$icon_sprite3_2x_image = 'sprite.retina-2x.png';
+$icon_sprite3_2x = 0px 0px 0px 0px 200px 400px 300px 400px 'sprite.retina-2x.png' 'sprite3-2x';
+$icon_spritesheet_width = 150px;
+$icon_spritesheet_height = 200px;
+$icon_spritesheet_image = 'sprite.retina.png';
+$icon_spritesheet_sprites = $icon_sprite1 $icon_sprite2 $icon_sprite3;
+$icon_spritesheet = 150px 200px 'sprite.retina.png' $icon_spritesheet_sprites;
+$icon_spritesheet_retina_width = 300px;
+$icon_spritesheet_retina_height = 400px;
+$icon_spritesheet_retina_image = 'sprite.retina-2x.png';
+$icon_spritesheet_retina_sprites = $icon_sprite1_2x $icon_sprite2_2x $icon_sprite3_2x;
+$icon_spritesheet_retina = 300px 400px 'sprite.retina-2x.png' $icon_spritesheet_retina_sprites;
+
+/*
+These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
+
+The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
+*/
+$icon_sprite1_group_name = 'sprite1';
+$icon_sprite1_group = 'sprite1' $icon_sprite1 $icon_sprite1_2x;
+$icon_sprite2_group_name = 'sprite2';
+$icon_sprite2_group = 'sprite2' $icon_sprite2 $icon_sprite2_2x;
+$icon_sprite3_group_name = 'sprite3';
+$icon_sprite3_group = 'sprite3' $icon_sprite3 $icon_sprite3_2x;
+$icon_retina_groups = $icon_sprite1_group $icon_sprite2_group $icon_sprite3_group;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `spriteRetina` mixin is intended to be used on a "retina group".
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
+
+.icon_home {
+  retinaSprite($icon_home_group)
+}
+*/
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
+retinaSprite($retina_group) {
+  $normal_sprite = $retina_group[1];
+  $retina_sprite = $retina_group[2];
+  sprite($normal_sprite)
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retinaSprites` mixin generates classes for retina sprite groups
+
+retinaSprites($retina_groups);
+*/
+retinaSprites($retina_groups) {
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
+    .{$sprite_name} {
+      retinaSprite($retina_group);
+    }
+  }
+}
