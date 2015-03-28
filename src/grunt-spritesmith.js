@@ -163,7 +163,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var cssStr = templater({
         sprites: cleanCoords,
         spritesheet: spritesheetInfo,
-        spritesheetInfo: {
+        spritesheet_info: {
           name: data.cssSpritesheetName
         }
       }, {
