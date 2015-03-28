@@ -85,7 +85,7 @@ $spritesheet = 150px 200px 'sprite.retina.png' $spritesheet_sprites;
 $spritesheet_retina_width = 300px;
 $spritesheet_retina_height = 400px;
 $spritesheet_retina_image = 'sprite.retina-2x.png';
-$spritesheet_retina_sprites = $sprite1_retina $sprite2_retina $sprite3_retina;
+$spritesheet_retina_sprites = $sprite1_2x $sprite2_2x $sprite3_2x;
 $spritesheet_retina = 300px 400px 'sprite.retina-2x.png' $spritesheet_sprites;
 
 /*
@@ -94,11 +94,11 @@ These variables are known as "retina groups", they are mappings to `normal` and 
 The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
 */
 $sprite1_name = 'sprite1';
-$sprite1 = 'sprite1' $sprite1_normal $sprite1_retina;
+$sprite1 = 'sprite1' $sprite1_normal $sprite1_2x;
 $sprite2_name = 'sprite2';
-$sprite2 = 'sprite2' $sprite2_normal $sprite2_retina;
+$sprite2 = 'sprite2' $sprite2_normal $sprite2_2x;
 $sprite3_name = 'sprite3';
-$sprite3 = 'sprite3' $sprite3_normal $sprite3_retina;
+$sprite3 = 'sprite3' $sprite3_normal $sprite3_2x;
 $sprite_groups = $sprite1 $sprite2 $sprite3;
 
 /*
@@ -143,7 +143,7 @@ The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-d
 $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 
 .icon_home {
-  @include retinaSprite($icon_home)
+  retinaSprite($icon_home)
 }
 */
 @mixin spriteBackgroundSize($sprite) {
@@ -153,13 +153,10 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
 @mixin retinaSprite($sprite_group) {
   $normal_sprite = $sprite_group[1];
   $retina_sprite = $sprite_group[2];
-  spriteImage($normal_sprite)
-  spritePosition($normal_sprite)
-  spriteWidth($normal_sprite)
-  spriteHeight($normal_sprite)
+  sprite($normal_sprite)
 
-  @media (abc: 2x),
-         (def: 2x) {
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
     spriteImage($retina_sprite)
     spriteBackgroundSize($normal_sprite)
   }
