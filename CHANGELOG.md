@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.4.1 - Dropped `node@0.8` testing in Travis CI due to `jscs` dependency issues
+
 4.4.0 - Upgraded to `spritesheet-templates@9.3.1` to pick up `spritesheet_info` introduction (anticipation for retina info)
 
 4.3.2 - Upgraded to `spritesheet-templates@9.2.2` to pick up more granular templating
