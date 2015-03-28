@@ -86,7 +86,7 @@ $spritesheet_retina_width = 300px;
 $spritesheet_retina_height = 400px;
 $spritesheet_retina_image = 'sprite.retina-2x.png';
 $spritesheet_retina_sprites = $sprite1_2x $sprite2_2x $sprite3_2x;
-$spritesheet_retina = 300px 400px 'sprite.retina-2x.png' $spritesheet_sprites;
+$spritesheet_retina = 300px 400px 'sprite.retina-2x.png' $spritesheet_retina_sprites;
 
 /*
 These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
@@ -99,7 +99,7 @@ $sprite2_name = 'sprite2';
 $sprite2 = 'sprite2' $sprite2_normal $sprite2_2x;
 $sprite3_name = 'sprite3';
 $sprite3 = 'sprite3' $sprite3_normal $sprite3_2x;
-$sprite_groups = $sprite1 $sprite2 $sprite3;
+$retina_groups = $sprite1 $sprite2 $sprite3;
 
 /*
 The provided mixins are intended to be used with the array-like variables
@@ -150,9 +150,9 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
   background-size: $sprite[6] $sprite[7];
 }
 
-@mixin retinaSprite($sprite_group) {
-  $normal_sprite = $sprite_group[1];
-  $retina_sprite = $sprite_group[2];
+@mixin retinaSprite($retina_group) {
+  $normal_sprite = $retina_group[1];
+  $retina_sprite = $retina_group[2];
   sprite($normal_sprite)
 
   @media (-webkit-min-device-pixel-ratio: 2),
@@ -185,11 +185,11 @@ The `retinaSprites` mixin generates classes for retina sprite groups
 
 retinaSprites($retina_groups);
 */
-@mixin retinaSprites($sprite_groups) {
-  for $sprite_group in $sprite_groups {
-    $sprite_name = $sprite_group[0];
+@mixin retinaSprites($retina_groups) {
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
     .{$sprite_name} {
-      retinaSprite($sprite_group)
+      retinaSprite($retina_group);
     }
   }
 }
