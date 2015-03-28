@@ -146,11 +146,11 @@ $icon_home = 'icon-home' $icon_home_normal $icon_home_retina;
   retinaSprite($icon_home)
 }
 */
-@mixin spriteBackgroundSize($sprite) {
+spriteBackgroundSize($sprite) {
   background-size: $sprite[6] $sprite[7];
 }
 
-@mixin retinaSprite($retina_group) {
+retinaSprite($retina_group) {
   $normal_sprite = $retina_group[1];
   $retina_sprite = $retina_group[2];
   sprite($normal_sprite)
@@ -171,7 +171,7 @@ This must be run when you have at least 2 sprites.
 
 sprites($spritesheet_sprites);
 */
-@mixin sprites($sprites) {
+sprites($sprites) {
   for $sprite in $sprites {
     $sprite_name = $sprite[9];
     .{$sprite_name} {
@@ -185,7 +185,7 @@ The `retinaSprites` mixin generates classes for retina sprite groups
 
 retinaSprites($retina_groups);
 */
-@mixin retinaSprites($retina_groups) {
+retinaSprites($retina_groups) {
   for $retina_group in $retina_groups {
     $sprite_name = $retina_group[0];
     .{$sprite_name} {
