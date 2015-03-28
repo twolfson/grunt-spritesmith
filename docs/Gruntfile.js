@@ -54,10 +54,10 @@ module.exports = function (grunt) {
         src: ['fork.png', 'github.png', 'twitter.png'],
         dest: 'spritesheet.yamlTemplate.png',
         destCss: 'spritesheet.yamlTemplate.yml',
-        cssTemplate: function (params) {
+        cssTemplate: function (data) {
           // Convert sprites from an array into an object
           var spriteObj = {};
-          params.sprites.forEach(function (sprite) {
+          data.sprites.forEach(function (sprite) {
             // Grab the name and store the sprite under it
             var name = sprite.name;
             spriteObj[name] = sprite;
