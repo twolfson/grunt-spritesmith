@@ -152,7 +152,8 @@ module.exports = function gruntSpritesmith (grunt) {
         // DEV: We don't check length since we could have no images passed in
         if (retinaSrcFiles) {
           var retinaParams = _.defaults({
-            src: retinaSrcFiles
+            src: retinaSrcFiles,
+            padding: spritesmithParams.padding * 2
           }, spritesmithParams);
           spritesmith(retinaParams, callback);
         } else {

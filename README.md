@@ -1,7 +1,5 @@
 # grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
-// TODO: Complete test suite
-
 // TODO: Verify retina padding is doubled
 
 // TODO: Create retina example `retina-spritesheet`

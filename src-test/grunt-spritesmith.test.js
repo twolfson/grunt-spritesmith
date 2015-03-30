@@ -42,7 +42,7 @@ describe('grunt-spritesmith', function () {
     });
   });
 
-  describe.only('converting a retina set of images', function () {
+  describe('converting a retina set of images', function () {
     gruntUtils.runTask('sprite:retina');
 
     it('generates an image', function (done) {
