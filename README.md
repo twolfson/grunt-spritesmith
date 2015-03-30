@@ -481,6 +481,31 @@ The `padding` option allows for inserting spacing between images.
 
 ![padding spritesheet](docs/spritesheet.padding.png)
 
+### Retina spritesheet
+In this example, we will use generate a normal and retina spritesheet via the `retinaSrcFilter` and `retinaDest` parameters.
+
+**Configuration:**
+
+```js
+{
+  // We have `fork.png`, `fork-2x.png`, ...
+  src: ['fork*.png', 'github*.png', 'twitter*.png'],
+  // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+  //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
+  retinaSrcFilter: ['*-2x.png'],
+  dest: 'spritesheet.retina.png',
+  retinaDest: 'spritesheet.retina-2x.png',
+  destCss: 'spritesheet.retina.styl',
+}
+```
+
+**Normal spritesheet:**
+
+![Normal spritesheet](docs/spritesheet.retina.png)
+
+**Retina spritesheet:**
+
+![Retina spritesheet](docs/spritesheet.retina-2x.png)
 
 ### Handlebars template
 In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.
