@@ -45,11 +45,11 @@ describe('grunt-spritesmith', function () {
   describe.only('converting a retina set of images', function () {
     gruntUtils.runTask('sprite:retina');
 
-    it.skip('generates an image', function (done) {
+    it('generates an image', function (done) {
       // Load in the images and compare them
-      getPixels(actualDir + 'sprite.basic.png', function handleActualPixels (err, actualImage) {
+      getPixels(actualDir + 'sprite.retina.png', function handleActualPixels (err, actualImage) {
         if (err) { return done(err); }
-        getPixels(expectedDir + 'pixelsmith.basic.png', function handleExpectedPixels (err, expectedImage) {
+        getPixels(expectedDir + 'pixelsmith.retina.png', function handleExpectedPixels (err, expectedImage) {
           if (err) { return done(err); }
           assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
           done();
@@ -57,8 +57,17 @@ describe('grunt-spritesmith', function () {
       });
     });
 
-    it.skip('generates a retina image', function (done) {
-      // TODO: Complete me
+    it('generates a retina image', function (done) {
+      // Load in the images and compare them
+      this.timeout(10000);
+      getPixels(actualDir + 'sprite.retina-2x.png', function handleActualPixels (err, actualImage) {
+        if (err) { return done(err); }
+        getPixels(expectedDir + 'pixelsmith.retina-2x.png', function handleExpectedPixels (err, expectedImage) {
+          if (err) { return done(err); }
+          assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
+          done();
+        });
+      });
     });
 
     it('generates CSS and retina variables', function () {
