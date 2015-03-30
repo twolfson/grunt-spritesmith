@@ -6,10 +6,9 @@
 
 // TODO: Create retina example `retina-spritesheet`
 
-// TODO: In grunt-spritesmith, document new templates and new template variables
-// TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
 // TODO: In grunt-spritesmith, verify all new links in README
+// TODO: In grunt-spritesmith, verify README appearance
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
