@@ -6,6 +6,8 @@
 
 // TODO: Verify retina padding is doubled
 
+// TODO: Create retina example `retina-spritesheet`
+
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
@@ -137,7 +139,9 @@ and CSS:
 - src `String|String[]` - Images to use as sprites in spritesheet
     - For example this can be a glob, `sprites/*.png` or an array of files `['sprite1.png', sprite2.png']`
 - dest `String` - Output location for generated spritesheet
+    - For example `path/to/output/spritesheet.png`
 - destCss `String` - Output location for generated CSS
+    - For example `path/to/output/sprites.css`
 - imgPath `String` - Optional override for spritesheet path specified in CSS
     - For example if `../sprite.png` is given, then the CSS will have:
         - `background-image: url(../sprite.png);`
@@ -191,6 +195,8 @@ and CSS:
 
 Repeated parameters have the same properties as above but are repeated for clarity with respect to retina spritesheets.
 
+An example retina spritesheet setup can be found in the [Examples section](#retina-spritesheet).
+
 - src `String|String[]` - Images to use for both normal and retina spritesheet
     - For example `sprites/*.png` should capture `sprite1.png` and `sprite1-2x.png`
     - These must be ordered such that when the retina images are filtered into a separate array, the normal and retina images will have the same indices
@@ -206,12 +212,17 @@ Repeated parameters have the same properties as above but are repeated for clari
 - padding `Number` - Padding to place to right and bottom between sprites
     - By default there is no padding
     - In retina spritesheets, this number will be doubled to maintain perspective
-
-- cssVarMap
-    - Renames normal sprites, retina, affects group names
-    - New retina spritesheet filepath
-- New templates?
+- cssFormat `String` - CSS format to use
+    - By default this is the format inferred by `destCss'` extension
+        - For example `.styl -> stylus_retina`
+    - For more format options, see our formatting library
+        - https://github.com/twolfson/spritesheet-templates#retina-templates
+- cssVarMap `Function` - Mapping function for each filename to CSS variable
+    - This will run through normal and retina spritesheets
+    - The name used for normal sprites dictates the group name for retina group variables (e.g. `$icon-home` will have group `$icon-home-group`)
+    - For more information, see [Variable mapping](#variable-mapping)
 - cssRetinaSpritesheetName
+
 - cssRetinaGroupsName
 
 ### Algorithms
