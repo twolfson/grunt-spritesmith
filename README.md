@@ -50,6 +50,9 @@ $github_height = 32px;
 [LESS]: http://lesscss.org/
 [Stylus]: http://learnboost.github.com/stylus/
 
+### Retina support
+As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. See the [Retina parameters section](#retina-parameters) for more information.
+
 ### Cross-platform support
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
 
@@ -178,6 +181,9 @@ and CSS:
         - https://github.com/twolfson/spritesheet-templates#templates
 
 [handlebars]: http://handlebarsjs.com/
+
+### Retina parameters
+`grunt-spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaDest`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
