@@ -185,6 +185,23 @@ and CSS:
 ### Retina parameters
 `grunt-spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaDest`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
 
+- src `String|String[]` - Images to use for both normal and retina spritesheet
+    - For example `sprites/*.png` should capture `sprite1.png` and `sprite1-2x.png`
+    - These must be ordered such that when the retina images are filtered into a separate array, the normal and retina images will have the same indices
+- retinaSrcFilter `String|String[]` - Images to filter out from `src` for our retina spritesheet
+    - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
+    - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
+        - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
+- retinaDest `String` - Output location for generated retina spritesheet
+    - For example `path/to/output-2x.png`
+- cssVarMap
+    - Renames normal sprites, retina, affects group names
+- retinaImgPath
+    - New retina spritesheet filepath
+- New templates?
+- cssRetinaSpritesheetName
+- cssRetinaGroupsName
+
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
 
