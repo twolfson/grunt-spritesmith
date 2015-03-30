@@ -1,20 +1,15 @@
 # grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
-// TODO: Make note that group names are derivative of `cssVarMap` result
-
 // TODO: Complete test suite
 
 // TODO: Verify retina padding is doubled
 
 // TODO: Create retina example `retina-spritesheet`
 
-// TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
-
 // TODO: In grunt-spritesmith, document new templates and new template variables
 // TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
 // TODO: In grunt-spritesmith, verify all new links in README
-// TODO: In grunt-spritesmith, document how we will always append `-group` to retina group name
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
