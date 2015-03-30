@@ -1,8 +1,5 @@
 # grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
-// TODO: Create retina example `retina-spritesheet`
-
-// TODO: In grunt-spritesmith, add example usage of retina
 // TODO: In grunt-spritesmith, verify all new links in README
 // TODO: In grunt-spritesmith, verify README appearance
 
