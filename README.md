@@ -2,6 +2,10 @@
 
 // TODO: Make note that group names are derivative of `cssVarMap` result
 
+// TODO: Complete test suite
+
+// TODO: Verify retina padding is doubled
+
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
 // TODO: In grunt-spritesmith, document new templates and new template variables
@@ -134,7 +138,7 @@ and CSS:
     - For example this can be a glob, `sprites/*.png` or an array of files `['sprite1.png', sprite2.png']`
 - dest `String` - Output location for generated spritesheet
 - destCss `String` - Output location for generated CSS
-- imgPath `String` - Optional override for path specified in CSS
+- imgPath `String` - Optional override for spritesheet path specified in CSS
     - For example if `../sprite.png` is given, then the CSS will have:
         - `background-image: url(../sprite.png);`
 - padding `Number` - Padding to place to right and bottom between sprites
@@ -194,9 +198,15 @@ and CSS:
         - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
 - retinaDest `String` - Output location for generated retina spritesheet
     - For example `path/to/output-2x.png`
+- retinaImgPath - Optional override for retina spritesheet path specified in CSS
+    - For example `../sprite-2x.png`  will yield CSS with:
+        - `background-image: url(../sprite.png);`
+- padding `Number` - Padding to place to right and bottom between sprites
+    - By default there is no padding
+    - In retina spritesheets, this number will be doubled to maintain perspective
+
 - cssVarMap
     - Renames normal sprites, retina, affects group names
-- retinaImgPath
     - New retina spritesheet filepath
 - New templates?
 - cssRetinaSpritesheetName
