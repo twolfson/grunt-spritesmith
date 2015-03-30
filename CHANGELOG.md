@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.5.0 - Added retina spritesheet support
+
 4.4.1 - Dropped `node@0.8` testing in Travis CI due to `jscs` dependency issues
 
 4.4.0 - Upgraded to `spritesheet-templates@9.3.1` to pick up `spritesheet_info` introduction (anticipation for retina info)
