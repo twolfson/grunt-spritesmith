@@ -82,16 +82,16 @@ $spritesheet_height = 200px;
 $spritesheet_image = 'sprite.retina.png';
 $spritesheet_sprites = $sprite1 $sprite2 $sprite3;
 $spritesheet = 150px 200px 'sprite.retina.png' $spritesheet_sprites;
-$spritesheet_retina_width = 300px;
-$spritesheet_retina_height = 400px;
-$spritesheet_retina_image = 'sprite.retina-2x.png';
-$spritesheet_retina_sprites = $sprite1_2x $sprite2_2x $sprite3_2x;
-$spritesheet_retina = 300px 400px 'sprite.retina-2x.png' $spritesheet_retina_sprites;
+$retina_spritesheet_width = 300px;
+$retina_spritesheet_height = 400px;
+$retina_spritesheet_image = 'sprite.retina-2x.png';
+$retina_spritesheet_sprites = $sprite1_2x $sprite2_2x $sprite3_2x;
+$retina_spritesheet = 300px 400px 'sprite.retina-2x.png' $retina_spritesheet_sprites;
 
 /*
-These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
 
-The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
+The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
 */
 $sprite1_group_name = 'sprite1';
 $sprite1_group = 'sprite1' $sprite1 $sprite1_2x;
@@ -136,13 +136,14 @@ sprite($sprite) {
 }
 
 /*
-The `spriteRetina` mixin is intended to be used on a "retina group".
+The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
+$icon_home_group = 'icon-home' $icon_home $icon_home_2x;
 
-.icon_home {
+.icon-home {
   retinaSprite($icon_home_group)
 }
 */
@@ -181,7 +182,8 @@ sprites($sprites) {
 }
 
 /*
-The `retinaSprites` mixin generates classes for retina sprite groups
+The `retinaSprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in Stylus
 
 retinaSprites($retina_groups);
 */

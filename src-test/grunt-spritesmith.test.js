@@ -42,7 +42,7 @@ describe('grunt-spritesmith', function () {
     });
   });
 
-  describe('converting a retina set of images', function () {
+  describe.only('converting a retina set of images', function () {
     gruntUtils.runTask('sprite:retina');
 
     it.skip('generates an image', function (done) {
@@ -58,7 +58,7 @@ describe('grunt-spritesmith', function () {
     });
 
     it.skip('generates a retina image', function (done) {
-      // TOO: Complete me
+      // TODO: Complete me
     });
 
     it('generates CSS and retina variables', function () {
@@ -192,7 +192,7 @@ describe('grunt-spritesmith', function () {
     });
   });
 
-  describe.only('running a retina task with custom CSS variable names', function () {
+  describe('running a retina task with custom CSS variable names', function () {
     gruntUtils.runTask('sprite:retinaMapped');
 
     it('uses the new variable names', function () {
