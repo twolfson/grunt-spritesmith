@@ -89,9 +89,9 @@ $icons_retina_sprites = $icon1_2x $icon2_2x $icon3_2x;
 $icons_retina = 200px 600px 'sprite.retinaMapped-2x.png' $icons_retina_sprites;
 
 /*
-These variables are known as "retina groups", they are mappings to `normal` and `retina` sprite variables.
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
 
-The list formats are intended to be used with mixins like `retinaSprite` and `retinaSprites`
+The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
 */
 $icon1_group_name = 'icon1';
 $icon1_group = 'icon1' $icon1 $icon1_2x;
@@ -136,13 +136,14 @@ sprite($sprite) {
 }
 
 /*
-The `spriteRetina` mixin is intended to be used on a "retina group".
+The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
 
 The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
 
-$icon_home_group = 'icon-home' $icon_home $icon_home_retina;
+$icon_home_group = 'icon-home' $icon_home $icon_home_2x;
 
-.icon_home {
+.icon-home {
   retinaSprite($icon_home_group)
 }
 */
@@ -181,7 +182,8 @@ sprites($sprites) {
 }
 
 /*
-The `retinaSprites` mixin generates classes for retina sprite groups
+The `retinaSprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in Stylus
 
 retinaSprites($retina_groups);
 */
