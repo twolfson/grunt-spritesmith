@@ -221,9 +221,8 @@ An example retina spritesheet setup can be found in the [Examples section](#reti
     - This will run through normal and retina spritesheets
     - The name used for normal sprites dictates the group name for retina group variables (e.g. `$icon-home` will have group `$icon-home-group`)
     - For more information, see [Variable mapping](#variable-mapping)
-- cssRetinaSpritesheetName
-
-- cssRetinaGroupsName
+- cssRetinaSpritesheetName `String` - Name to use for retina spritesheet related variables in preprocessor templates
+- cssRetinaGroupsName `String` - Name to use for retina groups related variables in preprocessor templates
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
