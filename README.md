@@ -4,9 +4,6 @@
 
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
 
-// TODO: Rewrite all of changes to `lib` to make sure we didn't have interim leftovers
-//   Diff afterwards for funzies
-
 // TODO: In grunt-spritesmith, document new templates and new template variables
 // TODO: In grunt-spritesmith, provide documentation about retina
 // TODO: In grunt-spritesmith, add example usage of retina
