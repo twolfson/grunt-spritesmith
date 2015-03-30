@@ -189,6 +189,8 @@ and CSS:
 ### Retina parameters
 `grunt-spritesmith` supports retina spritesheet generation via `retinaSrcFilter` and `retinaDest`. If at least one of these is provided, then we will expect the other and enable retina spritesheet generation.
 
+Repeated parameters have the same properties as above but are repeated for clarity with respect to retina spritesheets.
+
 - src `String|String[]` - Images to use for both normal and retina spritesheet
     - For example `sprites/*.png` should capture `sprite1.png` and `sprite1-2x.png`
     - These must be ordered such that when the retina images are filtered into a separate array, the normal and retina images will have the same indices
