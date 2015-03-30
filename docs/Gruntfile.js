@@ -30,6 +30,16 @@ module.exports = function (grunt) {
         destCss: 'spritesheet.padding.styl',
         padding: 20 // Exaggerated for visibility, normal usage is 1 or 2
       },
+      retina: {
+        // We have `fork.png`, `fork-2x.png`, ...
+        src: ['fork*.png', 'github*.png', 'twitter*.png'],
+        // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+        //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
+        retinaSrcFilter: ['*-2x.png'],
+        dest: 'spritesheet.retina.png',
+        retinaDest: 'spritesheet.retina-2x.png',
+        destCss: 'spritesheet.retina.styl'
+      },
       cssVarMap: {
         src: ['fork.png', 'github.png', 'twitter.png'],
         dest: 'spritesheet.cssVarMap.png',

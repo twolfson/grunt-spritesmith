@@ -1,0 +1,197 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$fork_name = 'fork';
+$fork_x = 0px;
+$fork_y = 0px;
+$fork_offset_x = 0px;
+$fork_offset_y = 0px;
+$fork_width = 32px;
+$fork_height = 32px;
+$fork_total_width = 64px;
+$fork_total_height = 64px;
+$fork_image = 'spritesheet.retina.png';
+$fork = 0px 0px 0px 0px 32px 32px 64px 64px 'spritesheet.retina.png' 'fork';
+$github_name = 'github';
+$github_x = 32px;
+$github_y = 0px;
+$github_offset_x = -32px;
+$github_offset_y = 0px;
+$github_width = 32px;
+$github_height = 32px;
+$github_total_width = 64px;
+$github_total_height = 64px;
+$github_image = 'spritesheet.retina.png';
+$github = 32px 0px -32px 0px 32px 32px 64px 64px 'spritesheet.retina.png' 'github';
+$twitter_name = 'twitter';
+$twitter_x = 0px;
+$twitter_y = 32px;
+$twitter_offset_x = 0px;
+$twitter_offset_y = -32px;
+$twitter_width = 32px;
+$twitter_height = 32px;
+$twitter_total_width = 64px;
+$twitter_total_height = 64px;
+$twitter_image = 'spritesheet.retina.png';
+$twitter = 0px 32px 0px -32px 32px 32px 64px 64px 'spritesheet.retina.png' 'twitter';
+$fork_2x_name = 'fork-2x';
+$fork_2x_x = 0px;
+$fork_2x_y = 0px;
+$fork_2x_offset_x = 0px;
+$fork_2x_offset_y = 0px;
+$fork_2x_width = 64px;
+$fork_2x_height = 64px;
+$fork_2x_total_width = 128px;
+$fork_2x_total_height = 128px;
+$fork_2x_image = 'spritesheet.retina-2x.png';
+$fork_2x = 0px 0px 0px 0px 64px 64px 128px 128px 'spritesheet.retina-2x.png' 'fork-2x';
+$github_2x_name = 'github-2x';
+$github_2x_x = 64px;
+$github_2x_y = 0px;
+$github_2x_offset_x = -64px;
+$github_2x_offset_y = 0px;
+$github_2x_width = 64px;
+$github_2x_height = 64px;
+$github_2x_total_width = 128px;
+$github_2x_total_height = 128px;
+$github_2x_image = 'spritesheet.retina-2x.png';
+$github_2x = 64px 0px -64px 0px 64px 64px 128px 128px 'spritesheet.retina-2x.png' 'github-2x';
+$twitter_2x_name = 'twitter-2x';
+$twitter_2x_x = 0px;
+$twitter_2x_y = 64px;
+$twitter_2x_offset_x = 0px;
+$twitter_2x_offset_y = -64px;
+$twitter_2x_width = 64px;
+$twitter_2x_height = 64px;
+$twitter_2x_total_width = 128px;
+$twitter_2x_total_height = 128px;
+$twitter_2x_image = 'spritesheet.retina-2x.png';
+$twitter_2x = 0px 64px 0px -64px 64px 64px 128px 128px 'spritesheet.retina-2x.png' 'twitter-2x';
+$spritesheet_width = 64px;
+$spritesheet_height = 64px;
+$spritesheet_image = 'spritesheet.retina.png';
+$spritesheet_sprites = $fork $github $twitter;
+$spritesheet = 64px 64px 'spritesheet.retina.png' $spritesheet_sprites;
+$retina_spritesheet_width = 128px;
+$retina_spritesheet_height = 128px;
+$retina_spritesheet_image = 'spritesheet.retina-2x.png';
+$retina_spritesheet_sprites = $fork_2x $github_2x $twitter_2x;
+$retina_spritesheet = 128px 128px 'spritesheet.retina-2x.png' $retina_spritesheet_sprites;
+
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retinaSprite` and `retinaSprites`.
+*/
+$fork_group_name = 'fork';
+$fork_group = 'fork' $fork $fork_2x;
+$github_group_name = 'github';
+$github_group = 'github' $github $github_2x;
+$twitter_group_name = 'twitter';
+$twitter_group = 'twitter' $twitter $twitter_2x;
+$retina_groups = $fork_group $github_group $twitter_group;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `retinaSprite` mixin sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+$icon_home_group = 'icon-home' $icon_home $icon_home_2x;
+
+.icon-home {
+  retinaSprite($icon_home_group)
+}
+*/
+spriteBackgroundSize($sprite) {
+  background-size: $sprite[6] $sprite[7];
+}
+
+retinaSprite($retina_group) {
+  $normal_sprite = $retina_group[1];
+  $retina_sprite = $retina_group[2];
+  sprite($normal_sprite)
+
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi) {
+    spriteImage($retina_sprite)
+    spriteBackgroundSize($normal_sprite)
+  }
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}
+
+/*
+The `retinaSprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in Stylus
+
+retinaSprites($retina_groups);
+*/
+retinaSprites($retina_groups) {
+  for $retina_group in $retina_groups {
+    $sprite_name = $retina_group[0];
+    .{$sprite_name} {
+      retinaSprite($retina_group);
+    }
+  }
+}

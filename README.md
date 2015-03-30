@@ -495,7 +495,7 @@ In this example, we will use generate a normal and retina spritesheet via the `r
   retinaSrcFilter: ['*-2x.png'],
   dest: 'spritesheet.retina.png',
   retinaDest: 'spritesheet.retina-2x.png',
-  destCss: 'spritesheet.retina.styl',
+  destCss: 'spritesheet.retina.styl'
 }
 ```
 
