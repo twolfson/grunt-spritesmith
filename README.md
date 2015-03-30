@@ -267,6 +267,27 @@ The parameters passed into your template are known as `data`. We add some normal
             - height `String` - `height` suffixed with `px`
     - spritesheet_info `Object` - Container for `spritesheet` metadata and its representation
         - name `String` - Prefix for spritesheet variables
+    - retina_sprites `Object[]` - Array of retina sprite information
+        - This will only be accessible if we are generating a retina spritesheet
+        - Properties are the same as `sprites` (e.g. `name`, `width`, `source_image`)
+    - retina_spritesheet `Object` - Information about retina spritesheet
+        - This will only be accessible if we are generating a retina spritesheet
+        - Properties are the same as `spritesheet` (e.g. `width`, `px`)
+    - retina_spritesheet_info `Object` - Container for `retina_spritesheet` metadata and its representation
+        - This will only be accessible if we are generating a retina spritesheet
+        - name `String` - Prefix for spritesheet variables
+    - retina_groups `Object[]` - Array of objects that maps to normal and retina sprites
+        - This will only be accessible if we are generating a retina spritesheet
+        - * `Object` - Container for data about sprite mapping
+            - name `String` - Name to refer to mapping by
+            - index `Number` - Index of corresponding normal/retina sprites from `data.sprites`/`data.retina_sprites`
+            - normal `Object` - Normal sprite from `data.sprites` that corresponds to our mapping
+                - This has all the same properties as `data.sprites[*]` (e.g. `name`, `x`, `offset_y`, `px`)
+            - retina `Object` - Retina sprite from `data.retina_sprites` that corresponds to our mapping
+                - This has all the same properties as `data.retina_sprites[*]` (e.g. `name`, `x`, `offset_y`, `px`)
+    - retina_groups_info `Object` - Optional container for metadata about `retina_groups` and its representation
+        - This will only be accessible if we are generating a retina spritesheet
+        - name `String` - Name for `retina_groups`
     - options `Object` - Options passed in via `cssOpts` in `grunt-spritesmith` config
 
 [`spritesheet-templates`]: https://github.com/twolfson/spritesheet-templates
