@@ -1,7 +1,5 @@
 # grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
-// TODO: Be sure to review https://gist.github.com/twolfson/f6b0246cc3fb35e0da49
-
 // TODO: Make note that group names are derivative of `cssVarMap` result
 
 // TODO: Make it clear that the css retina cssSelector gets `retinaGroup`, not the `sprite`
