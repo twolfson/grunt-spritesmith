@@ -4,6 +4,7 @@ var fs = require('fs');
 var rimraf = require('rimraf');
 var getPixels = require('get-pixels');
 var gruntUtils = require('./utils/grunt');
+var crypto = require('crypto');
 
 // Set up default variables
 var expectedDir = __dirname + '/expected_files/';
@@ -136,6 +137,20 @@ describe('grunt-spritesmith', function () {
 
       // Assert the path is the relative one we expect
       assert.notEqual(coords.indexOf('../../nested/1/2/spritesheet.png'), -1);
+    });
+  });
+
+  describe('generate sprite version', function () {
+    gruntUtils.runTask('sprite:version');
+
+    it('check version exist', function () {
+      var optionsFile = fs.readFileSync(expectedDir + 'version.json', 'utf8');
+      var spriteFile = fs.readFileSync(actualDir + 'sprite.basic.png', 'utf8');
+      var options = JSON.parse(optionsFile);
+      var hash = options.sprite1.image.split('.').splice(-2, 1)[0];
+      var generateHash = crypto.createHash('md5').update(spriteFile, 'utf8').digest('hex').substring(0, 8);
+
+      assert.strictEqual(hash, generateHash, 'Sprite version generate successfully');
     });
   });
 });

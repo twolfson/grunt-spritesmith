@@ -109,6 +109,16 @@ module.exports = function (grunt) {
         src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
         dest: 'scratch/sprite.newer.png',
         destCss: 'scratch/sprite_positions.newer.styl'
+      },
+      version: {
+        src: ['test_files/sprite1.png', 'test_files/sprite2.jpg', 'test_files/sprite3.png'],
+        dest: 'expected_files/sprite.basic.version.png',
+        destCss: 'expected_files/version.json',
+        cacheBust: true,
+        cacheBustOptions: {
+          length: 8,
+          rename: true
+        }
       }
     }
   });
