@@ -313,7 +313,11 @@ module.exports = function gruntSpritesmith (grunt) {
       if (that.errorCount) { cb(false); }
 
       // Otherwise, print a success message.
-      grunt.log.writeln('Files "' + destCss + '", "' + destImg + '" created.');
+      if (retinaDestImg) {
+        grunt.log.writeln('Files "' + destCss + '", "' + destImg + '", "' + retinaDestImg + '" created.');
+      } else {
+        grunt.log.writeln('Files "' + destCss + '", "' + destImg + '" created.');
+      }
 
       // Callback
       cb(true);
