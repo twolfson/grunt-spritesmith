@@ -164,6 +164,9 @@ and CSS:
     - If a `Function` is provided, it must have a signature of `function (data)`
         - An example usage can be found in the [Examples section](#template-function)
     - For more templating information, see the [Templating section](#templating)
+- cssHandlebarsHelpers `Object` - Container for helpers to register to [handlebars][] for our template
+    - Each key-value pair is the name of a [handlebars][] helper corresponding to its function
+    - For example, `{half: function (num) { return num/2; }` will add a [handlebars][] helper that halves numbers
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
     - For more information, see [Variable mapping](#variable-mapping)
 - cssSpritesheetName `String` - Name to use for spritesheet related variables in preprocessor templates
