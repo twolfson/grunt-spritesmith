@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.6.0 - Upgraded to `spritesheet-templates@9.5.0` and added handlebars helper registration
+
 4.5.3 - Improved retina success message
 
 4.5.2 - Added `node@0.12` and `iojs` to test suite. Upgraded to `gmsmith@0.0.8` to support their tests.
