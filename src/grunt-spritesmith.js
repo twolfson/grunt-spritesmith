@@ -261,6 +261,14 @@ module.exports = function gruntSpritesmith (grunt) {
         });
       }
 
+      // If we have handlebars helpers, register them
+      var handlebarsHelpers = data.cssHandlebarsHelpers;
+      if (handlebarsHelpers) {
+        Object.keys(handlebarsHelpers).forEach(function registerHelper (helperKey) {
+          templater.registerHandlebarsHelper(helperKey, handlebarsHelpers[helperKey]);
+        });
+      }
+
       // If there is a custom template, use it
       var cssFormat = 'spritesmith-custom';
       var cssOptions = data.cssOpts || {};
