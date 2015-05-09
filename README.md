@@ -1,4 +1,4 @@
-# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
+# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
@@ -107,7 +107,7 @@ Results are a spritesheet:
 
 and CSS:
 
-```
+```css
 .icon-fork {
   background-image: url(spritesheet.png);
   background-position: 0px 0px;
@@ -324,7 +324,7 @@ An example `sprite` is
 }
 ```
 
-If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+If you are defining a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
