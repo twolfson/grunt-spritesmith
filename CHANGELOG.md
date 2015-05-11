@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.6.1 - Fixes to README via @XhmikosR in #131
+
 4.6.0 - Upgraded to `spritesheet-templates@9.5.0` and added handlebars helper registration
 
 4.5.3 - Improved retina success message
