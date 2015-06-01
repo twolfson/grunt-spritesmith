@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.6.3 - Moved iojs to allowed failure until https://github.com/npm/npm/issues/8406 gets patched
+
 4.6.2 - Moved from deprecated `licenses` key to use `license` in `package.json`
 
 4.6.1 - Fixes to README via @XhmikosR in #131
