@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.7.0 - Upgraded to `spritesheet-templates@9.6.0` to add `json_texture` template
+
 4.6.3 - Moved iojs to allowed failure until https://github.com/npm/npm/issues/8406 gets patched
 
 4.6.2 - Moved from deprecated `licenses` key to use `license` in `package.json`
