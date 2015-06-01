@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+4.6.2 - Moved from deprecated `licenses` key to use `license` in `package.json`
+
 4.6.1 - Fixes to README via @XhmikosR in #131
 
 4.6.0 - Upgraded to `spritesheet-templates@9.5.0` and added handlebars helper registration
