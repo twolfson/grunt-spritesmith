@@ -9,9 +9,9 @@ module.exports = function (grunt) {
         destCss: 'scratch/sprite_positions.basic.styl'
       },
       retina: {
-        src: ['test_files/sprite1*.png', 'test_files/sprite2*.jpg', 'test_files/sprite3*.png'],
+        src: ['test_files/sprite1-*x.png', 'test_files/sprite2-*x.jpg', 'test_files/sprite3-*x.png'],
         retinaSrcFilter: ['test_files/*-2x.{png,jpg}'],
-        dest: 'scratch/sprite.retina.png',
+        dest: 'scratch/sprite.retina-1x.png',
         retinaDest: 'scratch/sprite.retina-2x.png',
         destCss: 'scratch/sprite_positions.retina.styl'
       },
