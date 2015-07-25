@@ -191,12 +191,12 @@ An example retina spritesheet setup can be found in the [Examples section](#reti
 - retinaSrcFilter `String|String[]` - Images to filter out from `src` for our retina spritesheet
     - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
     - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
-        - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
+        - Under the hood, we will group `sprite1-1x.png` and `sprite1-2x.png` as a group of normal/retina sprites
 - retinaDest `String` - Output location for generated retina spritesheet
     - For example `path/to/output-2x.png`
 - retinaImgPath - Optional override for retina spritesheet path specified in CSS
     - For example `../sprite-2x.png`  will yield CSS with:
-        - `background-image: url(../sprite.png);`
+        - `background-image: url(../sprite-2x.png);`
 - padding `Number` - Padding to place to right and bottom between sprites
     - By default there is no padding
     - In retina spritesheets, this number will be doubled to maintain perspective
@@ -507,12 +507,12 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 ```js
 {
-  // We have `fork.png`, `fork-2x.png`, ...
+  // We have `fork-1x.png`, `fork-2x.png`, ...
   src: ['fork*.png', 'github*.png', 'twitter*.png'],
   // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
-  //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
+  //   The normal spritesheet will now receive `fork-1x.png`, `github-1x.png`, ...
   retinaSrcFilter: ['*-2x.png'],
-  dest: 'spritesheet.retina.png',
+  dest: 'spritesheet.retina-1x.png',
   retinaDest: 'spritesheet.retina-2x.png',
   destCss: 'spritesheet.retina.styl'
 }
@@ -520,7 +520,7 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 **Normal spritesheet:**
 
-![Normal spritesheet](docs/spritesheet.retina.png)
+![Normal spritesheet](docs/spritesheet.retina-1x.png)
 
 **Retina spritesheet:**
 
