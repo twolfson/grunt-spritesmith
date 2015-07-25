@@ -185,8 +185,9 @@ Repeated parameters have the same properties as above but are repeated for clari
 An example retina spritesheet setup can be found in the [Examples section](#retina-spritesheet).
 
 - src `String|String[]` - Images to use for both normal and retina spritesheet
-    - For example `sprites/*.png` should capture `sprite1.png` and `sprite1-2x.png`
+    - For example `sprites/*.png` should capture `sprite1-1x.png` and `sprite1-2x.png`
     - These must be ordered such that when the retina images are filtered into a separate array, the normal and retina images will have the same indices
+    - To reiterate, please use a consistent suffix across normal and retina images to guarantee ordering (e.g. `sprite**-2x**.png` should be complimented by `sprite**-1x**.png`)
 - retinaSrcFilter `String|String[]` - Images to filter out from `src` for our retina spritesheet
     - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
     - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
