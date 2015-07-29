@@ -69,7 +69,7 @@ We are normalizing sprite variables to be consistently `dash-case` or `snake_cas
 https://github.com/twolfson/spritesheet-templates
 
 ## Breaking changes in 5.0.0
-We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming sprites with `@2x` suffixes, to prevent regressions like [#137][].
+We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming retina sprites with `@2x` suffixes, to prevent regressions like [#137][].
 
 [#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
 
