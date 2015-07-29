@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.0.0 - Upgraded to `spritesheet-templates@10.0.0` and moved to use `@2x` suffix for retina sprites
+
 4.7.1 - Moved back to testing `iojs` on Travis CI
 
 4.7.0 - Upgraded to `spritesheet-templates@9.6.0` to add `json_texture` template
