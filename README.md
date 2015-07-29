@@ -68,6 +68,11 @@ We are normalizing sprite variables to be consistently `dash-case` or `snake_cas
 
 https://github.com/twolfson/spritesheet-templates
 
+## Breaking changes in 5.0.0
+We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming sprites with `@2x` suffixes, to prevent regressions like [#137][].
+
+[#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
@@ -212,8 +217,6 @@ An example retina spritesheet setup can be found in the [Examples section](#reti
     - For more information, see [Variable mapping](#variable-mapping)
 - cssRetinaSpritesheetName `String` - Name to use for retina spritesheet related variables in preprocessor templates
 - cssRetinaGroupsName `String` - Name to use for retina groups related variables in preprocessor templates
-
-[#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
 
 ### Algorithms
 Images can be laid out in different fashions depending on the algorithm. We use [`layout`][] to provide you as many options as possible. At the time of writing, here are your options for `algorithm`:
