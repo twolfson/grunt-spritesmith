@@ -175,6 +175,7 @@ and CSS:
     - See your template's documentation for available options
         - https://github.com/twolfson/spritesheet-templates#templates
 
+[multitask]: http://gruntjs.com/creating-tasks#multi-tasks
 [handlebars]: http://handlebarsjs.com/
 
 ### Retina parameters
