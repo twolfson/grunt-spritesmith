@@ -6,6 +6,7 @@ var async = require('async');
 var templater = require('spritesheet-templates');
 var spritesmith = require('spritesmith');
 var url = require('url2');
+var md5 = require('md5');
 
 // Define class to contain different extension handlers
 function ExtFormat() {
@@ -59,6 +60,15 @@ function getCoordinateName(filepath) {
   return nameParts.join('.');
 }
 
+function cacheBustFilename(filename, buf) {
+  var file_md5 = md5(buf);
+  return filename.splice(filename.lastIndexOf('.'), 0, "." + file_md5);
+}
+
+String.prototype.splice = function( idx, rem, s ) {
+  return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
+}
+
 module.exports = function gruntSpritesmith (grunt) {
   // Create a SpriteMaker function
   function SpriteMaker() {
@@ -75,6 +85,7 @@ module.exports = function gruntSpritesmith (grunt) {
     var destImg = data.dest;
     var destCss = data.destCss;
     var cssTemplate = data.cssTemplate;
+    var cacheBust = data.cacheBust || false;
     var that = this;
 
     // Verify all properties are here
@@ -171,6 +182,11 @@ module.exports = function gruntSpritesmith (grunt) {
       var result = resultArr[0];
       var destImgDir = path.dirname(destImg);
       grunt.file.mkdir(destImgDir);
+
+      // Cachebust check
+      if (cacheBust) destImg = cacheBustFilename(destImg, result.image);
+
+      // Write file
       fs.writeFileSync(destImg, result.image, 'binary');
 
       // Generate a listing of CSS variables
@@ -215,6 +231,11 @@ module.exports = function gruntSpritesmith (grunt) {
         // Write out the result to destImg
         var retinaDestImgDir = path.dirname(retinaDestImg);
         grunt.file.mkdir(retinaDestImgDir);
+
+        // Cachebust check
+        if (cacheBust) retinaDestImg = cacheBustFilename(retinaDestImg, result.image);
+
+        // Write file
         fs.writeFileSync(retinaDestImg, retinaResult.image, 'binary');
 
         // Generate a listing of CSS variables

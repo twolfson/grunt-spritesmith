@@ -131,6 +131,8 @@ and CSS:
     - For example `path/to/output/spritesheet.png`
 - destCss `String` - Output location for generated CSS
     - For example `path/to/output/sprites.css`
+- cacheBust `Boolean` - Inserts the MD5 checksum of the generated file into its filename
+    - Will save the file to something like `path/to/output/sprites.c0948815bfd48f0b685d967dc6af15c6.png` to prevent caching issues
 - imgPath `String` - Optional override for spritesheet path specified in CSS
     - For example if `../sprite.png` is given, then the CSS will have:
         - `background-image: url(../sprite.png);`
