@@ -55,7 +55,7 @@
   "dependencies": {
     "async": "~0.9.0",
     "spritesheet-templates": "~10.0.0",
-    "spritesmith": "~1.3.0",
+    "spritesmith": "~1.4.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
   },
