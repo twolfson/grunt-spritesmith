@@ -196,6 +196,7 @@ An example retina spritesheet setup can be found in the [Examples section](#reti
     - **We strongly encourage using the `@2x` suffix over `-retina` or `-2x`. There are known ordering issues caused when sharing a `-` delimiter between sprite names and the retina suffix (see [#137][])**
 - retinaSrcFilter `String|String[]` - Images to filter out from `src` for our retina spritesheet
     - This can be a glob as with `src` (e.g. `sprite/*@2x.png`)
+    - The path/glob used should line up with `src` (e.g. `src: 'sprite/*.png'`, `retinaSrcFilter: 'sprite/*@2x.png'`)
     - For example `sprites/*@2x.png` will filter out `sprite1@2x.png` for a separate retina spritesheet
         - Under the hood, we will group `sprite1.png` and `sprite1@2x.png` as a group of normal/retina sprites
 - retinaDest `String` - Output location for generated retina spritesheet
