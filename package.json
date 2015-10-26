@@ -60,6 +60,9 @@
     "url2": "1.0.0"
   },
   "devDependencies": {
+    "foundry": "~4.3.2",
+    "foundry-release-git": "~2.0.2",
+    "foundry-release-npm": "~2.0.2",
     "get-pixels": "~3.1.0",
     "gmsmith": "~0.5.0",
     "grunt": "~0.4.2",
@@ -82,5 +85,11 @@
     "css",
     "spritesmith",
     "cross-platform"
-  ]
+  ],
+  "foundry": {
+    "releaseCommands": [
+      "foundry-release-git",
+      "foundry-release-npm"
+    ]
+  }
 }
