@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.1.3 - Upgrade supported node to `>= 0.10.0`
+
 5.1.2 - Added `foundry` for releases
 
 5.1.1 - Added clarification that `retinaSrcFilter` should line up with `src`
