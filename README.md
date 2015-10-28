@@ -1,4 +1,4 @@
-# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](#TODO)
+# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
@@ -44,7 +44,7 @@ $github_height = 32px;
 As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. See the [Retina parameters section](#retina-parameters) for more information.
 
 ### Cross-platform support
-`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
+`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OS X.
 
 ### Do you like `grunt-spritesmith`?
 [Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
