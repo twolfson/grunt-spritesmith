@@ -63,7 +63,7 @@
     "foundry": "~4.3.2",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
-    "get-pixels": "~3.1.0",
+    "get-pixels": "~3.2.3",
     "gmsmith": "~0.5.0",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
