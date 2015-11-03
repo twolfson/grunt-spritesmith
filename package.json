@@ -50,7 +50,7 @@
     "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
     "lint": "twolfson-style lint docs/ src/ src-test/ tasks/",
     "pretest": "twolfson-style install",
-    "test": "npm run precheck && mocha src-test/ --reporter dot && npm run lint"
+    "test": "npm run precheck && mocha src-test/ --reporter dot --timeout 5000 && npm run lint"
   },
   "dependencies": {
     "async": "~0.9.0",
