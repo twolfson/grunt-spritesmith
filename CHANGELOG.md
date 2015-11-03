@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.1.6 - Increased mocha timeout and move to sudo-less Travis CI to fix builds
+
 5.1.5 - Upgraded to `get-pixels@3.2.3` to use `pngjs@2`
 
 5.1.4 - Added "Newsletter subscribe" badge to README
