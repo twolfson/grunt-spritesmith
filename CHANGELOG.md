@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.1.5 - Upgraded to `get-pixels@3.2.3` to use `pngjs@2`
+
 5.1.4 - Added "Newsletter subscribe" badge to README
 
 5.1.3 - Upgrade supported node to `>= 0.10.0`
