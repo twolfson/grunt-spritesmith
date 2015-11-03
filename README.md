@@ -47,9 +47,9 @@ As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. Se
 `grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OS X.
 
 ### Do you like `grunt-spritesmith`?
-[Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
+[Support us via donations][support-us] or [spread word on Twitter][twitter]
 
-[gratipay]: https://gratipay.com/twolfson/
+[support-us]: http://bit.ly/support-spritesmith
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
 ## Breaking changes in 3.0.0
