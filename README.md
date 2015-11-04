@@ -367,9 +367,9 @@ cssVarMap: function (sprite) {
 ### Engines
 An engine can greatly improve the speed of your build (e.g. `canvassmith`) or support obscure image formats (e.g. `gmsmith`).
 
-All `spritesmith` engines adhere to a common specification and test suite:
+All `spritesmith` engines adhere to a common specification:
 
-https://github.com/twolfson/spritesmith-engine-test
+https://github.com/twolfson/spritesmith-engine-spec
 
 Below is a list of known engines with their tradeoffs:
 
