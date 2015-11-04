@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.1.8 - Updated link to specification
+
 5.1.7 - Updated README to use bit.ly URL over Gratipay
 
 5.1.6 - Increased mocha timeout and move to sudo-less Travis CI to fix builds
