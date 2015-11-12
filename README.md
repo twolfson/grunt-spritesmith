@@ -371,7 +371,7 @@ All `spritesmith` engines adhere to a common specification:
 
 https://github.com/twolfson/spritesmith-engine-spec
 
-This repository adheres to specification version: **1.1.0**
+This repository adheres to specification version: **2.0.0**
 
 Below is a list of known engines with their tradeoffs:
 
