@@ -20,7 +20,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:basic');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('generates an image', function (done) {
@@ -50,7 +50,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:retina');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('generates an image', function (done) {
@@ -92,7 +92,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:jpg,json');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('generates a jpg', function () {
@@ -119,7 +119,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:overrides');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('generates an image', function () {
@@ -146,7 +146,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:nested');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     // TODO: Not entirely sure about the name of this test
@@ -167,7 +167,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:empty');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('generates an empty image', function () {
@@ -186,7 +186,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssOpts');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('uses the new selector', function () {
@@ -201,7 +201,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssFunctionTemplate');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('uses the template', function () {
@@ -216,7 +216,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssHandlebarsTemplate');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('uses the template', function () {
@@ -231,7 +231,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:cssVarMap');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('uses the new variable names', function () {
@@ -245,7 +245,7 @@ describe('grunt-spritesmith', function () {
     gruntUtils.runTask('sprite:retinaMapped');
 
     it('has no errors', function () {
-      assert.strictEqual(this.err, null);
+      assert.strictEqual(this.err, null, this.stderr);
     });
 
     it('uses the new variable names', function () {
@@ -260,7 +260,7 @@ describe('grunt-newer running grunt-spritesmith', function () {
   gruntUtils.runTask('newer:sprite:newer');
 
   it('has no errors', function () {
-    assert.strictEqual(this.err, null);
+    assert.strictEqual(this.err, null, this.stderr);
   });
 
   it('generates an image', function () {
