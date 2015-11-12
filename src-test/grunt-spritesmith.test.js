@@ -19,6 +19,10 @@ describe('grunt-spritesmith', function () {
   describe('converting a set of images', function () {
     gruntUtils.runTask('sprite:basic');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('generates an image', function (done) {
       // Load in the images and compare them
       getPixels(actualDir + 'sprite.basic.png', function handleActualPixels (err, actualImage) {
@@ -44,6 +48,10 @@ describe('grunt-spritesmith', function () {
 
   describe('converting a retina set of images', function () {
     gruntUtils.runTask('sprite:retina');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
 
     it('generates an image', function (done) {
       // Load in the images and compare them
@@ -83,6 +91,10 @@ describe('grunt-spritesmith', function () {
   describe('generating a jpg and JSON', function () {
     gruntUtils.runTask('sprite:jpg,json');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('generates a jpg', function () {
       // Load in the images
       var actualImage = fs.readFileSync(actualDir + 'sprite.basic.jpg', 'binary');
@@ -105,6 +117,10 @@ describe('grunt-spritesmith', function () {
 
   describe('running a task using overrides', function () {
     gruntUtils.runTask('sprite:overrides');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
 
     it('generates an image', function () {
       // Load in the images
@@ -129,6 +145,10 @@ describe('grunt-spritesmith', function () {
   describe('generating an image in a nested location', function () {
     gruntUtils.runTask('sprite:nested');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     // TODO: Not entirely sure about the name of this test
     it('resolves a collapsed path', function () {
       // Load in the coordinates and extract the path to the sprite file
@@ -146,6 +166,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with no images', function () {
     gruntUtils.runTask('sprite:empty');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('generates an empty image', function () {
       var img = fs.readFileSync(actualDir + 'sprite.empty.png', 'binary');
       assert.strictEqual(img, '');
@@ -161,6 +185,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with css options', function () {
     gruntUtils.runTask('sprite:cssOpts');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('uses the new selector', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssOpts.css', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssOpts.css', 'utf8');
@@ -171,6 +199,10 @@ describe('grunt-spritesmith', function () {
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
   describe('running a task with a custom template function', function () {
     gruntUtils.runTask('sprite:cssFunctionTemplate');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
 
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssFunctionTemplate.styl', 'utf8');
@@ -183,6 +215,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with a custom handlebars template', function () {
     gruntUtils.runTask('sprite:cssHandlebarsTemplate');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
@@ -194,6 +230,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with custom CSS variable names', function () {
     gruntUtils.runTask('sprite:cssVarMap');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
+
     it('uses the new variable names', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssVarMap.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssVarMap.styl', 'utf8');
@@ -203,6 +243,10 @@ describe('grunt-spritesmith', function () {
 
   describe('running a retina task with custom CSS variable names', function () {
     gruntUtils.runTask('sprite:retinaMapped');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
+    });
 
     it('uses the new variable names', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.retinaMapped.styl', 'utf8');
