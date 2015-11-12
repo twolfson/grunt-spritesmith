@@ -13,7 +13,8 @@ exports.runTask = function (task) {
     var that = this;
     exec(quote(['grunt', task]), function handleExec (err, stdout, stderr) {
       // Save results for later
-      that.err = err;
+      that._err = err;
+      that.err = err ? new Error(stderr) : err;
       that.stdout = stdout;
       that.stderr = stderr;
 
