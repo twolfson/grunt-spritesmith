@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+5.2.0 - Upgraded to `spritesmith@1.5.0` to add `specVersion` validation
+
 5.1.8 - Updated link to specification
 
 5.1.7 - Updated README to use bit.ly URL over Gratipay
