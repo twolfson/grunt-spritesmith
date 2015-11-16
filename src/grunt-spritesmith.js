@@ -171,7 +171,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var result = resultArr[0];
       var destImgDir = path.dirname(destImg);
       grunt.file.mkdir(destImgDir);
-      fs.writeFileSync(destImg, result.image, 'binary');
+      fs.writeFileSync(destImg, result.image);
 
       // Generate a listing of CSS variables
       var coordinates = result.coordinates;
@@ -215,7 +215,7 @@ module.exports = function gruntSpritesmith (grunt) {
         // Write out the result to destImg
         var retinaDestImgDir = path.dirname(retinaDestImg);
         grunt.file.mkdir(retinaDestImgDir);
-        fs.writeFileSync(retinaDestImg, retinaResult.image, 'binary');
+        fs.writeFileSync(retinaDestImg, retinaResult.image);
 
         // Generate a listing of CSS variables
         var retinaCoordinates = retinaResult.coordinates;
