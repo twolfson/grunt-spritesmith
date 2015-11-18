@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.0.0 - Upgraded to `spritesmith-engine-spec@2.0.0`
+
 5.2.0 - Upgraded to `spritesmith@1.5.0` to add `specVersion` validation
 
 5.1.8 - Updated link to specification
