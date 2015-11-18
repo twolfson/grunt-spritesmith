@@ -73,6 +73,18 @@ We are normalizing sprite variables even further to convert any non-alphanumeric
 
 [#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
 
+## Breaking changes in 6.0.0
+We have moved from [spritesmith-engine-spec@1.1.0][] to [spritesmith-engine-spec@2.0.0][]. This means if you use an custom engine (e.g. `gmsmith`, `canvassmith`), then you will need to upgrade it.
+
+```bash
+npm install my-engine-smith@latest --save-dev
+```
+
+This is to enable usage of streaming outputs from engines.
+
+[spritesmith-engine-spec@1.1.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/1.1.0
+[spritesmith-engine-spec@2.0.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/2.0.0
+
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
 
