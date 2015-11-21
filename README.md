@@ -52,22 +52,6 @@ As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. Se
 [support-us]: http://bit.ly/support-spritesmith2
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
-## Breaking changes in 3.0.0
-We have moved to `pixelsmith` as the default `engine`. It is `node` based and should support your sprites. Any other engines must be installed outside of `spritesmith`. This will lead to cleaner and faster installations.
-
-We have moved to `binary-tree` as the default `algorithm`. We changed this to give the best possible packing out of the box. If you were using `top-down` as the default, please specify it in your configuration.
-
-We have moved from `destImg` and `destCSS` to `dest` and `destCss` respectively. This adds support for [grunt-newer][] and makes naming consistent.
-
-We have moved the `cssClass` option for the `css` template to `cssSelector`. This makes it more semantically appropriate and eaiser to find.
-
-[grunt-newer]: https://github.com/tschaub/grunt-newer
-
-## Breaking changes in 4.0.0
-We are normalizing sprite variables to be consistently `dash-case` or `snake_case` for some templates. These can be overriden via `cssOpts.variableNameTransforms` as documented in:
-
-https://github.com/twolfson/spritesheet-templates
-
 ## Breaking changes in 5.0.0
 We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming retina sprites with `@2x` suffixes, to prevent regressions like [#137][].
 
