@@ -121,7 +121,7 @@ module.exports = function gruntSpritesmith (grunt) {
     }
 
     // Create an async callback
-    var cb = this.async();
+    var callback = this.async();
 
     // Determine the format of the image
     var imgOpts = data.imgOpts || {};
@@ -169,7 +169,7 @@ module.exports = function gruntSpritesmith (grunt) {
       // If an error occurred, callback with it
       if (err) {
         grunt.fatal(err);
-        return cb(err);
+        return callback(err);
       }
 
       // Otherwise, validate our images line up
@@ -187,11 +187,12 @@ module.exports = function gruntSpritesmith (grunt) {
         });
       }
 
-      // Otherwise, write out the result to destImg
-      var result = resultArr[0];
-      var destImgDir = path.dirname(destImg);
-      grunt.file.mkdir(destImgDir);
-      fs.writeFileSync(destImg, result.image);
+      // Process our sprites into spritesheets
+      var result = spritesmith.processImages(normalSprites, spritesmithParams);
+      var retinaResult;
+      if (retinaSprites) {
+        retinaResult = retinaSpritesmith.processImages(retinaSprites, retinaSpritesmithParams);
+      }
 
       // Generate a listing of CSS variables
       var coordinates = result.coordinates;
@@ -229,14 +230,8 @@ module.exports = function gruntSpritesmith (grunt) {
       // If we have retina sprites
       var retinaCleanCoords;
       var retinaGroups;
-      var retinaResult = resultArr[1];
       var retinaSpritesheetInfo;
       if (retinaResult) {
-        // Write out the result to destImg
-        var retinaDestImgDir = path.dirname(retinaDestImg);
-        grunt.file.mkdir(retinaDestImgDir);
-        fs.writeFileSync(retinaDestImg, retinaResult.image);
-
         // Generate a listing of CSS variables
         var retinaCoordinates = retinaResult.coordinates;
         var retinaProperties = retinaResult.properties;
@@ -323,23 +318,54 @@ module.exports = function gruntSpritesmith (grunt) {
         formatOpts: cssOptions
       });
 
-      // Write it out to the CSS file
-      var destCssDir = path.dirname(destCss);
-      grunt.file.mkdir(destCssDir);
-      fs.writeFileSync(destCss, cssStr, 'utf8');
+      // Write out the content
+      async.parallel([
+        function outputNormalImage (cb) {
+          // Create our directory
+          var destImgDir = path.dirname(destImg);
+          grunt.file.mkdir(destImgDir);
 
-      // Fail task if errors were logged.
-      if (that.errorCount) { cb(false); }
+          // Generate our write stream and pipe the image to it
+          var writeStream = fs.createWriteStream(destImg);
+          writeStream.on('error', cb);
+          result.image.pipe(writeStream);
+        },
+        function outputRetinaImage (cb) {
+          if (retinaResult) {
+            var retinaDestImgDir = path.dirname(retinaDestImg);
+            grunt.file.mkdir(retinaDestImgDir);
+            var retinaWriteStream = fs.createWriteStream(retinaDestImg);
+            retinaWriteStream.on('error', cb);
+            retinaResult.image.pipe(retinaWriteStream);
+          } else {
+            process.nextTick(cb);
+          }
+        },
+        function outputCss (cb) {
+          var destCssDir = path.dirname(destCss);
+          grunt.file.mkdir(destCssDir);
+          fs.writeFile(destCss, cssStr, 'utf8', cb);
+        }
+      ], function handleError (err) {
+        // If there was an error, fail with it
+        if (err) {
+          grunt.fatal(err);
+          return callback(err);
+        }
 
-      // Otherwise, print a success message.
-      if (retinaDestImg) {
-        grunt.log.writeln('Files "' + destCss + '", "' + destImg + '", "' + retinaDestImg + '" created.');
-      } else {
-        grunt.log.writeln('Files "' + destCss + '", "' + destImg + '" created.');
-      }
+        // Fail task if errors were logged
+        if (that.errorCount) { callback(false); }
 
-      // Callback
-      cb(true);
+        // Otherwise, print a success message
+        if (retinaDestImg) {
+          grunt.log.writeln('Files "' + destCss + '", "' + destImg + '", "' + retinaDestImg + '" created.');
+        } else {
+          grunt.log.writeln('Files "' + destCss + '", "' + destImg + '" created.');
+        }
+
+        // Callback
+        callback(true);
+      });
     });
   }
 
