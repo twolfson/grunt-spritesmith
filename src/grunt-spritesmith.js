@@ -4,7 +4,7 @@ var path = require('path');
 var _ = require('underscore');
 var async = require('async');
 var templater = require('spritesheet-templates');
-var spritesmith = require('spritesmith');
+var Spritesmith = require('spritesmith');
 var url = require('url2');
 
 // Define class to contain different extension handlers
@@ -60,8 +60,8 @@ function getCoordinateName(filepath) {
 }
 
 module.exports = function gruntSpritesmith (grunt) {
-  // Create a SpriteMaker function
-  function SpriteMaker() {
+  // Create a gruntSpritesmithFn function
+  function gruntSpritesmithFn() {
     // Grab the raw configuration
     var data = this.data;
 
@@ -132,7 +132,6 @@ module.exports = function gruntSpritesmith (grunt) {
 
     // Prepare spritesmith parameters
     var spritesmithParams = {
-      src: srcFiles,
       engine: data.engine,
       algorithm: data.algorithm,
       padding: data.padding || 0,
@@ -141,30 +140,51 @@ module.exports = function gruntSpritesmith (grunt) {
       exportOpts: imgOpts
     };
 
+    // Construct our spritesmiths
+    var spritesmith = new Spritesmith(spritesmithParams);
+    var retinaSpritesmithParams;
+    var retinaSpritesmith;
+    if (retinaSrcFiles) {
+      retinaSpritesmithParams = _.defaults({
+        padding: spritesmithParams.padding * 2
+      }, spritesmithParams);
+      retinaSpritesmith = new Spritesmith(retinaSpritesmithParams);
+    }
+
     // In parallel
     async.parallel([
-      // Run our normal task
-      function normalSpritesheet (callback) {
-        spritesmith(spritesmithParams, callback);
+      // Load in our normal images
+      function generateNormalImages (callback) {
+        spritesmith.createImages(srcFiles, callback);
       },
-      // If we have a retina task, run it as well
-      function retinaSpritesheet (callback) {
-        // DEV: We don't check length since we could have no images passed in
+      // If we have retina images, load them in as well
+      function generateRetinaImages (callback) {
         if (retinaSrcFiles) {
-          var retinaParams = _.defaults({
-            src: retinaSrcFiles,
-            padding: spritesmithParams.padding * 2
-          }, spritesmithParams);
-          spritesmith(retinaParams, callback);
+          retinaSpritesmith.createImages(retinaSrcFiles, callback);
         } else {
           process.nextTick(callback);
         }
       }
-    ], function handleSpritesheets (err, resultArr) {
+    ], function handleImages (err, resultArr) {
       // If an error occurred, callback with it
       if (err) {
         grunt.fatal(err);
         return cb(err);
+      }
+
+      // Otherwise, validate our images line up
+      var normalSprites = resultArr[0];
+      var retinaSprites = resultArr[1];
+      // TODO: Validate error looks good
+      if (retinaSprites) {
+        normalSprites.forEach(function validateSprites (normalSprite, i) {
+          var retinaSprite = retinaSprites[i];
+          if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
+            grunt.log.warn('Normal sprite has inconsistent size with retina sprite. ' +
+              '"' + srcFiles[i] + '" is ' + normalSprite.width + 'x' + normalSprite.height + ' while ' +
+              '"' + retinaSrcFiles[i] + '" is ' + retinaSprite.width + 'x' + retinaSprite.height + '.');
+          }
+        });
       }
 
       // Otherwise, write out the result to destImg
@@ -244,15 +264,6 @@ module.exports = function gruntSpritesmith (grunt) {
 
         // Generate groups for our coordinates
         retinaGroups = cleanCoords.map(function getRetinaGroups (normalSprite, i) {
-          // Assert that image sizes line up for debugging purposes
-          var retinaSprite = retinaCleanCoords[i];
-          if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
-            grunt.log.warn('Normal sprite has inconsistent size with retina sprite. ' +
-              '"' + normalSprite.name + '" is ' + normalSprite.width + 'x' + normalSprite.height + ' while ' +
-              '"' + retinaSprite.name + '" is ' + retinaSprite.width + 'x' + retinaSprite.height + '.');
-          }
-
-          // Generate our group
           // DEV: Name is inherited from `cssVarMap` on normal sprite
           return {
             name: normalSprite.name,
@@ -278,8 +289,8 @@ module.exports = function gruntSpritesmith (grunt) {
         } else {
           templater.addHandlebarsTemplate(cssFormat, fs.readFileSync(cssTemplate, 'utf8'));
         }
-      } else {
       // Otherwise, override the cssFormat and fallback to 'json'
+      } else {
         cssFormat = data.cssFormat;
         if (!cssFormat) {
           cssFormat = cssFormats.get(destCss) || 'json';
@@ -332,6 +343,6 @@ module.exports = function gruntSpritesmith (grunt) {
     });
   }
 
-  // Export the SpriteMaker function
-  grunt.registerMultiTask('sprite', 'Spritesheet making utility', SpriteMaker);
+  // Export the gruntSpritesmithFn function
+  grunt.registerMultiTask('sprite', 'Spritesheet making utility', gruntSpritesmithFn);
 };
