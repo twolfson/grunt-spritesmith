@@ -53,7 +53,7 @@
     "test": "npm run precheck && mocha src-test/ --reporter dot --timeout 5000 && npm run lint"
   },
   "dependencies": {
-    "async": "~0.9.0",
+    "async": "~1.5.0",
     "spritesheet-templates": "~10.0.0",
     "spritesmith": "~2.0.0",
     "underscore": "~1.4.2",

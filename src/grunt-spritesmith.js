@@ -328,6 +328,7 @@ module.exports = function gruntSpritesmith (grunt) {
           // Generate our write stream and pipe the image to it
           var writeStream = fs.createWriteStream(destImg);
           writeStream.on('error', cb);
+          writeStream.on('finish', cb);
           result.image.pipe(writeStream);
         },
         function outputRetinaImage (cb) {
@@ -336,6 +337,7 @@ module.exports = function gruntSpritesmith (grunt) {
             grunt.file.mkdir(retinaDestImgDir);
             var retinaWriteStream = fs.createWriteStream(retinaDestImg);
             retinaWriteStream.on('error', cb);
+            retinaWriteStream.on('finish', cb);
             retinaResult.image.pipe(retinaWriteStream);
           } else {
             process.nextTick(cb);
