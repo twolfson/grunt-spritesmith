@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.1.1 - Updated donation URL
+
 6.1.0 - Upgraded to `spritesmith@3.0.0` to utilize streaming output
 
 6.0.1 - Updated donation URL
