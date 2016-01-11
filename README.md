@@ -49,7 +49,7 @@ As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. Se
 ### Do you like `grunt-spritesmith`?
 [Support us via donations][support-us] or [spread word on Twitter][twitter]
 
-[support-us]: http://bit.ly/support-spritesmith2
+[support-us]: http://bit.ly/support-spritesmith-1
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
 ## Breaking changes in 5.0.0
