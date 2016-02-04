@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.3.0 - Upgraded to `spritesheet-templates@10.1.0` to add HTML comments to non-CSS templates
+
 6.2.0 - Upgraded to `spritesmith@3.1.0` to add quality support for JPEGs
 
 6.1.1 - Updated donation URL
