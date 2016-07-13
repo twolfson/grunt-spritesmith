@@ -44,7 +44,7 @@ $sprite3_total_width = 150px;
 $sprite3_total_height = 200px;
 $sprite3_image = 'sprite.retina.png';
 $sprite3 = 0px 0px 0px 0px 100px 200px 150px 200px 'sprite.retina.png' 'sprite3';
-$sprite1_2x_name = 'sprite1-2x';
+$sprite1_2x_name = 'sprite1@2x';
 $sprite1_2x_x = 200px;
 $sprite1_2x_y = 0px;
 $sprite1_2x_offset_x = -200px;
@@ -53,9 +53,9 @@ $sprite1_2x_width = 100px;
 $sprite1_2x_height = 100px;
 $sprite1_2x_total_width = 300px;
 $sprite1_2x_total_height = 400px;
-$sprite1_2x_image = 'sprite.retina-2x.png';
-$sprite1_2x = 200px 0px -200px 0px 100px 100px 300px 400px 'sprite.retina-2x.png' 'sprite1-2x';
-$sprite2_2x_name = 'sprite2-2x';
+$sprite1_2x_image = 'sprite.retina@2x.png';
+$sprite1_2x = 200px 0px -200px 0px 100px 100px 300px 400px 'sprite.retina@2x.png' 'sprite1@2x';
+$sprite2_2x_name = 'sprite2@2x';
 $sprite2_2x_x = 200px;
 $sprite2_2x_y = 100px;
 $sprite2_2x_offset_x = -200px;
@@ -64,9 +64,9 @@ $sprite2_2x_width = 100px;
 $sprite2_2x_height = 100px;
 $sprite2_2x_total_width = 300px;
 $sprite2_2x_total_height = 400px;
-$sprite2_2x_image = 'sprite.retina-2x.png';
-$sprite2_2x = 200px 100px -200px -100px 100px 100px 300px 400px 'sprite.retina-2x.png' 'sprite2-2x';
-$sprite3_2x_name = 'sprite3-2x';
+$sprite2_2x_image = 'sprite.retina@2x.png';
+$sprite2_2x = 200px 100px -200px -100px 100px 100px 300px 400px 'sprite.retina@2x.png' 'sprite2@2x';
+$sprite3_2x_name = 'sprite3@2x';
 $sprite3_2x_x = 0px;
 $sprite3_2x_y = 0px;
 $sprite3_2x_offset_x = 0px;
@@ -75,8 +75,8 @@ $sprite3_2x_width = 200px;
 $sprite3_2x_height = 400px;
 $sprite3_2x_total_width = 300px;
 $sprite3_2x_total_height = 400px;
-$sprite3_2x_image = 'sprite.retina-2x.png';
-$sprite3_2x = 0px 0px 0px 0px 200px 400px 300px 400px 'sprite.retina-2x.png' 'sprite3-2x';
+$sprite3_2x_image = 'sprite.retina@2x.png';
+$sprite3_2x = 0px 0px 0px 0px 200px 400px 300px 400px 'sprite.retina@2x.png' 'sprite3@2x';
 $spritesheet_width = 150px;
 $spritesheet_height = 200px;
 $spritesheet_image = 'sprite.retina.png';
@@ -84,9 +84,9 @@ $spritesheet_sprites = $sprite1 $sprite2 $sprite3;
 $spritesheet = 150px 200px 'sprite.retina.png' $spritesheet_sprites;
 $retina_spritesheet_width = 300px;
 $retina_spritesheet_height = 400px;
-$retina_spritesheet_image = 'sprite.retina-2x.png';
+$retina_spritesheet_image = 'sprite.retina@2x.png';
 $retina_spritesheet_sprites = $sprite1_2x $sprite2_2x $sprite3_2x;
-$retina_spritesheet = 300px 400px 'sprite.retina-2x.png' $retina_spritesheet_sprites;
+$retina_spritesheet = 300px 400px 'sprite.retina@2x.png' $retina_spritesheet_sprites;
 
 /*
 These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
@@ -111,6 +111,21 @@ The provided mixins are intended to be used with the array-like variables
 .icon-email {
   sprite($icon_email)
 }
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
 */
 spriteWidth($sprite) {
   width: $sprite[4];

@@ -1,4 +1,4 @@
-# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.png?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith)
+# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
@@ -44,29 +44,30 @@ $github_height = 32px;
 As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. See the [Retina parameters section](#retina-parameters) for more information.
 
 ### Cross-platform support
-`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OSX.
+`grunt-spritesmith` is supported and tested on Windows, Linux, and Mac OS X.
 
 ### Do you like `grunt-spritesmith`?
-[Support us via gratipay][gratipay] or [spread word on Twitter][twitter]
+[Support us via donations][support-us] or [spread word on Twitter][twitter]
 
-[gratipay]: https://gratipay.com/twolfson/
+[support-us]: http://bit.ly/support-spritesmith-1
 [twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
 
-## Breaking changes in 3.0.0
-We have moved to `pixelsmith` as the default `engine`. It is `node` based and should support your sprites. Any other engines must be installed outside of `spritesmith`. This will lead to cleaner and faster installations.
+## Breaking changes in 5.0.0
+We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming retina sprites with `@2x` suffixes, to prevent regressions like [#137][].
 
-We have moved to `binary-tree` as the default `algorithm`. We changed this to give the best possible packing out of the box. If you were using `top-down` as the default, please specify it in your configuration.
+[#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
 
-We have moved from `destImg` and `destCSS` to `dest` and `destCss` respectively. This adds support for [grunt-newer][] and makes naming consistent.
+## Breaking changes in 6.0.0
+We have moved from [spritesmith-engine-spec@1.1.0][] to [spritesmith-engine-spec@2.0.0][]. This means if you use an custom engine (e.g. `gmsmith`, `canvassmith`), then you will need to upgrade it.
 
-We have moved the `cssClass` option for the `css` template to `cssSelector`. This makes it more semantically appropriate and eaiser to find.
+```bash
+npm install my-engine-smith@latest --save-dev
+```
 
-[grunt-newer]: https://github.com/tschaub/grunt-newer
+This is to enable usage of streaming outputs from engines.
 
-## Breaking changes in 4.0.0
-We are normalizing sprite variables to be consistently `dash-case` or `snake_case` for some templates. These can be overriden via `cssOpts.variableNameTransforms` as documented in:
-
-https://github.com/twolfson/spritesheet-templates
+[spritesmith-engine-spec@1.1.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/1.1.0
+[spritesmith-engine-spec@2.0.0]: https://github.com/twolfson/spritesmith-engine-spec/tree/2.0.0
 
 ## Getting Started
 `grunt-spritesmith` can be installed via npm: `npm install grunt-spritesmith`
@@ -107,7 +108,7 @@ Results are a spritesheet:
 
 and CSS:
 
-```
+```css
 .icon-fork {
   background-image: url(spritesheet.png);
   background-position: 0px 0px;
@@ -164,6 +165,9 @@ and CSS:
     - If a `Function` is provided, it must have a signature of `function (data)`
         - An example usage can be found in the [Examples section](#template-function)
     - For more templating information, see the [Templating section](#templating)
+- cssHandlebarsHelpers `Object` - Container for helpers to register to [handlebars][] for our template
+    - Each key-value pair is the name of a [handlebars][] helper corresponding to its function
+    - For example, `{half: function (num) { return num/2; }` will add a [handlebars][] helper that halves numbers
 - cssVarMap `Function` - Mapping function for each filename to CSS variable
     - For more information, see [Variable mapping](#variable-mapping)
 - cssSpritesheetName `String` - Name to use for spritesheet related variables in preprocessor templates
@@ -172,6 +176,7 @@ and CSS:
     - See your template's documentation for available options
         - https://github.com/twolfson/spritesheet-templates#templates
 
+[multitask]: http://gruntjs.com/creating-tasks#multi-tasks
 [handlebars]: http://handlebarsjs.com/
 
 ### Retina parameters
@@ -182,17 +187,19 @@ Repeated parameters have the same properties as above but are repeated for clari
 An example retina spritesheet setup can be found in the [Examples section](#retina-spritesheet).
 
 - src `String|String[]` - Images to use for both normal and retina spritesheet
-    - For example `sprites/*.png` should capture `sprite1.png` and `sprite1-2x.png`
+    - For example `sprites/*.png` should capture `sprite1.png` and `sprite1@2x.png`
     - These must be ordered such that when the retina images are filtered into a separate array, the normal and retina images will have the same indices
+    - **We strongly encourage using the `@2x` suffix over `-retina` or `-2x`. There are known ordering issues caused when sharing a `-` delimiter between sprite names and the retina suffix (see [#137][])**
 - retinaSrcFilter `String|String[]` - Images to filter out from `src` for our retina spritesheet
-    - This can be a glob as with `src` (e.g. `sprite/*-2x.png`)
-    - For example `sprites/*-2x.png` will filter out `sprite1-2x.png` for a separate retina spritesheet
-        - Under the hood, we will group `sprite1.png` and `sprite1-2x.png` as a group of normal/retina sprites
+    - This can be a glob as with `src` (e.g. `sprite/*@2x.png`)
+    - The path/glob used should line up with `src` (e.g. `src: 'sprite/*.png'`, `retinaSrcFilter: 'sprite/*@2x.png'`)
+    - For example `sprites/*@2x.png` will filter out `sprite1@2x.png` for a separate retina spritesheet
+        - Under the hood, we will group `sprite1.png` and `sprite1@2x.png` as a group of normal/retina sprites
 - retinaDest `String` - Output location for generated retina spritesheet
-    - For example `path/to/output-2x.png`
+    - For example `path/to/output@2x.png`
 - retinaImgPath - Optional override for retina spritesheet path specified in CSS
-    - For example `../sprite-2x.png`  will yield CSS with:
-        - `background-image: url(../sprite.png);`
+    - For example `../sprite@2x.png`  will yield CSS with:
+        - `background-image: url(../sprite@2x.png);`
 - padding `Number` - Padding to place to right and bottom between sprites
     - By default there is no padding
     - In retina spritesheets, this number will be doubled to maintain perspective
@@ -321,7 +328,7 @@ An example `sprite` is
 }
 ```
 
-If you are definiing a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
+If you are defining a Handlebars template, then you can inherit from an existing template via [`handlebars-layouts`][] (e.g. `{{#extend "scss"}}`). An example usage can be found in the [Examples section](#handlebars-inheritance).
 
 [`handlebars-layouts`]: https://github.com/shannonmoeller/handlebars-layouts
 
@@ -356,9 +363,11 @@ cssVarMap: function (sprite) {
 ### Engines
 An engine can greatly improve the speed of your build (e.g. `canvassmith`) or support obscure image formats (e.g. `gmsmith`).
 
-All `spritesmith` engines adhere to a common specification and test suite:
+All `spritesmith` engines adhere to a common specification:
 
-https://github.com/twolfson/spritesmith-engine-test
+https://github.com/twolfson/spritesmith-engine-spec
+
+This repository adheres to specification version: **2.0.0**
 
 Below is a list of known engines with their tradeoffs:
 
@@ -503,13 +512,13 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 ```js
 {
-  // We have `fork.png`, `fork-2x.png`, ...
+  // We have `fork.png`, `fork@2x.png`, ...
   src: ['fork*.png', 'github*.png', 'twitter*.png'],
-  // This will filter out `fork-2x.png`, `github-2x.png`, ... for our retina spritesheet
+  // This will filter out `fork@2x.png`, `github@2x.png`, ... for our retina spritesheet
   //   The normal spritesheet will now receive `fork.png`, `github.png`, ...
-  retinaSrcFilter: ['*-2x.png'],
+  retinaSrcFilter: ['*@2x.png'],
   dest: 'spritesheet.retina.png',
-  retinaDest: 'spritesheet.retina-2x.png',
+  retinaDest: 'spritesheet.retina@2x.png',
   destCss: 'spritesheet.retina.styl'
 }
 ```
@@ -520,7 +529,7 @@ In this example, we will use generate a normal and retina spritesheet via the `r
 
 **Retina spritesheet:**
 
-![Retina spritesheet](docs/spritesheet.retina-2x.png)
+![Retina spritesheet](docs/spritesheet.retina@2x.png)
 
 ### Handlebars template
 In this example, we will use `cssTemplate` with a `handlebars` template to generate CSS that uses `:before` selectors.

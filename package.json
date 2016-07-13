@@ -1,7 +1,7 @@
 {
   "name": "grunt-spritesmith",
   "description": "Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.",
-  "version": "4.5.2",
+  "version": "6.3.1",
   "homepage": "https://github.com/Ensighten/grunt-spritesmith",
   "author": {
     "name": "Todd Wolfson",
@@ -41,32 +41,30 @@
   "bugs": {
     "url": "https://github.com/Ensighten/grunt-spritesmith/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/Ensighten/grunt-spritesmith/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "tasks/grunt-spritesmith.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
     "lint": "twolfson-style lint docs/ src/ src-test/ tasks/",
     "pretest": "twolfson-style install",
-    "test": "npm run precheck && mocha src-test/ --reporter dot && npm run lint"
+    "test": "npm run precheck && mocha src-test/ --reporter dot --timeout 5000 && npm run lint"
   },
   "dependencies": {
-    "async": "~0.9.0",
-    "spritesheet-templates": "~9.4.0",
-    "spritesmith": "~1.3.0",
+    "async": "~1.5.0",
+    "spritesheet-templates": "~10.1.1",
+    "spritesmith": "~3.1.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
   },
   "devDependencies": {
-    "get-pixels": "~3.1.0",
-    "gmsmith": "~0.5.0",
+    "foundry": "~4.3.2",
+    "foundry-release-git": "~2.0.2",
+    "foundry-release-npm": "~2.0.2",
+    "get-pixels": "~3.2.3",
+    "gmsmith": "~1.0.0",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
     "grunt-newer": "~0.8.0",
@@ -87,5 +85,11 @@
     "css",
     "spritesmith",
     "cross-platform"
-  ]
+  ],
+  "foundry": {
+    "releaseCommands": [
+      "foundry-release-git",
+      "foundry-release-npm"
+    ]
+  }
 }

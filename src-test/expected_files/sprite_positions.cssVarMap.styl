@@ -60,6 +60,21 @@ The provided mixins are intended to be used with the array-like variables
 .icon-email {
   sprite($icon_email)
 }
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
 */
 spriteWidth($sprite) {
   width: $sprite[4];

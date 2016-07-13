@@ -1,4 +1,54 @@
 # grunt-spritesmith changelog
+6.3.1 - Upgraded to `spritesheet-templates@10.1.1` to correct `inline-block` examples in templates
+
+6.3.0 - Upgraded to `spritesheet-templates@10.1.0` to add HTML comments to non-CSS templates
+
+6.2.0 - Upgraded to `spritesmith@3.1.0` to add quality support for JPEGs
+
+6.1.1 - Updated donation URL
+
+6.1.0 - Upgraded to `spritesmith@3.0.0` to utilize streaming output
+
+6.0.1 - Updated donation URL
+
+6.0.0 - Upgraded to `spritesmith-engine-spec@2.0.0`
+
+5.2.0 - Upgraded to `spritesmith@1.5.0` to add `specVersion` validation
+
+5.1.8 - Updated link to specification
+
+5.1.7 - Updated README to use bit.ly URL over Gratipay
+
+5.1.6 - Increased mocha timeout and move to sudo-less Travis CI to fix builds
+
+5.1.5 - Upgraded to `get-pixels@3.2.3` to use `pngjs@2`
+
+5.1.4 - Added "Newsletter subscribe" badge to README
+
+5.1.3 - Upgrade supported node to `>= 0.10.0`
+
+5.1.2 - Added `foundry` for releases
+
+5.1.1 - Added clarification that `retinaSrcFilter` should line up with `src`
+
+5.1.0 - Upgraded to `spritesmith@4.1.0` to add better PNG support
+
+5.0.0 - Upgraded to `spritesheet-templates@10.0.0` and moved to use `@2x` suffix for retina sprites
+
+4.7.1 - Moved back to testing `iojs` on Travis CI
+
+4.7.0 - Upgraded to `spritesheet-templates@9.6.0` to add `json_texture` template
+
+4.6.3 - Moved iojs to allowed failure until https://github.com/npm/npm/issues/8406 gets patched
+
+4.6.2 - Moved from deprecated `licenses` key to use `license` in `package.json`
+
+4.6.1 - Fixes to README via @XhmikosR in #131
+
+4.6.0 - Upgraded to `spritesheet-templates@9.5.0` and added handlebars helper registration
+
+4.5.3 - Improved retina success message
+
 4.5.2 - Added `node@0.12` and `iojs` to test suite. Upgraded to `gmsmith@0.0.8` to support their tests.
 
 4.5.1 - Added documentation for retina template data

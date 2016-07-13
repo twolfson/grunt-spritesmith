@@ -20,6 +20,10 @@ describe('grunt-spritesmith', function () {
   describe('converting a set of images', function () {
     gruntUtils.runTask('sprite:basic');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('generates an image', function (done) {
       // Load in the images and compare them
       getPixels(actualDir + 'sprite.basic.png', function handleActualPixels (err, actualImage) {
@@ -46,6 +50,10 @@ describe('grunt-spritesmith', function () {
   describe('converting a retina set of images', function () {
     gruntUtils.runTask('sprite:retina');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('generates an image', function (done) {
       // Load in the images and compare them
       getPixels(actualDir + 'sprite.retina.png', function handleActualPixels (err, actualImage) {
@@ -61,9 +69,9 @@ describe('grunt-spritesmith', function () {
     it('generates a retina image', function (done) {
       // Load in the images and compare them
       this.timeout(10000);
-      getPixels(actualDir + 'sprite.retina-2x.png', function handleActualPixels (err, actualImage) {
+      getPixels(actualDir + 'sprite.retina@2x.png', function handleActualPixels (err, actualImage) {
         if (err) { return done(err); }
-        getPixels(expectedDir + 'pixelsmith.retina-2x.png', function handleExpectedPixels (err, expectedImage) {
+        getPixels(expectedDir + 'pixelsmith.retina@2x.png', function handleExpectedPixels (err, expectedImage) {
           if (err) { return done(err); }
           assert.deepEqual(actualImage, expectedImage, 'Actual image does not match expected image');
           done();
@@ -83,6 +91,10 @@ describe('grunt-spritesmith', function () {
 
   describe('generating a jpg and JSON', function () {
     gruntUtils.runTask('sprite:jpg,json');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
 
     it('generates a jpg', function () {
       // Load in the images
@@ -107,6 +119,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task using overrides', function () {
     gruntUtils.runTask('sprite:overrides');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('generates an image', function () {
       // Load in the images
       var actualImage = fs.readFileSync(actualDir + 'sprite.overrides.png', 'binary');
@@ -129,6 +145,10 @@ describe('grunt-spritesmith', function () {
 
   describe('generating an image in a nested location', function () {
     gruntUtils.runTask('sprite:nested');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
 
     // TODO: Not entirely sure about the name of this test
     it('resolves a collapsed path', function () {
@@ -161,6 +181,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with no images', function () {
     gruntUtils.runTask('sprite:empty');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('generates an empty image', function () {
       var img = fs.readFileSync(actualDir + 'sprite.empty.png', 'binary');
       assert.strictEqual(img, '');
@@ -176,6 +200,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with css options', function () {
     gruntUtils.runTask('sprite:cssOpts');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('uses the new selector', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssOpts.css', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssOpts.css', 'utf8');
@@ -186,6 +214,10 @@ describe('grunt-spritesmith', function () {
   // DEV: This is testing an edge case. A custom template is not critical for module functionality.
   describe('running a task with a custom template function', function () {
     gruntUtils.runTask('sprite:cssFunctionTemplate');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
 
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssFunctionTemplate.styl', 'utf8');
@@ -198,6 +230,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with a custom handlebars template', function () {
     gruntUtils.runTask('sprite:cssHandlebarsTemplate');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('uses the template', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssHandlebarsTemplate.styl', 'utf8');
@@ -209,6 +245,10 @@ describe('grunt-spritesmith', function () {
   describe('running a task with custom CSS variable names', function () {
     gruntUtils.runTask('sprite:cssVarMap');
 
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
+
     it('uses the new variable names', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.cssVarMap.styl', 'utf8');
       var actualCoords = fs.readFileSync(actualDir + 'sprite_positions.cssVarMap.styl', 'utf8');
@@ -218,6 +258,10 @@ describe('grunt-spritesmith', function () {
 
   describe('running a retina task with custom CSS variable names', function () {
     gruntUtils.runTask('sprite:retinaMapped');
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null, this.stderr);
+    });
 
     it('uses the new variable names', function () {
       var expectedCoords = fs.readFileSync(expectedDir + 'sprite_positions.retinaMapped.styl', 'utf8');
@@ -231,7 +275,7 @@ describe('grunt-newer running grunt-spritesmith', function () {
   gruntUtils.runTask('newer:sprite:newer');
 
   it('has no errors', function () {
-    assert.strictEqual(this.err, null);
+    assert.strictEqual(this.err, null, this.stderr);
   });
 
   it('generates an image', function () {
