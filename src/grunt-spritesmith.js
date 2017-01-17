@@ -123,6 +123,11 @@ module.exports = function gruntSpritesmith (grunt) {
     // Create an async callback
     var callback = this.async();
 
+    // Quit if there are no images to process.
+    if (Object.keys(srcFiles).length === 0) {
+      return cb(true);
+    }
+
     // Determine the format of the image
     var imgOpts = data.imgOpts || {};
     var imgFormat = imgOpts.format || imgFormats.get(destImg) || 'png';
