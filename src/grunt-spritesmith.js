@@ -142,8 +142,8 @@ module.exports = function gruntSpritesmith(grunt) {
 
     // Construct our spritesmiths
     var spritesmith = new Spritesmith(spritesmithParams);
-    var retinaSpritesmithParams;
-    var retinaSpritesmith;
+    var retinaSpritesmithParams; // eslint-disable-line
+    var retinaSpritesmith; // eslint-disable-line
     if (retinaSrcFiles) {
       retinaSpritesmithParams = _.defaults({
         padding: spritesmithParams.padding * 2
@@ -160,9 +160,9 @@ module.exports = function gruntSpritesmith(grunt) {
       // If we have retina images, load them in as well
       function generateRetinaImages(callback) {
         if (retinaSrcFiles) {
-          retinaSpritesmith.createImages(retinaSrcFiles, callback);
+          return retinaSpritesmith.createImages(retinaSrcFiles, callback);
         } else {
-          process.nextTick(callback);
+          return process.nextTick(callback);
         }
       }
     ], function handleImages(err, resultArr) {
@@ -228,9 +228,9 @@ module.exports = function gruntSpritesmith(grunt) {
       });
 
       // If we have retina sprites
-      var retinaCleanCoords;
-      var retinaGroups;
-      var retinaSpritesheetInfo;
+      var retinaCleanCoords; // eslint-disable-line
+      var retinaGroups; // eslint-disable-line
+      var retinaSpritesheetInfo; // eslint-disable-line
       if (retinaResult) {
         // Generate a listing of CSS variables
         var retinaCoordinates = retinaResult.coordinates;
@@ -339,8 +339,9 @@ module.exports = function gruntSpritesmith(grunt) {
             retinaWriteStream.on('error', cb);
             retinaWriteStream.on('finish', cb);
             retinaResult.image.pipe(retinaWriteStream);
+            return;
           } else {
-            process.nextTick(cb);
+            return process.nextTick(cb);
           }
         },
         function outputCss(cb) {
@@ -356,7 +357,7 @@ module.exports = function gruntSpritesmith(grunt) {
         }
 
         // Fail task if errors were logged
-        if (that.errorCount) { callback(false); }
+        if (that.errorCount) { return callback(false); }
 
         // Otherwise, print a success message
         if (retinaDestImg) {
