@@ -44,7 +44,7 @@
   "license": "MIT",
   "main": "tasks/grunt-spritesmith.js",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4.0.0"
   },
   "scripts": {
     "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
