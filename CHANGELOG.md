@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.5.0 - Removed support for Node.js < 4
+
 6.4.0 - Upgraded to `spritesheet-templates@10.2.0` to move to appropriate SASS/SCSS commenting convention
 
 6.3.1 - Upgraded to `spritesheet-templates@10.1.1` to correct `inline-block` examples in templates
