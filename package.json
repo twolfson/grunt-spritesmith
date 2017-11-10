@@ -47,9 +47,8 @@
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "precheck": "twolfson-style precheck docs/ src/ src-test/ tasks/",
-    "lint": "twolfson-style lint docs/ src/ src-test/ tasks/",
-    "pretest": "twolfson-style install",
+    "precheck": "eslint docs/ src/ src-test/ tasks/",
+    "lint": "eslint docs/ src/ src-test/ tasks/ --max-warnings 0",
     "test": "npm run precheck && mocha src-test/ --reporter dot --timeout 5000 && npm run lint"
   },
   "dependencies": {
@@ -60,6 +59,8 @@
     "url2": "1.0.0"
   },
   "devDependencies": {
+    "eslint": "~4.10.0",
+    "eslint-config-twolfson": "~1.0.0",
     "foundry": "~4.3.2",
     "foundry-release-git": "~2.0.2",
     "foundry-release-npm": "~2.0.2",
@@ -69,12 +70,9 @@
     "grunt-cli": "~0.1.13",
     "grunt-newer": "~0.8.0",
     "js-yaml": "~3.2.3",
-    "jscs": "~1.8.1",
-    "jshint": "~2.5.10",
     "mocha": "~1.21.5",
     "rimraf": "~2.2.8",
-    "shell-quote": "~1.4.2",
-    "twolfson-style": "~1.6.0"
+    "shell-quote": "~1.4.2"
   },
   "keywords": [
     "grunt",
