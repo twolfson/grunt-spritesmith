@@ -59,7 +59,7 @@ function getCoordinateName(filepath) {
   return nameParts.join('.');
 }
 
-module.exports = function gruntSpritesmith (grunt) {
+module.exports = function gruntSpritesmith(grunt) {
   // Create a gruntSpritesmithFn function
   function gruntSpritesmithFn() {
     // Grab the raw configuration
@@ -100,7 +100,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // Filter out our retina files
       retinaSrcFiles = [];
-      srcFiles = srcFiles.filter(function filterSrcFile (filepath) {
+      srcFiles = srcFiles.filter(function filterSrcFile(filepath) {
         // If we have a retina file, filter it out
         if (grunt.file.match(retinaSrcFilter, filepath).length) {
           retinaSrcFiles.push(filepath);
@@ -154,18 +154,18 @@ module.exports = function gruntSpritesmith (grunt) {
     // In parallel
     async.parallel([
       // Load in our normal images
-      function generateNormalImages (callback) {
+      function generateNormalImages(callback) {
         spritesmith.createImages(srcFiles, callback);
       },
       // If we have retina images, load them in as well
-      function generateRetinaImages (callback) {
+      function generateRetinaImages(callback) {
         if (retinaSrcFiles) {
           retinaSpritesmith.createImages(retinaSrcFiles, callback);
         } else {
           process.nextTick(callback);
         }
       }
-    ], function handleImages (err, resultArr) {
+    ], function handleImages(err, resultArr) {
       // If an error occurred, callback with it
       if (err) {
         grunt.fatal(err);
@@ -177,7 +177,7 @@ module.exports = function gruntSpritesmith (grunt) {
       var retinaSprites = resultArr[1];
       // TODO: Validate error looks good
       if (retinaSprites) {
-        normalSprites.forEach(function validateSprites (normalSprite, i) {
+        normalSprites.forEach(function validateSprites(normalSprite, i) {
           var retinaSprite = retinaSprites[i];
           if (retinaSprite.width !== normalSprite.width * 2 || retinaSprite.height !== normalSprite.height * 2) {
             grunt.log.warn('Normal sprite has inconsistent size with retina sprite. ' +
@@ -203,11 +203,11 @@ module.exports = function gruntSpritesmith (grunt) {
         height: properties.height,
         image: spritePath
       };
-      var cssVarMap = data.cssVarMap || function noop () {};
+      var cssVarMap = data.cssVarMap || function noop() {};
       var cleanCoords = [];
 
       // Clean up the file name of the file
-      Object.getOwnPropertyNames(coordinates).sort().forEach(function prepareTemplateData (file) {
+      Object.getOwnPropertyNames(coordinates).sort().forEach(function prepareTemplateData(file) {
         // Extract out our name
         var name = getCoordinateName(file);
         var coords = coordinates[file];
@@ -245,7 +245,7 @@ module.exports = function gruntSpritesmith (grunt) {
         retinaCleanCoords = [];
 
         // Clean up the file name of the file
-        Object.getOwnPropertyNames(retinaCoordinates).sort().forEach(function prepareRetinaTemplateData (file) {
+        Object.getOwnPropertyNames(retinaCoordinates).sort().forEach(function prepareRetinaTemplateData(file) {
           var name = getCoordinateName(file);
           var coords = retinaCoordinates[file];
           coords.name = name;
@@ -258,7 +258,7 @@ module.exports = function gruntSpritesmith (grunt) {
         });
 
         // Generate groups for our coordinates
-        retinaGroups = cleanCoords.map(function getRetinaGroups (normalSprite, i) {
+        retinaGroups = cleanCoords.map(function getRetinaGroups(normalSprite, i) {
           // DEV: Name is inherited from `cssVarMap` on normal sprite
           return {
             name: normalSprite.name,
@@ -270,7 +270,7 @@ module.exports = function gruntSpritesmith (grunt) {
       // If we have handlebars helpers, register them
       var handlebarsHelpers = data.cssHandlebarsHelpers;
       if (handlebarsHelpers) {
-        Object.keys(handlebarsHelpers).forEach(function registerHelper (helperKey) {
+        Object.keys(handlebarsHelpers).forEach(function registerHelper(helperKey) {
           templater.registerHandlebarsHelper(helperKey, handlebarsHelpers[helperKey]);
         });
       }
@@ -320,7 +320,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // Write out the content
       async.parallel([
-        function outputNormalImage (cb) {
+        function outputNormalImage(cb) {
           // Create our directory
           var destImgDir = path.dirname(destImg);
           grunt.file.mkdir(destImgDir);
@@ -331,7 +331,7 @@ module.exports = function gruntSpritesmith (grunt) {
           writeStream.on('finish', cb);
           result.image.pipe(writeStream);
         },
-        function outputRetinaImage (cb) {
+        function outputRetinaImage(cb) {
           if (retinaResult) {
             var retinaDestImgDir = path.dirname(retinaDestImg);
             grunt.file.mkdir(retinaDestImgDir);
@@ -343,12 +343,12 @@ module.exports = function gruntSpritesmith (grunt) {
             process.nextTick(cb);
           }
         },
-        function outputCss (cb) {
+        function outputCss(cb) {
           var destCssDir = path.dirname(destCss);
           grunt.file.mkdir(destCssDir);
           fs.writeFile(destCss, cssStr, 'utf8', cb);
         }
-      ], function handleError (err) {
+      ], function handleError(err) {
         // If there was an error, fail with it
         if (err) {
           grunt.fatal(err);

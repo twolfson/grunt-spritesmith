@@ -4,14 +4,14 @@ var quote = require('shell-quote').quote;
 
 // Define utility for running tasks
 exports.runTask = function (task) {
-  before(function runTask (done) {
+  before(function runTask(done) {
     // Relocate to test directory
     var previousDir = process.cwd();
     process.chdir(__dirname + '/../');
 
     // Execute the cmd and task combination
     var that = this;
-    exec(quote(['grunt', task]), function handleExec (err, stdout, stderr) {
+    exec(quote(['grunt', task]), function handleExec(err, stdout, stderr) {
       // Save results for later
       that.err = err;
       that.stdout = stdout;
@@ -25,7 +25,7 @@ exports.runTask = function (task) {
     });
   });
 
-  after(function cleanupTask () {
+  after(function cleanupTask() {
     delete this.err;
     delete this.stdout;
     delete this.stderr;
