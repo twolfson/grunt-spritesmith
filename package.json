@@ -2,7 +2,7 @@
   "name": "grunt-spritesmith",
   "description": "Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.",
   "version": "6.6.0",
-  "homepage": "https://github.com/Ensighten/grunt-spritesmith",
+  "homepage": "https://github.com/twolfson/grunt-spritesmith",
   "author": {
     "name": "Todd Wolfson",
     "email": "todd@twolfson.com",
@@ -36,10 +36,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Ensighten/grunt-spritesmith.git"
+    "url": "git://github.com/twolfson/grunt-spritesmith.git"
   },
   "bugs": {
-    "url": "https://github.com/Ensighten/grunt-spritesmith/issues"
+    "url": "https://github.com/twolfson/grunt-spritesmith/issues"
   },
   "license": "MIT",
   "main": "tasks/grunt-spritesmith.js",

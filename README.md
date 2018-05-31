@@ -1,4 +1,4 @@
-# grunt-spritesmith [![Build status](https://travis-ci.org/Ensighten/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/Ensighten/grunt-spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
+# grunt-spritesmith [![Build status](https://travis-ci.org/twolfson/grunt-spritesmith.svg?branch=master)](https://travis-ci.org/twolfson/grunt-spritesmith) [![Subscribe to newsletter](https://img.shields.io/badge/newsletter-subscribe-blue.svg)](http://eepurl.com/bD4qkf)
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
 
@@ -50,12 +50,12 @@ As of `grunt-spritesmith@4.5.0`, retina spritesheets/templates are supported. Se
 [Support us via donations][support-us] or [spread word on Twitter][twitter]
 
 [support-us]: http://bit.ly/support-spritesmith-1
-[twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2FEnsighten%2Fgrunt-spritesmith&via=twolfsn
+[twitter]: https://twitter.com/intent/tweet?text=CSS%20sprites%20made%20easy%20via%20grunt-spritesmith&url=https%3A%2F%2Fgithub.com%2Ftwolfson%2Fgrunt-spritesmith&via=twolfsn
 
 ## Breaking changes in 5.0.0
 We are normalizing sprite variables even further to convert any non-alphanumeric/non-dash/non-underscore character to a delimiter character (e.g. `-`). This allows us to support naming retina sprites with `@2x` suffixes, to prevent regressions like [#137][].
 
-[#137]: https://github.com/Ensighten/grunt-spritesmith/issues/137
+[#137]: https://github.com/twolfson/grunt-spritesmith/issues/137
 
 ## Breaking changes in 6.0.0
 We have moved from [spritesmith-engine-spec@1.1.0][] to [spritesmith-engine-spec@2.0.0][]. This means if you use an custom engine (e.g. `gmsmith`, `canvassmith`), then you will need to upgrade it.
@@ -698,6 +698,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 [ubuntu-light]: http://font.ubuntu.com/
 
 ## License
-Copyright (c) 2012-2014 Ensighten
+Copyright (c) 2012 Todd Wolfson
 
 Licensed under the MIT license.
