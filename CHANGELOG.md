@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.6.1 - Corrected license attribution and URL
+
 6.6.0 - Upgraded to `spritesmith@3.3.0` to verify Vinyl@2 support was non-breaking
 
 6.5.1 - Switched from `twolfson-style` to ESLint
