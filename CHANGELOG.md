@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.6.2 - Removed support for Node.js@4 to fix Travis CI
+
 6.6.1 - Corrected license attribution and URL
 
 6.6.0 - Upgraded to `spritesmith@3.3.0` to verify Vinyl@2 support was non-breaking
