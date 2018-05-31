@@ -44,7 +44,7 @@
   "license": "MIT",
   "main": "tasks/grunt-spritesmith.js",
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "precheck": "eslint docs/ src/ src-test/ tasks/",
