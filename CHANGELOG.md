@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.6.3 - Upgraded to shell-quote@1.6.1 to fix GitHub vulnerability warning
+
 6.6.2 - Removed support for Node.js@4 to fix Travis CI
 
 6.6.1 - Corrected license attribution and URL
