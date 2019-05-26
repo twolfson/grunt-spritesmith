@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.7.0 - Upgraded to spritesheet-templates@10.3.0 to remove LESS JS utilization
+
 6.6.3 - Upgraded to shell-quote@1.6.1 to fix GitHub vulnerability warning
 
 6.6.2 - Removed support for Node.js@4 to fix Travis CI
