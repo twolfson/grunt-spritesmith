@@ -69,7 +69,6 @@
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
     "grunt-newer": "~0.8.0",
-    "js-yaml": "~3.2.3",
     "mocha": "~1.21.5",
     "rimraf": "~2.2.8",
     "shell-quote": "~1.6.1"
