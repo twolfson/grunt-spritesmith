@@ -53,8 +53,8 @@
   },
   "dependencies": {
     "async": "~1.5.0",
-    "spritesheet-templates": "~10.3.0",
-    "spritesmith": "~3.3.0",
+    "spritesheet-templates": "^10.3.0",
+    "spritesmith": "^3.4.0",
     "underscore": "~1.4.2",
     "url2": "1.0.0"
   },
