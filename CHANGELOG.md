@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.8.0 - Upgraded to `spritesmith@3.4.0` to propagate `npm audit` fix
+
 6.7.1 - Removed vulnerable js-yaml from dev dependencies
 
 6.7.0 - Upgraded to spritesheet-templates@10.3.0 to remove LESS JS utilization
