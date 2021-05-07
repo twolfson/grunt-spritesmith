@@ -1,12 +1,12 @@
 language: node_js
 sudo: false
 node_js:
-  - "9"
-  - "8"
-  - "6"
+  - "15"
+  - "14"
+  - "12"
 matrix:
   allow_failures:
-    - node_js: "9"
+    - node_js: "15"
 
 before_install:
   # Upgrade npm to avoid semver issues
