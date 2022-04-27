@@ -1,4 +1,6 @@
 # grunt-spritesmith changelog
+6.10.0 - Upgraded multiple dependencies to fix vulnerabilities, via @striezel in #175
+
 6.9.0 - Upgraded multiple dependencies to fix vulnerabilities, via @striezel in #174
 
 6.8.0 - Upgraded to `spritesmith@3.4.0` to propagate `npm audit` fix
